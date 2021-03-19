@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'articles',
     'galleries',
     'rest_framework',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
