@@ -16,14 +16,6 @@
         <h1>section1</h1>
       </div>
     </full-page>
-    <q-page-sticky v-if="isScrolled" position="bottom-right" :offset="[25, 25]">
-      <q-btn
-        fab
-        icon="keyboard_arrow_up"
-        color="primary"
-        @click="$refs.fullpage.api.moveTo(1)"
-      />
-    </q-page-sticky>
   </q-page>
 </template>
 
@@ -35,7 +27,7 @@ export default {
       options: {
         navigation: true,
         onLeave: this.onLeave,
-        licenseKey: "iTq67SN$c3"
+        licenseKey: "your_key"
       },
     };
   },

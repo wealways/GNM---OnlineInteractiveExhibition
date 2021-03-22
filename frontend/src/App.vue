@@ -20,7 +20,6 @@
     </q-header>
 
     <q-page-container>
-      <HelloWorld />
       <MainPage />
     </q-page-container>
   </q-layout>
