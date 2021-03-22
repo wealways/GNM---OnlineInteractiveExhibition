@@ -11,8 +11,11 @@
     "@quasar/extras": "^1.0.0",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "gsap": "^3.6.0",
     "quasar": "^1.0.0",
+    "sass-loader": "^10.1.1",
     "vue": "^2.6.11",
+    "vue-fullpage.js": "^0.1.7",
     "vue-router": "^3.5.1",
     "vuex": "^3.6.2"
   },
@@ -23,6 +26,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "node-sass": "^5.0.0",
     "postcss-rtl": "^1.2.3",
     "vue-cli-plugin-quasar": "~3.0.1",
     "vue-template-compiler": "^2.6.11"
