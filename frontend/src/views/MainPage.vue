@@ -6,8 +6,8 @@
       id="fullpage"
       class="full-width"
     >
-      <div class="full-width section">
-        <h1>section1</h1>
+      <div class="full-width section s1">
+        <h1>section2</h1>
       </div>
       <div class="full-width section">
         <h1>section1</h1>
@@ -39,10 +39,8 @@ export default {
 }
 </script>
 
-<style>
-#section1 {
-  background-position: center;
-  background-size: unset;
-  background-image: url("../assets/monemone.jpg");
+<style lang="scss">
+.s1 {
+  background-color: red;
 }
 </style>
