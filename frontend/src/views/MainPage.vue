@@ -1,57 +1,58 @@
 <template>
   <div>
     <div class="cover-5">
-        <header>
-          <!-- <img class="logo" src="https://i.imgur.com/ZFnSyPe.png" alt="" /> -->
+      <header>
+        <ul class="items">
+          <!-- <li class="item">
+            평면도
+          </li> -->
+        </ul>
+      </header>
 
-          <ul class="items">
-            <li class="item">
-              Actor
-            </li>
-            <li class="item">
-              Producer
-            </li>
-            <li class="item">
-              Contact
-            </li>
-          </ul>
-        </header>
+      <div class="container">
+        <section data-bgcolor="#bcb8ad" data-textcolor="#032f35">
+        <div>
+          <h1 data-scroll data-scroll-speed="1"><span>Horizontal</span> <span>scroll</span> <span>section</span></h1>
+          <p data-scroll data-scroll-speed="2" data-scroll-delay="0.2">with GSAP ScrollTrigger & Locomotive Scroll</p>
+        </div>
+        </section>
 
-        <div class="container">
-          <div class="left">
-            <img class="header-img" src="https://i.imgur.com/9huul5F.png" alt="" />
+        <section id="sectionPin">
+          <div class="pin-wrap">
+            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
+            <img src="https://images.pexels.com/photos/5207262/pexels-photo-5207262.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=900" alt="">
+            <img src="https://images.pexels.com/photos/3371358/pexels-photo-3371358.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=900" alt="">
+            <img src="https://images.pexels.com/photos/3618545/pexels-photo-3618545.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=900" alt="">
+
           </div>
+        </section>
 
-          <div class="right">
-            <h1 class="heading">
-              <span>The King </span><br />
-              KHAN
-            </h1>
-            <p class="sub-heading">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-              unde dicta, repellendus consequuntur, at.
-            </p>
-
+        <section data-bgcolor="#e3857a" data-textcolor="#f1dba7"><img src="https://images.pexels.com/photos/4791474/pexels-photo-4791474.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+          <h2 data-scroll data-scroll-speed="1" class="credit"><a href="https://thisisadvantage.com" target="_blank">Made by Advantage</a></h2>
+        </section>
             <a class="button" href="#">Learn More</a>
-          </div>
         </div>
       </div>
-      <div class="cover-4"></div>
-      <div class="cover-3"></div>
-      <div class="cover-2"></div>
-      <div class="cover">
-        <div class="cover-heading">
-          <h1 class="imsrk">imsrk</h1>
-          <span class="dot">.</span>
-        </div>
+    <div class="cover-4"></div>
+    <div class="cover-3"></div>
+    <div class="cover-2"></div>
+    <div class="cover">
+      <div class="cover-heading">
+        <span class="imsrk">imsrk</span>
+        <span class="dot">.</span>
       </div>
-
-      <div class="imsrk2">Shahrukh Khan</div>
+    </div>
+    <div class="imsrk2">welcome!</div>
   </div>
 </template>
 
 <script>
-import { gsap } from 'gsap'
+import { gsap } from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import LocomotiveScroll from 'locomotive-scroll';
+gsap.registerPlugin(ScrollTrigger);
+
+
 
 export default {
   name: 'MainPage',
@@ -64,8 +65,32 @@ export default {
       },
     };
   },
-  mounted: function(){
-    let t1 = gsap.timeline()
+  mounted: function(){ 
+    const pageContainer = document.querySelector(".container");
+    /* SMOOTH SCROLL */
+    const scroller = new LocomotiveScroll({
+      el: pageContainer,
+      smooth: true
+    });
+    scroller.on("scroll", ScrollTrigger.update);
+    ScrollTrigger.scrollerProxy(pageContainer, {
+      scrollTop(value) {
+        return arguments.length
+          ? scroller.scrollTo(value, 0, 0)
+          : scroller.scroll.instance.scroll.y;
+      },
+      getBoundingClientRect() {
+        return {
+          left: 0,
+          top: 0,
+          width: window.innerWidth,
+          height: window.innerHeight
+        };
+      },
+      pinType: pageContainer.style.transform ? "transform" : "fixed"
+    });
+    window.addEventListener('scroll', this.onScroll)
+    let t1 = gsap.timeline();
     t1.from(".imsrk", {
       opacity: 0,
       xPercent: -100,
@@ -196,18 +221,6 @@ export default {
       },
       6
     );
-
-    t1.from(
-      ".header-img",
-      {
-        xPercent: -100,
-        opacity: 0,
-        duration: 1,
-        ease: "power1.out",
-      },
-      6.2
-    );
-
     t1.from(
       ".heading",
       {
@@ -240,12 +253,40 @@ export default {
       },
       6.5
     );
-  }, 
+  },
   methods: {
-    componentsReady(){
-      this.$refs.fullpage.init()
-    },
-  }
+    onScroll() {
+      const pageContainer = document.querySelector(".container");
+      /* SMOOTH SCROLL */
+      const scroller = new LocomotiveScroll({
+        el: pageContainer,
+        smooth: true
+      });
+      let pinWrap = document.querySelector(".pin-wrap");
+      let pinWrapWidth = pinWrap.offsetWidth;
+      let horizontalScrollLength = pinWrapWidth - window.innerWidth;
+
+      // Pinning and horizontal scrolling
+
+      gsap.to(".pin-wrap", {
+        scrollTrigger: {
+          scroller: pageContainer, //locomotive-scroll
+          scrub: true,
+          trigger: "#sectionPin",
+          pin: true,
+          // anticipatePin: 1,
+          start: "top top",
+          end: pinWrapWidth
+        },
+        x: -horizontalScrollLength,
+        ease: "none"
+      });
+
+      ScrollTrigger.addEventListener("refresh", () => scroller.update()); //locomotive-scroll
+
+      ScrollTrigger.refresh();
+        }
+      }, 
 }
 </script>
 
@@ -299,20 +340,20 @@ header ul li {
   margin-left: 10px;
 }
 
-.container {
-  margin-top: 20px;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
+// .container {
+//   margin-top: 20px;
+//   display: -ms-grid;
+//   display: grid;
+//   -ms-grid-columns: 1fr;
+//       grid-template-columns: 1fr;
+//   -webkit-box-align: center;
+//       -ms-flex-align: center;
+//           align-items: center;
+// }
 
-.container .left img {
-  width: 100%;
-  border-radius: 5px;
+
+.container .left{
+  margin-left: 20%;
 }
 
 .container .right {
@@ -323,16 +364,16 @@ header ul li {
 .container .right h1 {
   color: white;
   font-size: 124px;
-  font-weight: 900;
+  font-weight: 400;
   display: inline-block;
-  font-family: serif;
+  font-family: 'Cinzel';
   line-height: 1;
 }
 
 .container .right span {
-  font-size: 72px;
+  font-size: 40px;
   letter-spacing: -4px;
-  color: #232323;
+  color: #d4d4d4;
 }
 
 .container .right p {
@@ -340,7 +381,7 @@ header ul li {
   max-width: 600px;
   color: white;
   opacity: 0.5;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 1.7;
 }
 
@@ -414,17 +455,17 @@ article {
           transform: translate(-50%, -50%);
 }
 
-.cover-heading h1 {
-  color: white;
-  font-size: 52px;
-  font-weight: 900;
-  display: inline-block;
-  font-family: "Roboto", sans-serif;
-}
+// .cover-heading h1 {
+//   color: white;
+//   font-size: 52px;
+//   font-weight: 900;
+//   display: inline-block;
+//   font-family: "Roboto", sans-serif;
+// }
 
 .cover-heading span {
   color: white;
-  font-size: 52px;
+  font-size: 60px;
   font-weight: 900;
   display: inline-block;
   font-family: "Roboto", sans-serif;
@@ -445,77 +486,182 @@ article {
   letter-spacing: -4px;
   line-height: 1;
 }
+.imsrk {
+  color: white;
+  font-size: 52px;
+  font-weight: 900;
+  display: inline-block;
+  font-family: "Roboto", sans-serif;
+}
+section:not(#sectionPin) {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+  padding: 50px 10vw;
+  margin: auto;
+  place-items: center;
+}
+img {
+  height: 80vh;
+  width: auto;
+  object-fit: cover;
+}
 
-@media (min-width: 1024px) {
-  .cover-heading h1 {
-    font-size: 72px;
+h1 {
+  font-size: 5rem;
+  line-height: 1;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  position: absolute;
+  top: 10vw;
+  left: 10vw;
+  z-index: 4;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  color:white;
+  font-family: 'Cinzel';
+
+  @media (max-width: 768px) {
+    font-size: 16vw;
   }
-  .cover-heading span {
-    font-size: 72px;
-  }
-  .imsrk2 {
-    font-size: 124px;
-  }
-  header {
-    padding: 50px 80px;
-  }
-  header ul {
-    margin-left: auto;
-  }
-  header ul li {
-    font-size: 14px;
-    margin-left: 50px;
-  }
-  .container {
-    margin-top: 100px;
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .container .left img {
-    width: auto;
-    height: 600px;
-    border-radius: 5px;
-  }
-  .container .right {
-    padding: 0;
-    margin-top: -80px;
-  }
-  .container .right h1 {
+  span {
+    display: block;
     color: white;
-    font-size: 124px;
-    font-weight: 900;
-    display: inline-block;
-    font-family: serif;
-    line-height: 1;
-  }
-  .container .right span {
-    font-size: 72px;
-    letter-spacing: -4px;
-    color: #232323;
-  }
-  .container .right p {
-    margin-top: 40px;
-    max-width: 600px;
-    color: white;
-    opacity: 0.5;
-    font-size: 18px;
-    line-height: 1.7;
-  }
-  .container .right a {
-    text-decoration: none;
-    color: white;
-    display: inline-block;
-    margin-top: 40px;
-    opacity: 0.5;
-    border: 1px solid gray;
-    padding: 5px 12px 6px 12px;
-    border-radius: 5px;
   }
 }
-/*# sourceMappingURL=style.css.map */
+
+h2 {
+  font-size: 2rem;
+  max-width: 400px;
+  color: white;
+}
+
+.credit {
+  font-family: 'Cinzel', sans-serif;
+  a {
+    color: var(--text-color);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#sectionPin {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  left: 0;
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+.pin-wrap {
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 50px 10vw;
+
+  & > * {
+    min-width: 60vw;
+    padding: 0 5vw;
+  }
+}
+
+p {
+  position: absolute;
+  bottom: 10vw;
+  right: 10vw;
+  width: 200px;
+  line-height: 1.5;
+  color:white;
+  font-family: "Roboto";
+}
+body {
+  font-family: termina, sans-serif;
+  color: var(--text-color);
+  background: var(--bg-color);
+  transition: 0.3s ease-out;
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+  overscroll-behavior: none;
+}
+
+
+// @media (min-width: 1024px) {
+//   .cover-heading h1 {
+//     font-size: 60px;
+//   }
+//   .cover-heading span {
+//     font-size: 60px;
+//   }
+//   .imsrk2 {
+//     font-size: 124px;
+//   }
+//   header {
+//     padding: 50px 80px;
+//   }
+//   header ul {
+//     margin-left: auto;
+//   }
+//   header ul li {
+//     font-size: 20px;
+//   }
+//   .container {
+//     margin-top: 100px;
+//     display: -ms-grid;
+//     display: grid;
+//     -ms-grid-columns: 1fr 1fr;
+//         grid-template-columns: 1fr 1fr;
+//     -webkit-box-align: center;
+//         -ms-flex-align: center;
+//             align-items: center;
+//   }
+//   .container .left{
+//     margin-left:20%;
+//   }
+//   .container .right {
+//     padding: 0;
+//     margin-top: -80px;
+//   }
+//   .container .right h1 {
+//     color: white;
+//     font-size: 140px;
+//     font-weight: 400;
+//     display: inline-block;
+//     font-family: 'Cinzel';
+//     line-height: 1;
+//   }
+//   .container .right span {
+//     font-size: 50px;
+//     letter-spacing: -4px;
+//     color: #6b6b6b;
+//   }
+//   .container .right p {
+//     margin-top: 40px;
+//     max-width: 600px;
+//     color: white;
+//     opacity: 0.5;
+//     font-size: 18px;
+//     line-height: 1.7;
+//   }
+//   .container .right a {
+//     text-decoration: none;
+//     color: white;
+//     display: inline-block;
+//     margin-top: 40px;
+//     opacity: 0.5;
+//     border: 1px solid gray;
+//     padding: 5px 12px 6px 12px;
+//     border-radius: 5px;
+//   }
+// }
+// /*# sourceMappingURL=style.css.map */
+
+
 </style>
