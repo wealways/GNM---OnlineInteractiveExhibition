@@ -1,117 +1,71 @@
 <template>
-  <q-layout>
-    <h1>방명록</h1>
-    <q-btn label="방명록 작성" color="primary" @click="prompt = true" />
-    <q-dialog v-model="prompt" persistent>
-      <q-card style="min-width: 680px">
-        <q-form
-          @submit="onSubmit"
-          @reset="onReset"
-          class="q-gutter-md"
-        >
-          <q-card-section>
-            <div class="text-h6">작성</div>
-          </q-card-section>
-          <div class="form-top">
-            <div class="q-mr-md q-ml-md q-mb-md">
-              <q-input
-               v-model="nickname" 
-               label="이름" 
-               class="q-pt-none"
-               :rules="[ val => val && val.length > 1 && val.length <10 || '2~9글자를 입력해주세요']"
-              >
-              </q-input>
-            </div>
-            <div class="q-mr-md q-ml-md q-mb-md">
-              <q-input
-               v-model="password" 
-               type="password" 
-               label="임시비밀번호" 
-               class="q-pt-none"
-               :rules="[ val => val && val.length > 4 && val.length<10 || '5~9자리 비빌번호']"
-               >
-              </q-input>
-            </div>
-          </div>
-          <div class="form-body">
-            <div class="q-mr-md q-ml-md q-mb-md">
-              <q-input
-                v-model="article"
-                type="textarea"
-                label="후기"
-                style="min-heigth: 400px"
-                :rules="[ val => val && val.length > 0 && val.length<100 || '100자 이내']"
-              >
-              </q-input>
-            </div>
-          </div>
-          <div class="form-image">
-            <div class="q-mr-md q-ml-md q-mb-md">
-              이미지 선택란
-            </div>
-          </div>
-          <q-card-actions align="right" class="text-primary">
-            <q-btn type="submit" color="primary" label="Submit" v-close-popup />
-            <q-btn type="reset" flat label="Cancel" v-close-popup />
-          </q-card-actions>
-        </q-form>
-      </q-card>
-    </q-dialog>
+  <div>
+    <h3>방명록</h3>
+    <BookWrite/>
     <q-page-container>
       <q-page>
-        <!-- page content -->
+        <masonry :cols="{ default: 5, 576: 1 }" :gutter="15" style="padding:12px 15px;">
+          <Book v-for="(article, idx) in articles" :key="idx" :article="article" />
+        </masonry>
+        <infinite-loading @infinite="infiniteHandler" spinner="waveDots">
+          <div slot="no-more" style="color: rgb(102, 102, 102); font-size: 14px; padding: 10px 0px;">
+            목록의 끝입니다 :)
+          </div>
+        </infinite-loading>
       </q-page>
-  </q-page-container>
-  </q-layout>
+    </q-page-container>
+  </div>
 </template>
 
 <script>
 import * as articleApi from '@/api/v1/guestbook'
+import InfiniteLoading from 'vue-infinite-loading';
 
 export default {
   name: 'GuestBook',
+  components: {
+    Book: () => import('@/components/GuestBook/Book'),
+    BookWrite: () => import('@/components/GuestBook/BookWrite'),
+    InfiniteLoading,
+  },
   data() {
     return {
-      prompt: false,
-      nickname:null,
-      article:null,
-      password: null,
+
+      //masonry + infinity
+      articles: [],
+      page: 0,
+      handlerdata: '',
     }
   },
   created() {
-    this.getArticles()
   },
   methods: {
-    getArticles() {
-      articleApi.GetArticles()
-      .then((res)=>{
-        console.log(res)
-      })
-      .catch((err)=>
-      console.log(err))
-    },
-    onSubmit () {
-      const data = {
-        "user_nickname": this.nickname,
-        "guestbook_comment" : this.article,
-        // guestbook_image : '',
-      }
 
-      articleApi.CreateArticle(data)
-      .then((res)=>{
-        console.log(res)
-      })
-      .catch((err)=>{
-        console.log(err)
-      })
-      this.onReset()
+    // masonry + infinity
+    infiniteHandler($state) {
+      this.handlerdata = $state;
+      const EACH_LEN = 15;
+      articleApi
+        // .getAllList({ page: this.page, size: EACH_LEN })
+        .GetArticles()
+        .then((res) => {
+          setTimeout(() => {
+            if (res.data) {
+              this.articles = this.articles.concat(res.data);
+              this.page += 1;
+              $state.loaded();
+              if (res.data.length / EACH_LEN < 1) {
+                $state.complete();
+              }
+            } else {
+              $state.complete();
+            }
+          }, 1000);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
-    onReset () {
-      this.nickname = null
-      this.article = null
-      this.password = null
-      this.accept = false
-    }
   }
 }
 </script>
