@@ -6,6 +6,9 @@
         <div>
           <h1 data-scroll data-scroll-speed="1"><span>Horizontal</span> <span>scroll</span> <span>section</span></h1>
           <p data-scroll data-scroll-speed="2" data-scroll-delay="0.2">with GSAP ScrollTrigger & Locomotive Scroll</p>
+          <router-link :to="'/tutorial'">
+            <div class='btn'>go to tutorial</div>
+          </router-link>
         </div>
         </section>
 
@@ -22,7 +25,6 @@
         <section data-bgcolor="#e3857a" data-textcolor="#f1dba7"><img src="https://images.pexels.com/photos/4791474/pexels-photo-4791474.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
           <h2 data-scroll data-scroll-speed="1" class="credit"><a href="https://thisisadvantage.com" target="_blank">Made by Advantage</a></h2>
         </section>
-            <a class="button" href="#">Learn More</a>
         </div>
       </div>
     <div class="cover">
@@ -229,7 +231,20 @@ export default {
   width: 100%;
   overscroll-behavior: none;
 }
-
+.btn {
+  text-decoration: none;
+  color: #fe3901;
+  position: fixed;
+  display: flex;
+  margin-top: 40px;
+  opacity: 0.5;
+  border: 1px solid gray;
+  padding: 5px 12px 6px 12px;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 40px;
+  
+}
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -486,6 +501,7 @@ p {
 //   }
 // }
 // /*# sourceMappingURL=style.css.map */
+
 
 
 </style>
