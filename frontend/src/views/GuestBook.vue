@@ -39,7 +39,7 @@ export default {
     return {
 
       //masonry + infinity
-      page: 0,
+      page: 1,
       handlerdata: '',
     }
   },
@@ -53,14 +53,17 @@ export default {
     // masonry + infinity
     infiniteHandler($state) {
       this.handlerdata = $state;
-      const EACH_LEN = 15;
+      const EACH_LEN = 9;
+      const params = {
+        "page":String(this.page),
+        "articles_per_page":String(EACH_LEN)
+      }
       articleApi
-        // .getAllList({ page: this.page, size: EACH_LEN })
-        .GetArticles()
+        .GetArticles(params)
         .then((res) => {
           setTimeout(() => {
             if (res.data) {
-              this.$store.dispatch('guestbook/storeArticles',res.data)
+              this.$store.dispatch('guestbook/getArticles',res.data)
               // this.articles = this.articles.concat(res.data);
               this.page += 1;
               $state.loaded();

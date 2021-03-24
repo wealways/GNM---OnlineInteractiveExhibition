@@ -26,33 +26,51 @@
           >
           </q-img>
           <div class="card-img-description col-4 p-3">
+            <div class="card-img-header">
+              <h2>CAT</h2>
+            </div>
             <div class="card-img-body">
               <p>{{article.guestbook_comment}}</p>
               <p>by {{article.user_nickname}}</p>
             </div>
             <p>{{date}}</p>
             <div>
-              <button>수정</button>
-              <button @click="deleteBtn = true">삭제</button>
-              <q-dialog v-model="deleteBtn">
+              <button @click="modifyBtn=true">수정</button>
+              <q-dialog v-model="modifyBtn">
                 <q-card style="min-width: 350px">
-                  <!-- <q-card-section>
-                    <div class="text-h6">비밀번호를 입력해주세요</div>
-                  </q-card-section> -->
                   <q-card-section class="q-pt-none">
                     <q-input
-                    v-model="temppassword" 
-                    label="비밀번호" 
+                    v-model="temppassword"
+                    type="password"  
+                    label="비밀번호 확인" 
                     class="q-pt-none"
-                    :rules="[ val => val && val.length > 1 && val.length <10 || '2~9글자를 입력해주세요']"
+                    :rules="[ val => val && val.length > 4 && val.length<10 || '5~9자리 비빌번호']"
                     >
                     </q-input>
                   </q-card-section>
                   <div class="row justify-end q-mb-xs">
-                    <q-btn label="삭제" color="negative" v-close-popup />
-                    <q-btn flat label="취소" v-close-popup />
+                    <q-btn @click="modifyArticle" label="수정" color="warning" v-close-popup />
+                    <q-btn @click="onReset" flat label="취소" v-close-popup />
                   </div>
-                  
+                </q-card>
+              </q-dialog>
+              <button @click="deleteBtn = true">삭제</button>
+              <q-dialog v-model="deleteBtn">
+                <q-card style="min-width: 350px">
+                  <q-card-section class="q-pt-none">
+                    <q-input
+                    v-model="temppassword"
+                    type="password"  
+                    label="비밀번호" 
+                    class="q-pt-none"
+                    :rules="[ val => val && val.length > 4 && val.length<10 || '5~9자리 비빌번호']"
+                    >
+                    </q-input>
+                  </q-card-section>
+                  <div class="row justify-end q-mb-xs">
+                    <q-btn @click="deleteArticle" label="삭제" color="negative" v-close-popup />
+                    <q-btn @click="onReset" flat label="취소" v-close-popup />
+                  </div>
                 </q-card>
               </q-dialog>
             </div>
@@ -71,6 +89,7 @@ export default {
     return {
       prompt:false,
       deleteBtn:false,
+      modifyBtn:false,
       temppassword:''
     }
   },
@@ -81,11 +100,37 @@ export default {
     
   },
   computed: {
-    date(){
+    date() {
       return timeForToday(this.article.created_date)
     },
+    dialogPrompt() {
+      return this.$store.guestbook.dialogPrompt
+    }
   },
   methods: {
+    deleteArticle() {
+      const params = {
+        id:this.article.id,
+        password:String(this.temppassword)
+      }
+      this.$store.dispatch('guestbook/deleteArticle',params)
+      this.prompt=false
+      this.deleteBtn=false
+      this.temppassword=''
+    },
+    modifyArticle(){
+      const data = {
+        id:this.article.id,
+        guestbook_password:this.temppassword
+      }
+      this.$store.dispatch('guestbook/confirmPassword',data)
+      this.prompt=false
+      this.modifyBtn=false
+      this.temppassword=''
+    },
+    onReset() {
+      this.temppassword=''
+    },
   }
 }
 </script>
@@ -178,20 +223,26 @@ p{
   background: inherit;
   background-size: cover !important;
   transform-origin: center !important;
-  transition: transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out !important;
 }
 
 .book--border-line:focus #q-img__image>div:nth-child(2)::after,.book--border-line:hover #q-img__image>div:nth-child(2):after {
-  transform: scale(1.2) !important;
+  transform: scale(1.1) !important;
   
 }
 
 
 .card-img-description{
   background: #000;
+  padding:2rem;
 }
 .card-img-description p{
   color: #fff;
+}
+.card-img-header{
+  writing-mode: tb-rl;
+  transform: rotate(-180deg);
+
 }
 .card-img-body{
   margin-top: 5rem;

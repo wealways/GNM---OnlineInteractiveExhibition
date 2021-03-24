@@ -1,15 +1,16 @@
 <template>
   <div>
-    <q-btn label="방명록 작성" color="primary" @click="prompt = true" />
-    <q-dialog v-model="prompt" persistent>
+    <q-btn label="방명록 작성" color="primary" @click="changeFlag(true)" />
+    <div v-if="flag">여기</div>
+    <q-dialog v-model="flag" persistent>
       <q-card style="min-width: 680px">
         <q-form
           @submit="onSubmit"
-          @reset="onReset"
           class="q-gutter-md"
         >
           <q-card-section>
-            <div class="text-h6">작성</div>
+            <div v-if="!onModify" class="text-h6">작성</div>
+            <div v-if="onModify" class="text-h6">수정</div>
           </q-card-section>
           <div class="form-top">
             <div class="q-mr-md q-ml-md q-mb-md">
@@ -23,6 +24,7 @@
             </div>
             <div class="q-mr-md q-ml-md q-mb-md">
               <q-input
+              v-if="!onModify"
                v-model="password" 
                type="password" 
                label="임시비밀번호" 
@@ -51,7 +53,7 @@
           </div>
           <q-card-actions align="right" class="text-primary">
             <q-btn type="submit" color="primary" label="Submit" v-close-popup />
-            <q-btn type="reset" flat label="Cancel" v-close-popup />
+            <q-btn @click="onReset" flat label="Cancel"/>
           </q-card-actions>
         </q-form>
       </q-card>
@@ -60,8 +62,7 @@
 </template>
 
 <script>
-import * as articleApi from '@/api/v1/guestbook'
-import axios from 'axios';
+import { mapGetters } from 'vuex'
 
 export default {
   name:'BookWrite',
@@ -71,34 +72,80 @@ export default {
       nickname:null,
       article:null,
       password: null,
+      image:null
     }
   },
+  computed:{
+    ...mapGetters('guestbook',[
+      'modal_flag',
+      'on_modfiy',
+      // 'user_article'
+    ]),
+    flag:{
+      get(){
+        return this.modal_flag
+      },
+      set(newValue){ 
+        return this.$store.dispatch('guestbook/changeFlag',newValue)
+      }
+    },
+    onModify:{
+      get(){
+        return this.on_modfiy
+      },
+      set(newValue){
+        return this.$store.dispatch('guestbook/changeOn',newValue)
+      }
+    },
+    userArticle(){
+      return this.$store.state.guestbook.user_article
+    }
+    // userArticle:{
+    //   get(){
+    //     return this.user_article
+    //   },
+    //   set(newValue){
+        
+    //   }
+    // }
+  },
+  watch: {
+    onModify:'modifyFetch'
+  },
   methods: {
-    async onSubmit () {
+    modifyFetch(){
+      if(this.onModify){
+        this.nickname = this.userArticle.user_nickname
+        this.article = this.userArticle.guestbook_comment
+        this.image = this.userArticle.guestbook_image
+        this.password = this.userArticle.guestbook_password
+      }
+    },
+    changeFlag(newFlag){
+      this.flag = newFlag
+    },
+    onSubmit () {
       let data = {
         user_nickname: this.nickname,
         guestbook_comment : this.article,
-        guestbook_image : '',
+        guestbook_image : this.image,
+        guestbook_password : this.password
       }
-      const cat = await axios.get('https://api.thecatapi.com/v1/images/search')
-      data.guestbook_image = cat.data[0].url
-
-      articleApi.CreateArticle(data)
-      .then((res)=>{
-        console.log(res)
-      })
-      .catch((err)=>{
-        console.log(err)
-      })
+      if(this.onModify){
+        this.$store.dispatch('guestbook/modifyArticle',this.userArticle.id,data)
+      }else{
+        this.$store.dispatch('guestbook/createArticle',data)
+      }
       this.onReset()
     },
-
-    
     onReset () {
+      this.flag = false
+      if(this.onModify){
+        this.onModify = false
+      }
       this.nickname = null
       this.article = null
       this.password = null
-      this.accept = false
     },
   }
 }
