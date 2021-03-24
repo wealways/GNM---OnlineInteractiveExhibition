@@ -27,19 +27,22 @@ def article_list_create(request):
 # @swagger_auto_schema(request_body=GuestbookBodySerializer)
 @api_view(['PUT', 'DELETE'])
 def article_update_delete(request,article_pk):  
-    # password = request.data.get('guestbook_password')
-    # article_password = get_object_or_404(Guestbook, pk=article_pk).guestbook_password
-    # res = check_password(password, article_password)
-    article = get_object_or_404(Guestbook, pk=article_pk)
-    if request.method == 'PUT':
-        serializer = GuestbookSerializer(article, data=request.data)
-        if serializer.is_valid(raise_exception=True):
-            guestbook_password = make_password(request.POST.get('guestbook_password'))
-            serializer.save(guestbook_password=guestbook_password)
-            return JsonResponse(serializer.data)
+    password = request.data.get('guestbook_password')
+    article_password = get_object_or_404(Guestbook, pk=article_pk).guestbook_password
+    res = check_password(password, article_password)
+    if res:
+        article = get_object_or_404(Guestbook, pk=article_pk)
+        if request.method == 'PUT':
+            serializer = GuestbookSerializer(article, data=request.data)
+            if serializer.is_valid(raise_exception=True):
+                guestbook_password = make_password(request.POST.get('guestbook_password'))
+                serializer.save(guestbook_password=guestbook_password)
+                return JsonResponse(serializer.data)
+        else:
+            article.delete()
+            return JsonResponse({ 'id': article_pk })
     else:
-        article.delete()
-        return JsonResponse({ 'id': article_pk })
+        return JsonResponse({'result':res})
 
 @api_view(['POST'])
 def password_check(request, article_pk):
