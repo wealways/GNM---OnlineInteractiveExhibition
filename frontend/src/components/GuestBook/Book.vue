@@ -33,7 +33,28 @@
             <p>{{date}}</p>
             <div>
               <button>수정</button>
-              <button>삭제</button>
+              <button @click="deleteBtn = true">삭제</button>
+              <q-dialog v-model="deleteBtn">
+                <q-card style="min-width: 350px">
+                  <!-- <q-card-section>
+                    <div class="text-h6">비밀번호를 입력해주세요</div>
+                  </q-card-section> -->
+                  <q-card-section class="q-pt-none">
+                    <q-input
+                    v-model="temppassword" 
+                    label="비밀번호" 
+                    class="q-pt-none"
+                    :rules="[ val => val && val.length > 1 && val.length <10 || '2~9글자를 입력해주세요']"
+                    >
+                    </q-input>
+                  </q-card-section>
+                  <div class="row justify-end q-mb-xs">
+                    <q-btn label="삭제" color="negative" v-close-popup />
+                    <q-btn flat label="취소" v-close-popup />
+                  </div>
+                  
+                </q-card>
+              </q-dialog>
             </div>
           </div>
         </div>
@@ -48,7 +69,9 @@ export default {
   name:'Book',
   data() {
     return {
-      prompt:false
+      prompt:false,
+      deleteBtn:false,
+      temppassword:''
     }
   },
   props:{
@@ -68,6 +91,9 @@ export default {
 </script>
 
 <style>
+p{
+  position:initial !important;
+}
 .book{
   font-family: sans-serif;
   margin-bottom: 0.5rem;

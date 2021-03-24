@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import routes from './router/routes'
-import store from './store'
+import store from './store/index'
 import './quasar'
 import VueRouter from 'vue-router'
 // masonry
