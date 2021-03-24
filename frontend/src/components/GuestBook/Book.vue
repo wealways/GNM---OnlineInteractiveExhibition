@@ -5,6 +5,7 @@
         <q-img
           :src="article.guestbook_image"
           basic
+          id="q-img__image"
         >
         </q-img>
       </q-card>
@@ -16,14 +17,26 @@
       </div>
     </div>
     <q-dialog v-model="prompt">
-        <q-card style="min-width: 820px;">
+        <div class="row" style="min-width: 940px;">
           <q-img
             :src="article.guestbook_image"
             basic
+            class="col-8"
             :ratio="1"
           >
           </q-img>
-        </q-card>
+          <div class="card-img-description col-4 p-3">
+            <div class="card-img-body">
+              <p>{{article.guestbook_comment}}</p>
+              <p>by {{article.user_nickname}}</p>
+            </div>
+            <p>{{date}}</p>
+            <div>
+              <button>수정</button>
+              <button>삭제</button>
+            </div>
+          </div>
+        </div>
       </q-dialog>
   </div>
 </template>
@@ -54,7 +67,7 @@ export default {
 }
 </script>
 
-<style scope>
+<style>
 .book{
   font-family: sans-serif;
   margin-bottom: 0.5rem;
@@ -128,5 +141,43 @@ export default {
   margin-top:25px;
   margin-bottom: 25px;
   
+}
+#q-img__image>div:nth-child(2)::after, #q-img__image>div:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: inherit;
+  background-size: cover !important;
+  transform-origin: center !important;
+  transition: transform 0.4s ease-in-out;
+}
+
+.book--border-line:focus #q-img__image>div:nth-child(2)::after,.book--border-line:hover #q-img__image>div:nth-child(2):after {
+  transform: scale(1.2) !important;
+  
+}
+
+
+.card-img-description{
+  background: #000;
+}
+.card-img-description p{
+  color: #fff;
+}
+.card-img-body{
+  margin-top: 5rem;
+  padding: 2rem;
+}
+.card-img-body> p:nth-child(1){
+  font-size:1.5rem;
+  word-break:break-all;
+  min-height: 30%;
+}
+.card-img-body> p:nth-child(2){
+  text-align: right;
+  word-break:break-all;
 }
 </style>

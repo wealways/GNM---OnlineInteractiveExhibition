@@ -1,7 +1,9 @@
 <template>
   <div>
-    <h3>방명록</h3>
-    <BookWrite/>
+    <div class="row justify-between items-center">
+      <h3>방명록</h3>
+      <BookWrite/>
+    </div>
     <q-page-container>
       <q-page>
         <masonry :cols="{ default: 5, 576: 1 }" :gutter="15" style="padding:12px 15px;">
