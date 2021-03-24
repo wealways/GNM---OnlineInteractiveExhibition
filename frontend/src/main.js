@@ -7,6 +7,12 @@ import VueRouter from 'vue-router'
 // masonry
 import VueMasonry from 'vue-masonry-css';
 Vue.use(VueMasonry);
+import VueFullPage from 'vue-fullpage.js'
+import { gsap } from "gsap"
+import { PixiPlugin } from "gsap/PixiPlugin.js";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin.js";
+
+gsap.registerPlugin(PixiPlugin, MotionPathPlugin);
 
 Vue.use(VueRouter);
 
@@ -15,6 +21,8 @@ export const router = new VueRouter({
   routes,
 })
 Vue.config.productionTip = false
+
+Vue.use(VueFullPage);
 
 new Vue({
   router,
