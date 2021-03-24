@@ -15,9 +15,9 @@ def article_list_create(request):
     if request.method == "GET":
         page = int(request.data.get('page'))
         articles_per_page = int(request.data.get('articles_per_page'))
-        start = (page-1) * articles_per_page + 1
+        start = (page-1) * articles_per_page
         end = page * articles_per_page
-        articles = Guestbook.objects.filter(id__range=(start, end))
+        articles = Guestbook.objects.all().order_by('-created_date')[start:end]
         serializer = GuestbookSerializer(articles, many=True)
         return JsonResponse(serializer.data, safe=False)
 
