@@ -22,9 +22,9 @@ def article_list_create(request):
         return JsonResponse(serializer.data, safe=False)
 
     else : # POST request 
-        serializer = GuestbookSerializer(data=request.POST)
+        serializer = GuestbookSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
-            guestbook_password = make_password(request.POST.get('guestbook_password'))
+            guestbook_password = make_password(request.data.get('guestbook_password'))
             serializer.save(guestbook_password=guestbook_password)
             return JsonResponse(serializer.data)
     
@@ -39,7 +39,7 @@ def article_update_delete(request,article_pk):
         if request.method == 'PUT':
             serializer = GuestbookSerializer(article, data=request.data)
             if serializer.is_valid(raise_exception=True):
-                guestbook_password = make_password(request.POST.get('guestbook_password'))
+                guestbook_password = make_password(request.data.get('guestbook_password'))
                 serializer.save(guestbook_password=guestbook_password)
                 return JsonResponse(serializer.data)
         else:
