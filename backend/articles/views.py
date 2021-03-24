@@ -5,7 +5,7 @@ from django.http import JsonResponse, HttpResponse
 from django.views.decorators.http import require_http_methods
 from .models import Guestbook
 from rest_framework.decorators import api_view
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import make_password, check_password
 # from drf_yasg.utils import swagger_auto_schema
 
 # Create your views here.
@@ -13,7 +13,11 @@ from django.contrib.auth.hashers import make_password
 # @swagger_auto_schema(request_body=GuestbookBodySerializer)
 def article_list_create(request):
     if request.method == "GET":
-        articles = Guestbook.objects.all()
+        page = int(request.data.get('page'))
+        articles_per_page = int(request.data.get('articles_per_page'))
+        start = (page-1) * articles_per_page + 1
+        end = page * articles_per_page
+        articles = Guestbook.objects.filter(id__range=(start, end))
         serializer = GuestbookSerializer(articles, many=True)
         return JsonResponse(serializer.data, safe=False)
 
@@ -27,13 +31,26 @@ def article_list_create(request):
 # @swagger_auto_schema(request_body=GuestbookBodySerializer)
 @api_view(['PUT', 'DELETE'])
 def article_update_delete(request,article_pk):  
-    # print(request.data.get('guestbook_password'))
-    article = get_object_or_404(Guestbook, pk=article_pk)
-    if request.method == 'PUT':
-        serializer = GuestbookSerializer(article, data=request.data)
-        if serializer.is_valid(raise_exception=True):
-            serializer.save()
-            return JsonResponse(serializer.data)
+    password = request.data.get('guestbook_password')
+    article_password = get_object_or_404(Guestbook, pk=article_pk).guestbook_password
+    res = check_password(password, article_password)
+    if res:
+        article = get_object_or_404(Guestbook, pk=article_pk)
+        if request.method == 'PUT':
+            serializer = GuestbookSerializer(article, data=request.data)
+            if serializer.is_valid(raise_exception=True):
+                guestbook_password = make_password(request.POST.get('guestbook_password'))
+                serializer.save(guestbook_password=guestbook_password)
+                return JsonResponse(serializer.data)
+        else:
+            article.delete()
+            return JsonResponse({ 'id': article_pk })
     else:
-        article.delete()
-        return JsonResponse({ 'id': article_pk })
+        return JsonResponse({'result':res})
+
+@api_view(['POST'])
+def password_check(request, article_pk):
+    password = request.data.get('guestbook_password')
+    article_password = get_object_or_404(Guestbook, pk=article_pk).guestbook_password
+    res = check_password(password, article_password)
+    return JsonResponse({'result': res})
