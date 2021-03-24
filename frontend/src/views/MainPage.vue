@@ -27,7 +27,7 @@
       </div>
     <div class="cover">
       <div class="cover-heading">
-        <span class="imsrk">imsrk</span>
+        <span class="imsrk">GNM</span>
         <span class="dot">.</span>
       </div>
     </div>
