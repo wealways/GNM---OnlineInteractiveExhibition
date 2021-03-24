@@ -12,6 +12,7 @@
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "gsap": "^3.6.0",
+    "locomotive-scroll": "^4.1.0",
     "quasar": "^1.0.0",
     "sass-loader": "^10.1.1",
     "vue": "^2.6.11",
