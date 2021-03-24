@@ -234,7 +234,7 @@ export default {
 .btn {
   text-decoration: none;
   color: #fe3901;
-  position: fixed;
+  position: sticky;
   display: flex;
   margin-top: 40px;
   opacity: 0.5;
