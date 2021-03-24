@@ -30,19 +30,26 @@ export default {
     BookWrite: () => import('@/components/GuestBook/BookWrite'),
     InfiniteLoading,
   },
+  computed:{
+    articles() {
+      return this.$store.state.guestbook.articles
+    }
+  },
   data() {
     return {
 
       //masonry + infinity
-      articles: [],
       page: 0,
       handlerdata: '',
     }
   },
   created() {
+    this.emptyArticles()
   },
   methods: {
-
+    emptyArticles() {
+      this.$store.dispatch('guestbook/emptyArticles')
+    },
     // masonry + infinity
     infiniteHandler($state) {
       this.handlerdata = $state;
@@ -53,7 +60,8 @@ export default {
         .then((res) => {
           setTimeout(() => {
             if (res.data) {
-              this.articles = this.articles.concat(res.data);
+              this.$store.dispatch('guestbook/storeArticles',res.data)
+              // this.articles = this.articles.concat(res.data);
               this.page += 1;
               $state.loaded();
               if (res.data.length / EACH_LEN < 1) {
