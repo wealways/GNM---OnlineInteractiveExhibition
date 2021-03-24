@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+   <q-layout view="lHh Lpr lFf">
     <!-- <q-header elevated>
       <q-toolbar>
         <q-btn
@@ -18,20 +18,17 @@
         <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header> -->
-
-    <q-page-container>
-      <MainPage />
-    </q-page-container>
+    <router-view></router-view>
   </q-layout>
 </template>
 
 <script>
-import MainPage from './views/MainPage.vue'
+
+
 export default {
   name: 'LayoutDefault',
 
   components: {
-    MainPage
   },
 
   data () {
