@@ -62,7 +62,7 @@ def password_check(request, article_pk):
     return JsonResponse({'result': res})
 
 
-@api_view(['GET','POST', 'PUT', 'DELETE'])
+@api_view(['POST'])
 def session(request):
     # session-key exists
     if request.headers.get('session-key'):
