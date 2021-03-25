@@ -6,6 +6,11 @@ from django.views.decorators.http import require_http_methods
 from .models import Guestbook
 from rest_framework.decorators import api_view
 from django.contrib.auth.hashers import make_password, check_password
+from django.contrib.sessions.models import Session
+from django.contrib.sessions.backends.db import SessionStore
+from django.utils import timezone
+
+
 # from drf_yasg.utils import swagger_auto_schema
 
 # Create your views here.
@@ -23,9 +28,9 @@ def article_list_create(request):
         return JsonResponse(serializer.data, safe=False)
 
     else : # POST request 
-        serializer = GuestbookSerializer(data=request.POST)
+        serializer = GuestbookSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
-            guestbook_password = make_password(request.POST.get('guestbook_password'))
+            guestbook_password = make_password(request.data.get('guestbook_password'))
             serializer.save(guestbook_password=guestbook_password)
             return JsonResponse(serializer.data)
     
@@ -40,7 +45,7 @@ def article_update_delete(request,article_pk):
         if request.method == 'PUT':
             serializer = GuestbookSerializer(article, data=request.data)
             if serializer.is_valid(raise_exception=True):
-                guestbook_password = make_password(request.POST.get('guestbook_password'))
+                guestbook_password = make_password(request.data.get('guestbook_password'))
                 serializer.save(guestbook_password=guestbook_password)
                 return JsonResponse(serializer.data)
         else:
@@ -55,3 +60,21 @@ def password_check(request, article_pk):
     article_password = get_object_or_404(Guestbook, pk=article_pk).guestbook_password
     res = check_password(password, article_password)
     return JsonResponse({'result': res})
+
+
+@api_view(['POST'])
+def session(request):
+    # session-key exists
+    if request.headers.get('session-key'):
+        session_key = request.headers.get('session-key')
+        m = Session.objects.get(pk=session_key)
+        m.expire_date = timezone.now() + timezone.timedelta(days=50)
+        m.save()
+        return JsonResponse({'session-key':m.session_key})
+    #session-key doesn't exist
+    else:
+        m = SessionStore()
+        m.create()
+        m.expire_date = timezone.now() + timezone.timedelta(days=50)
+        m.save()
+        return JsonResponse({'session-key':m.session_key})
