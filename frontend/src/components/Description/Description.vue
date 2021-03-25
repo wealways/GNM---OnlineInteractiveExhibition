@@ -11,9 +11,6 @@
       <div class='voice_description'>
           음성 설명
       </div>
-      <!-- <div class='text_description'>
-          텍스트 설명
-      </div> -->
       <div class='next_button'>
         <button>next</button>
       </div>
