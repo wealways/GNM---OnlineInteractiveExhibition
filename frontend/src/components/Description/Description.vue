@@ -11,9 +11,9 @@
       <div class='voice_description'>
           음성 설명
       </div>
-      <div class='text_description'>
+      <!-- <div class='text_description'>
           텍스트 설명
-      </div>
+      </div> -->
       <div class='next_button'>
         <button>next</button>
       </div>
@@ -85,8 +85,7 @@ export default {
           ease: "power1.out",
           opacity: 0,
         },
-      );
-      
+      );                  
   }
 }
 </script>
@@ -127,7 +126,14 @@ export default {
   font-size: 72px;
   font-weight: 800;
   font-family: 'Roboto';
+}
+button {
   background-color: transparent;
+  border: 0;
+  outline: 0;
+}
+button:hover {
+  color: orange;
 }
 .map_description {
   position: absolute;
