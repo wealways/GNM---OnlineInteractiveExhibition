@@ -13,8 +13,9 @@ from django.contrib.auth.hashers import make_password, check_password
 # @swagger_auto_schema(request_body=GuestbookBodySerializer)
 def article_list_create(request):
     if request.method == "GET":
-        page = int(request.data.get('page'))
-        articles_per_page = int(request.data.get('articles_per_page'))
+        page = int(request.query_params.get('page')[0])
+        articles_per_page = int(request.query_params.get('articles_per_page')[0])
+        
         start = (page-1) * articles_per_page
         end = page * articles_per_page
         articles = Guestbook.objects.all().order_by('-created_date')[start:end]

@@ -7,5 +7,5 @@ urlpatterns = [
     path('<int:article_pk>/', views.article_update_delete),
     path('password/<int:article_pk>/', views.password_check),
 
-    
+
 ]
