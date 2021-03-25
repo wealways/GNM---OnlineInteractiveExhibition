@@ -6,5 +6,5 @@ class Guestbook(models.Model):
     guestbook_comment = models.CharField(max_length=144)
     guestbook_password = models.CharField(max_length=20)
     guestbook_image = models.CharField(max_length=100 ,null=True, blank=True)
-    created_date = models.DateTimeField(auto_now=True)
+    created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
