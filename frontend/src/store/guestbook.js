@@ -1,8 +1,17 @@
 import axios from 'axios';
 import * as articleApi from '@/api/v1/guestbook'
 
+const default_image=[
+  'https://i.ibb.co/D5PQpRM/kirchner-stylized.jpg',
+  'https://i.ibb.co/F3t89wZ/monet-stylized.jpg',
+  'https://i.ibb.co/Sr7TDxH/monet-stylized.jpg'
+]
+
 export default {
   namespaced: true,
+
+  // ============= state ===================
+
   state: {
     articles:[],
     modal_flag:false,
@@ -13,10 +22,11 @@ export default {
       guestbook_comment:null,
       id:null
     },
-    on_modify:false
+    on_modify:false,
+    selectable_images:[]
   },
 
-  // ==============================================================
+  // =============== mutation ===============================
 
   mutations: {
     // 글 불러오기
@@ -91,6 +101,11 @@ export default {
       state.articles[idx].guestbook_comment = modified.guestbook_comment
       state.articles[idx].guestbook_image = modified.guestbook_image
       state.articles[idx].guestbook_password = modified.guestbook_password
+    },
+
+    // 선택할 수 있는 이미지 할당하기 (미완성-세션매핑)
+    GET_IMAGES(state,data){
+      state.selectable_images = data
     }
   },
 
@@ -107,8 +122,9 @@ export default {
 
     // 글쓰기
     async createArticle({commit},data){
-      const cat = await axios.get('https://api.thecatapi.com/v1/images/search')
-      data.guestbook_image = cat.data[0].url
+      // const cat = await axios.get('https://api.thecatapi.com/v1/images/search')
+      await axios.get('https://api.thecatapi.com/v1/images/search')
+      // data.guestbook_image = cat.data[0].url
 
       articleApi.CreateArticle(data)
       .then((res)=>{
@@ -176,6 +192,13 @@ export default {
         console.error(err)
       })
 
+    },
+
+    // 세션에 매핑되는 이미지 가져오기 (미완성)
+    getImages({commit},flag){
+      if(!flag){
+        commit('GET_IMAGES',default_image)
+      }
     }
   },
 
