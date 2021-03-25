@@ -6,6 +6,8 @@ from django.views.decorators.http import require_http_methods
 from .models import Guestbook
 from rest_framework.decorators import api_view
 from django.contrib.auth.hashers import make_password, check_password
+from django.contrib.sessions.models import Session
+from django.contrib.sessions.backends.db import SessionStore
 # from drf_yasg.utils import swagger_auto_schema
 
 # Create your views here.
@@ -55,3 +57,22 @@ def password_check(request, article_pk):
     article_password = get_object_or_404(Guestbook, pk=article_pk).guestbook_password
     res = check_password(password, article_password)
     return JsonResponse({'result': res})
+
+
+@api_view(['GET','POST', 'PUT', 'DELETE'])
+def session(request):
+    # session-key exists
+    if request.headers.get('session-key'):
+        session_key = request.headers.get('session-key')
+        m = Session.objects.get(pk=session_key)
+        # m.expire_date = "2025-04-08 04:05:56.719279"
+        m.save()
+        print(m.expire_date)
+        return JsonResponse({'session-key':m.session_key})
+    #session-key doesn't exist
+    else:
+        print('no')
+        m = SessionStore()
+        m.create()
+        m.save()
+        return JsonResponse({'session-key':s.session_key})
