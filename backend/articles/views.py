@@ -8,6 +8,9 @@ from rest_framework.decorators import api_view
 from django.contrib.auth.hashers import make_password, check_password
 from django.contrib.sessions.models import Session
 from django.contrib.sessions.backends.db import SessionStore
+from django.utils import timezone
+
+
 # from drf_yasg.utils import swagger_auto_schema
 
 # Create your views here.
@@ -65,14 +68,13 @@ def session(request):
     if request.headers.get('session-key'):
         session_key = request.headers.get('session-key')
         m = Session.objects.get(pk=session_key)
-        # m.expire_date = "2025-04-08 04:05:56.719279"
+        m.expire_date = timezone.now() + timezone.timedelta(days=50)
         m.save()
-        print(m.expire_date)
         return JsonResponse({'session-key':m.session_key})
     #session-key doesn't exist
     else:
-        print('no')
         m = SessionStore()
         m.create()
+        m.expire_date = timezone.now() + timezone.timedelta(days=50)
         m.save()
-        return JsonResponse({'session-key':s.session_key})
+        return JsonResponse({'session-key':m.session_key})
