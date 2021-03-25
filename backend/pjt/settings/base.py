@@ -25,7 +25,7 @@ SECRET_KEY = 'x5=u1-b^wipx_641(o^v)y+^_w)7g3@z^6!tgb)(23=ung88$j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,9 +41,11 @@ INSTALLED_APPS = [
     'galleries',
     'rest_framework',
     'drf_yasg',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -125,3 +127,5 @@ STATIC_URL = '/static/'
 
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+CORS_ORIGIN_ALLOW_ALL = True
