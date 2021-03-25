@@ -56,7 +56,7 @@ export default {
     MODIFY_ON(state,id) {
       state.on_modify = true
       let idx = 0 
-      state.articles.forEach(function(data,i){
+      state.articles.some(function(data,i){
         if(data.id===id){
           idx = i
         }
@@ -74,14 +74,23 @@ export default {
     },
 
     //글 수정하기
-    MODIFY_ARTICLE(state,article_id,res){
+    MODIFY_ARTICLE(state,params){
+      const article_id = params.article_id
+      const modified = params.modified
+
       let idx = 0 
-      state.articles.forEach(function(data,i){
+      state.articles.some(function(data,i){
         if(data.id===article_id){
           idx = i
         }
-        state.articles[idx] = res.data
       })
+      state.articles[idx].id = modified.id
+      state.articles[idx].created_date = modified.created_date
+      state.articles[idx].updated_date = modified.updated_date
+      state.articles[idx].user_nickname = modified.user_nickname
+      state.articles[idx].guestbook_comment = modified.guestbook_comment
+      state.articles[idx].guestbook_image = modified.guestbook_image
+      state.articles[idx].guestbook_password = modified.guestbook_password
     }
   },
 
@@ -131,7 +140,6 @@ export default {
     confirmPassword({commit},data){
       articleApi.ConfirmPassword(data.id,data.guestbook_password)
       .then((res)=>{
-        console.log(res)
         if(res.data.result){
           commit('CHANGE_FLAG',true)
           commit('MODIFY_ON',data.id)
@@ -155,19 +163,24 @@ export default {
     },
 
     // 글 수정하기
-    modifyArticle({commit},article_id,data){
-      articleApi.ModifyArticle(article_id,data)
+    modifyArticle({commit},params){
+      articleApi.ModifyArticle(params.article_id,params.data)
       .then((res)=>{
-        console.log('글수정성공')
-        console.log(res)
-        commit('MODIFY_ARTICLE',article_id,res)
+        if(res.data.result===false){
+          alert('수정실패')
+        }else{
+          commit('MODIFY_ARTICLE',{article_id:params.article_id,modified:res.data})
+        }
       })
       .catch((err)=>{
-        console.err(err)
+        console.error(err)
       })
 
     }
   },
+
+  // =============================================================
+
   getters:{
     modal_flag(state) {
       return state.modal_flag

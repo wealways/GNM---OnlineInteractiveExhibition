@@ -16,20 +16,29 @@
             <div class="q-mr-md q-ml-md q-mb-md">
               <q-input
                v-model="nickname" 
-               label="이름" 
+               label="이름 (2~9 자리)" 
                class="q-pt-none"
                :rules="[ val => val && val.length > 1 && val.length <10 || '2~9글자를 입력해주세요']"
               >
               </q-input>
             </div>
-            <div class="q-mr-md q-ml-md q-mb-md">
+            <div v-if="!onModify" class="q-mr-md q-ml-md q-mb-md">
               <q-input
-              v-if="!onModify"
-               v-model="password" 
-               type="password" 
-               label="임시비밀번호" 
-               class="q-pt-none"
-               :rules="[ val => val && val.length > 4 && val.length<10 || '5~9자리 비빌번호']"
+                v-model="password" 
+                type="password" 
+                label="임시비밀번호 (5~9 자리)" 
+                class="q-pt-none"
+                :rules="[ val => val && val.length > 4 && val.length<10 || '5~9자리 비빌번호']"
+               >
+              </q-input>
+            </div>
+            <div v-if="onModify" class="q-mr-md q-ml-md q-mb-md">
+              <q-input
+                v-model="password" 
+                type="password" 
+                label="기존 비밀번호 재입력 (5~9 자리)" 
+                class="q-pt-none"
+                :rules="[ val => val && val.length > 4 && val.length<10 || '5~9자리 비빌번호']"
                >
               </q-input>
             </div>
@@ -39,7 +48,7 @@
               <q-input
                 v-model="article"
                 type="textarea"
-                label="후기"
+                label="방명록 (100자이내)"
                 style="min-heigth: 400px"
                 :rules="[ val => val && val.length > 0 && val.length<100 || '100자 이내']"
               >
@@ -52,7 +61,7 @@
             </div>
           </div>
           <q-card-actions align="right" class="text-primary">
-            <q-btn type="submit" color="primary" label="Submit" v-close-popup />
+            <q-btn type="submit" color="primary" label="Submit"/>
             <q-btn @click="onReset" flat label="Cancel"/>
           </q-card-actions>
         </q-form>
@@ -68,7 +77,6 @@ export default {
   name:'BookWrite',
   data() {
     return {
-      prompt: false,
       nickname:null,
       article:null,
       password: null,
@@ -100,14 +108,6 @@ export default {
     userArticle(){
       return this.$store.state.guestbook.user_article
     }
-    // userArticle:{
-    //   get(){
-    //     return this.user_article
-    //   },
-    //   set(newValue){
-        
-    //   }
-    // }
   },
   watch: {
     onModify:'modifyFetch'
@@ -118,7 +118,7 @@ export default {
         this.nickname = this.userArticle.user_nickname
         this.article = this.userArticle.guestbook_comment
         this.image = this.userArticle.guestbook_image
-        this.password = this.userArticle.guestbook_password
+        // this.password = this.userArticle.guestbook_password
       }
     },
     changeFlag(newFlag){
@@ -132,7 +132,7 @@ export default {
         guestbook_password : this.password
       }
       if(this.onModify){
-        this.$store.dispatch('guestbook/modifyArticle',this.userArticle.id,data)
+        this.$store.dispatch('guestbook/modifyArticle',{article_id:this.userArticle.id,data})
       }else{
         this.$store.dispatch('guestbook/createArticle',data)
       }

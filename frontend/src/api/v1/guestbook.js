@@ -22,6 +22,5 @@ export function ConfirmPassword(article_id,guestbook_password){
 
 //글 수정
 export function ModifyArticle(article_id,params){
-  // params = article Object
-  return http.put(`/articles/${article_id}/`,{data:params})
+  return http.put(`/articles/${article_id}/`,params)
 }

@@ -223,7 +223,7 @@ p{
   background: inherit;
   background-size: cover !important;
   transform-origin: center !important;
-  transition: transform 0.4s ease-in-out !important;
+  transition: transform 0.4s ease-in !important;
 }
 
 .book--border-line:focus #q-img__image>div:nth-child(2)::after,.book--border-line:hover #q-img__image>div:nth-child(2):after {

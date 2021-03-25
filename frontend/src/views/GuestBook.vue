@@ -53,7 +53,7 @@ export default {
     // masonry + infinity
     infiniteHandler($state) {
       this.handlerdata = $state;
-      const EACH_LEN = 9;
+      const EACH_LEN = 10;
       const params = {
         "page":String(this.page),
         "articles_per_page":String(EACH_LEN)
