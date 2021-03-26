@@ -1,10 +1,15 @@
 <template>
-  <div>Mone</div>
+  <div>
+    Mone
+    <PhotoUpload/>  
+  </div>
 </template>
 
 <script>
+import PhotoUpload from '../components/PhotoUpload.vue'
 export default {
-    name:'Mone'
+    name:'Mone',
+    components:{ PhotoUpload }
 }
 </script>
 
