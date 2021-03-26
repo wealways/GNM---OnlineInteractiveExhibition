@@ -4,10 +4,10 @@
       <div class="container">
         <section data-bgcolor="#bcb8ad" data-textcolor="#032f35">
         <div>
-          <h1 data-scroll data-scroll-speed="1"><span>Horizontal</span> <span>scroll</span> <span>section</span></h1>
-          <p data-scroll data-scroll-speed="2" data-scroll-delay="0.2">with GSAP ScrollTrigger & Locomotive Scroll</p>
+          <h1 data-scroll data-scroll-speed="1"><span>On-line</span> <span>Interactive</span> <span>Exhibition</span></h1>
+          <!-- <p data-scroll data-scroll-speed="2" data-scroll-delay="0.2">with GSAP ScrollTrigger & Locomotive Scroll</p> -->
           <router-link :to="'/tutorial'">
-            <div class='btn'>go to tutorial</div>
+            <div class='btn tutorial'>go to tutorial</div>
           </router-link>
         </div>
         </section>
@@ -232,9 +232,10 @@ export default {
   overscroll-behavior: none;
 }
 .btn {
+  font-family: 'Cinzel';
+  color: black;
   text-decoration: none;
-  color: #fe3901;
-  position: fixed;
+  position: sticky;
   display: flex;
   margin-top: 40px;
   opacity: 0.5;
@@ -430,7 +431,11 @@ p {
   font-family: "Roboto";
 }
 
-
+.tutorial {
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+}
 
 // @media (min-width: 1024px) {
 //   .cover-heading h1 {
