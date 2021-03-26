@@ -84,3 +84,25 @@ def password_check(request, article_pk):
 
 
 
+@swagger_auto_schema(
+        method='post',
+        manual_parameters=[openapi.Parameter('sessionkey', openapi.IN_HEADER,
+        description="sessionkey",
+        type=openapi.TYPE_STRING)]
+    )
+@api_view(['POST'])
+def session(request):
+    # session-key exists
+    if request.headers.get('sessionkey'):
+        session_key = request.headers.get('sessionkey')
+        m = Session.objects.get(pk=session_key)
+        m.expire_date = timezone.now() + timezone.timedelta(days=50)
+        m.save()
+        return JsonResponse({'sessionkey':m.session_key})
+    #session-key doesn't exist
+    else:
+        m = SessionStore()
+        m.create()
+        m.expire_date = timezone.now() + timezone.timedelta(days=50)
+        m.save()
+        return JsonResponse({'sessionkey':m.session_key})
