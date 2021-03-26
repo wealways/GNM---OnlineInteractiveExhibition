@@ -15,17 +15,17 @@
         <button>next</button>
       </div>
     </div>
-    <Icon/>
+    <Icons/>
   </div>
 </template>
 
 <script>
 import { gsap } from 'gsap';
-import Icon from '../Icon/Icon.vue'
+import Icons from '../IconMap/Icons.vue'
 
 export default {
   name: 'Description',
-  components: { Icon },
+  components: { Icons },
   mounted: function(){
       let tl = gsap.timeline();
       tl.from(
