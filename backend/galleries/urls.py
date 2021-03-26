@@ -3,5 +3,7 @@ from . import views
 
 app_name = 'galleries'
 urlpatterns = [
-    # path('signup/', views.signup),
+    path('receiveimage/', views.receiveimage),
+    path('giveimage/<int:input_no>/', views.giveimage),
+    path('passcard/', views.passcard),
 ]
