@@ -1,4 +1,4 @@
-import axios from "axios";
+import * as Api from '@/api/v1/guestbook'
 
 export default {
     namespaced: true,
@@ -15,16 +15,20 @@ export default {
   
     actions: {
       getSession({commit}){
-        axios.post('http://localhost:8000/articles/session/')
-        .then((response)=>{
-          console.log(response)
-          let sessionkey = response.data.sessionkey
-          sessionStorage.setItem("session", sessionkey)
-          commit('GET_SESSION')
-        })
-        .catch((err)=>{
-          console.log(err)
-        })
+        // session storage에 session key가 없으면 getSession 실행
+        let check = sessionStorage.getItem("session")
+        if (check===null){
+          Api.getSession()
+          .then((response)=>{
+            console.log(response)
+            let sessionkey = response.data.sessionkey
+            sessionStorage.setItem("session", sessionkey)
+            commit('GET_SESSION')
+          })
+          .catch((err)=>{
+            console.log(err)
+          })
+        }
       }
     },
   
