@@ -1,12 +1,13 @@
 from django.shortcuts import render,get_object_or_404, get_list_or_404
 from .serializers import CardSerializer
 from django.core import serializers
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse, HttpResponse, FileResponse
 from .models import Card
 from rest_framework.decorators import api_view
 from django.contrib.sessions.models import Session
 from django.contrib.sessions.backends.db import SessionStore
 from django.utils import timezone
+import os
 
 
 # Create your views here.
@@ -32,9 +33,16 @@ def giveimage(request, input_no):
     if Card.objects.filter(sessionkey=sessionkey):
         card = Card.objects.filter(sessionkey=sessionkey)
         imagefield = 'input_image_' + str(input_no)
-        response = list(card.values(imagefield))
-        response[0]['sessionkey'] = sessionkey
-        return JsonResponse(response[0])
+        cardquery = list(card.values(imagefield))
+        cardquery[0]['sessionkey'] = sessionkey
+        imagefile = cardquery[0][imagefield]
+        base_address = 'C:/Users/multicampus/Desktop/s04p23c106/backend/pjt/media'
+        img = open(os.path.join(base_address, imagefile), 'rb')
+        response = FileResponse(img)
+        response['sessionkey'] = sessionkey
+        return response
+        # return FileResponse(img)
+        # return JsonResponse(response[0])
     else:
         return JsonResponse({'status': 'session이 존재하지 않습니다.'})
 
