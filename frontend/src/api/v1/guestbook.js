@@ -24,3 +24,8 @@ export function ConfirmPassword(article_id,guestbook_password){
 export function ModifyArticle(article_id,params){
   return http.put(`/articles/${article_id}/`,params)
 }
+
+//세션 키 세션스토리지에 저장
+// export function getSession(){
+//   return http.post('/articles/session/')
+// }

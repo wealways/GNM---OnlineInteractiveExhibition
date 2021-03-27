@@ -12,8 +12,6 @@
         <q-card-section class='q-pt-none mapback'>
           <Floors/>
         </q-card-section>
-        <q-card-actions align="right" class="bg-white text-teal">
-        </q-card-actions>
       </q-card>
     </q-dialog>
   
