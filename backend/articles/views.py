@@ -16,7 +16,7 @@ from django.utils import timezone
 # Create your views here.
 @api_view(['GET', 'POST'])
 # @swagger_auto_schema(request_body=GuestbookBodySerializer)
-def article_list_create(request):
+def article_list_create(reques):
     if request.method == "GET":
         page = int(request.query_params.get('page')[0])
         articles_per_page = int(request.query_params.get('articles_per_page')[0])
