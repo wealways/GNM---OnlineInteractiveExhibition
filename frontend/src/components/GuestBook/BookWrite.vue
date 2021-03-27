@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-btn label="방명록 작성" color="primary" @click="changeFlag(true)" />
+    <q-btn label="방명록 작성" @click="changeFlag(true)" style="background: #2a433b; color: white"/>
     <q-dialog v-model="flag" persistent>
       <q-card style="min-width: 680px">
         <q-form
