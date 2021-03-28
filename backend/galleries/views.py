@@ -23,7 +23,6 @@ from drf_yasg.utils import swagger_auto_schema
 sessionkey = openapi.Parameter('sessionkey', openapi.IN_HEADER, description="sessionkey", type=openapi.TYPE_STRING)
 
 
-
 def session_check(sessionkey):
     session = Session.objects.filter(session_key=sessionkey)
     if session:
@@ -37,8 +36,6 @@ def session_check(sessionkey):
         sessionstatus = False
 
     return sessionstatus
-
-
 
 
 class GalleryViewSet(viewsets.ModelViewSet):
@@ -73,10 +70,14 @@ class GalleryViewSet(viewsets.ModelViewSet):
         sessionstatus = session_check(sessionkey)
         image = request.data.get('image')
         if sessionstatus:
-            card = get_object_or_404(Card, sessionkey=sessionkey)
+            card = Card.objects.filter(sessionkey=sessionkey)
+            # card = get_object_or_404(Card, sessionkey=sessionkey)
             imagefield = str(type) + '_image_' + str(no)
             data = {imagefield: image}
-            serializer = CardSerializer(card, data=data)
+            if card:
+                serializer = CardSerializer(card[0], data=data)
+            else:
+                serializer = CardSerializer(data=data)
             if serializer.is_valid(raise_exception=True):
                 serializer.sessionkey = sessionkey
                 serializer.save()
