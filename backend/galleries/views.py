@@ -4,16 +4,16 @@ from django.core import serializers
 from django.http import JsonResponse, HttpResponse, FileResponse
 from .models import Card
 from rest_framework.decorators import api_view, parser_classes
-from rest_framework.parsers import FormParser, FileUploadParser, MultiPartParser, JSONParser
+from rest_framework.parsers import MultiPartParser
 from django.contrib.sessions.models import Session
 from django.contrib.sessions.backends.db import SessionStore
 from django.utils import timezone
 import os
 from drf_yasg import openapi
 from rest_framework import viewsets
-from rest_framework.decorators import action
-from drf_yasg.utils import swagger_auto_schema, no_body, get_consumes
-from django.utils.decorators import method_decorator
+from drf_yasg.utils import swagger_auto_schema
+# from django.utils.decorators import method_decorator
+# from rest_framework.decorators import action
 # https://drf-yasg.readthedocs.io/en/stable/custom_spec.html
 
 
@@ -21,21 +21,36 @@ from django.utils.decorators import method_decorator
 
 
 sessionkey = openapi.Parameter('sessionkey', openapi.IN_HEADER, description="sessionkey", type=openapi.TYPE_STRING)
-image = openapi.Parameter('image', openapi.IN_BODY, description="image", type=openapi.TYPE_FILE)
+
+
+
+def session_check(sessionkey):
+    session = Session.objects.filter(session_key=sessionkey)
+    if session:
+        date = timezone.now()
+        if date > session[0].expire_date:
+            sessionstatus = False
+            # session[0].delete()
+        else:
+            sessionstatus = True
+    else:
+        sessionstatus = False
+
+    return sessionstatus
+
 
 
 
 class GalleryViewSet(viewsets.ModelViewSet):
     serializer_class = Card
     parser_classes = (MultiPartParser,)
-
-
     @swagger_auto_schema(
         manual_parameters=[sessionkey],
     )  
-    def list(self, request, type, no):
+    def get(self, request, type, no):
         sessionkey = request.headers.get('sessionkey')
-        if Card.objects.filter(sessionkey=sessionkey):
+        sessionstatus = session_check(sessionkey)
+        if sessionstatus:
             card = Card.objects.filter(sessionkey=sessionkey)
             imagefield = str(type) + '_image_' + str(no)
             cardquery = list(card.values(imagefield))
@@ -46,19 +61,18 @@ class GalleryViewSet(viewsets.ModelViewSet):
             response['sessionkey'] = sessionkey
             return response
         else:
-            return JsonResponse({'status': 'session이 존재하지 않습니다.'})
-        return HttpResponse({'hi'})
+            return JsonResponse({'status': 'session이 존재하지 않거나 유효하지 않습니다.'})
 
 
     @swagger_auto_schema(
         request_body=ImageSerializer,
-
         manual_parameters=[sessionkey],
         ) 
     def create(self, request, type, no, **kwargs):
         sessionkey = request.headers.get('sessionkey')
+        sessionstatus = session_check(sessionkey)
         image = request.data.get('image')
-        if Card.objects.filter(sessionkey=sessionkey):
+        if sessionstatus:
             card = get_object_or_404(Card, sessionkey=sessionkey)
             imagefield = str(type) + '_image_' + str(no)
             data = {imagefield: image}
@@ -68,11 +82,7 @@ class GalleryViewSet(viewsets.ModelViewSet):
                 serializer.save()
                 return JsonResponse(serializer.data)
         else:
-            return JsonResponse({'status': 'session이 존재하지 않습니다.'})
-
-
-
-
+            return JsonResponse({'status': 'session이 존재하지 않거나 유효하지 않습니다.'})
 
 
 @swagger_auto_schema(
@@ -83,30 +93,13 @@ class GalleryViewSet(viewsets.ModelViewSet):
 def passcard(request):
     
     sessionkey = request.headers.get('sessionkey')
-    if Card.objects.filter(sessionkey=sessionkey):
+    sessionstatus = session_check(sessionkey)
+    if sessionstatus:
         card = get_object_or_404(Card, sessionkey=sessionkey)
         serializer = CardSerializer(card)
         return JsonResponse(serializer.data)
     else:
-        return JsonResponse({'status': 'session이 존재하지 않습니다.'})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        return JsonResponse({'status': 'session이 존재하지 않거나 유효하지 않습니다.'})
 
 
 
