@@ -11,9 +11,9 @@ from galleries.views import GalleryViewSet
 
 app_name = 'galleries'
 urlpatterns = [
-    # path('receiveimage/', views.receiveimage),
     path("image/<str:type>/<int:no>/", GalleryViewSet.as_view({"get": "list", "post": "create"}), name="gallery"),
-    path('giveimage/<int:input_no>/', views.giveimage),
     path('passcard/', views.passcard),
+    # path('receiveimage/', views.receiveimage),
+    # path('giveimage/<int:input_no>/', views.giveimage),
     # path('', include(router.urls)),
 ]

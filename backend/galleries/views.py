@@ -4,7 +4,7 @@ from django.core import serializers
 from django.http import JsonResponse, HttpResponse, FileResponse
 from .models import Card
 from rest_framework.decorators import api_view, parser_classes
-from rest_framework.parsers import FormParser, FileUploadParser
+from rest_framework.parsers import FormParser, FileUploadParser, MultiPartParser, JSONParser
 from django.contrib.sessions.models import Session
 from django.contrib.sessions.backends.db import SessionStore
 from django.utils import timezone
@@ -12,49 +12,8 @@ import os
 from drf_yasg import openapi
 from rest_framework import viewsets
 from rest_framework.decorators import action
-from drf_yasg.utils import swagger_auto_schema, no_body   
+from drf_yasg.utils import swagger_auto_schema, no_body, get_consumes
 from django.utils.decorators import method_decorator
-from django.http.multipartparser import MultiPartParser
-
-
-# input1 = openapi.Parameter('input_image_1', openapi.IN_FORM, description="input_image_1", type=openapi.TYPE_FILE)
-# input2 = openapi.Parameter('input_image_2', openapi.IN_FORM, description="input_image_2", type=openapi.TYPE_FILE)
-# input3 = openapi.Parameter('input_image_3', openapi.IN_FORM, description="input_image_3", type=openapi.TYPE_FILE)
-# input4 = openapi.Parameter('input_image_4', openapi.IN_FORM, description="input_image_4", type=openapi.TYPE_FILE)
-# output1 = openapi.Parameter('output_image_1', openapi.IN_FORM, description="output_image_1", type=openapi.TYPE_FILE)
-# output2 = openapi.Parameter('output_image_2', openapi.IN_FORM, description="output_image_2", type=openapi.TYPE_FILE)
-# output3 = openapi.Parameter('output_image_3', openapi.IN_FORM, description="output_image_3", type=openapi.TYPE_FILE)
-# output4 = openapi.Parameter('output_image_4', openapi.IN_FORM, description="output_image_4", type=openapi.TYPE_FILE)
-# input1 = openapi.Parameter('input_image_1', openapi.IN_BODY, description="input_image_1", type=openapi.TYPE_FILE)
-# input2 = openapi.Parameter('input_image_2', openapi.IN_BODY, description="input_image_2", type=openapi.TYPE_FILE)
-# input3 = openapi.Parameter('input_image_3', openapi.IN_BODY, description="input_image_3", type=openapi.TYPE_FILE)
-# input4 = openapi.Parameter('input_image_4', openapi.IN_BODY, description="input_image_4", type=openapi.TYPE_FILE)
-# output1 = openapi.Parameter('output_image_1', openapi.IN_BODY, description="output_image_1", type=openapi.TYPE_FILE)
-# output2 = openapi.Parameter('output_image_2', openapi.IN_BODY, description="output_image_2", type=openapi.TYPE_FILE)
-# output3 = openapi.Parameter('output_image_3', openapi.IN_BODY, description="output_image_3", type=openapi.TYPE_FILE)
-# output4 = openapi.Parameter('output_image_4', openapi.IN_BODY, description="output_image_4", type=openapi.TYPE_FILE)
-# input1 = openapi.Schema('input_image_1', openapi.TYPE_OBJECT, type=openapi.TYPE_STRING)
-# input2 = openapi.Schema('input_image_2', openapi.TYPE_OBJECT, type=openapi.TYPE_STRING)
-# input3 = openapi.Schema('input_image_3', openapi.TYPE_OBJECT, type=openapi.TYPE_STRING)
-# input4 = openapi.Schema('input_image_4', openapi.TYPE_OBJECT, type=openapi.TYPE_STRING)
-# output1 = openapi.Schema('output_image_1', openapi.TYPE_OBJECT, type=openapi.TYPE_STRING)
-# output2 = openapi.Schema('output_image_2', openapi.TYPE_OBJECT, type=openapi.TYPE_STRING)
-# output3 = openapi.Schema('output_image_3', openapi.TYPE_OBJECT, type=openapi.TYPE_STRING)
-# output4 = openapi.Schema('output_image_4', openapi.TYPE_OBJECT, type=openapi.TYPE_STRING)
-# input1 = openapi.Parameter('input_image_1', openapi.IN_QUERY, Required=False, description="input_image_1", type=openapi.TYPE_FILE)
-# input2 = openapi.Parameter('input_image_2', openapi.IN_QUERY, Required=False, description="input_image_2", type=openapi.TYPE_FILE)
-# input3 = openapi.Parameter('input_image_3', openapi.IN_QUERY, Required=False, description="input_image_3", type=openapi.TYPE_FILE)
-# input4 = openapi.Parameter('input_image_4', openapi.IN_QUERY, Required=False, description="input_image_4", type=openapi.TYPE_FILE)
-# output1 = openapi.Parameter('output_image_1', openapi.IN_QUERY, Required=False, description="output_image_1", type=openapi.TYPE_FILE)
-# output2 = openapi.Parameter('output_image_2', openapi.IN_QUERY, Required=False, description="output_image_2", type=openapi.TYPE_FILE)
-# output3 = openapi.Parameter('output_image_3', openapi.IN_QUERY, Required=False, description="output_image_3", type=openapi.TYPE_FILE)
-# output4 = openapi.Parameter('output_image_4', openapi.IN_QUERY, Required=False, description="output_image_4", type=openapi.TYPE_FILE)
-# openapi.Parameter('id', openapi.IN_PATH, type=openapi.TYPE_STRING, description='id', required=True, **{'x-example': '234'})
-
-
-
-
-# openapi.Parameter(name="file",in_=openapi.IN_FORM,type=openapi.TYPE_FILE,required=True,  description="Document"                        )
 # https://drf-yasg.readthedocs.io/en/stable/custom_spec.html
 
 
@@ -68,6 +27,7 @@ image = openapi.Parameter('image', openapi.IN_BODY, description="image", type=op
 
 class GalleryViewSet(viewsets.ModelViewSet):
     serializer_class = Card
+    parser_classes = (MultiPartParser,)
 
 
     @swagger_auto_schema(
@@ -87,15 +47,15 @@ class GalleryViewSet(viewsets.ModelViewSet):
             return response
         else:
             return JsonResponse({'status': 'session이 존재하지 않습니다.'})
+        return HttpResponse({'hi'})
 
 
     @swagger_auto_schema(
-            parser_classes=(MultiPartParser,),
-            # request_body=openapi.Schema('image', openapi.TYPE_FILE, type=openapi.TYPE_FILE),
-            request_body=ImageSerializer,
-            manual_parameters=[sessionkey],
+        request_body=ImageSerializer,
+
+        manual_parameters=[sessionkey],
         ) 
-    def create(self, request, type, no):
+    def create(self, request, type, no, **kwargs):
         sessionkey = request.headers.get('sessionkey')
         image = request.data.get('image')
         if Card.objects.filter(sessionkey=sessionkey):
@@ -177,27 +137,27 @@ def passcard(request):
 #     return HttpResponse({'hi'})
 
 
-@swagger_auto_schema(
-        method='get',
-        body_serializer=CardBodySerializer,
-        manual_parameters=[sessionkey],
-    )  
-@api_view(['get'])
-def giveimage(request, input_no):
-    sessionkey = request.headers.get('sessionkey')
-    if Card.objects.filter(sessionkey=sessionkey):
-        card = Card.objects.filter(sessionkey=sessionkey)
-        imagefield = 'input_image_' + str(input_no)
-        cardquery = list(card.values(imagefield))
-        # cardquery[0]['sessionkey'] = sessionkey
-        imagefile = cardquery[0][imagefield]
-        base_address = 'C:/Users/multicampus/Desktop/s04p23c106/backend/pjt/media'
-        img = open(os.path.join(base_address, imagefile), 'rb')
-        response = FileResponse(img)
-        response['sessionkey'] = sessionkey
-        return response
-        # return FileResponse(img)
-        # return JsonResponse(response[0])
-    else:
-        return JsonResponse({'status': 'session이 존재하지 않습니다.'})
+# @swagger_auto_schema(
+#         method='get',
+#         body_serializer=CardBodySerializer,
+#         manual_parameters=[sessionkey],
+#     )  
+# @api_view(['get'])
+# def giveimage(request, input_no):
+#     sessionkey = request.headers.get('sessionkey')
+#     if Card.objects.filter(sessionkey=sessionkey):
+#         card = Card.objects.filter(sessionkey=sessionkey)
+#         imagefield = 'input_image_' + str(input_no)
+#         cardquery = list(card.values(imagefield))
+#         # cardquery[0]['sessionkey'] = sessionkey
+#         imagefile = cardquery[0][imagefield]
+#         base_address = 'C:/Users/multicampus/Desktop/s04p23c106/backend/pjt/media'
+#         img = open(os.path.join(base_address, imagefile), 'rb')
+#         response = FileResponse(img)
+#         response['sessionkey'] = sessionkey
+#         return response
+#         # return FileResponse(img)
+#         # return JsonResponse(response[0])
+#     else:
+#         return JsonResponse({'status': 'session이 존재하지 않습니다.'})
 

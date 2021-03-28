@@ -36,4 +36,4 @@ class CardBodySerializer(serializers.Serializer):
 
 
 class ImageSerializer(serializers.Serializer):
-    image = ProcessedImageField(help_text="image")
+    image = serializers.ImageField(help_text='image')
