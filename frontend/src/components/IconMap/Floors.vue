@@ -207,7 +207,7 @@ export default {
 }
 
 .artist {
-    font-size: 30px;
+    font-size: 25px;
 }
 button {
     background: transparent;
