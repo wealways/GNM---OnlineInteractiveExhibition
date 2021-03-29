@@ -1,10 +1,15 @@
 <template>
-  <div>cheon</div>
+  <div class="body">
+    <CheonInteractive/>
+  </div>
 </template>
 
 <script>
 export default {
-    name:'Cheon'
+  name:'Cheon',
+  components: {
+    CheonInteractive: () => import('@/components/Cheon/CheonInteractive')
+  }
 }
 </script>
 
