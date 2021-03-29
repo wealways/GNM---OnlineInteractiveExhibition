@@ -4,6 +4,8 @@ import Tutorial from '@/views/Tutorial.vue'
 import Mone from '@/views/Mone.vue'
 import Klimt from '@/views/Klimt.vue'
 import Cheon from '@/views/Cheon.vue'
+import StartMonet from '@/views/StartMonet.vue'
+import MonetPhoto from '@/components/Mone/MonetPhoto.vue'
 export default [
   {
     path:'/',
@@ -24,6 +26,16 @@ export default [
     path:'/mone',
     name: 'Mone',
     component: Mone,
+  },
+  {
+    path:'/startmonet',
+    name: 'StartMonet',
+    component: StartMonet,
+  },
+  {
+    path:'/monetphoto',
+    name: 'MonetPhoto',
+    component: MonetPhoto,
   },
   {
     path:'/klimt',

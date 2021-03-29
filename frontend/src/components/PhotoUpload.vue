@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="photo">
     <div>
       photoupload
     </div>
@@ -19,5 +19,9 @@ export default {
 </script>
 
 <style>
-
+#photo{
+  position: absolute;
+  top: 10%;
+  
+}
 </style>
