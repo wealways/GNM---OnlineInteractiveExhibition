@@ -1,7 +1,27 @@
 <template>
   <div class="page">
     <div class="description">
-      클림트 - 키스 
+      <div>
+        클림트 - 키스 
+      </div>
+      <div>
+        원형, 네모, 직선과 곡선 등 기하학 문양과 함께<br> 
+        금박 무늬 등 화려한 색체를 앞세운 클림트만의 화풍
+      </div>
+      <br>
+      <div>
+        여러분의 마우스를 통해<br>
+        클림트의 화풍을 경험해보세요
+      </div>
+      <div class="hintBtn" v-if="!hintflag" @click="hintflag=true">
+        힌트
+      </div>
+      <div v-if="hintflag">
+        <div class="hintBtn" @click="hintflag=false">숨기기</div>
+        그림위에 마우스를 올려놓고 <br>
+        길게 눌러보세요. <br> 
+        키스의 모든 색감을 볼 수 있습니다.
+      </div>
     </div>
     <svg id="demo" xmlns="http://www.w3.org/2000/svg" x="0" y="0" left="0" width="0" height="0" viewBox="0 0 900 900">
       <defs>
@@ -45,6 +65,11 @@ import { gsap,TimelineMax } from 'gsap';
 
 export default {
   name:'KlimtInteractive',
+  data(){
+    return {
+      hintflag:false,
+    }
+  },
   mounted(){
     const svg = document.querySelector("#demo");
     const tl = new TimelineMax({onUpdate:onUpdate});
@@ -114,7 +139,8 @@ export default {
   margin: 0 auto;
   font-family: "Signika", sans-serif;
   background: #262626;
-  height: 980px;
+  height: 968.5px;
+  /* height: 100%; */
   width: 100%;
   overflow: hidden;
   color: white;
@@ -126,6 +152,13 @@ export default {
   margin-left: 5%;
   min-width: 45%;
 }
+.hintBtn{
+  cursor: pointer;
+  color:#fe3901;
+  font-size: 1rem;
+}
+
+
 p {
   margin: 0;
   text-align: center;
