@@ -1,10 +1,10 @@
 <template>
   <div>
-    <button @click="fullWidth = true">
+    <div @click="fullWidth = true">
       <span style="font-size:50px;">
         <q-icon class='map' name="mdi-map-legend"></q-icon>
       </span>
-    </button>
+    </div>
     <q-dialog
       v-model="fullWidth"
     >
@@ -16,10 +16,10 @@
     </q-dialog>
   
     <span style='font-size:45px;'>
-      <button @click='voiceOnOff'>
+      <div @click='voiceOnOff'>
         <q-icon v-if="voice" class='voice' name="mdi-account-tie-voice"></q-icon>
         <q-icon v-else class='voice-off' name="mdi-account-tie-voice-off"></q-icon>
-      </button>
+      </div>
     </span>
   </div>
 </template>
@@ -48,6 +48,7 @@ export default {
 </script>
 
 <style scoped>
+
 .mapback {
   height: 80%;
 }

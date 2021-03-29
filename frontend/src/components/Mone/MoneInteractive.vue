@@ -21,12 +21,12 @@ export default {
       $('.ui-content').prepend(
         '<div class="wave-position water' + k + '" style="z-index:' + k + ';top:' + (j - 150) + 'px;left:' + (i - 150) + 'px;">' +
         '<div class="wave-body">' +
-        '<div class="wave wave5"></div>' +
-        '<div class="wave wave4"></div>' +
-        '<div class="wave wave3"></div>' +
-        '<div class="wave wave2"></div>' +
-        '<div class="wave wave1"></div>' +
-        '<div class="wave wave0"></div>' +
+        '<div id="wave" class="wave wave5"></div>' +
+        '<div id="wave" class="wave wave4"></div>' +
+        '<div id="wave" class="wave wave3"></div>' +
+        '<div id="wave" class="wave wave2"></div>' +
+        '<div id="wave" class="wave wave1"></div>' +
+        '<div id="wave" class="wave wave0"></div>' +
         '</div>' +
         '</div>'
       );
@@ -38,7 +38,7 @@ export default {
 }
 </script>
 
-<style lang="sass" scope>
+<style lang="sass">
 html,body,#home,.ui-content
   margin: 0
   padding: 0
