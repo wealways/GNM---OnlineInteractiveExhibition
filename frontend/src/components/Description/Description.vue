@@ -6,26 +6,28 @@
     <div class='blank'></div>
     <div class='info' style="font-size:25px;">
       <div class='map_description'>
-          평면도입니다. 현 위치를 알 수 있고 다른 층을 클릭하여 이동할 수 있습니다.
+        평면도입니다. 현 위치를 알 수 있고 다른 층을 클릭하여 이동할 수 있습니다.
       </div>
       <div class='voice_description'>
-          음성 설명
+        음성 설명
       </div>
       <div class='next_button'>
-        <button>next</button>
+        <router-link :to='"/mone"'>
+          <button>next</button>
+        </router-link>
       </div>
     </div>
-    <Icon/>
+    <Icons/>
   </div>
 </template>
 
 <script>
 import { gsap } from 'gsap';
-import Icon from '../Icon/Icon.vue'
+import Icons from '../IconMap/Icons.vue'
 
 export default {
   name: 'Description',
-  components: { Icon },
+  components: { Icons },
   mounted: function(){
       let tl = gsap.timeline();
       tl.from(
@@ -60,16 +62,7 @@ export default {
         ".voice_description",
         {
           xPercent: -100,
-          duration: 1,
-          ease: "power1.out",
-          opacity: 0,
-        },
-      );
-      tl.from(
-        ".text_description",
-        {
-          xPercent: -100,
-          duration: 1,
+          duration: 0.8,
           ease: "power1.out",
           opacity: 0,
         },
@@ -78,7 +71,7 @@ export default {
         ".next_button",
         {
           xPercent: -100,
-          duration: 0.5,
+          duration: 0.7,
           ease: "power1.out",
           opacity: 0,
         },
