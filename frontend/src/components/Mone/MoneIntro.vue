@@ -38,7 +38,7 @@ export default {
   },
   methods:{
     realstart(){
-      this.$router.push({path:'mone'})
+      this.$router.push({path:'monetphoto'})
     }
   }
 }
