@@ -1,13 +1,16 @@
-import { createInstance } from "./index.js";
+import http from '@/api/http'
 
-const instance = createInstance();
 
 function getFile(artist, success, fail) {
-
-    instance
-        .post(`galleries/image/input/${artist}/`)
+    let token = sessionStorage.getItem('session')
+    const headers = {
+        'sessionkey': `${token}`
+    }
+    http
+        .post(`galleries/image/input/${artist}/`,{headers:headers})
         .then(success)
         .catch(fail);
 }
 
 export {getFile};
+

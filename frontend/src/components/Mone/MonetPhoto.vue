@@ -21,7 +21,7 @@
 
 <script>
 import $ from 'jquery'
-import { fileUpload } from "@/api/fileUpload.js";
+import { fileUpload } from "../../api/fileUpload.js"
 
 export default {
     name:'MonetPhoto',
@@ -43,9 +43,7 @@ export default {
         } else {
           const artist = 1;
           const formData = new FormData();
-          console.log(this.uploadFile)
           formData.append("image", this.uploadFile);
-          console.log(formData)
           fileUpload(
             artist,
             formData,

@@ -1,10 +1,13 @@
-import { createInstanceFile } from "./index.js";
-
-const instance = createInstanceFile();
+import http from '@/api/http'
 
 function fileUpload(artist, file, success, fail) {
-    instance
-        .post(`galleries/image/input/${artist}/`,file)
+    let token = sessionStorage.getItem('session')
+    const headers = {
+        'sessionkey': `${token}`
+    }
+    console.log(headers)
+    http
+        .post(`galleries/image/input/${artist}/`,file,{headers:headers})
         .then(success)
         .catch(fail);
 }
