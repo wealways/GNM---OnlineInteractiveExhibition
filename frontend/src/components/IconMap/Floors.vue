@@ -5,6 +5,7 @@
             </div>
             <div @click='gotoklimt' class="layer mid-layer green-layer"></div>
             <div @click='gotocheon' class="layer top-layer red-layer"></div>
+            <div @click='gotoguestbook' class="layer toptop-layer red-layer"></div>
         </div>
         <div class='right_side'>
             <div class='artist'>{{ explain }}</div>
@@ -39,6 +40,16 @@
                     label="3층 가기" 
                     icon="lightbulb_outline" 
                 />
+                <q-btn
+                    :to='"/guestbook"' 
+                    target="_blank"  
+                    v-show="explain==='방명록'" 
+                    align="around" 
+                    class="btn-fixed-width" 
+                    color="deep-orange" 
+                    label="방명록 가기" 
+                    icon="lightbulb_outline" 
+                />
             </div>
         </div>
     </div>
@@ -63,6 +74,9 @@ export default {
         },
         gotocheon(){
             this.explain = "천경자"
+        },
+        gotoguestbook(){
+            this.explain = "방명록"
         }
     },
     mounted(){
@@ -133,10 +147,14 @@ export default {
 }
 
 .mid-layer {
-    transform: rotateX(45deg) rotateZ(45deg) translateZ(100px);
+    transform: rotateX(45deg) rotateZ(45deg) translateZ(50px);
 }
 
 .top-layer {
+    transform: rotateX(45deg) rotateZ(45deg) translateZ(150px);
+}
+
+.toptop-layer {
     transform: rotateX(45deg) rotateZ(45deg) translateZ(200px);
 }
 
