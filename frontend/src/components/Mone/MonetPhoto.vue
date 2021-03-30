@@ -15,7 +15,8 @@
             </div>
         </div>
       </div>
-      <q-btn :to='"/mone"' target="_blank" id="skipbtn" @click="urlUpload">NEXT</q-btn>
+      <q-btn :to='"/mone"' target="_blank">SKIP</q-btn>
+      <q-btn :to='"/test"' target="_blank" id="skipbtn" @click="urlUpload">NEXT</q-btn>
   </div>
 </template>
 
