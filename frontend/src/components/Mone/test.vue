@@ -19,8 +19,7 @@ export default {
             getFile(
                 artist,
                 (response) =>{
-                    this.imgUrl = response;
-                    console.log(this.imgUrl)
+                    this.imgUrl = response
                 },
                 (error) => console.log(error)
             )
