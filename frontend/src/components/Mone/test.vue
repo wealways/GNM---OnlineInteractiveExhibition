@@ -1,6 +1,7 @@
 <template>
   <div>
       <button @click="gettest">테스트</button>
+      <img :src=imgUrl alt="">
   </div>
 </template>
 
@@ -15,11 +16,10 @@ export default {
     },
     methods:{
         gettest(){
-            const artist = 1;
             getFile(
-                artist,
                 (response) =>{
-                    this.imgUrl = response
+                    console.log(response)
+                    this.imgUrl = response.data.input_image_1
                 },
                 (error) => console.log(error)
             )
