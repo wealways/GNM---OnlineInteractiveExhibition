@@ -81,8 +81,8 @@ class GalleryViewSet(viewsets.ModelViewSet):
             else:
                 serializer = CardSerializer(data=data)
             if serializer.is_valid(raise_exception=True):
-                serializer.sessionkey = sessionkey
-                serializer.save()
+                # serializer.sessionkey = sessionkey
+                serializer.save(sessionkey=sessionkey)
                 return JsonResponse(serializer.data)
         else:
             return JsonResponse({'status': 'session이 존재하지 않거나 유효하지 않습니다.'})

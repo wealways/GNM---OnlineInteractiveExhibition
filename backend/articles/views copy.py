@@ -18,8 +18,10 @@ from django.utils import timezone
 # @swagger_auto_schema(request_body=GuestbookBodySerializer)
 def article_list_create(request):
     if request.method == "GET":
-        page = int(request.query_params.get('page')[0])
-        articles_per_page = int(request.query_params.get('articles_per_page')[0])
+        # page = int(request.query_params.get('page')[0])
+        page = int(request.query_params.get('page'))
+        # articles_per_page = int(request.query_params.get('articles_per_page')[0])
+        articles_per_page = int(request.query_params.get('articles_per_page'))
         
         start = (page-1) * articles_per_page
         end = page * articles_per_page

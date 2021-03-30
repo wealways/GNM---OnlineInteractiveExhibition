@@ -6,7 +6,7 @@ from rest_framework import renderers
 
 # Create a router and register our viewsets with it.
 router = DefaultRouter()
-router.register(r'article', views.ArticleViewSet, basename='article')
+router.register(r'', views.ArticleViewSet, basename='article')
 
 
 app_name = 'articles'

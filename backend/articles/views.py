@@ -26,8 +26,8 @@ class ArticleViewSet(viewsets.ModelViewSet):
     @swagger_auto_schema(query_serializer=GuestbookListSerializer)
     def list(self, request, **kwargs):
 
-        page = int(request.query_params.get('page')[0])
-        articles_per_page = int(request.query_params.get('articles_per_page')[0])
+        page = int(request.query_params.get('page'))
+        articles_per_page = int(request.query_params.get('articles_per_page'))
         
         start = (page-1) * articles_per_page
         end = page * articles_per_page
