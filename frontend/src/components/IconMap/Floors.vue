@@ -11,7 +11,7 @@
             <div class='artist'>{{ explain }}</div>
             <div class='go_button' style='margin-top:20px;'>
                 <q-btn 
-                    :to='"/mone"' 
+                    :to='"/startmonet"' 
                     target="_blank" 
                     v-show="explain==='모네'" 
                     align="around" 
@@ -90,7 +90,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 .layer-container {
     width: 200px;

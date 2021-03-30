@@ -1,15 +1,17 @@
 <template>
   <div>
-    Mone
-    <PhotoUpload/>  
+    <mone-interactive>
+    </mone-interactive>
+    <!-- <PhotoUpload/>   -->
   </div>
 </template>
 
 <script>
-import PhotoUpload from '../components/PhotoUpload.vue'
+import MoneInteractive from '../components/Mone/MoneInteractive.vue'
+// import PhotoUpload from '../components/PhotoUpload.vue'
 export default {
     name:'Mone',
-    components:{ PhotoUpload }
+    components:{ MoneInteractive }
 }
 </script>
 
