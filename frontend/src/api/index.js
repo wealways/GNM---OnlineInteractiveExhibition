@@ -16,7 +16,7 @@ function createInstance() {
 function createInstanceFile() {
     let token = sessionStorage.getItem('session')
     const headers = {
-        'Authorization': `${token}`
+        'sessionkey': `${token}`
     }
     const instance = axios.create({
         baseURL: API_BASE_URL,
