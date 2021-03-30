@@ -12,7 +12,7 @@
         음성 설명
       </div>
       <div class='next_button'>
-        <router-link :to='"/mone"'>
+        <router-link :to='"/startmonet"'>
           <button>next</button>
         </router-link>
       </div>
