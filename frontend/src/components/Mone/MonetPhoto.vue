@@ -37,21 +37,22 @@ export default {
         this.$store.dispatch('getsession/getSession')
       },
       urlUpload(){
-        console.log(this.uploadFile)
         if (this.uploadFile==="") {
           alert("이미지를 업로드 해주세요");
           return false;
         } else {
           const artist = 1;
           const formData = new FormData();
-          formData.append("file", this.uploadFile);
+          console.log(this.uploadFile)
+          formData.append("image", this.uploadFile);
+          console.log(formData)
           fileUpload(
             artist,
             formData,
             (response)=>{
               if (response.data === null) return;
+              console.log(response.data)
               this.imgUrl_ = response.data;
-              console.log(this.imgUrl)
             },
             (error) => console.log(error)
           )

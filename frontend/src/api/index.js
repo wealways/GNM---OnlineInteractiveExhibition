@@ -1,30 +1,29 @@
 import axios from "axios";
-import { API_BASE_URL } from "../config";
+import { API_BASE_URL } from "../config/index"
 
 function createInstance() {
+    let token = sessionStorage.getItem('session')
+    const headers = {
+        'Authorization': `${token}`
+    }
     const instance = axios.create({
         baseURL: API_BASE_URL,
-        header: {
-            'Content-Type': 'application/json'
-        }
+        headers: headers
     });
     return instance;
 }
 
 function createInstanceFile() {
+    let token = sessionStorage.getItem('session')
+    const headers = {
+        'Authorization': `${token}`
+    }
     const instance = axios.create({
         baseURL: API_BASE_URL,
-        header: {
-            'Content-Type': 'multipart/form-data'
-        }
+        headers: headers
     });
-    instance.interceptors.request.use(function (config){
-        const token = sessionStorage.getItem('sessionkey');
-        config.headers.Authorization = token ? `Bearer ${token}` : '';
-        return config
-    })
     return instance;
 }
 
-export { createInstance,createInstanceFile };
+export { createInstance, createInstanceFile };
 
