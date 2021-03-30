@@ -63,12 +63,18 @@ export default {
   bottom: 13%;
   right: 5%;
 }
+.voice:hover{
+  color: red;
+}
+.voice-off:hover{
+  color:red;
+}
 .voice-off{
   position: absolute;
   bottom: 13%;
   right: 5%;
 }
-button:hover {
+.map:hover {
   color: red;
 }
 </style>

@@ -2,7 +2,7 @@
   <div>
       <div>아름다운 색을 가진 사진을 올려주세요</div>
       <div class="avatar-upload">
-        <div class="avatar-edit" style='color:red;'>
+        <div class="avatar-edit">
             <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg"/>
             <label for="imageUpload" @click='getSession'>
               <span style="font-size:20px">
@@ -15,20 +15,51 @@
             </div>
         </div>
       </div>
-      <q-btn :to='"/mone"' target="_blank" id="skipbtn">->skip</q-btn>
+      <q-btn :to='"/mone"' target="_blank" id="skipbtn" @click="urlUpload">NEXT</q-btn>
   </div>
 </template>
 
 <script>
 import $ from 'jquery'
+import { fileUpload } from "@/api/fileUpload.js";
+
 export default {
     name:'MonetPhoto',
+    data(){
+      return {
+        uploadFile:"",
+        imgUrl:"",
+        imgUrl_:""
+      }
+    },
     methods:{
       getSession(){
         this.$store.dispatch('getsession/getSession')
+      },
+      urlUpload(){
+        console.log(this.uploadFile)
+        if (this.uploadFile==="") {
+          alert("이미지를 업로드 해주세요");
+          return false;
+        } else {
+          const artist = 1;
+          const formData = new FormData();
+          formData.append("file", this.uploadFile);
+          fileUpload(
+            artist,
+            formData,
+            (response)=>{
+              if (response.data === null) return;
+              this.imgUrl_ = response.data;
+              console.log(this.imgUrl)
+            },
+            (error) => console.log(error)
+          )
+        }
       }
     },
     mounted(){
+      let temp = this;
       function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -40,9 +71,11 @@ export default {
             reader.readAsDataURL(input.files[0]);
         }
     }
-    $("#imageUpload").change(function() {
-        readURL(this);
-    });
+      $("#imageUpload").change(function() {
+          readURL(this);
+          temp.uploadFile = this.files[0];
+          // console.log(this.uploadFile)
+      });
     }
 }
 </script>
@@ -129,4 +162,5 @@ h1 small {
   background-repeat: no-repeat;
   background-position: center;
 }
+
 </style>
