@@ -5,6 +5,7 @@ import Mone from '@/views/Mone.vue'
 import Klimt from '@/views/Klimt.vue'
 import Cheon from '@/views/Cheon.vue'
 import StartMonet from '@/views/StartMonet.vue'
+import StartKlimt from '@/views/StartKlimt.vue'
 import MonetPhoto from '@/components/Mone/MonetPhoto.vue'
 import test from '@/components/Mone/test.vue'
 
@@ -43,6 +44,11 @@ export default [
     path:'/klimt',
     name: 'Klimt',
     component: Klimt,
+  },
+  {
+    path:'/startklimt',
+    name: 'StartKlimt',
+    component: StartKlimt,
   },
   {
     path:'/cheon',
