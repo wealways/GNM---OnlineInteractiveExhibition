@@ -4,7 +4,7 @@
     <h1 id="monetname2">Monet</h1>
     <span id="sentence">"물체가 지닌 고유한 색은 없다. 색은 빛에 따라서 변화할 뿐이다."</span>
     <img src="../../assets/mone.jpg" alt="monetface" id="bg">
-    <div @click="realstart">
+    <div @click="realstart" class="nextbtn">
       <span style="font-size:50px;">
           <q-icon :to='"/monetphoto"' target="_blank" id="rightarrow" name="mdi-chevron-double-right"></q-icon>
       </span>
@@ -45,6 +45,9 @@ export default {
 </script>
 
 <style scoped>
+.nextbtn:hover {
+  cursor: pointer;
+}
 body, html {
   overflow: hidden;
 }
