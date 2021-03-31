@@ -6,7 +6,7 @@
     <span id="sentence">"예술은 당신의 생각들을 둘러싼 한줄기 선입니다."</span>
     <div @click="realstart">
       <span style="font-size:50px;">
-          <q-icon :to='"/monetphoto"' target="_blank" id="rightarrow" name="mdi-chevron-double-right"></q-icon>
+          <q-icon :to='"/klimtphoto"' target="_blank" id="rightarrow" name="mdi-chevron-double-right"></q-icon>
       </span>
     </div>
 
@@ -38,7 +38,7 @@ export default {
   },
   methods:{
     realstart(){
-      this.$router.push({path:'monetphoto'})
+      this.$router.push({path:'klimtphoto'})
     }
   }
 }

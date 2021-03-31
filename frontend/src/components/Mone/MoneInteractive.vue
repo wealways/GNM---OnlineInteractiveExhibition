@@ -38,7 +38,7 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 html,body,#home,.ui-content
   margin: 0
   padding: 0
