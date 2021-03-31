@@ -38,7 +38,7 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 html,body,#home,.ui-content
   margin: 0
   padding: 0
@@ -46,6 +46,8 @@ html,body,#home,.ui-content
   width: 100vw
   overflow: hidden
   cursor: pointer
+</style>
+<style lang="sass">
 #home
   background: url("../../assets/waterlily3.jpeg") no-repeat
   background-attachment: fixed
