@@ -18,7 +18,7 @@
             </div>
         </div>
       </div>
-      <q-btn :to='"/mone"' target="_blank">SKIP</q-btn>
+      <q-btn @click="goToNext" target="_blank">SKIP</q-btn>
       <q-btn :to='"/test"' target="_blank" id="skipbtn" @click="urlUpload">NEXT</q-btn>
   </div>
 </template>
@@ -42,6 +42,18 @@ export default {
       }
     },
     methods:{
+      goToNext() {
+        let nextRoute
+
+        if (this.nowRoute==='MonetPhoto'){
+          nextRoute = 'Mone';
+        }else if(this.nowRoute==='KlimtPhoto') {
+          nextRoute = 'Klimt';
+        }else {
+          nextRoute = 'Cheon';
+        }
+        this.$router.push({path:nextRoute})
+      },
       getSession(){
         this.$store.dispatch('getsession/getSession')
       },
