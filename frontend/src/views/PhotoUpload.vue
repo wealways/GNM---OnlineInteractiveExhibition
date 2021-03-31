@@ -1,6 +1,7 @@
 <template>
   <q-page>
     <q-page-container>
+      <IconMap/>
       <div style="min-height:30px"></div>
       <header v-if="nowRoute==='MonetPhoto'">Claude Monet</header>
       <header v-else-if="nowRoute==='KlimtPhoto'">Klimt</header>
@@ -50,6 +51,9 @@ import { fileUpload } from "@/api/fileUpload.js"
 
 export default {
     name:'PhotoUpload',
+    components: {
+      IconMap: () => import('@/components/IconMap/IconMap')
+    },
     data(){
       return {
         uploadFile:"",
