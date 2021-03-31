@@ -1,6 +1,7 @@
 <template>
   <div>
-    <q-btn label="방명록 작성" @click="changeFlag(true)" style="background: #2a433b; color: white"/>
+    <!-- <q-btn label="방명록 작성" @click="changeFlag(true)" style="background: #2a433b; color: white"/> -->
+    <btn @click="changeFlag(true)" class="custom-btn btn-8 write-sz write"><span class="button-title">WRITE</span></btn>
     <q-dialog v-model="flag" persistent>
       <q-card style="min-width: 680px">
         <q-form
@@ -51,6 +52,9 @@
             </div>
             <div class="q-mr-md q-ml-md q-mb-xs">
               <q-input
+                filled
+                color="purple-6"
+                bg-color="pink-1"
                 v-model="article"
                 dense
                 no-error-icon
@@ -72,12 +76,12 @@
             <div class="q-mr-md q-ml-md q-mb-xs">
               이미지 선택란
             </div>
-            <div class="row q-mr-md q-ml-md q-mb-xs">
-              <q-radio class="col-3 q-ml-md " v-model="selectImgIdx" val="0" label="모네" />
-              <q-radio class="col-3 q-ml-md" v-model="selectImgIdx" val="1" label="천경자" />
-              <q-radio class="col-3 q-ml-md" v-model="selectImgIdx" val="2" label="클림트" />
+            <div class="row q-mr-md q-ml-md q-mb-xs justify-between">
+              <q-radio class="col-3 q-ml-md " color="purple-3" v-model="selectImgIdx" val="0" label="모네" />
+              <q-radio class="col-3 q-ml-md" color="purple-3" v-model="selectImgIdx" val="1" label="천경자" />
+              <q-radio class="col-3 q-ml-md" color="purple-3" v-model="selectImgIdx" val="2" label="클림트" />
             </div>
-            <div class="row q-mr-md q-ml-md q-mb-xs">
+            <div class="row q-mr-md q-ml-md q-mb-xs justify-between">
               <img
                 class="col-3 q-mr-md"
                 v-for="(image,idx) in selectableImages"
@@ -90,8 +94,10 @@
             
           </div>
           <q-card-actions align="right" class="text-primary">
-            <q-btn type="submit" color="primary" label="Submit"/>
-            <q-btn @click="onReset" flat label="Cancel"/>
+            <!-- <q-btn type="submit" color="primary" label="Submit"/> -->
+            <!-- <q-btn @click="onReset" flat label="Cancel"/> -->
+            <btn type="submit" class="custom-btn submit-btn sub-can-sz "><span class="button-title">Submit</span></btn>
+            <btn @click="onReset" flat class="custom-btn cancel-btn sub-can-sz"><span class="button-title">Cancel</span></btn>
           </q-card-actions>
         </q-form>
       </q-card>
@@ -199,7 +205,297 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+.button-title {
+  text-align:center;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+
+/* button sizes */
+
+.write-sz {
+  width: 130px;
+  height: 40px;
+}
+
+.sub-can-sz {
+  width : 100px;
+  height :40px;
+  margin : 0 10px;
+}
+
+
+.custom-btn {
+  /* color: #fff; */
+  border-radius: 5px;
+  padding: 10px 25px;
+  /* font-family: 'Lato', sans-serif; */
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px  rgba(0,0,0,.1);
+  outline: none;
+}
+/*  colors */
+/*  write button */
+
+
+
+.btn-8 {
+  color: #fff;
+  background-color: #f0ecfc;
+  background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%);
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+.btn-8 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn-8:before,
+.btn-8:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  bottom: 0;
+  background: #c797eb;
+  /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3); */
+  transition: all 0.3s ease;
+}
+.btn-8:before{
+   height: 0%;
+   width: 2px;
+}
+.btn-8:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-8:hover:before {
+  height: 100%;
+}
+.btn-8:hover:after {
+  width: 100%;
+}
+.btn-8:hover{
+  background: transparent;
+}
+.btn-8 span:hover{
+  color: #c797eb;
+}
+.btn-8 span:before,
+.btn-8 span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  background: #c797eb;
+  /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3); */
+  transition: all 0.3s ease;
+}
+.btn-8 span:before {
+  width: 2px;
+  height: 0%;
+}
+.btn-8 span:after {
+  height: 2px;
+  width: 0%;
+}
+.btn-8 span:hover:before {
+  height: 100%;
+}
+.btn-8 span:hover:after {
+  width: 100%;
+}
+
+
+
+/* submit button color */
+
+
+.submit-btn {
+  color: #fff;
+  background-color: #c797eb;
+  background-image: #c797eb;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+.submit-btn span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.submit-btn:before,
+.submit-btn:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  bottom: 0;
+  background: #c797eb;
+  /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3); */
+  transition: all 0.3s ease;
+}
+.submit-btn:before{
+   height: 0%;
+   width: 2px;
+}
+.submit-btn:after {
+  width: 0%;
+  height: 2px;
+}
+.submit-btn:hover:before {
+  height: 100%;
+}
+.submit-btn:hover:after {
+  width: 100%;
+}
+.submit-btn:hover{
+  /* 호버 바탕색 */
+  /* background: transparent; */
+  background:#FFD1DC;
+}
+.submit-btn span:hover{
+  /* 버튼글씨 색깔 */
+  color: #c797eb;
+}
+.submit-btn span:before,
+.submit-btn span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  background: #c797eb;
+  /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3); */
+  transition: all 0.3s ease;
+}
+.submit-btn span:before {
+  width: 2px;
+  height: 0%;
+}
+.submit-btn span:after {
+  height: 2px;
+  width: 0%;
+}
+.submit-btn span:hover:before {
+  height: 100%;
+}
+.submit-btn span:hover:after {
+  width: 100%;
+}
+
+
+
+/* cancel button  */
+
+.cancel-btn {
+  color: #c797eb;
+  background-color: #f0ecfc;
+  /* background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%); */
+  background-image:  #f0ecfc;
+  color: #c797eb;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+.cancel-btn span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.cancel-btn:before,
+.cancel-btn:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  bottom: 0;
+  background: #c797eb;
+  /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3); */
+  transition: all 0.3s ease;
+}
+.cancel-btn:before{
+   height: 0%;
+   width: 2px;
+}
+.cancel-btn:after {
+  width: 0%;
+  height: 2px;
+}
+.cancel-btn:hover:before {
+  height: 100%;
+}
+.cancel-btn:hover:after {
+  width: 100%;
+}
+.cancel-btn:hover{
+  background: #FFD1DC;
+  /* color: #f0ecfc; */
+}
+.cancel-btn span:hover{
+  color: #c797eb;
+}
+.cancel-btn span:before,
+.cancel-btn span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  background: #c797eb;
+  /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3); */
+  transition: all 0.3s ease;
+}
+.cancel-btn span:before {
+  width: 2px;
+  height: 0%;
+}
+.cancel-btn span:after {
+  height: 2px;
+  width: 0%;
+}
+.cancel-btn span:hover:before {
+  height: 100%;
+}
+.cancel-btn span:hover:after {
+  width: 100%;
+}
+
+
+
+
+
+
+
+
 form{
   padding:30px 60px;
 }

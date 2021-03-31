@@ -2,7 +2,7 @@
   <div>
     <!-- <Icons/> -->
     <div class="guestbook-header row justify-between items-center">
-      <h3>방명록</h3>
+      <h3>GUESTBOOK</h3>
       <BookWrite/>
     </div>
     <q-page-container class="guestbook-body">
@@ -98,6 +98,7 @@ export default {
   min-height: 100px;
   max-width: 1420px;;
   margin: 0 auto;
+  padding : 0 5%;
 }
 .guestbook-body{
   max-width: 1420px;;
