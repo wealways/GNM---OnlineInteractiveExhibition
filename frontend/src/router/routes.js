@@ -8,6 +8,7 @@ import StartMonet from '@/views/StartMonet.vue'
 import StartKlimt from '@/views/StartKlimt.vue'
 import MonetPhoto from '@/components/Mone/MonetPhoto.vue'
 import test from '@/components/Mone/test.vue'
+import Mones from '@/components/Mone/Mones.vue'
 import PhotoUpload from '@/views/PhotoUpload.vue'
 
 export default [
@@ -30,6 +31,11 @@ export default [
     path:'/mone',
     name: 'Mone',
     component: Mone,
+  },
+  {
+    path:'/mones',
+    name: 'Mones',
+    component: Mones,
   },
   {
     path:'/startmonet',

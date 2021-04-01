@@ -13,8 +13,12 @@ import $ from 'jquery'
 export default {
   name:'MoneInteractive',
   methods:{
-    handleScroll(){
-      console.log('event')
+    handleScroll(event){
+      if(event){
+        if(this.$route.path !=='/mones') {
+          this.$router.push({name:'Mones'})
+        }
+      }
     }
   },
   mounted(){
@@ -107,7 +111,7 @@ export default {
 html,body,#home,.ui-content
   margin: 0
   padding: 0
-  height: 100vh
+  height: 101vh
   width: 100vw
   cursor: pointer
 </style>
