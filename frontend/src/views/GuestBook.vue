@@ -112,19 +112,22 @@ export default {
   position: relative;
   color:#fff;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
+  margin-top: 50px;
 }
-.end-text>div:nth-child(1){
+.end-text>div:nth-child(2){
   position: absolute;
   width: 200px;
+  height: 40px;
   background-color: #2a433b;
+  line-height: 40px;
   z-index: 3;
   top:50%;
   left:43%;
-  
+  /* vertical-align: middle; */
   /* background-color: #2a433b; */
 }
-.end-text>div:nth-child(2){
+.end-text>div:nth-child(3){
   position: absolute;
   transform: translate(8px,-10px);
   z-index: 2;
@@ -135,4 +138,70 @@ export default {
   top:50%;
   left:43%;
 }
+
+.end-text>div:nth-child(1),
+.end-text>div:nth-child(4){
+  border: 1px solid #DECBA7;
+  margin: 0 10%;
+  width:25%;
+  align-content: center;
+  top:50%;
+}
+
+
+
+h2 {
+    font: 33px sans-serif;
+    margin-top: 30px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h2.background {
+    position: relative;
+    z-index: 1;
+}
+
+
+.background:before {
+    border-top: 2px solid #DECBA7;
+    content:"";
+    margin: 0 auto; /* this centers the line to the full width specified */
+    position: absolute; /* positioning must be absolute here, and relative positioning must be applied to the parent */
+    top: 50%; left: 0; right: 0; bottom: 0;
+    width: 95%;
+    z-index: -1;
+}
+
+.background > span {
+ 
+        /* to hide the lines from behind the text, you have to set the background color the same as the container */ 
+  background: white; 
+  color: #2a433b;
+  padding: 0 15px;
+  margin: 0 15px; 
+  z-index: 3;
+
+}
+
+
+h2.double:before { 
+    /* this is just to undo the :before styling from above */
+    border-top: none; 
+}
+
+h2.double:after {
+    border-bottom: 1px solid blue;
+    -webkit-box-shadow: 0 1px 0 0 red;
+    -moz-box-shadow: 0 1px 0 0 red;
+    box-shadow: 0 1px 0 0 red;
+    content: "";
+    margin: 0 auto; /* this centers the line to the full width specified */
+    position: absolute;
+    top: 45%; left: 0; right: 0;
+    width: 95%;
+    z-index: -1;
+}
+
+
 </style>

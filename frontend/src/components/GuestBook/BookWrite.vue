@@ -22,6 +22,7 @@
                   no-error-icon
                   v-model="nickname" 
                   label="이름" 
+                  color="teal-5" 
                   class="q-pt-none"
                   :rules="[ val => val && val.length > 1 && val.length <10 || '2~9글자를 입력해주세요']"
                 >
@@ -33,6 +34,7 @@
                   v-model="password" 
                   type="password" 
                   label="임시비밀번호" 
+                  color="teal-5" 
                   class="q-pt-none"
                   :rules="[ val => val && val.length > 4 && val.length<10 || '5~9자리 비빌번호']"
                 >
@@ -53,8 +55,8 @@
             <div class="q-mr-md q-ml-md q-mb-xs">
               <q-input
                 filled
-                color="purple-6"
-                bg-color="pink-1"
+                color="teal-10"
+                bg-color="grey-1"
                 v-model="article"
                 dense
                 no-error-icon
@@ -77,9 +79,9 @@
               이미지 선택란
             </div>
             <div class="row q-mr-md q-ml-md q-mb-xs justify-between">
-              <q-radio class="col-3 q-ml-md " color="purple-3" v-model="selectImgIdx" val="0" label="모네" />
-              <q-radio class="col-3 q-ml-md" color="purple-3" v-model="selectImgIdx" val="1" label="천경자" />
-              <q-radio class="col-3 q-ml-md" color="purple-3" v-model="selectImgIdx" val="2" label="클림트" />
+              <q-radio class="col-3 q-ml-md " color="teal-5" v-model="selectImgIdx" val="0" label="모네" />
+              <q-radio class="col-3 q-ml-md" color="teal-5" v-model="selectImgIdx" val="1" label="천경자" />
+              <q-radio class="col-3 q-ml-md" color="teal-5" v-model="selectImgIdx" val="2" label="클림트" />
             </div>
             <div class="row q-mr-md q-ml-md q-mb-xs justify-between">
               <img
@@ -252,7 +254,8 @@ export default {
 .btn-8 {
   color: #fff;
   background-color: #f0ecfc;
-  background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%);
+  /* background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%); */
+  background-image: linear-gradient(315deg, #f0ecfc 0%, #fe3901 74%);
   line-height: 42px;
   padding: 0;
   border: none;
@@ -269,7 +272,8 @@ export default {
   content: "";
   right: 0;
   bottom: 0;
-  background: #c797eb;
+  /* background: #c797eb; */
+  background: #fe3901;
   /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
               -4px -4px 6px 0 rgba(116, 125, 136, .2), 
     inset -4px -4px 6px 0 rgba(255,255,255,.5),
@@ -294,7 +298,8 @@ export default {
   background: transparent;
 }
 .btn-8 span:hover{
-  color: #c797eb;
+  /* color: #c797eb; */
+  color: #fe3901;
 }
 .btn-8 span:before,
 .btn-8 span:after {
@@ -302,7 +307,8 @@ export default {
   content: "";
   left: 0;
   top: 0;
-  background: #c797eb;
+  /* background: #c797eb; */
+  background: #fe3901;
   /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
               -4px -4px 6px 0 rgba(116, 125, 136, .2), 
     inset -4px -4px 6px 0 rgba(255,255,255,.5),
@@ -331,8 +337,8 @@ export default {
 
 .submit-btn {
   color: #fff;
-  background-color: #c797eb;
-  background-image: #c797eb;
+  background-color: #2a433b;
+  background-image: #2a433b;
   line-height: 42px;
   padding: 0;
   border: none;
@@ -349,7 +355,7 @@ export default {
   content: "";
   right: 0;
   bottom: 0;
-  background: #c797eb;
+  background: #2a433b;
   /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
               -4px -4px 6px 0 rgba(116, 125, 136, .2), 
     inset -4px -4px 6px 0 rgba(255,255,255,.5),
@@ -373,11 +379,11 @@ export default {
 .submit-btn:hover{
   /* 호버 바탕색 */
   /* background: transparent; */
-  background:#FFD1DC;
+  background:#A0D6C8;
 }
 .submit-btn span:hover{
   /* 버튼글씨 색깔 */
-  color: #c797eb;
+  color: #2a433b;
 }
 .submit-btn span:before,
 .submit-btn span:after {
@@ -385,7 +391,7 @@ export default {
   content: "";
   left: 0;
   top: 0;
-  background: #c797eb;
+  background: #2a433b;
   /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
               -4px -4px 6px 0 rgba(116, 125, 136, .2), 
     inset -4px -4px 6px 0 rgba(255,255,255,.5),
@@ -412,11 +418,11 @@ export default {
 /* cancel button  */
 
 .cancel-btn {
-  color: #c797eb;
-  background-color: #f0ecfc;
+  color: #2a433b;
+  background-color: #E4E8E7;
   /* background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%); */
-  background-image:  #f0ecfc;
-  color: #c797eb;
+  background-image:  #E4E8E7;
+  color: #2a433b;
   line-height: 42px;
   padding: 0;
   border: none;
@@ -433,7 +439,7 @@ export default {
   content: "";
   right: 0;
   bottom: 0;
-  background: #c797eb;
+  background: #2a433b;
   /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
               -4px -4px 6px 0 rgba(116, 125, 136, .2), 
     inset -4px -4px 6px 0 rgba(255,255,255,.5),
@@ -455,11 +461,11 @@ export default {
   width: 100%;
 }
 .cancel-btn:hover{
-  background: #FFD1DC;
+  background: #A0D6C8;
   /* color: #f0ecfc; */
 }
 .cancel-btn span:hover{
-  color: #c797eb;
+  color: #2a433b;
 }
 .cancel-btn span:before,
 .cancel-btn span:after {
@@ -467,7 +473,7 @@ export default {
   content: "";
   left: 0;
   top: 0;
-  background: #c797eb;
+  background: #2a433b;
   /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
               -4px -4px 6px 0 rgba(116, 125, 136, .2), 
     inset -4px -4px 6px 0 rgba(255,255,255,.5),
