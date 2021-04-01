@@ -29,14 +29,8 @@
 </template>
 
 <script>
-let img = ['https://lh3.googleusercontent.com/proxy/Fq4c7dYetAn7DQVY-oGMwfpwe_CwvCZp0UqEaVjucfcKYWSPFK6q28IfkAS45dP9XeTCXdI0iyUM92g9zkGD4j5YvJ4mqnMj32V7l4F3a6S9wgHQSU3uvyv9y3NPxkuq34NrZIXmKJwbIS1cSaUbWqXhxz3B2IYwUg46-qQZXf_byZjEyrnDWCiW_apFGLMev_ZtsvGh1g',
-           'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3dd97bd9-f6f2-48a3-963e-104454bd460c%2FUntitled.png?table=block&id=1bfdaf93-9b5e-47b4-a2b1-c15dfdf4ab1a&width=3840&userId=e1047be0-5891-4b23-a346-293193a34336&cache=v2',
-           'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3dd97bd9-f6f2-48a3-963e-104454bd460c%2FUntitled.png?table=block&id=1bfdaf93-9b5e-47b4-a2b1-c15dfdf4ab1a&width=3840&userId=e1047be0-5891-4b23-a346-293193a34336&cache=v2',
-           'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3dd97bd9-f6f2-48a3-963e-104454bd460c%2FUntitled.png?table=block&id=1bfdaf93-9b5e-47b4-a2b1-c15dfdf4ab1a&width=3840&userId=e1047be0-5891-4b23-a346-293193a34336&cache=v2',
-           'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3dd97bd9-f6f2-48a3-963e-104454bd460c%2FUntitled.png?table=block&id=1bfdaf93-9b5e-47b4-a2b1-c15dfdf4ab1a&width=3840&userId=e1047be0-5891-4b23-a346-293193a34336&cache=v2',
-           'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3dd97bd9-f6f2-48a3-963e-104454bd460c%2FUntitled.png?table=block&id=1bfdaf93-9b5e-47b4-a2b1-c15dfdf4ab1a&width=3840&userId=e1047be0-5891-4b23-a346-293193a34336&cache=v2',
-           'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3dd97bd9-f6f2-48a3-963e-104454bd460c%2FUntitled.png?table=block&id=1bfdaf93-9b5e-47b4-a2b1-c15dfdf4ab1a&width=3840&userId=e1047be0-5891-4b23-a346-293193a34336&cache=v2', ]
-let old = 5 
+// let img = ["../../assets/cheon_pic.png"]
+// let old = 5 
 
 
 export default {
@@ -73,12 +67,12 @@ export default {
   methods:{
     
     randomize: function () {
-      let root = document.documentElement
-      root.style.setProperty('--image','url('+img[old]+')')
-      old++
-      if(old > 5) {
-        old = 0
-      }  
+      // let root = document.documentElement
+      // root.style.setProperty('--image','url('+img[0]+')')
+      // // old++
+      // if(old > 5) {
+      //   old = 0
+      // }  
       var ul = document.querySelectorAll('#puzz i');
       for(var i=0;i<ul.length;i++){
         ul[i].style.left = Math.random()*(window.innerWidth-400) + 'px'
@@ -139,6 +133,13 @@ export default {
 }
 </script>
 
+<style scoped>
+:root {
+  --color:lightgray;
+  --border-radius:10px;
+  --image:url("../../assets/cheon_pic.png");
+}
+</style>
 <style>
 .page{
   padding: 0;
@@ -150,13 +151,6 @@ export default {
   overflow: hidden;
   z-index: 1;
   display: flex;
-}
-
-
-:root {
-  --color:lightgray;
-  --border-radius:10px;
-  --image:url('https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3dd97bd9-f6f2-48a3-963e-104454bd460c%2FUntitled.png?table=block&id=1bfdaf93-9b5e-47b4-a2b1-c15dfdf4ab1a&width=3840&userId=e1047be0-5891-4b23-a346-293193a34336&cache=v2');
 }
 #title{
   position: absolute;
