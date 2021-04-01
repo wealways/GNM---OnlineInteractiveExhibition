@@ -1,6 +1,10 @@
 <template>
   <div data-role="page" id="home">
-    <div class='ui-content'></div>
+    <div class='ui-content'>
+      <div class='icon-scroll'>
+        <div class='scrolltext' style="color:white; font-family:'Cinzel">scroll</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -8,7 +12,13 @@
 import $ from 'jquery'
 export default {
   name:'MoneInteractive',
+  methods:{
+    handleScroll(){
+      console.log('event')
+    }
+  },
   mounted(){
+    window.addEventListener('scroll', this.handleScroll);
     let z = 2;
     $(document).on('mouseover', (e)=> {
       const mx = e.pageX;
@@ -37,16 +47,71 @@ export default {
   }
 }
 </script>
+<style>
+.scrolltext{
+  position: absolute;
+  bottom:100%;
+  transform: translateX(-10%) translateY(-30%);
+}
+.icon-scroll,
+.icon-scroll:before {
+  position: absolute;
+  left: 50%;
+}
+.icon-scroll {
+  width: 40px;
+  height: 70px;
+  margin-left: -20px;
+  top: 90%;
+  margin-top: -35px;
+  box-shadow: inset 0 0 0 1px #fff;
+  border-radius: 25px;
+}
+.icon-scroll:before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  margin-left: -4px;
+  top: 8px;
+  border-radius: 4px;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-name: scroll;
+          animation-name: scroll;
+}
+@-webkit-keyframes scroll {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(46px);
+  }
+}
+@keyframes scroll {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(46px);
+  }
+}
 
+
+</style>
 <style lang="sass" scoped>
 html,body,#home,.ui-content
   margin: 0
   padding: 0
   height: 100vh
   width: 100vw
-  overflow: hidden
   cursor: pointer
 </style>
+
 <style lang="sass">
 #home
   background: url("../../assets/waterlily3.jpeg") no-repeat
