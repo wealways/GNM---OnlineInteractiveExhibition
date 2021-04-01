@@ -84,7 +84,6 @@ class GalleryViewSet(viewsets.ModelViewSet):
         image = request.data.get('image')
         # print(image)
         if sessionstatus:
-            
             card = Card.objects.filter(sessionkey=sessionkey)
             # card = get_object_or_404(Card, sessionkey=sessionkey)
             imagefield = str(imgtype) + '_image_' + str(no)
@@ -102,14 +101,12 @@ class GalleryViewSet(viewsets.ModelViewSet):
                 #     imagefile = cardquery[0][imagefield]
                 #     imageaddress = os.path.join(*[BASE_DIR,'media',imagefile])
                 #     img = open(imageaddress, 'rb')
-                #     response = FileResponse(img)
-                #     response['sessionkey'] = sessionkey
                 #     base_url = 'http://127.0.0.1:8000/'
                 #     # artist = [mone', 'chun', 'klimt']
                 #     artist = 'galleries/test/'
                 #     ai_url = base_url + artist
                 #     # ai_url = base_url + artist[no-1]
-                #     response = requests.post(ai_url,data={'image': img},headers={'sessionkey': sessionkey})
+                #     response = requests.post(ai_url,files={'image': img},headers={'sessionkey': sessionkey})
                 #     response_status = json.loads(response.text)['status']
                 #     return JsonResponse({'status' : response_status}) 
 
@@ -138,12 +135,12 @@ def passcard(request):
 @api_view(['POST'])
 def test(request):
     print('im here')
-    sessionkey = request.headers.get('sessionkey')
-    sessionstatus = session_check(sessionkey)
+    # sessionkey = request.headers.get('sessionkey')
+    # sessionstatus = session_check(sessionkey)
     # image = request.file
     image = request.data.get('image')
-    print(sessionkey, image)
-    if sessionstatus:
-        print(image)
+    print(image)
+    # if sessionstatus:
+    #     print(image)
     return JsonResponse({'status' : 'success'})
         

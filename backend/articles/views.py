@@ -15,7 +15,7 @@ from rest_framework.decorators import action
 from drf_yasg.utils import swagger_auto_schema
 from django.utils.decorators import method_decorator
 from drf_yasg import openapi
-
+import datetime
 
 # Create your views here.
 class ArticleViewSet(viewsets.ModelViewSet):
@@ -93,16 +93,41 @@ def password_check(request, article_pk):
 @api_view(['POST'])
 def session(request):
     # session-key exists
-    if request.headers.get('sessionkey'):
-        session_key = request.headers.get('sessionkey')
-        m = Session.objects.get(pk=session_key)
-        m.expire_date = timezone.now() + timezone.timedelta(days=50)
+    sessionkey = request.headers.get('sessionkey')
+    m = Session.objects.filter(pk=sessionkey)
+    if m:
+        m = m[0]
+        m.expire_date = timezone.now() + timezone.timedelta(days=30)
         m.save()
         return JsonResponse({'sessionkey':m.session_key})
     #session-key doesn't exist
     else:
         m = SessionStore()
         m.create()
-        m.expire_date = timezone.now() + timezone.timedelta(days=50)
+        effectivetimes = 60 * 60 * 24 * 30 # 60초, 60분, 24시간, 30일
+        m.set_expiry(effectivetimes)
+        m.modified = True
         m.save()
+        # print(m.expire_date)
         return JsonResponse({'sessionkey':m.session_key})
+
+
+
+
+@swagger_auto_schema(
+        method='put',
+        manual_parameters=[openapi.Parameter('sessionkey', openapi.IN_HEADER,
+        description="sessionkey",
+        type=openapi.TYPE_STRING)]
+    )
+@api_view(['PUT'])
+def expire(request):
+    sessionkey = request.headers.get('sessionkey')
+    m = Session.objects.filter(pk=sessionkey)
+    if m:
+        m = m[0]
+        m.expire_date = timezone.now()
+        m.save()
+        return JsonResponse({'sessionkey':m.session_key, 'expire_date' : m.expire_date})
+    else:
+        return JsonResponse({'status' : 'session이 존재하지 않습니다.'})

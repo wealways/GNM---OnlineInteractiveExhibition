@@ -13,5 +13,6 @@ app_name = 'articles'
 urlpatterns = [
     path('password/<int:article_pk>/', views.password_check),
     path('session/', views.session),
+    path('expire/', views.expire),
     path('', include(router.urls))
 ]
