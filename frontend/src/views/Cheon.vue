@@ -1,5 +1,5 @@
 <template>
-  <div class="body">
+  <div>
     <CheonInteractive/>
   </div>
 </template>

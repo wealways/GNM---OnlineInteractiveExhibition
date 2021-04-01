@@ -1,51 +1,48 @@
 <template>
   <div class="page">
-    <div class="description">
-      천경자 인터렉티브 페이지
-    </div>
-    
+    <div id="title">작품을 완성해 보세요.</div>
+    <div class="frame">
       <div id='puz'>
-        <i class='first' ondrop='drop(event)' ondragover='allowDrop(event)' ></i>
-        <i class='secon' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
-        <i class='third' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
-        <i class='fourt' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
-        <i class='fifth' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
-        <i class='sixth' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
-        <i class='seven' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
-        <i class='eight' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
-        <i class='ninth' ondrop='drop(event)' ondragover='allowDrop(event)'></i>
+        <i class='first' @drop='drop($event)' @dragover='allowDrop($event)' ></i>
+        <i class='secon' @drop='drop($event)' @dragover='allowDrop($event)'></i>
+        <i class='third' @drop='drop($event)' @dragover='allowDrop($event)'></i>
+        <i class='fourt' @drop='drop($event)' @dragover='allowDrop($event)'></i>
+        <i class='fifth' @drop='drop($event)' @dragover='allowDrop($event)'></i>
+        <i class='sixth' @drop='drop($event)' @dragover='allowDrop($event)'></i>
+        <i class='seven' @drop='drop($event)' @dragover='allowDrop($event)'></i>
+        <i class='eight' @drop='drop($event)' @dragover='allowDrop($event)'></i>
+        <i class='ninth' @drop='drop($event)' @dragover='allowDrop($event)'></i>
       </div>
-      <div id='puzz'>
-        <i class='first' draggable='true' ondragstart='drag(event)'></i>
-        <i class='secon' draggable='true' ondragstart='drag(event)'></i>
-        <i class='third' draggable='true' ondragstart='drag(event)'></i>
-        <i class='fourt' draggable='true' ondragstart='drag(event)'></i>
-        <i class='fifth' draggable='true' ondragstart='drag(event)'></i>
-        <i class='sixth' draggable='true' ondragstart='drag(event)'></i>
-        <i class='seven' draggable='true' ondragstart='drag(event)'></i>
-        <i class='eight' draggable='true' ondragstart='drag(event)'></i>
-        <i class='ninth' draggable='true' ondragstart='drag(event)'></i>  
-      </div>
-    
-
+    </div>
+    <div id='puzz'>
+      <i class='first' draggable='true' @dragstart='drag($event)'></i>
+      <i class='secon' draggable='true' @dragstart='drag($event)'></i>
+      <i class='third' draggable='true' @dragstart='drag($event)'></i>
+      <i class='fourt' draggable='true' @dragstart='drag($event)'></i>
+      <i class='fifth' draggable='true' @dragstart='drag($event)'></i>
+      <i class='sixth' draggable='true' @dragstart='drag($event)'></i>
+      <i class='seven' draggable='true' @dragstart='drag($event)'></i>
+      <i class='eight' draggable='true' @dragstart='drag($event)'></i>
+      <i class='ninth' draggable='true' @dragstart='drag($event)'></i>  
+    </div>
   </div>
 </template>
 
 <script>
-let img = ['https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3dd97bd9-f6f2-48a3-963e-104454bd460c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210329%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210329T024727Z&X-Amz-Expires=86400&X-Amz-Signature=88fff8efa8b89e7fac053fe3dc4a2b4c9d72813ef091b3547e45ac0f6f90db1f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22',
-           'https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3dd97bd9-f6f2-48a3-963e-104454bd460c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210329%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210329T024727Z&X-Amz-Expires=86400&X-Amz-Signature=88fff8efa8b89e7fac053fe3dc4a2b4c9d72813ef091b3547e45ac0f6f90db1f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22',
-           'https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3dd97bd9-f6f2-48a3-963e-104454bd460c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210329%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210329T024727Z&X-Amz-Expires=86400&X-Amz-Signature=88fff8efa8b89e7fac053fe3dc4a2b4c9d72813ef091b3547e45ac0f6f90db1f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22',
-           'https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3dd97bd9-f6f2-48a3-963e-104454bd460c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210329%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210329T024727Z&X-Amz-Expires=86400&X-Amz-Signature=88fff8efa8b89e7fac053fe3dc4a2b4c9d72813ef091b3547e45ac0f6f90db1f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22',
-           'https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3dd97bd9-f6f2-48a3-963e-104454bd460c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210329%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210329T024727Z&X-Amz-Expires=86400&X-Amz-Signature=88fff8efa8b89e7fac053fe3dc4a2b4c9d72813ef091b3547e45ac0f6f90db1f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22',
-           'https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3dd97bd9-f6f2-48a3-963e-104454bd460c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210329%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210329T024727Z&X-Amz-Expires=86400&X-Amz-Signature=88fff8efa8b89e7fac053fe3dc4a2b4c9d72813ef091b3547e45ac0f6f90db1f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22',
-           'https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3dd97bd9-f6f2-48a3-963e-104454bd460c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210329%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210329T024727Z&X-Amz-Expires=86400&X-Amz-Signature=88fff8efa8b89e7fac053fe3dc4a2b4c9d72813ef091b3547e45ac0f6f90db1f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22',
-            ]
+let img = ['https://lh3.googleusercontent.com/proxy/Fq4c7dYetAn7DQVY-oGMwfpwe_CwvCZp0UqEaVjucfcKYWSPFK6q28IfkAS45dP9XeTCXdI0iyUM92g9zkGD4j5YvJ4mqnMj32V7l4F3a6S9wgHQSU3uvyv9y3NPxkuq34NrZIXmKJwbIS1cSaUbWqXhxz3B2IYwUg46-qQZXf_byZjEyrnDWCiW_apFGLMev_ZtsvGh1g',
+           'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3dd97bd9-f6f2-48a3-963e-104454bd460c%2FUntitled.png?table=block&id=1bfdaf93-9b5e-47b4-a2b1-c15dfdf4ab1a&width=3840&userId=e1047be0-5891-4b23-a346-293193a34336&cache=v2',
+           'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3dd97bd9-f6f2-48a3-963e-104454bd460c%2FUntitled.png?table=block&id=1bfdaf93-9b5e-47b4-a2b1-c15dfdf4ab1a&width=3840&userId=e1047be0-5891-4b23-a346-293193a34336&cache=v2',
+           'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3dd97bd9-f6f2-48a3-963e-104454bd460c%2FUntitled.png?table=block&id=1bfdaf93-9b5e-47b4-a2b1-c15dfdf4ab1a&width=3840&userId=e1047be0-5891-4b23-a346-293193a34336&cache=v2',
+           'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3dd97bd9-f6f2-48a3-963e-104454bd460c%2FUntitled.png?table=block&id=1bfdaf93-9b5e-47b4-a2b1-c15dfdf4ab1a&width=3840&userId=e1047be0-5891-4b23-a346-293193a34336&cache=v2',
+           'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3dd97bd9-f6f2-48a3-963e-104454bd460c%2FUntitled.png?table=block&id=1bfdaf93-9b5e-47b4-a2b1-c15dfdf4ab1a&width=3840&userId=e1047be0-5891-4b23-a346-293193a34336&cache=v2',
+           'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3dd97bd9-f6f2-48a3-963e-104454bd460c%2FUntitled.png?table=block&id=1bfdaf93-9b5e-47b4-a2b1-c15dfdf4ab1a&width=3840&userId=e1047be0-5891-4b23-a346-293193a34336&cache=v2', ]
 let old = 5 
 
 
 export default {
   name:'CheonInteractive',
   mounted(){
+    
     this.randomize()
 
     const fp = document.querySelectorAll('#puz i')
@@ -74,6 +71,7 @@ export default {
     })
   },
   methods:{
+    
     randomize: function () {
       let root = document.documentElement
       root.style.setProperty('--image','url('+img[old]+')')
@@ -83,7 +81,7 @@ export default {
       }  
       var ul = document.querySelectorAll('#puzz i');
       for(var i=0;i<ul.length;i++){
-        ul[i].style.left = Math.random()*(window.innerWidth-100) + 'px'
+        ul[i].style.left = Math.random()*(window.innerWidth-400) + 'px'
         ul[i].style.top = Math.random()*(window.innerHeight-100) + 'px'
       }
       // for (var i = ul.children.length; i >= 0; i--) {
@@ -111,13 +109,12 @@ export default {
     },
 
     drag: function(ev) {
-      console.log(ev)
       ev.dataTransfer.setData("text", ev.target.className);  
     },
-
+   
     drop: function(ev) {
       ev.preventDefault();
-      var data = ev.dataTransfer.getData("text")
+      let data = ev.dataTransfer.getData("text")
 
       if(ev.target.className == data){
         ev.target.classList.add('dropped')
@@ -147,41 +144,62 @@ export default {
   padding: 0;
   margin: 0 auto;
   font-family: "Signika", sans-serif;
-  background:  #939597;
+  background:  white;
   height: 980px;
   width: 100%;
   overflow: hidden;
-  color: rgb(255, 255, 255);
   z-index: 1;
   display: flex;
 }
 
-.description{
-  margin-top: 3%;
-  margin-left: 5%;
-  min-width: 45%;
-}
+
 :root {
   --color:lightgray;
   --border-radius:10px;
-  --image:url('https://media.gettyimages.com/vectors/cute-cartoon-dachshunds-in-love-vector-id865392634?s=2048x2048');
+  --image:url('https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3dd97bd9-f6f2-48a3-963e-104454bd460c%2FUntitled.png?table=block&id=1bfdaf93-9b5e-47b4-a2b1-c15dfdf4ab1a&width=3840&userId=e1047be0-5891-4b23-a346-293193a34336&cache=v2');
+}
+#title{
+  position: absolute;
+  text-align: center;
+  left: 41%;
+  top: 5%;
+  font-size: 2rem;
+  font-weight: bolder ;
+  animation-name: twinkling;
+  animation-duration: 3s;
+}
+@keyframes twinkling{
+  0% {color: black;}
+  50%{color: white;}
+  100% {color: black;}
 }
 
+.frame{
+  border: 8px solid black;
+  position: absolute;
+  width: 506px;
+  height: 500px;
+  top: 15%;
+  left: 34%;
+  background: rgba(244, 248, 207, 0.719);
+  box-shadow: 0px 0px 15px rgba(15, 15, 15, 0.171);
+}
 
 #puz, #puzz {
-  position:absolute;
-  border-radius:var(--border-radius) 0 var(--border-radius) 0;    
+  position: relative;
+  border-radius: var(--border-radius) ;    
   user-select:none;
 }
 #puz {
   width:306px;
   height:300px;
-  position:absolute;
+  position:relative;
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
-  border:3px dashed lightgray;
+  border:3px dashed lightgray; 
   overflow:hidden;
+  background: white;
 }
 #puzz {
   left:0;
