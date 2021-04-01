@@ -22,9 +22,17 @@ import Floors from '../IconMap/Floors'
 export default {
   name:'IconMap',
   components: { Floors },
+  props:{
+    mapColor:String,
+  },
   data() {
     return {
       fullWidth: false,
+    }
+  },
+  mounted(){
+    if(this.mapColor !==null){
+      document.querySelector('.map').style.color=this.mapColor
     }
   }
 }
@@ -42,6 +50,6 @@ export default {
   background-color: transparent;
 }
 .map:hover {
-  color: red;
+  color: red !important;
 }
 </style>
