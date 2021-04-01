@@ -15,8 +15,8 @@ export default {
   methods:{
     handleScroll(event){
       if(event){
-        if(this.$route.path !=='/mones') {
-          this.$router.push({name:'Mones'})
+        if(this.$route.path !=='/mones/mone1') {
+          this.$router.push({path:'/mones/mone1'})
         }
       }
     }
