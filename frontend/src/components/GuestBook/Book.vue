@@ -304,7 +304,6 @@ p{
 }
 .card-img-body> div:nth-child(1){
   font-size:1.5rem;
-  margin: 10px;
   word-break:break-all;
   margin-right:0;
   margin-bottom:0;
