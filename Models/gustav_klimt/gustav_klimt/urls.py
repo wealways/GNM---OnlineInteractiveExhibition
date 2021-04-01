@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+# static uri 관리를 위해 사용
+from django.conf import settings
+from django.conf.urls.static import static
 # 실행시킬 함수 적용
 from klimt.views import style_transfer
 

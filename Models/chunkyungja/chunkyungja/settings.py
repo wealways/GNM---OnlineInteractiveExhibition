@@ -130,7 +130,7 @@ STATICFILES_DIRS = [
 ]
 
 # 배포를 위해(collectstatic) app static들을 모아줄 directory 위치 지정
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # 사용자 입력 사진 저장
 MEDIA_URL = '/media/'
