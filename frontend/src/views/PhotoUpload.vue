@@ -1,6 +1,5 @@
 <template>
-  <q-page>
-    <q-page-container>
+  <div class="main">
       <IconMap/>
       <div style="min-height:30px"></div>
       <header v-if="nowRoute==='MonetPhoto'">Claude Monet</header>
@@ -41,8 +40,7 @@
         </q-btn>
       </footer>
       
-    </q-page-container>
-  </q-page>
+  </div>
 </template>
 
 <script>
@@ -147,7 +145,8 @@ export default {
 
 
 
-main {
+.main {
+  height: 100vh;
   background: #ECE5E1;
   font-family: "Open Sans", sans-serif;
 }

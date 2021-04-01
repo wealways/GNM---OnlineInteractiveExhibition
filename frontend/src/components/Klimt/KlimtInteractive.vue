@@ -282,7 +282,7 @@ export default {
   padding: 0;
   margin: 0 auto;
   font-family: "Signika", sans-serif;
-  background: #262626;
+  /* background: #262626; */
   height: 968.5px;
   /* height: 100%; */
   width: 100%;
