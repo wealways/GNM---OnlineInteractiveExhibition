@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import KlimtIntro from '../components/Klimt/KlimtIntro'
+import KlimtIntro from '@/components/Klimt/KlimtIntro'
 import IconMap from '@/components/IconMap/IconMap'
 export default {
   name:'StartMonet',
