@@ -22,9 +22,10 @@ class ArticleViewSet(viewsets.ModelViewSet):
 
     serializer_class = Guestbook
 
+    queryset = Guestbook.objects.all()
 
     @swagger_auto_schema(query_serializer=GuestbookListSerializer)
-    def list(self, request, **kwargs):
+    def get(self, request, **kwargs):
 
         page = int(request.query_params.get('page'))
         articles_per_page = int(request.query_params.get('articles_per_page'))
