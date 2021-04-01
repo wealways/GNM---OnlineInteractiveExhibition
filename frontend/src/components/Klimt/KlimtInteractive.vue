@@ -1,6 +1,7 @@
 <template>
-  <div class="page">
-    <div class="description">
+  <div class="page insideWrapper">
+    <canvas class="coveringCanvas"></canvas>
+    <div class="description ">
       <div>
         클림트 - 키스 
       </div>
@@ -23,7 +24,7 @@
         키스의 모든 색감을 볼 수 있습니다.
       </div>
     </div>
-    <svg id="demo" xmlns="http://www.w3.org/2000/svg" x="0" y="0" left="0" width="0" height="0" viewBox="0 0 900 900">
+    <svg id="demo" xmlns="http://www.w3.org/2000/svg" x="0" y="0" left="0" width="0" height="0" viewBox="0 0 900 900" class="">
       <defs>
       <radialGradient id="maskGradient">
         <stop offset="50%" stop-color="#fff"/>
@@ -32,9 +33,10 @@
       <mask id="theMask">
       <circle id="masker" r="100" fill="url(#maskGradient)" cx="800" cy="450" />
       </mask>
-      </defs> 
-        <image id="lines" xlink:href="https://i.ibb.co/jkqJsth/klimt-sketch.png" x="0" y="0" width="900" height="900" />
-        <g id="maskReveal" mask="url(#theMask)" > 
+      </defs>
+
+        <image id="lines" xlink:href="https://i.ibb.co/jkqJsth/klimt-sketch.png" x="0" y="0" width="900" height="900"  class=""/>
+        <g id="maskReveal" mask="url(#theMask)" class="discoball" > 
           <image id="regular" xlink:href="https://i.ibb.co/HzsVFPC/klimt.jpg" x="0" y="0" width="900" height="900" />
         </g>
         <!-- <circle id="ring" r="10" fill="none" stroke="#dc143c" stroke-width="2" cx="800" cy="450" /> -->
@@ -62,6 +64,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js"></script>
 <script>
 import { gsap,TimelineMax } from 'gsap';
+import anime from 'animejs/lib/anime.es.js';
 
 export default {
   name:'KlimtInteractive',
@@ -105,6 +108,13 @@ export default {
       // gsap.set("#progressRing", {drawSVG:prog + "%"});
       counter.textContent = prog.toFixed();
     }
+
+    // console.log(original)
+    function mouseDbClick() {
+      const original = document.querySelector('#maskReveal')
+      original.classList.toggle('discoball')
+    }
+
     const frame = document.querySelector('.page')
     function newSize() {
       let w = frame.offsetWidth ;
@@ -120,9 +130,143 @@ export default {
       gsap.set("#demo", {y:h/2 - data.height/2});
     }
 
+
+    // 폭죽
+      var canvasEl = document.querySelector('.coveringCanvas');
+      var ctx = canvasEl.getContext('2d');
+      // this.vueCanvas = ctx;
+      var numberOfParticules = 30;
+      var pointerX = 0;
+      var pointerY = 0;
+      var tap = ('ontouchstart' in window || navigator.msMaxTouchPoints) ? 'touchstart' : 'mousedown';
+      // var tap = ('ontouchstart' in window || navigator.msMaxTouchPoints) ? 'touchstart' : 'mousedown';
+      // var colors = ['#FF1461', '#18FF92', '#5A87FF', '#FBF38C'];
+      var colors = ['#FFDF00', '#D4AF37', '#CFB53B', '#C5B358', '#E6BE8A', '#996515'];
+      var colors = ['#FAFAD2', '#EEE8AA', '#F0E68C', '#DAA520', '#FFD700', '#FFA500', '#FF8C00', '#CD853F', '#D2691E', '#8B4513'];
+
+      function setCanvasSize() {
+        canvasEl.width = window.innerWidth * 2;
+        canvasEl.height = window.innerHeight * 2;
+        canvasEl.style.width = window.innerWidth + 'px';
+        canvasEl.style.height = window.innerHeight + 'px';
+        canvasEl.getContext('2d').scale(2, 2);
+      }
+
+      function updateCoords(e) {
+        pointerX = e.clientX || e.touches[0].clientX;
+        pointerY = e.clientY || e.touches[0].clientY;
+      }
+
+      function setParticuleDirection(p) {
+        var angle = anime.random(0, 360) * Math.PI / 180;
+        var value = anime.random(50, 180);
+        var radius = [-1, 1][anime.random(0, 1)] * value;
+        return {
+          x: p.x + radius * Math.cos(angle),
+          y: p.y + radius * Math.sin(angle)
+        }
+      }
+
+      function createParticule(x,y) {
+        var p = {};
+        p.x = x;
+        p.y = y;
+        p.color = colors[anime.random(0, colors.length - 1)];
+        p.radius = anime.random(16, 32);
+        p.endPos = setParticuleDirection(p);
+        p.draw = function() {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI, true);
+          ctx.fillStyle = p.color;
+          ctx.fill();
+        }
+        return p;
+      }
+
+      function createCircle(x,y) {
+        var p = {};
+        p.x = x;
+        p.y = y;
+        p.color = '#FFF';
+        p.radius = 0.1;
+        p.alpha = .5;
+        p.lineWidth = 6;
+        p.draw = function() {
+          ctx.globalAlpha = p.alpha;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI, true);
+          ctx.lineWidth = p.lineWidth;
+          ctx.strokeStyle = p.color;
+          ctx.stroke();
+          ctx.globalAlpha = 1;
+        }
+        return p;
+      }
+
+      function renderParticule(anim) {
+        for (var i = 0; i < anim.animatables.length; i++) {
+          anim.animatables[i].target.draw();
+        }
+      }
+
+      function animateParticules(x, y) {
+        var circle = createCircle(x, y);
+        var particules = [];
+        for (var i = 0; i < numberOfParticules; i++) {
+          particules.push(createParticule(x, y));
+        }
+        anime.timeline().add({
+          targets: particules,
+          x: function(p) { return p.endPos.x; },
+          y: function(p) { return p.endPos.y; },
+          radius: 0.1,
+          duration: anime.random(1200, 1800),
+          easing: 'easeOutExpo',
+          update: renderParticule
+        })
+          .add({
+          targets: circle,
+          radius: anime.random(80, 160),
+          lineWidth: 0,
+          alpha: {
+            value: 0,
+            easing: 'linear',
+            duration: anime.random(600, 800),  
+          },
+          duration: anime.random(1200, 1800),
+          easing: 'easeOutExpo',
+          update: renderParticule,
+          offset: 0
+        });
+      }
+
+      var render = anime({
+        duration: Infinity,
+        update: function() {
+          ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
+        }
+      });
+
+      frame.addEventListener('mousedown', function(e) {
+        console.log('hi')
+        render.play();
+        updateCoords(e);
+        animateParticules(pointerX, pointerY);
+      }, false);
+
+      // autoClick();
+      setCanvasSize();
+      // window.addEventListener('resize', setCanvasSize, false);
+
+
+    //폭죽의 끝
+
+
+
     frame.addEventListener("mousedown", mouseHandler);
     frame.addEventListener("mouseup", mouseHandler);
     frame.addEventListener("mousemove", mouseMove);
+    // frame.addEventListener("dblclick", mouseDbClick);
 
     newSize();
     frame.addEventListener("resize", newSize);
@@ -151,11 +295,14 @@ export default {
   margin-top: 3%;
   margin-left: 5%;
   min-width: 45%;
+  background-color: transparent;
+  z-index: 4;
 }
 .hintBtn{
   cursor: pointer;
   color:#fe3901;
   font-size: 1rem;
+  z-index: 500;
 }
 
 
@@ -194,4 +341,45 @@ p {
   top: 0;
   left: 50%;
 }
+
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  
+  to {
+    -webkit-filter: hue-rotate(360deg);
+  }
+}
+.discoball {
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: hue;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  
+  background: lightgrey;
+  /* border-radius: 200px; */
+  /*border: 0px solid #fff;*/
+  /* height: 200px; */
+  /* width: 200px; */
+  /* box-shadow: 0 3px 200px -3px #fff; */
+}
+
+
+
+.insideWrapper{ 
+    position:relative;}
+.coveredImage{ 
+    position:absolute; top:0px; left:0px;
+}
+.coveringCanvas{ 
+    width:100%; height:100%;
+    position:absolute; top:0px; left:0px;
+    background-color: transparent;
+    z-index:2;
+}
+
+
+
 </style>

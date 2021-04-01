@@ -4,12 +4,12 @@ export default {
     namespaced: true,
   
     state: {
-      isSession: false,
+      sessionInfo: "",
     },
   
     mutations: {
-      GET_SESSION(state){
-        state.isSession = true;
+      GET_SESSION(state, sessionkey){
+        state.sessionInfo = sessionkey;
       }
     },
   
@@ -23,7 +23,7 @@ export default {
             console.log(response)
             let sessionkey = response.data.sessionkey
             sessionStorage.setItem("session", sessionkey)
-            commit('GET_SESSION')
+            commit('GET_SESSION',sessionkey)
           })
           .catch((err)=>{
             console.log(err)

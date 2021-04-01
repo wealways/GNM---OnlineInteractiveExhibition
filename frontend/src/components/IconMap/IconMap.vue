@@ -14,34 +14,17 @@
         </q-card-section>
       </q-card>
     </q-dialog>
-  
-    <span style='font-size:45px;'>
-      <div @click='voiceOnOff'>
-        <q-icon v-if="voice" class='voice' name="mdi-account-tie-voice"></q-icon>
-        <q-icon v-else class='voice-off' name="mdi-account-tie-voice-off"></q-icon>
-      </div>
-    </span>
   </div>
 </template>
 
 <script>
 import Floors from '../IconMap/Floors'
 export default {
-  name:'Icons',
+  name:'IconMap',
   components: { Floors },
-  data(){
-    return { 
-      voice: true,
+  data() {
+    return {
       fullWidth: false,
-    }
-  },
-  methods: {
-    voiceOnOff(){
-      if(this.voice===true){
-        this.voice = false;
-      } else {
-        this.voice = true;
-      }
     }
   }
 }
@@ -55,24 +38,8 @@ export default {
 .map {
   position: absolute;
   left: 3%;
-  top: 5%;
+  top: 4.3%;
   background-color: transparent;
-}
-.voice{
-  position: absolute;
-  bottom: 13%;
-  right: 5%;
-}
-.voice:hover{
-  color: red;
-}
-.voice-off:hover{
-  color:red;
-}
-.voice-off{
-  position: absolute;
-  bottom: 13%;
-  right: 5%;
 }
 .map:hover {
   color: red;
