@@ -4,26 +4,31 @@
     <IconVoice voiceColor="aliceblue"/>
     <div class="page">
       <div class="description">
-        <h1>Der Kuss</h1>
+        <h1 style="color:#e3cc28">Der Kuss</h1>
         <div>
-          우리에게 잘 알려진 클림트의 키스는<br>
+          우리에게 잘 알려진 <strong>클림트의 키스</strong>는<br>
           원형, 네모, 직선과 곡선 등 기하학 문양과 함께<br>
           금박 무늬 등 <span style="color:#d6ba38">화려한 색체</span>를 앞세운 화풍이 잘 드러난다.
           
         </div>
         <br>
-        <div>
+        <div class="desc-footer">
+          <div 
+            class="column items-center desc-footer-info"
+            @click="hintView">
+            <q-icon
+              class="desc-footer-info-icon" 
+              name="info"
+            />
+            Click
+          </div>
           <div v-if="!hintflag">
-            여러분의 마우스를 통해<br>
+            그림 위에서 마우스를 움직이며<br>
             클림트의 화풍을 경험해보세요
           </div>
           <div v-if="hintflag">
-            그림위에 마우스를 올려놓고 길게 눌러보세요. <br> 
+            그림 위에서 마우스를 길게 눌러보세요. <br> 
             키스의 모든 색감을 경험할 수 있습니다.
-          </div>
-          <div class="hintBtn"  v-if="hintflag" @click="hintflag=false">숨기기</div>
-          <div class="hintBtn" v-if="!hintflag" @click="hintflag=true">
-            힌트
           </div>
         </div>
       </div>
@@ -37,13 +42,19 @@
         <circle id="masker" r="100" fill="url(#maskGradient)" cx="800" cy="450" />
         </mask>
         </defs> 
-          <image id="lines" xlink:href="https://i.ibb.co/jkqJsth/klimt-sketch.png" x="0" y="0" width="800" height="800" />
+          <image id="lines" v-if="!originalflag" xlink:href="https://i.ibb.co/jkqJsth/klimt-sketch.png" x="0" y="0" width="800" height="800" />
+          <image id="lines" v-if="originalflag" xlink:href="https://i.ibb.co/HzsVFPC/klimt.jpg" x="0" y="0" width="800" height="800" />
           <g id="maskReveal" mask="url(#theMask)" > 
             <image id="regular" xlink:href="https://i.ibb.co/HzsVFPC/klimt.jpg" x="0" y="0" width="800" height="800" />
           </g>
           <!-- <circle id="ring" r="10" fill="none" stroke="#dc143c" stroke-width="2" cx="800" cy="450" /> -->
           <circle id="dot" r="4" fill="#dc143c" cx="800" cy="450" />
       </svg>
+      <div class="original-view column items-center" @click="originalView">
+        <q-icon class="original-view-icon" name="photo"/>
+        <div v-if="!originalflag">Original</div>
+        <div v-if="originalflag">Interact</div>
+      </div>
 
       <div id="instructions" style="display:none;">
         <svg id="dial" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
@@ -74,6 +85,7 @@ export default {
   data(){
     return {
       hintflag:false,
+      originalflag:false
     }
   },
   components:{
@@ -139,6 +151,13 @@ export default {
     
   },
   methods:{
+    hintView(){
+      this.hintflag = !this.hintflag
+    },
+    originalView(){
+      this.originalflag = !this.originalflag;
+      document.querySelector('#demo').style.boxShadow = "0 0 0 0 rgba(202, 202, 202, 0.548);"
+    }
   }
 
 
@@ -171,10 +190,33 @@ export default {
   flex-direction: column;
   justify-content: space-between;
 }
-.hintBtn{
+.desc-footer{
+  display: flex;
+  align-items: center;
+}
+.desc-footer-info{
   cursor: pointer;
+  color:aliceblue;
+  margin-right: 20px;
+}
+.desc-footer-info:hover{
+  color:#fe3901
+}
+.desc-footer-info-icon{
+  font-size:1.5rem;
+}
+.original-view{
+  position:absolute;
+  right: 5.15%;
+  bottom: 20%;
+  display: flex;
+  cursor: pointer;
+}
+.original-view:hover{
   color:#fe3901;
-  font-size: 1rem;
+}
+.original-view-icon{
+  font-size: 2rem;
 }
 
 
@@ -195,7 +237,7 @@ p {
   height: 800px !important;
   transform: translate(0,0) !important;
   /* left:20%; */
-  box-shadow: 0px 10px 40px 0 rgba(202, 202, 202, 0.548);
+  box-shadow: 0px 5px 40px 0 rgba(202, 202, 202, 0.548);
 }
 
 #instructions {
