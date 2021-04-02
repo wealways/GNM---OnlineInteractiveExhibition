@@ -156,6 +156,7 @@ export default {
     },
     originalView(){
       this.originalflag = !this.originalflag;
+      console.log(document.querySelector('#demo').style)
       document.querySelector('#demo').style.boxShadow = "0 0 0 0 rgba(202, 202, 202, 0.548);"
     }
   }
@@ -175,7 +176,7 @@ export default {
   padding: 3% 5%;
   margin: 0 auto;
   font-family: "Signika", sans-serif;
-  /* background: #262626; */
+  background-color: #28353c;
   height: 95vh;
   /* height: 100%; */
   width: 100%;
@@ -186,6 +187,7 @@ export default {
 }
 .description{
   min-width: 47%;
+  height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
