@@ -1,7 +1,9 @@
 <template>
   <div class='pause'>
+    <IconMap/>
+    <IconVoice/>
     <transition 
-      name="slide"
+      name="fade"
       mode="out-in"
     >
       <router-view class="child-view"></router-view>
@@ -10,8 +12,12 @@
 </template>
 
 <script>
+import IconMap from '../IconMap/IconMap'
+import IconVoice from '../IconMap/IconVoice'
+
 export default {
   name: 'Mones',
+  components: { IconMap, IconVoice }
 }
 </script>
 
@@ -22,25 +28,15 @@ html, body {
 }
 </style>
 <style>
-.slide-left-enter-active,
-.slide-left-leave-active,
-.slide-right-enter-active,
-.slide-right-leave-active {
-  transition-duration: 0.5s;
-  transition-property: height, opacity, transform;
-  transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
-  overflow: hidden;
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
 }
 
-.slide-left-enter,
-.slide-right-leave-active {
-  opacity: 0;
-  transform: translate(2em, 0);
-}
-
-.slide-left-leave-active,
-.slide-right-enter {
-  opacity: 0;
-  transform: translate(-2em, 0);
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
 }
 </style>
