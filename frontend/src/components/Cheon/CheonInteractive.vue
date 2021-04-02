@@ -75,8 +75,8 @@ export default {
       // }  
       var ul = document.querySelectorAll('#puzz i');
       for(var i=0;i<ul.length;i++){
-        ul[i].style.left = Math.random()*(window.innerWidth-400) + 'px'
-        ul[i].style.top = Math.random()*(window.innerHeight-100) + 'px'
+        ul[i].style.left = Math.random()*(window.innerWidth-800) + 'px'
+        ul[i].style.top = Math.random()*(window.innerHeight-800) + 'px'
       }
       // for (var i = ul.children.length; i >= 0; i--) {
       //   ul.appendChild(ul.children[Math.random() * i | 0]);    
@@ -152,12 +152,15 @@ export default {
   overflow: hidden;
   z-index: 1;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 #title{
-  position: absolute;
+  /* position: absolute; */
   text-align: center;
-  left: 41%;
-  top: 5%;
+  /* left: 41%;
+  top: 5%; */
   font-size: 2rem;
   font-weight: bolder ;
   animation-name: twinkling;
@@ -171,7 +174,7 @@ export default {
 
 .frame{
   border: 8px solid black;
-  position: absolute;
+  /* position: absolute; */
   width: 506px;
   height: 500px;
   top: 15%;
