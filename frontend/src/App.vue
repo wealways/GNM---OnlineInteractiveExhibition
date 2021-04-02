@@ -1,5 +1,5 @@
 <template>
-   <q-layout view="lHh Lpr lFf">
+   <div>
     <!-- <q-header elevated>
       <q-toolbar>
         <q-btn
@@ -19,7 +19,7 @@
       </q-toolbar>
     </q-header> -->
     <router-view></router-view>
-  </q-layout>
+  </div>
 </template>
 
 <script>

@@ -2,11 +2,13 @@ import MainPage from '@/views/MainPage.vue'
 import GuestBook from '@/views/GuestBook.vue'
 import Tutorial from '@/views/Tutorial.vue'
 import Mone from '@/views/Mone.vue'
-import Klimt from '@/views/Klimt.vue'
-import Cheon from '@/views/Cheon.vue'
 import StartMonet from '@/views/StartMonet.vue'
-import StartKlimt from '@/views/StartKlimt.vue'
 import MonetPhoto from '@/components/Mone/MonetPhoto.vue'
+
+import Klimt from '@/views/Klimt/Klimt.vue'
+import StartKlimt from '@/views/Klimt/StartKlimt.vue'
+
+import Cheon from '@/views/Cheon.vue'
 import test from '@/components/Mone/test.vue'
 import PhotoUpload from '@/views/PhotoUpload.vue'
 

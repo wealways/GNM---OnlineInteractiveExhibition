@@ -1,9 +1,8 @@
 <template>
   <div>
-    <h1 id="firstname">Gustav</h1>
-    <h1 id="lastname">Klimt</h1>
+    <h1 id="firstname">Gustav<br>Klimt</h1>
     <img src="../../assets/images/klimtintro.png" alt="klimtface" id="bg">
-    <span id="sentence">"예술은 당신의 생각들을 둘러싼 한줄기 선입니다."</span>
+    <span id="sentence"></span>
     <div @click="realstart">
       <span style="font-size:50px;">
           <q-icon :to='"/klimtphoto"' target="_blank" id="rightarrow" name="mdi-chevron-double-right"></q-icon>
@@ -15,9 +14,11 @@
 
 <script>
 import $ from 'jquery'
+import korTyping from '@/plugins/korTyping'
 export default {
   name:'MoneIntro',
   mounted(){
+    korTyping('#sentence','"예술은 당신의 생각들을 둘러싼 한줄기 선입니다."')
     var theWindow = $(window),
     $bg = $("#bg"),
     aspectRatio = $bg.width() / $bg.height();
@@ -35,6 +36,7 @@ export default {
         }
     }
     theWindow.resize(resizeBg).trigger("resize");
+
   },
   methods:{
     realstart(){
@@ -50,12 +52,8 @@ body, html {
 }
 #firstname{
   position: absolute;
+  text-align: right;
   top: 20%;
-  right: 5%;
-}
-#lastname{
-  position: absolute;
-  top: 30%;
   right: 5%;
 }
 #sentence{
