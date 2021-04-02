@@ -97,9 +97,6 @@ html,body{
   width: 100vw;
   overflow: hidden;
 }
-#imagePreview {
-  /* background-image: url("../../assets/upload.png") */
-}
 .container {
   margin: 0;
   padding: 0;

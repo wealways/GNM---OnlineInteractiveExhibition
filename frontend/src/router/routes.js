@@ -2,13 +2,21 @@ import MainPage from '@/views/MainPage.vue'
 import GuestBook from '@/views/GuestBook.vue'
 import Tutorial from '@/views/Tutorial.vue'
 import Mone from '@/views/Mone.vue'
-import Klimt from '@/views/Klimt.vue'
-import Cheon from '@/views/Cheon.vue'
 import StartMonet from '@/views/StartMonet.vue'
 import StartKlimt from '@/views/StartKlimt.vue'
 import StartCheon from '@/views/StartCheon.vue'
 import MonetPhoto from '@/components/Mone/MonetPhoto.vue'
+
+import Klimt from '@/views/Klimt/Klimt.vue'
+import StartKlimt from '@/views/Klimt/StartKlimt.vue'
+
+import Cheon from '@/views/Cheon.vue'
 import test from '@/components/Mone/test.vue'
+import Mones from '@/components/Mone/Mones.vue'
+import Mone1 from '@/components/Mone/Mone1.vue'
+import Mone2 from '@/components/Mone/Mone2.vue'
+import Mone3 from '@/components/Mone/Mone3.vue'
+import Mone4 from '@/components/Mone/Mone4.vue'
 import PhotoUpload from '@/views/PhotoUpload.vue'
 
 export default [
@@ -31,6 +39,30 @@ export default [
     path:'/mone',
     name: 'Mone',
     component: Mone,
+  },
+  {
+    path:'/mones',
+    name: 'Mones',
+    component: Mones,
+    meta:{ transitionName: 'slide'},
+    children:[
+      {
+        path: 'mone1',
+        component: Mone1
+      },
+      {
+        path: 'mone2',
+        component: Mone2
+      },
+      {
+        path: 'mone3',
+        component: Mone3
+      },
+      {
+        path: 'mone4',
+        component: Mone4
+      },
+    ]
   },
   {
     path:'/startmonet',
@@ -77,5 +109,4 @@ export default [
     name: 'test',
     component: test
   }
-
 ]
