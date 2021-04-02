@@ -29,7 +29,7 @@
 </template>
 
 <script>
-// let img = ["../../assets/cheon_pic.png"]
+var img = ["https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3dd97bd9-f6f2-48a3-963e-104454bd460c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210402%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210402T045036Z&X-Amz-Expires=86400&X-Amz-Signature=8db0d646b395e62d4d383bf6ac0b8d9a09d26c16688b1fcfd090f38ab5785a47&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22"]
 // let old = 5 
 
 
@@ -67,8 +67,8 @@ export default {
   methods:{
     
     randomize: function () {
-      // let root = document.documentElement
-      // root.style.setProperty('--image','url('+img[0]+')')
+      var root = document.documentElement
+      root.style.setProperty('--image','url('+img[0]+')')
       // // old++
       // if(old > 5) {
       //   old = 0
@@ -137,7 +137,8 @@ export default {
 :root {
   --color:lightgray;
   --border-radius:10px;
-  --image:url("../../assets/cheon_pic.png");
+  /* --image:url("../../assets/cheon_pic.png"); */
+  --image:url("https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3dd97bd9-f6f2-48a3-963e-104454bd460c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210402%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210402T045036Z&X-Amz-Expires=86400&X-Amz-Signature=8db0d646b395e62d4d383bf6ac0b8d9a09d26c16688b1fcfd090f38ab5785a47&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22");
 }
 </style>
 <style>
