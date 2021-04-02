@@ -2,8 +2,8 @@
   <div>
     <span style='font-size:45px;'>
       <div @click='voiceOnOff'>
-        <q-icon v-if="voice" class='voice' name="mdi-account-tie-voice"></q-icon>
-        <q-icon v-else class='voice-off' name="mdi-account-tie-voice-off"></q-icon>
+        <q-icon id="voice-color" v-if="voice" class='voice' name="mdi-account-tie-voice"></q-icon>
+        <q-icon id="voice-color" v-else class='voice-off' name="mdi-account-tie-voice-off"></q-icon>
       </div>
     </span>
   </div>
@@ -12,9 +12,17 @@
 <script>
 export default {
   name:'IconVoice',
+  props:{
+    voiceColor:String,
+  },
   data(){
     return {
       voice: true,
+    }
+  },
+  mounted() {
+    if(this.voiceColor){
+      document.querySelector('#voice-color').style.color=this.voiceColor
     }
   },
   methods: {
@@ -37,10 +45,10 @@ export default {
   right: 5%;
 }
 .voice:hover{
-  color: red;
+  color: red !important;
 }
 .voice-off:hover{
-  color:red;
+  color:red !important;
 }
 .voice-off{
   position: absolute;
