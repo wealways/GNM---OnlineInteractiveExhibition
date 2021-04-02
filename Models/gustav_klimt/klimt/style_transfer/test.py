@@ -156,6 +156,6 @@ for content_path in content_paths:
                                         args.alpha)
             output = output.cpu()
 
-            output_name = output_dir / '{:s}_stylized_{:s}{:s}'.format(
+            output_name = output_dir / '{:s}_klimt_{:s}{:s}'.format(
                 content_path.stem, style_path.stem, args.save_ext)
             save_image(output, str(output_name))
