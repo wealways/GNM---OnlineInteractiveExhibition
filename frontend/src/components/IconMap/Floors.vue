@@ -21,7 +21,7 @@
                     icon="lightbulb_outline"
                 />
                 <q-btn
-                    :to='"/klimt"' 
+                    :to='"/startklimt"' 
                     target="_blank"  
                     v-show="explain==='클림트'" 
                     align="around" 
@@ -31,7 +31,7 @@
                     icon="lightbulb_outline" 
                 />
                 <q-btn
-                    :to='"/cheon"' 
+                    :to='"/startcheon"' 
                     target="_blank"  
                     v-show="explain==='천경자'" 
                     align="around" 
