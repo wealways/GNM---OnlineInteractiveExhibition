@@ -3,7 +3,6 @@ import GuestBook from '@/views/GuestBook.vue'
 import Tutorial from '@/views/Tutorial.vue'
 import Mone from '@/views/Mone.vue'
 import StartMonet from '@/views/StartMonet.vue'
-import StartKlimt from '@/views/StartKlimt.vue'
 import StartCheon from '@/views/StartCheon.vue'
 import MonetPhoto from '@/components/Mone/MonetPhoto.vue'
 
