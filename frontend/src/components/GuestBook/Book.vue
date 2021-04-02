@@ -19,7 +19,6 @@
     <q-dialog v-model="prompt">
         <div class="row" style="min-width: 1080px;">
           <q-img
-            v-if="article.guestbook_image"
             :src="article.guestbook_image"
             basic
             class="col-8"
@@ -27,10 +26,10 @@
           >
           </q-img>
           <!-- 이미지 없을때 기본그림 설정 -->
-          <img v-if!="article.guestbook_image"
+          <!-- <img v-if!="article.guestbook_image"
             src="../../assets/mone.jpg" 
             class="col-8"
-            style="max-height:800px; min-height:500px;"/>
+            style="max-height:800px; min-height:500px;"/> -->
 
           <div class="card-img-description col-4 column justify-between">
             <div class="card-img-header">

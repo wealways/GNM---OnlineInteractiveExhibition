@@ -235,7 +235,7 @@ h1 small {
   width: 100%;
   /* height: 100%; */
   /* border-radius: 100%; */
-  background-size:cover;
+  background-size:contain;
   background-repeat: no-repeat;
   background-position: center;
 }
