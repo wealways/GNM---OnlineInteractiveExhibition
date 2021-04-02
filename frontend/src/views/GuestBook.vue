@@ -9,7 +9,7 @@
       <q-page-container class="guestbook-body">
         <q-page>
           <q-infinite-scroll @load="onLoad" :offset="350">
-            <masonry :cols="{ default: 3, 576: 1 }" :gutter="15" style="padding:12px 15px;">
+            <masonry :cols="{ default: 5, 576: 1 }" :gutter="15" style="padding:12px 15px;">
               <Book v-for="(article, idx) in articles" :key="idx" :article="article" />
             </masonry>
             <template v-slot:loading>
