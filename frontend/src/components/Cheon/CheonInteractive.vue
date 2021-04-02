@@ -156,7 +156,7 @@ export default {
 #title{
   position: absolute;
   text-align: center;
-  left: 41%;
+  left: 40%;
   top: 5%;
   font-size: 2rem;
   font-weight: bolder ;
@@ -170,12 +170,12 @@ export default {
 }
 
 .frame{
-  border: 8px solid black;
+  border: 10px solid black;
   position: absolute;
   width: 506px;
   height: 500px;
   top: 15%;
-  left: 34%;
+  left: 32%;
   background: rgba(244, 248, 207, 0.719);
   box-shadow: 0px 0px 15px rgba(15, 15, 15, 0.171);
 }
