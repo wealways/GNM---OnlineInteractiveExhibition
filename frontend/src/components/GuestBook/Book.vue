@@ -19,25 +19,32 @@
     <q-dialog v-model="prompt">
         <div class="row" style="min-width: 1080px;">
           <q-img
+            v-if="article.guestbook_image"
             :src="article.guestbook_image"
             basic
             class="col-8"
             style="max-height:800px"
           >
           </q-img>
-          <div class="card-img-description col-4 p-3 row justify-start">
+          <!-- 이미지 없을때 기본그림 설정 -->
+          <img v-if!="article.guestbook_image"
+            src="../../assets/mone.jpg" 
+            class="col-8"
+            style="max-height:800px; min-height:500px;"/>
+
+          <div class="card-img-description col-4 column justify-between">
             <div class="card-img-header">
               <!-- <h2>CAT</h2> -->
             </div>
-            <div class="card-img-body column ">
-              <div>{{article.guestbook_comment}}</div>
-              <div>
+            <div class="card-img-body col justify-center items-center col-9">
+              <div class="col-10" style="display:block; text-align:center;">{{article.guestbook_comment}}</div>
+              <div class="col-2">
                 <span>by </span>
-                <span>{{article.user_nickname}}</span>
+                {{article.user_nickname}}
               </div>
             </div>
-            <div class="card-img-footer">
-              <p>{{date}}</p>
+            <div class="card-img-footer col-2">
+              <p style="color:#2a433b;">{{date}}</p>
               <q-fab padding="10px" text-color="white" icon="keyboard_arrow_left" direction="left" style="width:15%;" class="more-btn">
                 <q-fab-action padding="6px" class="upd-btn" @click="modifyBtn=true" label="수정" label-position="bottom" label-style="font-size:12px;"/>
                 <q-dialog v-model="modifyBtn">
@@ -278,6 +285,7 @@ p{
   justify-content: space-between;
   background: #F5F4F2;
   padding: 1rem 2rem;
+  position: relative;
 }
 .card-img-description p{
   color: #fff;
@@ -289,18 +297,15 @@ p{
 }
 .card-img-body{
   color:#2a433b;
-
   margin: auto 0px;
   padding: 1rem;
   min-height: 220px;
   position:relative;
+  margin:0;
   border: solid 2.2px #DECBA7;
   outline: solid 1px #DECBA7;
-  height:87%;
+  /* height:87%; */
   outline-offset: 15px;
-  /* border-collapse: separate;
-  border-spacing: 15px;
-  background-image: url("../../assets/paper.jpg") */
 }
 .card-img-body> div:nth-child(1){
   font-size:1.5rem;

@@ -125,9 +125,9 @@ export default {
 .end-text>div:nth-child(2){
   position: absolute;
   width: 200px;
-  height: 40px;
+  height: 50px;
   background-color: #2a433b;
-  line-height: 40px;
+  line-height: 50px;
   z-index: 3;
   top:50%;
   left:43%;
@@ -139,7 +139,7 @@ export default {
   transform: translate(8px,-10px);
   z-index: 2;
   width: 200px;
-  height: 30px;
+  height: 45px;
   background-color: #fe3901;
   
   top:50%;
@@ -153,6 +153,7 @@ export default {
   width:25%;
   align-content: center;
   top:50%;
+  /* position: absolute; */
 }
 
 
