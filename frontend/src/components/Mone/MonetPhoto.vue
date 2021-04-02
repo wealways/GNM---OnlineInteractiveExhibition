@@ -1,12 +1,12 @@
 <template>
-  <div>
-      <div>아름다운 색을 가진 사진을 올려주세요</div>
+  <div class="container">
       <div class="avatar-upload">
         <div class="avatar-edit">
             <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg"/>
             <label for="imageUpload" @click='getSession'>
-              <span style="font-size:20px">
-                <q-icon name="mdi-upload"></q-icon>  
+              <span class='uldbutton' style="font-size:30px">
+                <q-icon name="mdi-upload"></q-icon>
+                <div style="font-size:13px;">Upload Picture</div>  
               </span>
             </label>
         </div>
@@ -15,8 +15,11 @@
             </div>
         </div>
       </div>
-      <q-btn :to='"/mone"' target="_blank">SKIP</q-btn>
-      <q-btn :to='"/test"' target="_blank" id="skipbtn" @click="urlUpload">NEXT</q-btn>
+      <q-btn flat :to='"/mone"' target="_blank" id="skipbtn" @click="urlUpload">
+        <span style='font-size:100px;'>
+          <q-icon name="mdi-chevron-double-right"></q-icon>
+        </span>
+      </q-btn>
   </div>
 </template>
 
@@ -39,7 +42,7 @@ export default {
       },
       urlUpload(){
         if (this.uploadFile==="") {
-          alert("이미지를 업로드 해주세요");
+          // alert("사진을 업로드해주세요!");
           return false;
         } else {
           const artist = 1;
@@ -81,21 +84,43 @@ export default {
 </script>
 
 <style scoped>
-#skipbtn {
-    position: absolute;
-    bottom: 20%;
-    right: 10%;
+.uldbutton{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-body {
-  background: whitesmoke;
-  font-family: "Open Sans", sans-serif;
+html,body{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+#imagePreview {
+  /* background-image: url("../../assets/upload.png") */
 }
 .container {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-image: url('../../assets/uploadpicture.png');
+  font-family: "Open Sans", sans-serif;
+}
+#skipbtn {
+    position: absolute;
+    bottom: 10%;
+    right: 4%;
+}
+
+/* .container {
   max-width: 960px;
   margin: 30px auto;
   padding: 20px;
-}
-h1 {
+} */
+/* h1 {
   font-size: 20px;
   text-align: center;
   margin: 20px 0 20px;
@@ -105,26 +130,25 @@ h1 small {
   font-size: 15px;
   padding-top: 8px;
   color: gray;
-}
+} */
 .avatar-upload {
   position: relative;
-  max-width: 205px;
-  margin: 50px auto;
+  margin: 60px auto;
 }
 .avatar-upload .avatar-edit {
   position: absolute;
-  right: 12px;
-  z-index: 1;
-  top: 10px;
+  top: 60%;
+  right: 10%;
 }
 .avatar-upload .avatar-edit input {
   display: none;
 }
 .avatar-upload .avatar-edit input + label {
   display: inline-block;
-  width: 34px;
-  height: 34px;
-  margin-bottom: 0;
+  top: 50%;
+  width: 100px;
+  height: 100px;
+  padding-left: 10%;
   border-radius: 100%;
   background: #ffffff;
   border: 1px solid transparent;
@@ -147,17 +171,20 @@ h1 small {
   margin: auto;
 }
 .avatar-upload .avatar-preview {
-  width: 192px;
-  height: 192px;
+  width: 1000px;
+  height: 500px;
   position: relative;
-  border-radius: 100%;
-  border: 6px solid #f8f8f8;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(20%);
+  /* border-radius: 100%; */
+  border: 13px solid #f8f8f8;
+  box-shadow: 0px 7px 13px 0px rgba(0, 0, 0, 0.1);
 }
 .avatar-upload .avatar-preview > div {
   width: 100%;
   height: 100%;
-  border-radius: 100%;
+  /* border-radius: 100%; */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

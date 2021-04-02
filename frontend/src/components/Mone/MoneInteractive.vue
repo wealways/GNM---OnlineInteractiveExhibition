@@ -46,6 +46,8 @@ html,body,#home,.ui-content
   width: 100vw
   overflow: hidden
   cursor: pointer
+</style>
+<style lang="sass">
 #home
   background: url("../../assets/waterlily3.jpeg") no-repeat
   background-attachment: fixed

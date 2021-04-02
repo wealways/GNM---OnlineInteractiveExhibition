@@ -5,35 +5,28 @@
       <h3>GUESTBOOK</h3>
       <BookWrite/>
     </div>
-    <q-page-container class="guestbook-body">
-      <q-page>
-        <q-infinite-scroll @load="onLoad" :offset="350">
-          <masonry :cols="{ default: 3, 576: 1 }" :gutter="15" style="padding:12px 15px;">
-            <Book v-for="(article, idx) in articles" :key="idx" :article="article" />
-          </masonry>
-          <template v-slot:loading>
-            <div class="row justify-center q-my-md">
-              <q-spinner-dots color="deep-orange" size="30px" />
+    <q-layout>
+      <q-page-container class="guestbook-body">
+        <q-page>
+          <q-infinite-scroll @load="onLoad" :offset="350">
+            <masonry :cols="{ default: 3, 576: 1 }" :gutter="15" style="padding:12px 15px;">
+              <Book v-for="(article, idx) in articles" :key="idx" :article="article" />
+            </masonry>
+            <template v-slot:loading>
+              <div class="row justify-center q-my-md">
+                <q-spinner-dots color="deep-orange" size="30px" />
+              </div>
+            </template>
+          </q-infinite-scroll>
+          <div v-if="endFlag" class="end-text row items-center">
+            <div @click="goUp" style="cursor:pointer;">
+              목록의 끝입니다☺
             </div>
-          </template>
-        </q-infinite-scroll>
-        <div v-if="endFlag" class="end-text row items-center justify-between">
-        <!-- <div v-if="endFlag" style="width:100%" class="row items-center justify-between"> -->
-          <div></div>
-          <div @click="goUp" style="cursor:pointer;" class="">
-            목록의 끝입니다☺
+            <div></div>
           </div>
-          <div></div>
-          <div>
-          </div>
-          <!-- <h2 @click="goUp" style="cursor:pointer; width: 100%;" class="background">
-            <span>
-            목록의 끝입니다
-            </span>
-          </h2> -->
-        </div>
-      </q-page>
-    </q-page-container>
+        </q-page>
+      </q-page-container>
+    </q-layout>
   </div>
 </template>
 

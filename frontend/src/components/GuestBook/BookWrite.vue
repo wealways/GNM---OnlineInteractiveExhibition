@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <q-btn label="방명록 작성" @click="changeFlag(true)" style="background: #2a433b; color: white"/> -->
+    <!-- <q-btn label="방명록 작성" @click="changeFlag(true)" class="custom-btn btn-8 write-sz write"/> -->
     <btn @click="changeFlag(true)" class="custom-btn btn-8 write-sz write"><span class="button-title">WRITE</span></btn>
     <q-dialog v-model="flag" persistent>
       <q-card style="min-width: 680px">
@@ -96,10 +96,10 @@
             
           </div>
           <q-card-actions align="right" class="text-primary">
-            <!-- <q-btn type="submit" color="primary" label="Submit"/> -->
-            <!-- <q-btn @click="onReset" flat label="Cancel"/> -->
-            <btn type="submit" class="custom-btn submit-btn sub-can-sz "><span class="button-title">Submit</span></btn>
-            <btn @click="onReset" flat class="custom-btn cancel-btn sub-can-sz"><span class="button-title">Cancel</span></btn>
+            <q-btn type="submit" label="Submit" class="custom-btn submit-btn sub-can-sz"/>
+            <q-btn @click="onReset" flat label="Cancel" class="custom-btn cancel-btn sub-can-sz"/>
+            <!-- <btn type="submit" class="custom-btn submit-btn sub-can-sz"><span class="button-title">Submit</span></btn>
+            <btn @click="onReset" flat><span class="button-title">Cancel</span></btn> -->
           </q-card-actions>
         </q-form>
       </q-card>
