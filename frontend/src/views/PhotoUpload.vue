@@ -71,7 +71,7 @@ export default {
         message: '특별전시회 이용에  <strong style="color: red">제한</strong>이 됩니다.',
         html: true,
         type: 'warning',
-        position:'right',
+        position:'center',
         actions: [
           { label: 'OK', color: 'primary', handler: () => { this.urlUpload() } }
         ]
