@@ -2,13 +2,12 @@
   <div class="body">
     <div id="container">
       <section data-scroll-section>
-        <KlimtInteractive/>
+        <Klimt1/>
+        <Klimt2/>
+        <Klimt3/>
+        <Klimt4/>
 
       </section>
-      <!-- <section data-scroll-section>
-        
-      </section> -->
-
     </div>
   </div>
 </template>
@@ -21,9 +20,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger)
 
 export default {
-  name:'Klimt',
+  name:'KlimtEnd',
   components:{
-    KlimtInteractive: () => import('@/components/Klimt/KlimtInteractive')
+    Klimt1: () => import('@/components/Klimt/klimt1'),
+    Klimt2: () => import('@/components/Klimt/klimt2'),
+    Klimt3: () => import('@/components/Klimt/klimt3'),
+    Klimt4: () => import('@/components/Klimt/klimt4'),
   },
   mounted: function (){
     const width = document.body.offsetWidth    
