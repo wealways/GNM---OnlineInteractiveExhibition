@@ -47,22 +47,26 @@ def handle_uploaded_file(image, sessionkey):
 # ouput (to backend)
 def push_output(output, sessionkey):
     # request headers 설정
-    headers = {'Content-Type': 'multipart/form-data; boundary=<calculated when request is sent>; charset=utf-8'}
-    headers['sessionkey'] = sessionkey
-    
+    # headers = {'Content-Type': 'multipart/form-data; boundary=<calculated when request is sent>; charset=utf-8'}
+    # headers['sessionkey'] = sessionkey
+    headers = {'sessionkey': sessionkey}
     # 전달 위치(backend - POST)
     # params
     imgtype = 'output'
     no = 1
     # 변환 완료된 이미지 파일 - read binary
-    with open(output, 'rb') as destination:
-        image = destination.read()
+    # with open(output, 'rb') as destination:
+    #     image = destination.read()
+
+    image = open(output, 'rb')
 
     output = { 'image': image }
+    print(f'산출물: {output}')
     BASE_URL = f'http://127.0.0.1:8001/galleries/image/{imgtype}/{no}/'
     print(f'요청 보내는 주소: {BASE_URL}')
     # 요청 보내기
     response = requests.post(BASE_URL, headers = headers, files = output)
+    image.close()
     print(f'응답: {response}')
     # 요청 받아서 보여주기
     return response
