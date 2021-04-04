@@ -23,5 +23,5 @@ from klimt.views import style_transfer
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('predict/klimt/', style_transfer),
+    path('klimt/', style_transfer),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
