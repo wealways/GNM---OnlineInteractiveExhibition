@@ -23,6 +23,7 @@
     "vue-infinite-loading": "^2.4.5",
     "vue-masonry-css": "^1.0.3",
     "vue-router": "^3.5.1",
+    "vue-router-view-transition": "0.0.1",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
