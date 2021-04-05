@@ -5,9 +5,9 @@
         <div class="carousel-item__image"></div>
         <div class="carousel-item__info">
           <div class="carousel-item__container">
-          <h2 class="carousel-item__subtitle">Waterlily</h2>
-          <h1 class="carousel-item__title">수련</h1>
-          <p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+          <h2 class="carousel-item__subtitle">수련</h2>
+          <h1 class="carousel-item__title">Water lilies</h1>
+          <p class="carousel-item__description">모네의 대표작 수련입니다. 모네의 정원 화단엔 일년생 식물과 다년생 식물이 번갈아 심어져 있어 연중 내내 꽃을 볼 수 있었습니다. 색색 다양한 칼라의 꽃들이 칸칸이 피어있는 모네의 정원을 그의 '팔레트'와 같다하여 팔레트 정원이라 부르기도 했습니다.</p>
           </div>
         </div>
       </div>
@@ -66,8 +66,8 @@ export default {
 } */
 </style>
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
-
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
 
 
@@ -120,6 +120,7 @@ body {
 
 .carousel-item__info {
   height: 100%;
+  width: 80%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -158,9 +159,9 @@ body {
 .carousel-item__subtitle {
     font-family: 'Open Sans', sans-serif;
     letter-spacing: 3px;
-    font-size: 10px;
+    font-size: 15px;
     text-transform: uppercase;
-    margin: 0;
+    margin-left: 6px;
     color: #7E7E7E;    
     font-weight: 700;
     transform: translateY(25%);

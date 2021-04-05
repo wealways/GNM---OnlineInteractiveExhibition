@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <Icons/>
     <section>
       <Mone1 class="content"/>
       <Mone2 class="content"/>
@@ -15,6 +16,8 @@
 
 
 <script>
+import Icons from '@/components/IconMap/Icons'
+
 export default {
   name:'KlimtEnd',
   components:{
@@ -22,9 +25,11 @@ export default {
     Mone2: () => import('@/components/Mone/Mone2'),
     Mone3: () => import('@/components/Mone/Mone3'),
     Mone4: () => import('@/components/Mone/Mone4'),
+    Icons,
   },
   data(){
     return {
+      page:1
     }
   },
   watch:{
@@ -46,47 +51,54 @@ export default {
 
     const sectionPageWidth = section[0].clientWidth/4
 
-    container.addEventListener('wheel', function(e)
+     window.addEventListener('wheel', function(e)
     {
       e.preventDefault();
       let delta = e.deltaY
       if(delta>0){
         if(container.scrollLeft>sectionPageWidth*2){
+          this.page=4
           return;
         }
         if(0<=container.scrollLeft && container.scrollLeft<sectionPageWidth*1){
           container.scrollLeft = sectionPageWidth*1
-
+          this.$store.dispatch('page/pageChange',2)
           const audio = document.querySelector("audio[data-key=timo]")
           playSound(audio)
         }else if(sectionPageWidth*1<=container.scrollLeft && container.scrollLeft<sectionPageWidth*2){
           container.scrollLeft=sectionPageWidth*2
+          this.$store.dispatch('page/pageChange',3)
           const audio = document.querySelector("audio[data-key=wow]")
           playSound(audio)
         }else{
           container.scrollLeft=sectionPageWidth*3
+          this.$store.dispatch('page/pageChange',4)
           const audio = document.querySelector("audio[data-key=bye]")
           playSound(audio)
         }
       }else{
         if(container.scrollLeft<sectionPageWidth*1){
+          this.$store.dispatch('page/pageChange',1)
           return;
         }
         if(0<=container.scrollLeft && container.scrollLeft<=sectionPageWidth*1){
           container.scrollLeft =0
+          this.$store.dispatch('page/pageChange',1)
           const audio = document.querySelector("audio[data-key=tada]")
           playSound(audio)
         }else if(sectionPageWidth*1<container.scrollLeft && container.scrollLeft<=sectionPageWidth*2){
           container.scrollLeft=sectionPageWidth*1
+          this.$store.dispatch('page/pageChange',2)
           const audio = document.querySelector("audio[data-key=timo]")
           playSound(audio)
         }else{
           container.scrollLeft=sectionPageWidth*2
+          this.$store.dispatch('page/pageChange',3)
           const audio = document.querySelector("audio[data-key=wow]")
           playSound(audio)
         }
       }
-    });
+    }.bind(this), {capture: false,passive: false});
 
   },
   methods:{

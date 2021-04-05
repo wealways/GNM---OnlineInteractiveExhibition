@@ -22,19 +22,7 @@ export default {
     }
   },
   mounted(){
-    var Counter = 0;
-    function myFunction() {
-      Counter = Math.ceil(window.scrollY);
-    }
-    window.onscroll = () => {
-      myFunction();
-        if (Counter > 0){
-          if (this.$route.path === '/mone') {
-              this.changerouter()
-            }
-        }
-        console.log(Counter)
-    };
+    window.addEventListener('scroll', this.handleScroll);
     let z = 2;
     $(document).on('mouseover', (e)=> {
       const mx = e.pageX;
@@ -63,7 +51,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style>
 .scrolltext{
   position: absolute;
   bottom:100%;
@@ -119,7 +107,7 @@ export default {
 
 
 </style>
-<style scoped>
+<style>
 html {
     overflow: scroll;
     overflow-x: hidden;

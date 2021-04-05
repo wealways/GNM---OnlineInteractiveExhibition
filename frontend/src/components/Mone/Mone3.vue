@@ -42,8 +42,8 @@ export default {
 
 <style>
 .monepage3{
-    width: 100vw;
-    height: 101vh;
+    width: 50vw;
+    height: 50vh;
     background: url("../../assets/thepicnic.jpg") no-repeat
 }
 </style>
