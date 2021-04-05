@@ -6,7 +6,7 @@
     <img src="../../assets/cheon.png" alt="cheonGyeongja" id="bg">
     <div @click="realstart" class="nextbtn">
       <span style="font-size:50px;">
-          <q-icon :to='"/monetphoto"' target="_blank" id="rightarrow" name="mdi-chevron-double-right"></q-icon>
+          <q-icon :to='"/cheonphoto"' target="_blank" id="rightarrow" name="mdi-chevron-double-right"></q-icon>
       </span>
     </div>
 
@@ -38,7 +38,7 @@ export default {
   },
   methods:{
     realstart(){
-      this.$router.push({path:'cheon'})
+      this.$router.push({path:'cheonphoto'})
     }
   }
 }

@@ -7,6 +7,7 @@ import StartCheon from '@/views/StartCheon.vue'
 
 import Klimt from '@/views/Klimt/Klimt.vue'
 import StartKlimt from '@/views/Klimt/StartKlimt.vue'
+import KlimtEnd from '@/views/Klimt/KlimtEnd.vue'
 
 import Cheon from '@/views/Cheon.vue'
 import test from '@/components/Mone/test.vue'
@@ -73,11 +74,6 @@ export default [
     component: PhotoUpload,
   },
   {
-    path:'/klimt',
-    name: 'Klimt',
-    component: Klimt,
-  },
-  {
     path:'/startklimt',
     name: 'StartKlimt',
     component: StartKlimt,
@@ -86,6 +82,16 @@ export default [
     path:'/klimtphoto',
     name: 'KlimtPhoto',
     component: PhotoUpload,
+  },
+  {
+    path:'/klimt',
+    name: 'Klimt',
+    component: Klimt,
+  },
+  {
+    path:'/klimtend',
+    name:'KlimtEnd',
+    component:KlimtEnd,
   },
   {
     path:'/cheon',
