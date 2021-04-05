@@ -1,5 +1,5 @@
 <template>
-  <div class='monepage'>
+  <div class='monepage1'>
     <div class='carousel'>
       <div class="carousel-item carousel-item--1">
         <div class="carousel-item__image"></div>

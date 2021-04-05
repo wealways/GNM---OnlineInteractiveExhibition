@@ -1,5 +1,5 @@
 <template>
-  <div class='monepage'>
+  <div class='monepage2'>
     <div class="carousel-item__info">
       <div class="carousel-item__container">
       <h2 class="carousel-item__subtitle">인상, 해돋이</h2>
@@ -47,7 +47,7 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
 
-.monepage{
+.monepage2{
   width: 100vw;
   height: 100vh;
   display: flex;   
@@ -67,7 +67,7 @@ export default {
   top: 15%;
   left: 10%;
   height: 50vh;
-  width: 50vw;
+  width: 43vw;
 }
 /* .carousel-item_info{
   z-index:902;
