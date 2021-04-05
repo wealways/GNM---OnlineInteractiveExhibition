@@ -10,6 +10,11 @@ import Klimt from '@/views/Klimt/Klimt.vue'
 import StartKlimt from '@/views/Klimt/StartKlimt.vue'
 
 import Cheon from '@/views/Cheon.vue'
+import Cheons from '@/components/Cheon/Cheons.vue'
+import Cheon1 from '@/components/Cheon/Cheon1.vue'
+import Cheon2 from '@/components/Cheon/Cheon2.vue'
+import Cheon3 from '@/components/Cheon/Cheon3.vue'
+import Cheon4 from '@/components/Cheon/Cheon4.vue'
 import test from '@/components/Mone/test.vue'
 import Mones from '@/components/Mone/Mones.vue'
 import Mone1 from '@/components/Mone/Mone1.vue'
@@ -91,7 +96,31 @@ export default [
   {
     path:'/cheon',
     name: 'Cheon',
-    component: Cheon
+    component: Cheon,
+  },
+  {
+    path:'/cheons',
+    name: 'Cheons',
+    component: Cheons,
+    mata:{ transitionName: 'slide'},
+    children: [
+      {
+        path: 'cheon1',
+        component: Cheon1
+      },
+      {
+        path: 'cheon2',
+        component: Cheon2
+      },
+      {
+        path: 'cheon3',
+        component: Cheon3
+      },
+      {
+        path: 'cheon4',
+        component: Cheon4
+      },
+    ]
   },
   {
     path:'/startcheon',
