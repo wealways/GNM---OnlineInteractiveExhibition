@@ -94,14 +94,7 @@ export default {
         this.$router.push({path:nextRoute})
       },
       getSession(){
-        console.log(document.querySelector('.avatar-edit').style.display)
         this.$store.dispatch('getsession/getSession')
-        const btn = document.querySelector('.avatar-edit')
-        if(btn.style.display===''){
-          document.querySelector('.avatar-edit').style.display="none"
-        }else{
-          console.log('사진')
-        }
       },
       urlUpload(){
         if (this.uploadFile==="") {
@@ -202,7 +195,7 @@ h1 small {
   display:block;
   /* top: 30%;
   right: 10%; */
-  transform: translate(0%,200%);
+  transform: translate(500%,200%);
 }
 .avatar-upload .avatar-edit input {
   display: none;

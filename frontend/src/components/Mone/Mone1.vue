@@ -61,7 +61,7 @@ export default {
 <style>
 /* .monepage{
     width: 100vw;
-    height: 100vh;
+    height: 101vh;
     background: url("../../assets/waterlily3.jpeg") no-repeat
 } */
 </style>
