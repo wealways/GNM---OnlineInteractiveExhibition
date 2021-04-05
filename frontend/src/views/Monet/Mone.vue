@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import MoneInteractive from '../components/Mone/MoneInteractive.vue'
+import MoneInteractive from '@/components/Mone/MoneInteractive.vue'
 // import PhotoUpload from '../components/PhotoUpload.vue'
 export default {
     name:'Mone',
