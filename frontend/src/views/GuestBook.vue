@@ -8,7 +8,7 @@
     <q-dialog
       v-model="fullWidth"
     >
-      <q-card style="width: 900px; max-width: 80vw; height: 500px; max-height: 80vh;">
+      <q-card style="width: 900px; max-width: 80vw; height: 500px; max-height: 80vh;" class="mapwrapper">
         <q-card-section class='q-pt-none mapback'>
           <Floors/>
         </q-card-section>
@@ -109,6 +109,13 @@ export default {
 </script>
 
 <style scoped>
+
+
+.mapwrapper {
+  background-color: #FCF9F2;
+}
+
+
 .map {
   position: absolute;
   left: 3%;
