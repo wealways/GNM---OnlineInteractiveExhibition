@@ -4,10 +4,10 @@ import Tutorial from '@/views/Tutorial.vue'
 import Mone from '@/views/Mone.vue'
 import StartMonet from '@/views/StartMonet.vue'
 import StartCheon from '@/views/StartCheon.vue'
-import MonetPhoto from '@/components/Mone/MonetPhoto.vue'
 
 import Klimt from '@/views/Klimt/Klimt.vue'
 import StartKlimt from '@/views/Klimt/StartKlimt.vue'
+import KlimtEnd from '@/views/Klimt/KlimtEnd.vue'
 
 import Cheon from '@/views/Cheon.vue'
 import test from '@/components/Mone/test.vue'
@@ -71,12 +71,7 @@ export default [
   {
     path:'/monetphoto',
     name: 'MonetPhoto',
-    component: MonetPhoto,
-  },
-  {
-    path:'/klimt',
-    name: 'Klimt',
-    component: Klimt,
+    component: PhotoUpload,
   },
   {
     path:'/startklimt',
@@ -87,6 +82,16 @@ export default [
     path:'/klimtphoto',
     name: 'KlimtPhoto',
     component: PhotoUpload,
+  },
+  {
+    path:'/klimt',
+    name: 'Klimt',
+    component: Klimt,
+  },
+  {
+    path:'/klimtend',
+    name:'KlimtEnd',
+    component:KlimtEnd,
   },
   {
     path:'/cheon',
