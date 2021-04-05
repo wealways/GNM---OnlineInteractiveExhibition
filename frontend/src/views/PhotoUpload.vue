@@ -85,7 +85,7 @@ export default {
         let nextRoute
 
         if (this.nowRoute==='MonetPhoto'){
-          nextRoute = 'Mone';
+          nextRoute = 'mone';
         }else if(this.nowRoute==='KlimtPhoto') {
           nextRoute = 'Klimt';
         }else {
