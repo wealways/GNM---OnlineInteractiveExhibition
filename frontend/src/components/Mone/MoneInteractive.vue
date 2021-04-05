@@ -13,9 +13,13 @@ import $ from 'jquery'
 export default {
   name:'MoneInteractive',
   methods:{
-    changerouter(){
-      this.$router.push({path:'/mones/mone1'})
-    },
+    handleScroll(event){
+      if(event){
+        if(this.$route.path === '/mone') {
+          this.$router.push({path:'/mones'})
+        }
+      }
+    }
   },
   mounted(){
     var Counter = 0;
