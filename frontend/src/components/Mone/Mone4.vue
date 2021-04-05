@@ -2,7 +2,6 @@
   <div>
     <div class='monepage4'>
     <h1 class=desc>description4</h1>
-        <button @click="changerouter">change router to klimt</button>
     </div>
   </div>
 </template>
@@ -44,4 +43,5 @@ export default {
     height: 100vh;
     background: url("../../assets/parasol.jpg") no-repeat
 }
+
 </style>
