@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import MonetIntro from '../components/Mone/MoneIntro'
+import MonetIntro from '@/components/Mone/MoneIntro'
 export default {
   name:'StartMonet',
   components: { MonetIntro }

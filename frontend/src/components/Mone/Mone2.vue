@@ -1,7 +1,6 @@
 <template>
   <div class='monepage2'>
       <h1 class=desc>description2</h1>
-      <button @click="changerouter">change router</button>
   </div>
 </template>
 
