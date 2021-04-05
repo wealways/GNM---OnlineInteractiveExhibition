@@ -151,7 +151,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 ::selection{
   background: #fe3901;
   color:#fff
