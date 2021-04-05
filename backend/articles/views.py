@@ -131,8 +131,6 @@ def expire(request):
         m.save()
         return JsonResponse({'sessionkey':m.session_key, 'expire_date' : m.expire_date})
     else:
-<<<<<<< HEAD
         return JsonResponse({'status' : 'session이 존재하지 않습니다.'})
-=======
-        return JsonResponse({'status' : 'session이 존재하지 않습니다.'})
->>>>>>> ec3f79cee1c72e38cdce51356d2ee6d0b3275d4e
+
+
