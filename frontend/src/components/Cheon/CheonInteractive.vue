@@ -31,14 +31,13 @@
 </template>
 
 <script>
+
 var img = ["https://lh3.googleusercontent.com/proxy/EI5e34TlH8O3nYUTzKueokxSShqACl0bomRr4Cq57bdttIIpALxLPh_pWR1zR-07CGo8VM_5xR_-PuauqmAS_0CfK3fV6pcvWWM-yindg68XaSe6aLcNqX7KtFQFz9ZOr9mQBwDLV-MyXxokUB23Aga-vSKf_S0AkJjwnppzKchRHHcJ8l_ZaVqHttEljFjt5GNIVM1nsg"]
-
-
 
 export default {
   name:'CheonInteractive',
   mounted(){
-    
+ 
     this.randomize()
 
     const fp = document.querySelectorAll('#puz i')
@@ -76,12 +75,12 @@ export default {
       for(var i=0;i<ul.length;i++){
         if (i%2 == 0) {
           // ul[i].style.left = Math.random()*(window.innerWidth-800) + 'px'
-          ul[i].style.right = Math.random()*(window.innerWidth-500) + 'px'
+          ul[i].style.right = Math.random()*(window.innerWidth-900) + 'px'
           ul[i].style.top = Math.random()*(window.innerHeight-800) + 'px'
         }
         else {
-          ul[i].style.left = Math.random()*(window.innerWidth-800) + 'px'
-          ul[i].style.top = Math.random()*(window.innerHeight-500) + 'px'
+          ul[i].style.left = Math.random()*(window.innerWidth-900) + 'px'
+          ul[i].style.top = Math.random()*(window.innerHeight-800) + 'px'
         }
       }
       // for (var i = ul.children.length; i >= 0; i--) {
@@ -155,12 +154,12 @@ export default {
   background:  white;
   height: 980px;
   width: 100%;
-  overflow: hidden;
   z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow:scroll ;
 }
 .exhibition{
   position: relative;
@@ -293,4 +292,5 @@ export default {
   bottom:5px;
   right:5px;
 }
+
 </style>

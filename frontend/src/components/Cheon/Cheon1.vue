@@ -1,6 +1,8 @@
 <template>
-  <div class="cheon1_pic">
-
+  <div class="cheon1">
+    <img class="cheon1_pic" src="../../assets/GilryeSister.jpg" alt="ecology">
+    <div class="description">
+    </div>
   </div>
 </template>
 
@@ -10,8 +12,11 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .cheon1_pic{
-  background: url("../../assets/insang.jpg") no-repeat
+  height: 100%;
+}
+.explanation{
+
 }
 </style>
