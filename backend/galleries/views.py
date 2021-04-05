@@ -103,12 +103,17 @@ class GalleryViewSet(viewsets.ModelViewSet):
                     imageaddress = os.path.join(*[BASE_DIR,'media',imagefile])
                     img = open(imageaddress, 'rb')
                     # 로컬 주소
-                    base_url = 'http://127.0.0.1:8001/'
+                    base_url = 'http://127.0.0.1:'
                     # 해당 ai모델 연결
-                    artist = ['klimt/', 'chun/', 'mone/']
+                    artist = ['monet/', 'klimt/', 'chun/']
+                    # 해당 ai모델 포트 번호
+                    port_num = ['8001/', '8002/', '8003/']
+                    port_num = port_num[no - 1]
                     artist = artist[no - 1]
-                    ai_url = base_url + artist
-                    # ai_url = base_url + artist[no-1]
+                    ai_url = base_url + port_num + artist
+                    
+                    print(f'요청 보내는 주소: {ai_url}')
+
                     response = requests.post(ai_url,files={'image': img},headers={'sessionkey': sessionkey})
                     response_status = json.loads(response.text)['status']
                     return JsonResponse({'status' : response_status}) 
