@@ -46,7 +46,18 @@ INSTALLED_APPS = [
 
 
 
-
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+    'sessionkey',
+]
 
 
 
@@ -140,4 +151,6 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
+
+DATA_UPLOAD_MAX_NUMBER_FIELDS = None
 
