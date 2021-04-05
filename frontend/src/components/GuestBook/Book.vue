@@ -10,7 +10,6 @@
         </q-img>
       </q-card>
       <div class="card-description text-subtitle2 column justify-center">
-        <!-- <strong class="user-comment text-center">{{article.guestbook_comment}}</strong> -->
         <span class="user-nickname text-caption text-right">
           {{article.user_nickname}}
         </span>
@@ -25,18 +24,21 @@
             style="max-height:800px"
           >
           </q-img>
-          <div class="card-img-description col-4 p-3">
+
+          <div class="card-img-description col-4 column">
             <div class="card-img-header">
-              <h2>CAT</h2>
             </div>
-            <div class="card-img-body">
-              <div>{{article.guestbook_comment}}</div>
-              <div>by {{article.user_nickname}}</div>
+            <div class="card-img-body col column justify-center ">
+              <div class="" style="display:block; text-align:center;">{{article.guestbook_comment}}</div>
+              <div class="column justify-end items-end" style="display:inline">
+                <span>by </span>
+                <span>{{article.user_nickname}}</span>
+              </div>
             </div>
             <div class="card-img-footer">
-              <p>{{date}}</p>
-              <q-fab padding="10px" color="deep-orange-13" text-color="black" icon="keyboard_arrow_left" direction="left" style="width:15%;">
-                <q-fab-action padding="6px" color="warning" @click="modifyBtn=true" label="수정" label-position="bottom" label-style="font-size:12px;color:#000;"/>
+              <p style="color:#2a433b;">{{date}}</p>
+              <q-fab padding="10px" text-color="white" icon="keyboard_arrow_left" direction="left" style="width:15%;" class="more-btn">
+                <q-fab-action padding="6px" class="upd-btn" @click="modifyBtn=true" label="수정" label-position="bottom" label-style="font-size:12px;"/>
                 <q-dialog v-model="modifyBtn">
                   <q-card style="min-width: 350px">
                     <q-card-section class="q-pt-none">
@@ -50,12 +52,12 @@
                       </q-input>
                     </q-card-section>
                     <div class="row justify-end q-mb-xs">
-                      <q-btn @click="modifyArticle" label="수정" color="warning" v-close-popup />
+                      <q-btn @click="modifyArticle" label="수정" color="teal-9" v-close-popup />
                       <q-btn @click="onReset" flat label="취소" v-close-popup />
                     </div>
                   </q-card>
                 </q-dialog>
-                <q-fab-action padding="6px" color="grey-9" @click="deleteBtn = true" label="삭제" label-position="bottom" label-style="font-size:12px;color:#fff;"/>
+                <q-fab-action padding="6px"  class="del-btn" @click="deleteBtn = true" label="삭제" label-position="bottom" label-style="font-size:12px;color:#fff;"/>
                 <q-dialog v-model="deleteBtn">
                   <q-card style="min-width: 350px">
                     <q-card-section class="q-pt-none">
@@ -69,8 +71,9 @@
                       </q-input>
                     </q-card-section>
                     <div class="row justify-end q-mb-xs">
-                      <q-btn @click="deleteArticle" label="삭제" color="negative" v-close-popup />
-                      <q-btn @click="onReset" flat label="취소" v-close-popup />
+                      <q-btn @click="deleteArticle" label="삭제" color="red-6" v-close-popup />
+                      <q-btn @click="onReset" flat label="취소" v-close-popup/>
+
                     </div>
                   </q-card>
                 </q-dialog>
@@ -141,7 +144,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 ::selection{
   background: #fe3901;
   color:#fff
@@ -249,13 +252,32 @@ p{
   
 }
 
+/* buttons */
+
+
+.more-btn {
+  background-color: #DECBA7;
+  color: white;
+}
+
+.del-btn {
+  background-color: #fe3901;
+  color: white;
+}
+
+.upd-btn {
+  background-color: #2a433b;
+  color: white;
+}
+
 
 .card-img-description{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #000;
-  padding:2rem;
+  background: #F5F4F2;
+  padding: 2rem 2rem 1rem;
+  position: relative;
 }
 .card-img-description p{
   color: #fff;
@@ -266,10 +288,16 @@ p{
 
 }
 .card-img-body{
-  color:#fff;
-  margin:auto 0px;
-  padding: 2rem;
+  color:#2a433b;
+  margin: auto 0px;
+  padding: 1rem;
   min-height: 220px;
+  position:relative;
+  margin:0;
+  border: solid 2.2px #DECBA7;
+  outline: solid 1px #DECBA7;
+  /* height:100%; */
+  outline-offset: 15px;
 }
 .card-img-body> div:nth-child(1){
   font-size:1.5rem;
@@ -281,15 +309,16 @@ p{
 .card-img-body> div:nth-child(2){
   text-align: right;
   word-break:break-all;
-  margin-top: 20px;
-  margin-right:0 !important;
+  margin-top: 10px;
   margin-bottom:0;
+  right: 10%;
 }
 .card-img-footer{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items:center;
+  margin-top: 30px;
 }
 .card-img-footer>p{
   margin:0px;

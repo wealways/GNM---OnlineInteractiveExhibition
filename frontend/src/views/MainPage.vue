@@ -2,12 +2,15 @@
   <div>
     <div class="cover-5">
       <div class="container">
+        <div class='icon-scroll'>
+          <div class='scrolltext' style="color:white; font-family:'Cinzel">scroll</div>
+        </div>
         <section data-bgcolor="#bcb8ad" data-textcolor="#032f35">
         <div>
-          <h1 data-scroll data-scroll-speed="1"><span>On-line</span> <span>Interactive</span> <span>Exhibition</span></h1>
+          <h1 id="maintext" data-scroll data-scroll-speed="1"><span>On-line</span> <span>Interactive</span> <span>Exhibition</span></h1>
           <!-- <p data-scroll data-scroll-speed="2" data-scroll-delay="0.2">with GSAP ScrollTrigger & Locomotive Scroll</p> -->
           <router-link :to="'/tutorial'">
-            <div class='btn tutorial'>go to tutorial</div>
+            <div id="tutorialbtn" class='btn tutorial'>go to tutorial</div>
           </router-link>
         </div>
         </section>
@@ -194,8 +197,61 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
+<style scoped>
+.scrolltext{
+  position: fixed;
+  bottom:50%;
+  transform: translateX(-10%) translateY(-30%);
+}
+.icon-scroll,
+.icon-scroll:before {
+  position: fixed;
+  left: 50%;
+}
+.icon-scroll {
+  width: 40px;
+  height: 70px;
+  margin-left: -20px;
+  top: 90%;
+  margin-top: -35px;
+  box-shadow: inset 0 0 0 1px #fff;
+  border-radius: 25px;
+}
+.icon-scroll:before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  margin-left: -4px;
+  top: 8px;
+  border-radius: 4px;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-name: scroll;
+          animation-name: scroll;
+}
+@-webkit-keyframes scroll {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(46px);
+  }
+}
+@keyframes scroll {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(46px);
+  }
+}
+</style>
+<style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
 *,
@@ -211,7 +267,9 @@ export default {
   --text-color: #111;
   --bg-color: #dad4cc;
 }
-
+#tutorialbtn{
+  color: white;
+}
 .cover {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -333,7 +391,6 @@ article {
   color: #2d2d2d;
   font-family: "Roboto", sans-serif;
   letter-spacing: -4px;
-  line-height: 1;
 }
 .imsrk {
   color: white;
