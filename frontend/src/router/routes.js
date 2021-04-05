@@ -68,8 +68,11 @@ export default [
     name: 'StartMonet',
     component: StartMonet,
   },
-
-  
+  {
+    path:'/monetphoto',
+    name: 'MonetPhoto',
+    component: PhotoUpload,
+  },
   {
     path:'/startklimt',
     name: 'StartKlimt',
