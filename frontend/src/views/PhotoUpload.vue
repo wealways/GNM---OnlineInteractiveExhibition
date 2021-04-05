@@ -67,6 +67,10 @@ export default {
     },
     methods:{
       showNotif () {
+        if(this.uploadFile!==""){
+          this.urlUpload()
+          return
+        }
         this.$q.notify({
         message: '특별전시회 이용에  <strong style="color: red">제한</strong>이 됩니다.',
         html: true,
