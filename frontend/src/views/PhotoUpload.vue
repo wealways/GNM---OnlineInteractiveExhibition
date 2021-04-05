@@ -33,7 +33,7 @@
             Please Upload a picture
           </div>
         </div>
-        <q-btn flat target="_blank" id="skipbtn" @click="urlUpload">
+        <q-btn flat target="_blank" id="skipbtn" @click="showNotif">
           <span style='font-size:3rem;'>
             <q-icon name="mdi-chevron-double-right"></q-icon>
           </span>
@@ -66,11 +66,26 @@ export default {
       }
     },
     methods:{
+      showNotif () {
+        if(this.uploadFile!==""){
+          this.urlUpload()
+          return
+        }
+        this.$q.notify({
+        message: '특별전시회 이용에  <strong style="color: red">제한</strong>이 됩니다.',
+        html: true,
+        type: 'warning',
+        position:'center',
+        actions: [
+          { label: 'OK', color: 'primary', handler: () => { this.urlUpload() } }
+        ]
+      })
+      },
       goToNext() {
         let nextRoute
 
         if (this.nowRoute==='MonetPhoto'){
-          nextRoute = 'Mone';
+          nextRoute = 'mone';
         }else if(this.nowRoute==='KlimtPhoto') {
           nextRoute = 'Klimt';
         }else {
@@ -79,11 +94,17 @@ export default {
         this.$router.push({path:nextRoute})
       },
       getSession(){
+        console.log(document.querySelector('.avatar-edit').style.display)
         this.$store.dispatch('getsession/getSession')
+        const btn = document.querySelector('.avatar-edit')
+        if(btn.style.display===''){
+          document.querySelector('.avatar-edit').style.display="none"
+        }else{
+          console.log('사진')
+        }
       },
       urlUpload(){
         if (this.uploadFile==="") {
-          alert("특별전시회 이용에 제한이 됩니다.");
           this.goToNext()
         }else{
           let artist
@@ -181,7 +202,7 @@ h1 small {
   display:block;
   /* top: 30%;
   right: 10%; */
-  transform: translate(500%,200%);
+  transform: translate(0%,200%);
 }
 .avatar-upload .avatar-edit input {
   display: none;
@@ -230,6 +251,10 @@ h1 small {
   /* border-radius: 100%; */
   border: 13px solid #f8f8f8;
   box-shadow: 0px 7px 13px 0px rgba(0, 0, 0, 0.1);
+}
+.avatar-upload .avatar-preview:hover .avatar-edit input + label {
+  background: #f1f1f1;
+  border-color: #d6d6d6;
 }
 .avatar-upload .avatar-preview > div {
   width: 100%;
