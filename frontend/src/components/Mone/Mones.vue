@@ -3,7 +3,7 @@
     <IconMap/>
     <IconVoice/>
     <transition 
-      name="fade"
+      name="slide-fade"
       mode="out-in"
     >
       <router-view class="child-view"></router-view>
@@ -28,15 +28,22 @@ html, body {
 }
 </style>
 <style>
-.fade-enter-active,
-.fade-leave-active {
-  transition-duration: 0.3s;
-  transition-property: opacity;
-  transition-timing-function: ease;
+.slide-fade-enter-active {
+  transition: all .5s ease;
 }
 
-.fade-enter,
-.fade-leave-active {
-  opacity: 0
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
+
+.slide-fade-leave-to {
+  transform: translateX(-100px);
+  opacity: 0;
+}
+
+.slide-fade-enter {
+  transform: translateX(100px);
+  opacity: 0;
+}
+
 </style>

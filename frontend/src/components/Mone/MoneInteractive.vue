@@ -13,16 +13,24 @@ import $ from 'jquery'
 export default {
   name:'MoneInteractive',
   methods:{
-    handleScroll(event){
-      if(event){
-        if(this.$route.path !=='/mones/mone1') {
-          this.$router.push({path:'/mones/mone1'})
-        }
-      }
-    }
+    changerouter(){
+      this.$router.push({path:'/mones/mone1'})
+    },
   },
   mounted(){
-    window.addEventListener('scroll', this.handleScroll);
+    var Counter = 0;
+    function myFunction() {
+      Counter = Math.ceil(window.scrollY);
+    }
+    window.onscroll = () => {
+      myFunction();
+        if (Counter > 0){
+          if (this.$route.path === '/mone') {
+              this.changerouter()
+            }
+        }
+        console.log(Counter)
+    };
     let z = 2;
     $(document).on('mouseover', (e)=> {
       const mx = e.pageX;
