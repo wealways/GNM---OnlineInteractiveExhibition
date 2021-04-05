@@ -21,12 +21,12 @@ export default {
     },
     watch:{
       'page':function(){
-        // const insang = document.querySelector('#insang')
-        const info = document.querySelector('.carousel-item__info')
+        const insang = document.querySelector('#insang')
+        // const info = document.querySelector('.carousel-item__info')
         if(this.page===2){
           console.log(2)
           setTimeout(function(){
-            info.classList.add('active');
+            insang.classList.add('active');
           },500)
         }
       }
@@ -56,7 +56,7 @@ export default {
 }
  
 .active {
-    transform: translateX(80%);
+    transform: translateY(-5%);
     opacity: 1;
     transition: 0.6s all ease-in-out;
     visibility: visible;
@@ -64,8 +64,10 @@ export default {
 #insang{
   z-index:-1;
   position: absolute;
-  height: 100vh;
-  width: 100vw;
+  top: 15%;
+  left: 10%;
+  height: 50vh;
+  width: 50vw;
 }
 /* .carousel-item_info{
   z-index:902;
@@ -78,9 +80,10 @@ export default {
   width: 0%;
   display: flex;
   flex-direction: column;  
-  justify-content: center;
+  /* justify-content: flex-end; */
   right:0;
-  margin: auto;
+  margin-top:30%;
+  margin-left:40%;
   padding: 0 40px;
   width: 40%;
 
