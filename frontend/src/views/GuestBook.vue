@@ -1,6 +1,19 @@
 <template>
   <div>
-    <!-- <Icons/> -->
+    <div @click="fullWidth = true">
+      <span style="font-size:50px;">
+        <q-icon class='map' name="mdi-map-legend"></q-icon>
+      </span>
+    </div>
+    <q-dialog
+      v-model="fullWidth"
+    >
+      <q-card style="width: 900px; max-width: 80vw; height: 500px; max-height: 80vh;">
+        <q-card-section class='q-pt-none mapback'>
+          <Floors/>
+        </q-card-section>
+      </q-card>
+    </q-dialog>
     <div class="guestbook-header row justify-between items-center">
       <h3>GUESTBOOK</h3>
       <BookWrite/>
@@ -18,10 +31,12 @@
               </div>
             </template>
           </q-infinite-scroll>
-          <div v-if="endFlag" class="end-text row items-center">
+          <div v-if="endFlag" class="end-text row items-center justify-between">
+            <div></div>
             <div @click="goUp" style="cursor:pointer;">
               목록의 끝입니다☺
             </div>
+            <div></div>
             <div></div>
           </div>
         </q-page>
@@ -38,7 +53,7 @@ export default {
   components: {
     Book: () => import('@/components/GuestBook/Book'),
     BookWrite: () => import('@/components/GuestBook/BookWrite'),
-    // Icons: () => import('@/components/IconMap/Icons'),
+    Floors: () => import('@/components/IconMap/Floors'),
   },
   computed:{
     articles() {
@@ -49,7 +64,8 @@ export default {
     return {
       //masonry + infinity
       page: 1,
-      endFlag:false
+      endFlag:false,
+      fullWidth: false,
     }
   },
   created() {
@@ -93,6 +109,20 @@ export default {
 </script>
 
 <style scoped>
+.map {
+  position: absolute;
+  left: 3%;
+  top: 5%;
+  background-color: transparent;
+}
+
+.map:hover {
+  color: red;
+}
+
+.mapback {
+  height: 80%;
+}
 .form-top{
   display: flex;
 }

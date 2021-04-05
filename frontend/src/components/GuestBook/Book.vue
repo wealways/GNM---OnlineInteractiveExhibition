@@ -10,7 +10,6 @@
         </q-img>
       </q-card>
       <div class="card-description text-subtitle2 column justify-center">
-        <!-- <strong class="user-comment text-center">{{article.guestbook_comment}}</strong> -->
         <span class="user-nickname text-caption text-right">
           {{article.user_nickname}}
         </span>
@@ -25,24 +24,18 @@
             style="max-height:800px"
           >
           </q-img>
-          <!-- 이미지 없을때 기본그림 설정 -->
-          <!-- <img v-if!="article.guestbook_image"
-            src="../../assets/mone.jpg" 
-            class="col-8"
-            style="max-height:800px; min-height:500px;"/> -->
 
-          <div class="card-img-description col-4 column justify-between">
+          <div class="card-img-description col-4 column">
             <div class="card-img-header">
-              <!-- <h2>CAT</h2> -->
             </div>
-            <div class="card-img-body col justify-center items-center col-9">
-              <div class="col-10" style="display:block; text-align:center;">{{article.guestbook_comment}}</div>
-              <div class="col-2">
+            <div class="card-img-body col column justify-center ">
+              <div class="" style="display:block; text-align:center;">{{article.guestbook_comment}}</div>
+              <div class="column justify-end items-end" style="display:inline">
                 <span>by </span>
-                {{article.user_nickname}}
+                <span>{{article.user_nickname}}</span>
               </div>
             </div>
-            <div class="card-img-footer col-2">
+            <div class="card-img-footer">
               <p style="color:#2a433b;">{{date}}</p>
               <q-fab padding="10px" text-color="white" icon="keyboard_arrow_left" direction="left" style="width:15%;" class="more-btn">
                 <q-fab-action padding="6px" class="upd-btn" @click="modifyBtn=true" label="수정" label-position="bottom" label-style="font-size:12px;"/>
@@ -283,7 +276,7 @@ p{
   flex-direction: column;
   justify-content: space-between;
   background: #F5F4F2;
-  padding: 1rem 2rem;
+  padding: 2rem 2rem 1rem;
   position: relative;
 }
 .card-img-description p{
@@ -303,7 +296,7 @@ p{
   margin:0;
   border: solid 2.2px #DECBA7;
   outline: solid 1px #DECBA7;
-  /* height:87%; */
+  /* height:100%; */
   outline-offset: 15px;
 }
 .card-img-body> div:nth-child(1){
@@ -316,18 +309,16 @@ p{
 .card-img-body> div:nth-child(2){
   text-align: right;
   word-break:break-all;
-  margin-top: 20px;
-  margin-right:0 !important;
+  margin-top: 10px;
   margin-bottom:0;
   right: 10%;
-  position:absolute;
-  /* top:0; */
 }
 .card-img-footer{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items:center;
+  margin-top: 30px;
 }
 .card-img-footer>p{
   margin:0px;
