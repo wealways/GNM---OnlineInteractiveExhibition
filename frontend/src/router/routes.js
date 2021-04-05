@@ -4,7 +4,6 @@ import Tutorial from '@/views/Tutorial.vue'
 import Mone from '@/views/Mone.vue'
 import StartMonet from '@/views/StartMonet.vue'
 import StartCheon from '@/views/StartCheon.vue'
-import MonetPhoto from '@/components/Mone/MonetPhoto.vue'
 
 import Klimt from '@/views/Klimt/Klimt.vue'
 import StartKlimt from '@/views/Klimt/StartKlimt.vue'
@@ -71,7 +70,7 @@ export default [
   {
     path:'/monetphoto',
     name: 'MonetPhoto',
-    component: MonetPhoto,
+    component: PhotoUpload,
   },
   {
     path:'/klimt',
