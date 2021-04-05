@@ -3,13 +3,16 @@ import GuestBook from '@/views/GuestBook.vue'
 import Tutorial from '@/views/Tutorial.vue'
 import Mone from '@/views/Monet/Mone.vue'
 import StartMonet from '@/views/Monet/StartMonet.vue'
-import StartCheon from '@/views/StartCheon.vue'
+
 
 import Klimt from '@/views/Klimt/Klimt.vue'
 import StartKlimt from '@/views/Klimt/StartKlimt.vue'
 import KlimtEnd from '@/views/Klimt/KlimtEnd.vue'
 
-import Cheon from '@/views/Cheon.vue'
+import Cheon from '@/views/Cheon/Cheon.vue'
+import StartCheon from '@/views/Cheon/StartCheon.vue'
+import CheonEnd from '@/views/Cheon/CheonEnd.vue'
+
 import test from '@/components/Mone/test.vue'
 import Mones from '@/views/Monet/Mones.vue'
 
@@ -74,7 +77,12 @@ export default [
   {
     path:'/cheon',
     name: 'Cheon',
-    component: Cheon
+    component: Cheon,
+  },
+  {
+    path:'/cheonphoto',
+    name: 'CheonPhoto',
+    component: PhotoUpload,
   },
   {
     path:'/startcheon',
@@ -82,9 +90,9 @@ export default [
     component: StartCheon,
   },
   {
-    path:'/cheonphoto',
-    name: 'CheonPhoto',
-    component: PhotoUpload,
+    path:'/cheonend',
+    name:'CheonEnd',
+    component:CheonEnd,
   },
   {
     path:'/test',
