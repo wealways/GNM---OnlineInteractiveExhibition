@@ -80,9 +80,10 @@ export default {
   background-color: transparent;
 }
 .voice{
-  position: absolute;
-  bottom: 13%;
-  right: 5%;
+  z-index: 0;
+  position: fixed;
+  bottom: 10%;
+  right: 10%;
 }
 .voice:hover{
   color: red;
