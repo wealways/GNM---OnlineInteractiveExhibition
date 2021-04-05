@@ -1,15 +1,14 @@
 <template>
-  <div>
+  <div class='intromone'>
     <h1 id="monetname">Claude</h1>
     <h1 id="monetname2">Monet</h1>
     <span id="sentence">"물체가 지닌 고유한 색은 없다. 색은 빛에 따라서 변화할 뿐이다."</span>
-    <img src="../../assets/mone.jpg" alt="monetface" id="bg">
+    <div id="bg"></div>
     <div @click="realstart" class="nextbtn">
       <span style="font-size:50px;">
           <q-icon :to='"/monetphoto"' target="_blank" id="rightarrow" name="mdi-chevron-double-right"></q-icon>
       </span>
     </div>
-
   </div>
 </template>
 
@@ -45,6 +44,11 @@ export default {
 </script>
 
 <style scoped>
+.intromone {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
 .nextbtn:hover {
   cursor: pointer;
 }
@@ -58,7 +62,7 @@ body, html {
 }
 #monetname2{
   position: absolute;
-  top: 30%;
+  top: 35%;
   left: 5%;
 }
 #sentence{
@@ -67,10 +71,18 @@ body, html {
   left: 4%;
 }
 #bg {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 80vh;
+  background-image: url('../../assets/mone.jpg');
+  /* width: 60%; */
+  height: 70vh;
+  width: 60vw;
+  order: 2;
+  align-self: flex-end;
+  /* flex-basis: 60%; */
+  /* background-position: left; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  position:relative;
+  transform: translateX(70%);
 }
 #rightarrow{
   position: absolute;
