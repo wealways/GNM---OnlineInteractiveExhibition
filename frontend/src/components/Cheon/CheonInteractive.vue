@@ -32,7 +32,7 @@
 
 <script>
 
-var img = ["https://lh3.googleusercontent.com/proxy/EI5e34TlH8O3nYUTzKueokxSShqACl0bomRr4Cq57bdttIIpALxLPh_pWR1zR-07CGo8VM_5xR_-PuauqmAS_0CfK3fV6pcvWWM-yindg68XaSe6aLcNqX7KtFQFz9ZOr9mQBwDLV-MyXxokUB23Aga-vSKf_S0AkJjwnppzKchRHHcJ8l_ZaVqHttEljFjt5GNIVM1nsg"]
+var img = ["https://i.ibb.co/cQFkpgd/cheon.png"]
 
 export default {
   name:'CheonInteractive',
@@ -143,7 +143,7 @@ export default {
   --color:lightgray;
   --border-radius:10px;
   /* --image:url("../../assets/cheon_pic.png"); */
-  --image:url("https://lh3.googleusercontent.com/proxy/EI5e34TlH8O3nYUTzKueokxSShqACl0bomRr4Cq57bdttIIpALxLPh_pWR1zR-07CGo8VM_5xR_-PuauqmAS_0CfK3fV6pcvWWM-yindg68XaSe6aLcNqX7KtFQFz9ZOr9mQBwDLV-MyXxokUB23Aga-vSKf_S0AkJjwnppzKchRHHcJ8l_ZaVqHttEljFjt5GNIVM1nsg");
+  --image:url("https://i.ibb.co/cQFkpgd/cheon.png");
 }
 </style>
 <style>
