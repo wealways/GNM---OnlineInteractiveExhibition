@@ -8,7 +8,7 @@
         <div>
           우리에게 잘 알려진 <strong>클림트의 키스</strong>는<br>
           원형, 네모, 직선과 곡선 등 기하학 문양과 함께<br>
-          금박 무늬 등 <span style="color:#d6ba38">화려한 색체</span>를 앞세운 화풍이 잘 드러난다.
+          금박 무늬 등 <span style="color:#d6ba38">화려한 색체</span>를 앞세운 화풍이 잘 드러납니다.
           
         </div>
         <br>
@@ -50,6 +50,14 @@
           <!-- <circle id="ring" r="10" fill="none" stroke="#dc143c" stroke-width="2" cx="800" cy="450" /> -->
           <circle id="dot" r="4" fill="#dc143c" cx="800" cy="450" />
       </svg>
+      <!-- <div @click="realstart">
+        <span style="font-size:50px;">
+            <q-icon :to='"/klimtphoto"' target="_blank" id="rightarrow" name="mdi-chevron-double-right"></q-icon>
+        </span>
+      </div> -->
+      <div class="next-view" @click="nextKlimts">
+        <q-icon class="next-view-icon" name="mdi-chevron-double-right"/>
+      </div>
       <div class="original-view column items-center" @click="originalView">
         <q-icon class="original-view-icon" name="photo"/>
         <div v-if="!originalflag">Original</div>
@@ -151,6 +159,9 @@ export default {
     
   },
   methods:{
+    nextKlimts(){
+      this.$router.push({path:'klimts'})
+    },
     hintView(){
       this.hintflag = !this.hintflag
     },
@@ -207,9 +218,22 @@ export default {
 .desc-footer-info-icon{
   font-size:1.5rem;
 }
+.next-view{
+  position:absolute;
+  right: 5.5%;
+  bottom: 50%;
+  display: flex;
+  cursor: pointer;
+}
+.next-view:hover{
+  color:#fe3901;
+}
+.next-view-icon{
+  font-size: 2rem;
+}
 .original-view{
   position:absolute;
-  right: 5.15%;
+  right: 5%;
   bottom: 20%;
   display: flex;
   cursor: pointer;
