@@ -1,6 +1,6 @@
 <template>
   <div class='monepage4'>
-    <div class="carousel-item__info">
+    <div class="carousel-item__info" id="info">
       <div class="carousel-item__container">
       <h2 class="carousel-item__subtitle">파라솔을 든 여인</h2>
       <h1 class="carousel-item__title">Woman with a Parasol - Madame Monet and Her Son</h1>
@@ -15,34 +15,30 @@
 // import { gsap } from 'gsap';
 export default {
     name:"Mone4",
-    // created(){
-    //     window.addEventListener('scroll', this.handleScroll);
-    // },
-    // methods:{
-    //     changerouter(){
-    //         this.$router.push({path:'/startklimt'})
-    //     },
-    //      handleScroll(event){
-    //         if(event){
-    //             this.showdescription()
-    //         }
-    //     },
-    //     showdescription(){
-    //         let t1 = gsap.timeline();
-    //         t1.from(
-    //         ".desc",
-    //         {
-    //             yPercent: 100,
-    //             ease: "power1.out",
-    //             opacity: 0,
-    //         },
-    //         );
-    //     }
-    
+    computed: {
+      page(){
+        return this.$store.state.page.page
+      }
+    },
+    watch:{
+      'page':function(){
+        // const insang = document.querySelector('#insang')
+        const info = document.querySelector('#info')
+
+        if(this.page===4){
+          console.log(this.page)
+          setTimeout(function(){
+            info.classList.add('active');
+          },500)
+        }else{
+          info.classList.delete('active');
+        }
+      }
+    }    
 }
 </script>
 
-<style>
+<style scoped>
 .monepage4{
   width: 100vw;
   height: 100vh;
@@ -53,10 +49,8 @@ export default {
 #parasol{
   z-index:-1;
   position: absolute;
-  top: 10%;
-  left: 10%;
-  height: 90vh;
-  width: 40vw;
+  height: 100vh;
+  width: 44vw;
 }
 .carousel-item__info {
   height: 100%;
@@ -65,11 +59,19 @@ export default {
   flex-direction: column;  
   /* justify-content: flex-end; */
   right:0;
-  margin-top:20%;
+  margin-top:10%;
   margin-left:50%;
   padding: 0 40px;
+  transform: translateX(50%);
+  transition: 2s all ease-in-out;
+  flex-basis: 60%;
   width: 40%;
 
+}
+
+.active{ 
+transition: 1s all ease-in-out;
+transform: translateX(-10%);
 }
 
 .carousel-item__subtitle {
