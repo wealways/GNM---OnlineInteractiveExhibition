@@ -30,8 +30,6 @@ export default {
           setTimeout(function(){
             info.classList.add('active');
           },500)
-        }else{
-          info.classList.delete('active');
         }
       }
     }    

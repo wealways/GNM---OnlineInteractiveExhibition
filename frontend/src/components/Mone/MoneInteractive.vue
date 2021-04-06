@@ -14,7 +14,7 @@ export default {
   name:'MoneInteractive',
   methods:{
     handleScroll(event){
-      event.preventDefault();
+      // event.preventDefault();
       let delta = event.deltaY
       if(delta>0){
         if(this.$route.path === '/mone') {
