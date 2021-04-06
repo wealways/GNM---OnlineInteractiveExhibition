@@ -1,14 +1,13 @@
 <template>
-  <div>
-    <h1 id="firstname">Gustav<br>Klimt</h1>
+  <div style="background-color:#28353c;">
+    <h1 id="firstname" style="color:#fff;">Gustav<br>Klimt</h1>
     <img src="../../assets/images/klimtintro.png" alt="klimtface" id="bg">
-    <span id="sentence"></span>
+    <span id="sentence" style="color:#fff;font-size:1rem;"></span>
     <div @click="realstart">
-      <span style="font-size:50px;">
-          <q-icon :to='"/klimtphoto"' target="_blank" id="rightarrow" name="mdi-chevron-double-right"></q-icon>
+      <span style="font-size:50px;cursor:pointer;">
+          <q-icon target="_blank" id="rightarrow" name="mdi-chevron-double-right" style="color:#eee8aa"></q-icon>
       </span>
     </div>
-
   </div>
 </template>
 
@@ -16,9 +15,9 @@
 import $ from 'jquery'
 import korTyping from '@/plugins/korTyping'
 export default {
-  name:'MoneIntro',
+  name:'KlimtIntro',
   mounted(){
-    korTyping('#sentence','"예술은 당신의 생각들을 둘러싼 한줄기 선입니다."')
+    korTyping('#sentence','" 예술은 당신의 생각들을 둘러싼 한 줄기 선입니다. "')
     var theWindow = $(window),
     $bg = $("#bg"),
     aspectRatio = $bg.width() / $bg.height();
@@ -49,6 +48,8 @@ export default {
 <style scoped>
 body, html {
   overflow: hidden;
+  height: 100%;
+  width: 100%;
 }
 #firstname{
   position: absolute;
