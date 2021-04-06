@@ -1,17 +1,21 @@
 <template>
   <div>
-    <Icons/>
+    <IconMap mapColor="green"/>
+    <IconVoice voiceColor="red"/>
     <MonetIntro/>
   </div>
 </template>
 
 <script>
 import MonetIntro from '@/components/Mone/MoneIntro'
-import Icons from '@/components/IconMap/Icons'
 
 export default {
   name:'StartMonet',
-  components: { MonetIntro,Icons }
+  components: { 
+    MonetIntro,
+    IconMap: () => import('@/components/IconMap/IconMap'),
+    IconVoice: () => import('@/components/IconMap/IconVoice'), 
+  }
 }
 </script>
 
