@@ -63,7 +63,9 @@ def push_output(output, sessionkey):
     output = { 'image': image }
     print(f'산출물: {output}')
     # 로컬용 API 주소
-    BASE_URL = f'http://127.0.0.1:8000/galleries/image/{imgtype}/{no}/'
+    # BASE_URL = f'http://127.0.0.1:8000/galleries/image/{imgtype}/{no}/'
+    # 배포용 API 주소
+    BASE_URL = f'http://j4c106.p.ssafy.io/api/galleries/image/{imgtype}/{no}/'
     print(f'요청 보내는 주소: {BASE_URL}')
     # 요청 보내기
     response = requests.post(BASE_URL, headers = headers, files = output)
