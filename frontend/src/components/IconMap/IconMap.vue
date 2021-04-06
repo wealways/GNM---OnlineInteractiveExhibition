@@ -50,6 +50,7 @@ export default {
 }
 
 .map {
+  z-index:900;
   position: absolute;
   left: 3%;
   top: 4.3%;

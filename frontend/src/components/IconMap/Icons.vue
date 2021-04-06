@@ -75,15 +75,16 @@ export default {
 }
 .map {
   position: absolute;
+  z-index: 9999;
   left: 3%;
   top: 5%;
   background-color: transparent;
 }
 .voice{
-  z-index: 0;
+  z-index: 9999;
   position: fixed;
   bottom: 10%;
-  right: 10%;
+  right: 5%;
 }
 .voice:hover{
   color: red;
@@ -93,7 +94,8 @@ export default {
 }
 .voice-off{
   position: absolute;
-  bottom: 13%;
+  z-index: 9999;
+  bottom: 10%;
   right: 5%;
 }
 .map:hover {
