@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <div>
         <div class="layer-container stacked-top">
             <div @click='gotomone' class="layer first-layer blue-layer"></div>
             <div @click='gotoklimt' class="layer second-layer green-layer"></div>
