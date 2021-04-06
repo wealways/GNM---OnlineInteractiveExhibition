@@ -1,6 +1,6 @@
 <template>
   <div class='monepage2'>
-    <div class="carousel-item__info">
+    <div class="carousel-item__info" id="carousel-item__info">
       <div class="carousel-item__container">
       <h2 class="carousel-item__subtitle">인상, 해돋이</h2>
       <h1 class="carousel-item__title">Impression, Sunrise</h1>
@@ -22,11 +22,15 @@ export default {
     watch:{
       'page':function(){
         const insang = document.querySelector('#insang')
-        // const info = document.querySelector('.carousel-item__info')
+        const info = document.querySelector('#carousel-item__info')
+
         if(this.page===2){
-          console.log(2)
+          console.log(this.page)
           setTimeout(function(){
             insang.classList.add('active');
+          },500)
+          setTimeout(function(){
+            info.classList.add('active');
           },500)
         }
       }
@@ -64,10 +68,10 @@ export default {
 #insang{
   z-index:-1;
   position: absolute;
-  top: 15%;
-  left: 10%;
-  height: 50vh;
-  width: 43vw;
+  top: 19%;
+  left: 5%;
+  height: 60vh;
+  width: 50vw;
 }
 /* .carousel-item_info{
   z-index:902;
@@ -78,15 +82,11 @@ export default {
 .carousel-item__info {
   height: 100%;
   width: 0%;
-  display: flex;
-  flex-direction: column;  
-  /* justify-content: flex-end; */
-  right:0;
-  margin-top:30%;
+  right:6%;
   margin-left:40%;
   padding: 0 40px;
   width: 40%;
-
+  position: absolute;
 }
 
 .carousel-item__subtitle {

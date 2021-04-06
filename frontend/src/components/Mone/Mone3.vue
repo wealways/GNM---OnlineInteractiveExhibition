@@ -1,6 +1,6 @@
 <template>
   <div class='monepage3'>
-    <div class="carousel-item__info">
+    <div class="carousel-item__info" id="carousel-item__info">
       <div class="carousel-item__container">
       <!-- <h2 class="carousel-item__subtitle"></h2> -->
       <h1 class="carousel-item__title">The Picnic</h1>
@@ -14,10 +14,31 @@
 <script>
 export default {
     name:"Mone3",
+      computed: {
+      page(){
+        return this.$store.state.page.page
+      }
+    },
+    watch:{
+      'page':function(){
+        const insang = document.querySelector('#lunch')
+        const info = document.querySelector('#carousel-item__info')
+
+        if(this.page===3){
+          console.log(this.page)
+          setTimeout(function(){
+            insang.classList.add('active');
+          },500)
+          setTimeout(function(){
+            info.classList.add('active');
+          },500)
+        }
+      }
+    }
 }
 </script>
 
-<style>
+<style scoped>
 .monepage3{
   width: 100vw;
   height: 100vh;
@@ -25,26 +46,26 @@ export default {
   overflow: hidden;
   position: relative;
 }
-#lunch{
+.active {
+  transform: translateX(-5%);
+  opacity: 1;
+  transition: 0.6s all ease-in-out;
+  visibility: visible;
+} 
+#lunch {
   z-index:-1;
   position: absolute;
-  top: 15%;
-  left: 10%;
-  height: 50vh;
-  width: 40vw;
+  right: -5%;
+  height: 85vh;
+  width: 65vw;
 }
 .carousel-item__info {
   height: 100%;
-  width: 0%;
-  display: flex;
-  flex-direction: column;  
-  /* justify-content: flex-end; */
-  right:0;
-  margin-top:20%;
-  margin-left:50%;
-  padding: 0 40px;
-  width: 40%;
-
+  margin-right:68%;
+  /* padding: 0 40px; */
+  top:20%;
+  width: 30vw;
+  position: absolute;
 }
 
 .carousel-item__subtitle {
@@ -52,13 +73,13 @@ export default {
     letter-spacing: 3px;
     font-size: 15px;
     text-transform: uppercase;
-    margin-left: 6px;
+    margin-left: 10%;
     color: #2C2C2C;    
     font-weight: 700;
 }
 
 .carousel-item__title {
-    margin: 15px 0 0 0;
+    margin: 30px 0 0 0;
     font-family: 'Playfair Display', serif;
     font-size: 44px;
     line-height: 45px;
@@ -71,7 +92,7 @@ export default {
     margin-top: 35px;
     font-family: 'Open Sans', sans-serif;
     font-size: 13px;
-    font-weight: 800;
+    font-weight: 100;
     color: #2C2C2C;
     line-height: 22px;
     margin-bottom: 35px;
