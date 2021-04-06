@@ -58,7 +58,7 @@
                 <div class="c-direction-block_wrapper">
                     <div class="c-section_infos -padding" data-scroll data-scroll-sticky data-scroll-target="#scroll-direction">
                         <div class="c-section_infos_inner" data-scroll>
-                            <h3>
+                            <!-- <h3>
                                 02. <br>
                                 Scroll direction
                             </h3>
@@ -66,7 +66,7 @@
                                 <p>
                                     And if that wasn't enough, make 'em go backwards. Or upwards. Or downwards!
                                 </p>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="c-direction-block" id="direction">
@@ -103,7 +103,80 @@
 
         <section class="section monet">
           <img src="../assets/main/monetcut.png" alt="art" class="" >
+          <div class="section-0" data-scroll data-scroll-speed="4">
+            <p style="color:black;position:relative;"
+                data-scroll 
+                data-scroll-direction="horizontal" 
+                data-scroll-speed="-2"
+            >
+                Claude
+            </p>
+            <p style="color:black;position:relative;"
+                data-scroll 
+                data-scroll-direction="horizontal" 
+                data-scroll-speed="2"
+            >
+                Monet
+            </p>
+            
+            <cite>모네 전시관 가기</cite>
+          </div>
         </section>
+
+
+        <section class="section monet">
+          <div class="section-0" data-scroll data-scroll-speed="4">
+            <p style="color:black;position:relative;"
+                data-scroll 
+                data-scroll-direction="horizontal" 
+                data-scroll-speed="-2"
+            >
+                Gustav 
+            </p>
+            <p style="color:black;position:relative;"
+                data-scroll 
+                data-scroll-direction="horizontal" 
+                data-scroll-speed="2"
+            >
+                Klimt 
+            </p>
+            
+            <cite>클림트 전시관 가기</cite>
+          </div>    
+          <img src="../assets/main/klimt.png" alt="art" class="" >
+
+        </section>
+
+
+        <section class="section monet">
+          <img src="../assets/main/cheon.png" alt="art" class="" >
+          <!-- <div class="section-0" data-scroll data-scroll-speed="3">
+            <p style="color:black;position:relative;"
+                data-scroll 
+                data-scroll-direction="horizontal" 
+                data-scroll-speed="-2"
+            >
+                천 
+            </p>
+            <p style="color:black;position:relative;"
+                data-scroll 
+                data-scroll-direction="horizontal" 
+                data-scroll-speed="2"
+            >
+                경
+            </p>
+            <p style="color:black;position:relative;"
+                data-scroll 
+                data-scroll-direction="horizontal" 
+                data-scroll-speed="2"
+            >
+                자
+            </p>
+          </div>    
+  -->
+        </section>
+
+
 
         <section data-bgcolor="#e3857a" data-textcolor="#f1dba7"><img src="https://images.pexels.com/photos/4791474/pexels-photo-4791474.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
           <h2 data-scroll data-scroll-speed="1" class="credit"><a href="https://thisisadvantage.com" target="_blank">Made by Advantage</a></h2>
@@ -290,7 +363,6 @@ export default {
 }
 
 
-
 .description {
   position:absolute;
   z-index: 100;
@@ -304,7 +376,6 @@ export default {
   font-family: 'Noto Serif KR', serif;
   white-space: pre-wrap;
   line-break: strict;
-  /* z-index:100; */
   vertical-align: middle;
 }
 
@@ -637,6 +708,8 @@ p {
   right: 10%;
 }
 
+
+///////////////////////////////////////////////////////////////////////////`
 // @media (min-width: 1024px) {
 //   .cover-heading h1 {
 //     font-size: 60px;
@@ -917,5 +990,27 @@ p {
   transform: translateX(-10vw) rotate(3deg);
 }
 
+
+
+
+
+
+
+
+
+
+.section-0 {
+    margin-top: 20vh;
+    text-align: center;
+
+    p {
+        font-size: 5vw;
+    }
+
+    cite {
+        display: block;
+        font-size: 3vw;
+    }
+}
 
 </style>
