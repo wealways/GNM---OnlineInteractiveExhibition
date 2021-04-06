@@ -7,7 +7,7 @@ import StartMonet from '@/views/Monet/StartMonet.vue'
 
 import Klimt from '@/views/Klimt/Klimt.vue'
 import StartKlimt from '@/views/Klimt/StartKlimt.vue'
-import KlimtEnd from '@/views/Klimt/KlimtEnd.vue'
+import Klimts from '@/views/Klimt/Klimts.vue'
 
 import Cheon from '@/views/Cheon/Cheon.vue'
 import StartCheon from '@/views/Cheon/StartCheon.vue'
@@ -70,9 +70,9 @@ export default [
     component: Klimt,
   },
   {
-    path:'/klimtend',
-    name:'KlimtEnd',
-    component:KlimtEnd,
+    path:'/klimts',
+    name:'Klimts',
+    component:Klimts,
   },
   {
     path:'/cheon',
@@ -90,8 +90,8 @@ export default [
     component: StartCheon,
   },
   {
-    path:'/cheonend',
-    name:'CheonEnd',
+    path:'/cheons',
+    name:'Cheons',
     component:CheonEnd,
   },
   {

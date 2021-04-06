@@ -2,6 +2,11 @@
   <div>
     <div class="cover-5">
       <div class="container">
+        <div class='scrollicon'>
+          <div class='icon-scroll'>
+            <div class='scrolltext' style="color:white; font-family:'Cinzel">scroll</div>
+          </div>
+        </div>
         <section data-bgcolor="#bcb8ad" data-textcolor="#032f35">
         <div>
           <h1 id="maintext" data-scroll data-scroll-speed="1"><span>On-line</span> <span>Interactive</span> <span>Exhibition</span></h1>
@@ -194,7 +199,67 @@ export default {
   },
 }
 </script>
+<style scoped>
+.scrollicon{
+  position:fixed;
+  left: 13%;
+  top: 27%;
+}
+.scrolltext{
+  position: absolute;
+  bottom:100%;
+  transform: translateX(-10%) translateY(-30%);
+}
+.icon-scroll,
+.icon-scroll:before {
+  position: absolute;
+  left: 50%;
+}
+.icon-scroll {
+  width: 40px;
+  height: 70px;
+  margin-left: -20px;
+  top: 90%;
+  margin-top: -35px;
+  box-shadow: inset 0 0 0 1px #fff;
+  border-radius: 25px;
+}
+.icon-scroll:before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  margin-left: -4px;
+  top: 8px;
+  border-radius: 4px;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-name: scroll;
+          animation-name: scroll;
+}
+@-webkit-keyframes scroll {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(46px);
+  }
+}
+@keyframes scroll {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(46px);
+  }
+}
 
+
+</style>
 <style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");

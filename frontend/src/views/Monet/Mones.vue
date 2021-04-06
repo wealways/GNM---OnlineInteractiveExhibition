@@ -1,23 +1,22 @@
 <template>
   <div class="container">
+    <IconMap mapColor="green"/>
+    <IconVoice voiceColor="red"/>
     <section>
       <Mone1 class="content"/>
       <Mone2 class="content"/>
       <Mone3 class="content"/>
       <Mone4 class="content"/>
     </section>
-    <audio data-key="tada" src="@/assets/audio/tada.mp3"></audio>
-    <audio data-key="timo" src="@/assets/audio/timo.mp3"></audio>
-    <audio data-key="wow" src="@/assets/audio/wow.mp3"></audio>
-    <audio data-key="bye" src="@/assets/audio/bye.mp3"></audio>
   </div>
 </template>
 
-
 <script>
 export default {
-  name:'KlimtEnd',
+  name:'Mones',
   components:{
+    IconMap: () => import('@/components/IconMap/IconMap'),
+    IconVoice: () => import('@/components/IconMap/IconVoice'),
     Mone1: () => import('@/components/Mone/Mone1'),
     Mone2: () => import('@/components/Mone/Mone2'),
     Mone3: () => import('@/components/Mone/Mone3'),
@@ -25,68 +24,61 @@ export default {
   },
   data(){
     return {
+      page:1
     }
   },
   watch:{
   },
   mounted: function (){
-    // 음성 안내
-    function playSound(audio) {
-      if(!audio) return;
-      audio.currentTime = 0; 
-      audio.play(); 
-
-    }
-    const audio = document.querySelector("audio[data-key=tada]")
-    playSound(audio)
-
+    
     // horizontal scroll 
     const container = document.querySelector('.container')
     const section = document.getElementsByTagName('section')
 
     const sectionPageWidth = section[0].clientWidth/4
 
-    container.addEventListener('wheel', function(e)
+     window.addEventListener('wheel', function(e)
     {
       e.preventDefault();
       let delta = e.deltaY
       if(delta>0){
         if(container.scrollLeft>sectionPageWidth*2){
+          this.page=4
           return;
         }
         if(0<=container.scrollLeft && container.scrollLeft<sectionPageWidth*1){
           container.scrollLeft = sectionPageWidth*1
-
-          const audio = document.querySelector("audio[data-key=timo]")
-          playSound(audio)
+          this.$store.dispatch('page/pageChange',2)
+         
         }else if(sectionPageWidth*1<=container.scrollLeft && container.scrollLeft<sectionPageWidth*2){
           container.scrollLeft=sectionPageWidth*2
-          const audio = document.querySelector("audio[data-key=wow]")
-          playSound(audio)
+          this.$store.dispatch('page/pageChange',3)
+          
         }else{
           container.scrollLeft=sectionPageWidth*3
-          const audio = document.querySelector("audio[data-key=bye]")
-          playSound(audio)
+          this.$store.dispatch('page/pageChange',4)
+          
         }
       }else{
         if(container.scrollLeft<sectionPageWidth*1){
+          this.$store.dispatch('page/pageChange',1)
           return;
         }
         if(0<=container.scrollLeft && container.scrollLeft<=sectionPageWidth*1){
           container.scrollLeft =0
-          const audio = document.querySelector("audio[data-key=tada]")
-          playSound(audio)
+          this.$store.dispatch('page/pageChange',1)
+         
         }else if(sectionPageWidth*1<container.scrollLeft && container.scrollLeft<=sectionPageWidth*2){
           container.scrollLeft=sectionPageWidth*1
-          const audio = document.querySelector("audio[data-key=timo]")
-          playSound(audio)
+          this.$store.dispatch('page/pageChange',2)
+          
         }else{
           container.scrollLeft=sectionPageWidth*2
-          const audio = document.querySelector("audio[data-key=wow]")
-          playSound(audio)
+          this.$store.dispatch('page/pageChange',3)
+          
         }
       }
-    });
+    }.bind(this), {capture: false,passive: false});
 
   },
   methods:{

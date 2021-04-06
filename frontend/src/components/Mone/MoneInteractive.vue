@@ -14,7 +14,9 @@ export default {
   name:'MoneInteractive',
   methods:{
     handleScroll(event){
-      if(event){
+      // event.preventDefault();
+      let delta = event.deltaY
+      if(delta>0){
         if(this.$route.path === '/mone') {
           this.$router.push({path:'/mones'})
         }
@@ -22,7 +24,7 @@ export default {
     }
   },
   mounted(){
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('wheel', this.handleScroll);
     let z = 2;
     $(document).on('mouseover', (e)=> {
       const mx = e.pageX;
@@ -51,7 +53,7 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
 .scrolltext{
   position: absolute;
   bottom:100%;

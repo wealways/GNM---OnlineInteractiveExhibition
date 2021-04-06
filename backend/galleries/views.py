@@ -65,6 +65,7 @@ class GalleryViewSet(viewsets.ModelViewSet):
             imagefield = str(imgtype) + '_image_' + str(no)
             cardquery = list(card.values(imagefield))
             imagefile = cardquery[0][imagefield]
+            print(imagefile)
             imageaddress = os.path.join(*[BASE_DIR,'media',imagefile])
             img = open(imageaddress, 'rb')
             response = FileResponse(img)
@@ -95,20 +96,22 @@ class GalleryViewSet(viewsets.ModelViewSet):
             if serializer.is_valid(raise_exception=True):
                 serializer.save(sessionkey=sessionkey)
                 # AI 모델로 변환요청
-                # if imgtype =='input':
-                #     card = Card.objects.filter(sessionkey=sessionkey)
-                #     cardquery = list(card.values(imagefield))
-                #     imagefile = cardquery[0][imagefield]
-                #     imageaddress = os.path.join(*[BASE_DIR,'media',imagefile])
-                #     img = open(imageaddress, 'rb')
-                #     base_url = 'http://127.0.0.1:8000/'
-                #     # artist = [mone', 'chun', 'klimt']
-                #     artist = 'galleries/test/'
-                #     ai_url = base_url + artist
-                #     # ai_url = base_url + artist[no-1]
-                #     response = requests.post(ai_url,files={'image': img},headers={'sessionkey': sessionkey})
-                #     response_status = json.loads(response.text)['status']
-                #     return JsonResponse({'status' : response_status}) 
+                if imgtype =='input':
+                    card = Card.objects.filter(sessionkey=sessionkey)
+                    cardquery = list(card.values(imagefield))
+                    imagefile = cardquery[0][imagefield]
+                    imageaddress = os.path.join(*[BASE_DIR,'media',imagefile])
+                    img = open(imageaddress, 'rb')
+                    # 로컬 주소
+                    base_url = 'http://127.0.0.1:8001/'
+                    # 해당 ai모델 연결
+                    artist = ['klimt/', 'chun/', 'mone/']
+                    artist = artist[no - 1]
+                    ai_url = base_url + artist
+                    # ai_url = base_url + artist[no-1]
+                    response = requests.post(ai_url,files={'image': img},headers={'sessionkey': sessionkey})
+                    response_status = json.loads(response.text)['status']
+                    return JsonResponse({'status' : response_status}) 
 
                 return JsonResponse(serializer.data)
         else:
