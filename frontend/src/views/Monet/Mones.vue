@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <Icons/>
+    <IconMap mapColor="green"/>
+    <IconVoice voiceColor="green"/>
     <section>
       <Mone1 class="content"/>
       <Mone2 class="content"/>
@@ -16,16 +17,15 @@
 
 
 <script>
-import Icons from '@/components/IconMap/Icons'
-
 export default {
-  name:'KlimtEnd',
+  name:'Mones',
   components:{
+    IconMap: () => import('@/components/IconMap/IconMap'),
+    IconVoice: () => import('@/components/IconMap/IconVoice'),
     Mone1: () => import('@/components/Mone/Mone1'),
     Mone2: () => import('@/components/Mone/Mone2'),
     Mone3: () => import('@/components/Mone/Mone3'),
     Mone4: () => import('@/components/Mone/Mone4'),
-    Icons,
   },
   data(){
     return {
