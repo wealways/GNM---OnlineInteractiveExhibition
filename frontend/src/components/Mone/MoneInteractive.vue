@@ -51,7 +51,7 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
 .scrolltext{
   position: absolute;
   bottom:100%;

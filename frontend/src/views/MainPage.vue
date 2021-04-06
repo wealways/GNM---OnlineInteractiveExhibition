@@ -2,8 +2,10 @@
   <div>
     <div class="cover-5">
       <div class="container">
-        <div class='icon-scroll'>
-          <div class='scrolltext' style="color:white; font-family:'Cinzel">scroll</div>
+        <div class='scrollicon'>
+          <div class='icon-scroll'>
+            <div class='scrolltext' style="color:white; font-family:'Cinzel">scroll</div>
+          </div>
         </div>
         <section data-bgcolor="#bcb8ad" data-textcolor="#032f35">
         <div>
@@ -198,14 +200,19 @@ export default {
 }
 </script>
 <style scoped>
+.scrollicon{
+  position:fixed;
+  left: 13%;
+  top: 27%;
+}
 .scrolltext{
-  position: fixed;
-  bottom:50%;
+  position: absolute;
+  bottom:100%;
   transform: translateX(-10%) translateY(-30%);
 }
 .icon-scroll,
 .icon-scroll:before {
-  position: fixed;
+  position: absolute;
   left: 50%;
 }
 .icon-scroll {
@@ -250,6 +257,8 @@ export default {
     transform: translateY(46px);
   }
 }
+
+
 </style>
 <style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
