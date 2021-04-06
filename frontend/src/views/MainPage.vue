@@ -26,43 +26,30 @@
           </div>
         </section>
         <section class="">
-          <!-- <ul class=" row wrapper no-wrap"> -->
-            <div class="row panel">
-              <div class="col-4 art wrapper">
-                <img src="../assets/main/art6.jpg" alt="art" class=" col-3 art" style="height: 100%; width: 100%; position:relative;">
-                <p class="description"> 코시국으로 갤러리 가기가 겁나</p>
+          <div class="row panel">
+            <div class="col-4 art wrapper">
+              <img src="../assets/main/art6.jpg" alt="art" class=" col-3 art" style="height: 100%; width: 100%; position:relative;">
+              <p class="description q-pt-xl"> 코시국으로<br> 외출한 지가 오래라 <br>마지막으로<br> 미술관 간지가 <br>언젠지도 몰라</p>
+            </div>
+            <div class="col-8 row" style="position:relative;">
+              <div class="col-6 wrapper">
+                <img src="../assets/main/ma2.jpg" alt="art" class="art" >
+                <p class="description q-pt-xl"> 그림?<br>전 그림이 너무 <br>어려워요.</p>
               </div>
-              <div class="col-8 row" style="position:relative;">
-                <div class="col-6 wrapper">
-                  <img src="../assets/main/ma2.jpg" alt="art" class="art" >
-                  <p class="description"> 어려워</p>
-                </div>
-                <div class="col-6 wrapper">
-                  <img src="../assets/main/art5.png" alt="art" class="art" >
-                  <p class="description"> 멀게 느껴져</p>
-                </div>
-                <div class="col-6 wrapper">
-                  <img src="../assets/main/kids7.jpg" alt="art" class="art" >
-                  <p class="description"> 어린이들지루</p>
-                </div>
-                <div class="col-6 wrapper">
-                  <img src="../assets/main/clo.jpg" alt="art" class="art">
-                  <p class="description"> 옷걱정</p>
-                </div>
+              <div class="col-6 wrapper ">
+                <img src="../assets/main/art5.png" alt="art" class="art" >
+                <p class="description q-pt-md"> 언제까지 <br>멀리서 <br>구경만 할 거에요?</p>
+              </div>
+              <div class="col-6 wrapper">
+                <img src="../assets/main/kids7.jpg" alt="art" class="art" >
+                <p class="description q-pt-sm"> 미술관은 지루해.<br>집에 가서 게임하면<br> 안 돼요?</p>
+              </div>
+              <div class="col-6 wrapper row justify-center items-center">
+                <img src="../assets/main/clo.jpg" alt="art" class="art">
+                <p class="description q-pt-xl">미술관에 가려면.. <br>뭘 입어야 하지?</p>
               </div>
             </div>
-            <!-- <li class="row panel">
-              <img src="../assets/main/art3.jpeg" alt="art" class="col-3 art">
-              <div class="col-8 row">
-                <img src="../assets/main/art4.jpg" alt="art" class="col-6 art">
-                <img src="../assets/main/kids4.jpg" alt="art" class="col-6 art">
-                <img src="../assets/main/kids7.jpg" alt="art" class="col-6 art">
-                <img src="../assets/main/art5.png" alt="art" class="col-6 art">
-              </div>
-
-            </li> -->
-
-          <!-- </ul> -->
+          </div>
         </section>
         <section data-bgcolor="#e3857a" data-textcolor="#f1dba7"><img src="https://images.pexels.com/photos/4791474/pexels-photo-4791474.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
           <h2 data-scroll data-scroll-speed="1" class="credit"><a href="https://thisisadvantage.com" target="_blank">Made by Advantage</a></h2>
@@ -83,6 +70,7 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import LocomotiveScroll from 'locomotive-scroll';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -131,23 +119,6 @@ export default {
     // }
   }, 
   mounted: function(){
-
-    // gsap.registerPlugin(ScrollTrigger);
-
-    // let sections = gsap.utils.toArray(".panel");
-
-    // gsap.to(sections, {
-    //   xPercent: -100 * (sections.length - 1),
-    //   ease: "none",
-    //   scrollTrigger: {
-    //     trigger: ".wrapper",
-    //     pin: true,
-    //     scrub: 1,
-    //     snap: 1 / (sections.length - 1),
-    //     // base vertical scrolling on how wide the container is so it feels more natural.
-    //     end: () => "+=" + document.querySelector(".wrapper").offsetWidth
-    //   }
-    // });
 
 
 
@@ -259,7 +230,7 @@ export default {
 }
 </script>
 <style scoped>
-<<<<<<< frontend/src/views/MainPage.vue
+
 
 .description {
   position:absolute;
@@ -267,10 +238,15 @@ export default {
   top:0;
   left:0;
   width: 100%;
-  height: 100%;
+  height:100%;
   font-size : 2rem;
   color: white;
   text-align: center;
+  font-family: 'Noto Serif KR', serif;
+  white-space: pre-wrap;
+  line-break: strict;
+  /* z-index:100; */
+  vertical-align: middle;
 }
 
 .wrapper {
@@ -279,18 +255,24 @@ export default {
   height:100%;
   overflow:hidden;
   object-fit: contain;
+  /* background: #2a433b;
+  opacity: 0.7; */
 }
 
 .wrapper > img {
   width: 100%;
   height: 100%;
+  background-color: #2a433b;
+  opacity:0.6;
 }
+
+
 
 .wrapper:hover > img{
   transition: 0.7s;
   transform: scale(1.08);
-  background-color: grey;
-  opacity: 0.8;
+  background-color: black;
+  opacity: 0.9;
 }
 
 .scrollicon{
@@ -298,7 +280,7 @@ export default {
   left: 13%;
   top: 27%;
 }
->>>>>>> frontend/src/views/MainPage.vue
+
 .scrolltext{
   position: absolute;
   bottom:100%;
@@ -357,6 +339,7 @@ export default {
 <style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300&display=swap');
 *,
 *::after,
 *::before {
