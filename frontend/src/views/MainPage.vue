@@ -16,7 +16,6 @@
           </router-link>
         </div>
         </section>
-
         <section id="sectionPin">
           <div class="pin-wrap">
             <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
@@ -26,7 +25,45 @@
 
           </div>
         </section>
+        <section class="">
+          <!-- <ul class=" row wrapper no-wrap"> -->
+            <div class="row panel">
+              <div class="col-4 art wrapper">
+                <img src="../assets/main/art6.jpg" alt="art" class=" col-3 art" style="height: 100%; width: 100%; position:relative;">
+                <p class="description"> 코시국으로 갤러리 가기가 겁나</p>
+              </div>
+              <div class="col-8 row" style="position:relative;">
+                <div class="col-6 wrapper">
+                  <img src="../assets/main/ma2.jpg" alt="art" class="art" >
+                  <p class="description"> 어려워</p>
+                </div>
+                <div class="col-6 wrapper">
+                  <img src="../assets/main/art5.png" alt="art" class="art" >
+                  <p class="description"> 멀게 느껴져</p>
+                </div>
+                <div class="col-6 wrapper">
+                  <img src="../assets/main/kids7.jpg" alt="art" class="art" >
+                  <p class="description"> 어린이들지루</p>
+                </div>
+                <div class="col-6 wrapper">
+                  <img src="../assets/main/clo.jpg" alt="art" class="art">
+                  <p class="description"> 옷걱정</p>
+                </div>
+              </div>
+            </div>
+            <!-- <li class="row panel">
+              <img src="../assets/main/art3.jpeg" alt="art" class="col-3 art">
+              <div class="col-8 row">
+                <img src="../assets/main/art4.jpg" alt="art" class="col-6 art">
+                <img src="../assets/main/kids4.jpg" alt="art" class="col-6 art">
+                <img src="../assets/main/kids7.jpg" alt="art" class="col-6 art">
+                <img src="../assets/main/art5.png" alt="art" class="col-6 art">
+              </div>
 
+            </li> -->
+
+          <!-- </ul> -->
+        </section>
         <section data-bgcolor="#e3857a" data-textcolor="#f1dba7"><img src="https://images.pexels.com/photos/4791474/pexels-photo-4791474.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
           <h2 data-scroll data-scroll-speed="1" class="credit"><a href="https://thisisadvantage.com" target="_blank">Made by Advantage</a></h2>
         </section>
@@ -93,7 +130,29 @@ export default {
     //   ScrollTrigger.refresh();
     // }
   }, 
-  mounted: function(){ 
+  mounted: function(){
+
+    // gsap.registerPlugin(ScrollTrigger);
+
+    // let sections = gsap.utils.toArray(".panel");
+
+    // gsap.to(sections, {
+    //   xPercent: -100 * (sections.length - 1),
+    //   ease: "none",
+    //   scrollTrigger: {
+    //     trigger: ".wrapper",
+    //     pin: true,
+    //     scrub: 1,
+    //     snap: 1 / (sections.length - 1),
+    //     // base vertical scrolling on how wide the container is so it feels more natural.
+    //     end: () => "+=" + document.querySelector(".wrapper").offsetWidth
+    //   }
+    // });
+
+
+
+
+
     const pageContainer = document.querySelector(".container");
     /* SMOOTH SCROLL */
     const scroller = new LocomotiveScroll({
@@ -200,11 +259,46 @@ export default {
 }
 </script>
 <style scoped>
+<<<<<<< frontend/src/views/MainPage.vue
+
+.description {
+  position:absolute;
+  z-index: 100;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  font-size : 2rem;
+  color: white;
+  text-align: center;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height:100%;
+  overflow:hidden;
+  object-fit: contain;
+}
+
+.wrapper > img {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper:hover > img{
+  transition: 0.7s;
+  transform: scale(1.08);
+  background-color: grey;
+  opacity: 0.8;
+}
+
 .scrollicon{
   position:fixed;
   left: 13%;
   top: 27%;
 }
+>>>>>>> frontend/src/views/MainPage.vue
 .scrolltext{
   position: absolute;
   bottom:100%;
