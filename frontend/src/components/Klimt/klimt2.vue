@@ -1,14 +1,14 @@
 <template>
   <div class="section">
-    <img id="judith1" class="slide-in" src="@/assets/images/klimt/Judith_1_(cropped).jpg" alt="유디트">
+    <img id="judith1-image" class="slide-in" src="@/assets/images/klimt/Judith_1_(cropped).jpg" alt="유디트">
     <div class="description">
-      <div>
+      <div id="judith1-description">
         <h4>유디트II <span style="font-size:1rem;">(1909)</span></h4>
         Judith II (Salome)<br>
         유대인의 문화에서 유디트는 훌륭하고 지혜로운 여인이지만,
         이 작품에서 드러나는 유디트는 공포의 대상으로 표현됩니다.
       </div>
-      <div>
+      <div id="judith2-description">
         <h4>유디트I <span style="font-size:1rem;">(1901)</span></h4>
         Judith<br>
         유디트의 일화는 ‘아름다운 여인의 대담한 살인 행동’이라는 측면에서
@@ -16,7 +16,7 @@
         매우 흥미로운 주제로 당대 화가들에게 많은 영감을 줬습니다.
       </div>
     </div>
-    <img id="judith2" class="slide-in" src="@/assets/images/klimt/Judith_II.jpg" alt="유디트">
+    <img id="judith2-image" class="slide-in" src="@/assets/images/klimt/Judith_II.jpg" alt="유디트">
 
   </div>
 </template>
@@ -31,19 +31,24 @@ export default {
   },
   watch:{
     'page':function(){
-      const img1 = document.querySelector('#judith1')
-      const img2 = document.querySelector('#judith2')
+      const img1 = document.querySelector('#judith1-image')
+      const description1 = document.querySelector('#judith1-description')
+      const img2 = document.querySelector('#judith2-image')
+      const description2 = document.querySelector('#judith2-description')
       if(this.page===2){
-        console.log(this.page)
         setTimeout(function(){
           img1.classList.add('active');
+          description2.classList.add('active-description');
         },500)
         setTimeout(function(){
           img2.classList.add('active');
-        },1000)
+          description1.classList.add('active-description');
+        },700)
       }else{
-        img1.classList.remove('active')
-        img2.classList.remove('active')
+        img1.classList.remove('active');
+        img2.classList.remove('active');
+        description1.classList.remove('active-description');
+        description2.classList.remove('active-description');
       }
     }
   },
@@ -59,16 +64,26 @@ export default {
   color:aliceblue;
   justify-content:space-between;
 }
-#judith1{
+#judith1-image{
   margin-top:8%;
-  margin-left: 5rem;
+  margin-left: 3rem;
   height:80%;
   padding: 0 1rem;
 }
-#judith2{
+#judith1-description {
+  margin-left:40%;
+  opacity: 0;
+  transition: all 1s;
+}
+#judith2-image{
   height:80%;
-  margin-right: 5rem;
+  margin-right: 3rem;
   padding: 0 1rem;
+}
+#judith2-description {
+  margin-right:40%;
+  opacity: 0;
+  transition: all 1s;
 }
 .description{
   padding: 3rem 3rem;
@@ -80,14 +95,17 @@ export default {
   opacity: 0;
   transition: all 1s;
 }
-#judith1.slide-in {
+#judith1-image.slide-in {
   transform: translateY(100%) scale(0.95);
 }
-#judith2.slide-in {
+#judith2-image.slide-in {
   transform: translateY(-100%) scale(0.95);
 }
 .active {
   opacity: 1;
   transform: translateY(0%) scale(1) !important;
+}
+.active-description{
+  opacity: 1 !important;
 }
 </style>
