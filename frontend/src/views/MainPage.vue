@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="cover-5">
-      <div class="container">
+      <div class="container" >
         <div class='scrollicon'>
           <div class='icon-scroll'>
             <div class='scrolltext' style="color:white; font-family:'Cinzel">scroll</div>
           </div>
         </div>
-        <section data-bgcolor="#bcb8ad" data-textcolor="#032f35">
+        <section data-bgcolor="#bcb8ad" data-textcolor="#032f35" >
         <div>
           <h1 id="maintext" data-scroll data-scroll-speed="1"><span>On-line</span> <span>Interactive</span> <span>Exhibition</span></h1>
           <!-- <p data-scroll data-scroll-speed="2" data-scroll-delay="0.2">with GSAP ScrollTrigger & Locomotive Scroll</p> -->
@@ -16,7 +16,7 @@
           </router-link>
         </div>
         </section>
-        <section id="sectionPin">
+        <section id="sectionPin" >
           <div class="pin-wrap">
             <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
             <img src="https://images.pexels.com/photos/5207262/pexels-photo-5207262.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=900" alt="">
@@ -25,7 +25,7 @@
 
           </div>
         </section>
-        <section class="">
+        <section class="section" style="" >
           <div class="row panel">
             <div class="col-4 art wrapper">
               <img src="../assets/main/art6.jpg" alt="art" class=" col-3 art" style="height: 100%; width: 100%; position:relative;">
@@ -34,7 +34,7 @@
             <div class="col-8 row" style="position:relative;">
               <div class="col-6 wrapper">
                 <img src="../assets/main/ma2.jpg" alt="art" class="art" >
-                <p class="description q-pt-xl"> 그림?<br>전 그림이 너무 <br>어려워요.</p>
+                <p class="description q-pt-lg"> <br>그림?<br>전 그림이 너무 <br>어려워요.</p>
               </div>
               <div class="col-6 wrapper ">
                 <img src="../assets/main/art5.png" alt="art" class="art" >
@@ -51,6 +51,60 @@
             </div>
           </div>
         </section>
+
+
+        <section class="c-section" style="height:300vh;">
+            <div class="o-container" id="scroll-direction">
+                <div class="c-direction-block_wrapper">
+                    <div class="c-section_infos -padding" data-scroll data-scroll-sticky data-scroll-target="#scroll-direction">
+                        <div class="c-section_infos_inner" data-scroll>
+                            <h3>
+                                02. <br>
+                                Scroll direction
+                            </h3>
+                            <div class="c-sections_infos_text u-text">
+                                <p>
+                                    And if that wasn't enough, make 'em go backwards. Or upwards. Or downwards!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-direction-block" id="direction">
+                        <div class="c-direction-block_item -one">
+                            <span class="c-direction-block_item_inner" data-scroll data-scroll-direction="horizontal" data-scroll-speed="6" data-scroll-target="#direction">
+                                I'm moving in this direction
+                            </span>
+                        </div>
+                        <div class="c-direction-block_item -two">
+                            <span class="c-direction-block_item_inner" data-scroll data-scroll-direction="horizontal" data-scroll-speed="-8" data-scroll-target="#direction">
+                                And in this direction
+                            </span>
+                        </div>
+                        <div class="c-direction-block_item -three">
+                            <span class="c-direction-block_item_inner" data-scroll data-scroll-direction="horizontal" data-scroll-speed="9" data-scroll-target="#direction" data-scroll-delay="0.05">
+                                Sooo customizable. Right?
+                            </span>
+                        </div>
+                        <div class="c-direction-block_item -four">
+                            <span class="c-direction-block_item_inner" data-scroll data-scroll-direction="horizontal" data-scroll-speed="15" data-scroll-target="#direction">
+                                I can also go in this direction
+                            </span>
+                        </div>
+                        <div class="c-direction-block_item -five">
+                            <span class="c-direction-block_item_inner" data-scroll data-scroll-direction="horizontal" data-scroll-speed="-20" data-scroll-target="#direction" data-scroll-delay="0.05">
+                                Ok, enough!!!!
+                            </span>
+                        </div>
+                    </div>
+                </div>
+              </div>
+        </section>
+
+
+        <section class="section monet">
+          <img src="../assets/main/monetcut.png" alt="art" class="" >
+        </section>
+
         <section data-bgcolor="#e3857a" data-textcolor="#f1dba7"><img src="https://images.pexels.com/photos/4791474/pexels-photo-4791474.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
           <h2 data-scroll data-scroll-speed="1" class="credit"><a href="https://thisisadvantage.com" target="_blank">Made by Advantage</a></h2>
         </section>
@@ -119,11 +173,6 @@ export default {
     // }
   }, 
   mounted: function(){
-
-
-
-
-
     const pageContainer = document.querySelector(".container");
     /* SMOOTH SCROLL */
     const scroller = new LocomotiveScroll({
@@ -231,6 +280,16 @@ export default {
 </script>
 <style scoped>
 
+.monet {
+  background-color: white;
+}
+
+
+.section {
+  height: 140vh;
+}
+
+
 
 .description {
   position:absolute;
@@ -255,8 +314,6 @@ export default {
   height:100%;
   overflow:hidden;
   object-fit: contain;
-  /* background: #2a433b;
-  opacity: 0.7; */
 }
 
 .wrapper > img {
@@ -272,7 +329,7 @@ export default {
   transition: 0.7s;
   transform: scale(1.08);
   background-color: black;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .scrollicon{
@@ -650,6 +707,215 @@ p {
 // }
 // /*# sourceMappingURL=style.css.map */
 
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+.o-container {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 95rem;
+}
+@media (max-width: 699px) {
+  .o-container {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+@media (min-width: 700px) {
+  .o-container {
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+  }
+}
+
+.has-scroll-smooth .o-scroll {
+  position: relative;
+}
+.c-scrollbar {
+  width: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  transform-origin: center right;
+  transform: scaleX(1);
+  transition: transform 0.2s linear;
+}
+.c-scrollbar:hover {
+  transform: scaleX(1.3);
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+.c-scrollbar_thumb {
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.c-scrollbar_thumb:hover {
+  cursor: pointer;
+}
+
+
+
+
+.c-section {
+  position: relative;
+  background: linear-gradient(#111, white);
+}
+@media (max-width: 1199px) {
+  .c-section {
+    padding-bottom: 10vh;
+    margin-bottom: 10vh;
+  }
+}
+@media (min-width: 1200px) {
+  .c-section {
+    margin-bottom: 35vh;
+  }
+}
+.c-section_infos {
+  position: relative;
+  max-width: 320px;
+  z-index: 0;
+}
+@media (min-width: 1000px) {
+  .c-section_infos {
+    padding-top: 7.5rem;
+  }
+  .c-section_infos.-padding {
+    padding-top: 35vh;
+  }
+}
+@media (max-width: 999px) {
+  .c-section_infos {
+    margin-bottom: 1.875rem;
+  }
+}
+.c-section_infos_inner > * {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.6s cubic-bezier(0.215, 0.61, 0.355, 1),
+    transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.c-section_infos_inner.is-inview > * {
+  opacity: 1;
+  transform: none;
+}
+.c-section_infos_inner.is-inview > :first-child {
+  transition-delay: 0.06s;
+}
+.c-section_infos_inner.is-inview > :nth-child(2) {
+  transition-delay: 0.12s;
+}
+.c-section_infos_inner.is-inview > :nth-child(3) {
+  transition-delay: 0.18s;
+}
+.c-sections_infos_text {
+  margin-top: 1.25rem;
+}
+
+
+.c-direction-block_wrapper {
+  margin-bottom: 31.25rem;
+}
+@media (min-width: 1200px) {
+  .c-direction-block_wrapper {
+    min-height: 180vh;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1199px) {
+  .c-direction-block_wrapper {
+    min-height: 130vh;
+  }
+}
+@media (min-width: 700px) and (max-width: 999px) {
+  .c-direction-block_wrapper {
+    min-height: 100vh;
+  }
+}
+@media (max-width: 699px) {
+  .c-direction-block_wrapper {
+    min-height: 70vh;
+  }
+}
+@media (min-width: 1000px) {
+  .c-direction-block_wrapper {
+    margin-top: -35vh;
+  }
+}
+.c-direction-block {
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+@media (min-width: 1200px) {
+  .c-direction-block {
+    top: -50vh;
+    bottom: -50vh;
+  }
+}
+@media (min-width: 700px) and (max-width: 1199px) {
+  .c-direction-block {
+    top: -30vh;
+    bottom: -50vh;
+  }
+}
+@media (max-width: 699px) {
+  .c-direction-block {
+    top: -15vh;
+    bottom: 0;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1199px) {
+  .c-direction-block {
+    margin-top: 6.25rem;
+  }
+}
+@media (min-width: 1200px) {
+  .c-direction-block {
+    margin-top: 18.75rem;
+  }
+}
+.c-direction-block_item {
+  position: absolute;
+  font-size: 10vw;
+  white-space: nowrap;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.c-direction-block_item span {
+  display: block;
+  background-color: #fff;
+  white-space: nowrap;
+  padding: 0 20px;
+}
+.c-direction-block_item.-one {
+  top: 33%;
+  transform: translateX(-50vw) rotate(26deg);
+}
+.c-direction-block_item.-two {
+  top: 45%;
+}
+.c-direction-block_item.-three {
+  top: 55%;
+  transform: rotate(9deg);
+}
+.c-direction-block_item.-four {
+  top: 68%;
+  transform: translateX(-50vw) rotate(-19deg);
+}
+.c-direction-block_item.-five {
+  top: 63%;
+  transform: translateX(-10vw) rotate(3deg);
+}
 
 
 </style>
