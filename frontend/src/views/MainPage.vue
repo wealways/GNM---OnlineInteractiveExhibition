@@ -259,7 +259,6 @@ export default {
 }
 </script>
 <style scoped>
-<<<<<<< frontend/src/views/MainPage.vue
 
 .description {
   position:absolute;
@@ -298,7 +297,7 @@ export default {
   left: 13%;
   top: 27%;
 }
->>>>>>> frontend/src/views/MainPage.vue
+
 .scrolltext{
   position: absolute;
   bottom:100%;
