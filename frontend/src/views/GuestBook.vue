@@ -1,6 +1,19 @@
 <template>
   <div>
-    <!-- <Icons/> -->
+    <div @click="fullWidth = true">
+      <span style="font-size:50px;">
+        <q-icon class='map' name="mdi-map-legend"></q-icon>
+      </span>
+    </div>
+    <q-dialog
+      v-model="fullWidth"
+    >
+      <q-card style="width: 900px; max-width: 80vw; height: 500px; max-height: 80vh;" class="mapwrapper">
+        <q-card-section class='q-pt-none mapback'>
+          <Floors/>
+        </q-card-section>
+      </q-card>
+    </q-dialog>
     <div class="guestbook-header row justify-between items-center">
       <h3>GUESTBOOK</h3>
       <BookWrite/>
@@ -9,7 +22,7 @@
       <q-page-container class="guestbook-body">
         <q-page>
           <q-infinite-scroll @load="onLoad" :offset="350">
-            <masonry :cols="{ default: 3, 576: 1 }" :gutter="15" style="padding:12px 15px;">
+            <masonry :cols="{ default: 5, 576: 1 }" :gutter="15" style="padding:12px 15px;">
               <Book v-for="(article, idx) in articles" :key="idx" :article="article" />
             </masonry>
             <template v-slot:loading>
@@ -18,10 +31,12 @@
               </div>
             </template>
           </q-infinite-scroll>
-          <div v-if="endFlag" class="end-text row items-center">
+          <div v-if="endFlag" class="end-text row items-center justify-between">
+            <div></div>
             <div @click="goUp" style="cursor:pointer;">
               목록의 끝입니다☺
             </div>
+            <div></div>
             <div></div>
           </div>
         </q-page>
@@ -38,7 +53,7 @@ export default {
   components: {
     Book: () => import('@/components/GuestBook/Book'),
     BookWrite: () => import('@/components/GuestBook/BookWrite'),
-    // Icons: () => import('@/components/IconMap/Icons'),
+    Floors: () => import('@/components/IconMap/Floors'),
   },
   computed:{
     articles() {
@@ -49,7 +64,8 @@ export default {
     return {
       //masonry + infinity
       page: 1,
-      endFlag:false
+      endFlag:false,
+      fullWidth: false,
     }
   },
   created() {
@@ -93,6 +109,27 @@ export default {
 </script>
 
 <style scoped>
+
+
+.mapwrapper {
+  background-color: #FCF9F2;
+}
+
+
+.map {
+  position: absolute;
+  left: 3%;
+  top: 5%;
+  background-color: transparent;
+}
+
+.map:hover {
+  color: red;
+}
+
+.mapback {
+  height: 80%;
+}
 .form-top{
   display: flex;
 }
@@ -118,9 +155,9 @@ export default {
 .end-text>div:nth-child(2){
   position: absolute;
   width: 200px;
-  height: 40px;
+  height: 50px;
   background-color: #2a433b;
-  line-height: 40px;
+  line-height: 50px;
   z-index: 3;
   top:50%;
   left:43%;
@@ -132,7 +169,7 @@ export default {
   transform: translate(8px,-10px);
   z-index: 2;
   width: 200px;
-  height: 30px;
+  height: 45px;
   background-color: #fe3901;
   
   top:50%;
@@ -146,6 +183,7 @@ export default {
   width:25%;
   align-content: center;
   top:50%;
+  /* position: absolute; */
 }
 
 

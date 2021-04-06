@@ -8,9 +8,10 @@
     <q-dialog
       v-model="fullWidth"
     >
-      <q-card style="width: 900px; max-width: 80vw; height: 500px; max-height: 80vh;">
+      <q-card style="width: 900px; max-width: 80vw; height: 500px; max-height: 80vh;" class="mapwrapper">
         <q-card-section class='q-pt-none mapback'>
           <Floors/>
+           <q-btn icon="close" flat round dense v-close-popup class="close-btn"/>
         </q-card-section>
       </q-card>
     </q-dialog>
@@ -49,18 +50,40 @@ export default {
 
 <style scoped>
 
+.mapwrapper {
+  background-color: #FCF9F2;
+  overflow-y: hidden;
+  border-radius: 15px;
+  color: #464646;
+}
+
+
+.close-btn{
+  top:20px;
+  right:20px;
+  position: absolute;
+  z-index: 100;
+  /* background-color: teal; */
+  background-color: #fe2901;
+  color:white;
+  font-size: 1.2rem;
+}
+
+
 .mapback {
   height: 80%;
 }
 .map {
   position: absolute;
+  z-index: 9999;
   left: 3%;
   top: 5%;
   background-color: transparent;
 }
 .voice{
-  position: absolute;
-  bottom: 13%;
+  z-index: 9999;
+  position: fixed;
+  bottom: 10%;
   right: 5%;
 }
 .voice:hover{
@@ -71,7 +94,8 @@ export default {
 }
 .voice-off{
   position: absolute;
-  bottom: 13%;
+  z-index: 9999;
+  bottom: 10%;
   right: 5%;
 }
 .map:hover {

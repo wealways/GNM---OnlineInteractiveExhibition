@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div class="">
         <div class="layer-container stacked-top">
-            <div @click='gotomone' class="layer bottom-layer blue-layer">
-            </div>
-            <div @click='gotoklimt' class="layer mid-layer green-layer"></div>
-            <div @click='gotocheon' class="layer top-layer red-layer"></div>
-            <div @click='gotoguestbook' class="layer toptop-layer red-layer"></div>
+            <div @click='gotomone' class="layer first-layer blue-layer"></div>
+            <div @click='gotoklimt' class="layer second-layer green-layer"></div>
+            <div @click='gotocheon' class="layer third-layer red-layer"></div>
+            <div @click='gotospecial' class="layer fourth-layer red-layer"></div>
+            <div @click='gotoguestbook' class="layer fifth-layer red-layer"></div>
         </div>
         <div class='right_side'>
             <div class='artist'>{{ explain }}</div>
@@ -31,13 +31,23 @@
                     icon="lightbulb_outline" 
                 />
                 <q-btn
-                    :to='"/cheon"' 
+                    :to='"/startcheon"' 
                     target="_blank"  
                     v-show="explain==='천경자'" 
                     align="around" 
                     class="btn-fixed-width" 
                     color="deep-orange" 
                     label="3층 가기" 
+                    icon="lightbulb_outline" 
+                />
+                <q-btn
+                    :to='"/startmone"' 
+                    target="_blank"  
+                    v-show="explain==='특별전시관'" 
+                    align="around" 
+                    class="btn-fixed-width" 
+                    color="deep-orange" 
+                    label="특별전시관" 
                     icon="lightbulb_outline" 
                 />
                 <q-btn
@@ -75,6 +85,9 @@ export default {
         gotocheon(){
             this.explain = "천경자"
         },
+        gotospecial(){
+            this.explain = "특별전시관"
+        },
         gotoguestbook(){
             this.explain = "방명록"
         }
@@ -92,15 +105,16 @@ export default {
 
 <style lang="scss" scoped>
 
+
 .layer-container {
     width: 200px;
-    height: 200px;
+    height: 1000px;
     position: absolute;
-    top: 76%;
+    top: 85%;
     right: 30%;
     margin: -100px -100px 50px -200px;
     perspective: 2000px;
-   transform-style: preserve-3d;
+    transform-style: preserve-3d;
 }
 
 .layer {
@@ -109,54 +123,91 @@ export default {
     position: absolute;
     transition: all 0.5s ease-in-out;
     cursor: pointer;
-    z-index: 1;
-    opacity: 0.6;
+    // z-index: 1;
+    opacity: 0.95;
 }
 
 .layer:hover {
-  opacity: 0.9;
+  opacity: 1;
+  background-color: #2A433B;
+//   transform: scale(1.4);
+//   z-index: 10;
 }
 
-.blue-layer { /*bottom - blue*/
-    background: rgba(19, 54, 90, 0.8);
-    /*background-image: url('img/teaser.png');*/
+// .blue-layer { /*bottom - blue*/
+//     background: rgba(19, 54, 90, 0.8);
+//     /*background-image: url('img/teaser.png');*/
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: center;
+// }
+
+
+// .green-layer { /*mid - green*/
+//     background: rgba(49, 76, 104, 0.8);
+//     /*background-image: url('img/22matcha.JPG');*/
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: center;
+// }
+
+// .red-layer { /*top - red*/
+//     background: rgba(181, 207, 231, 0.8);
+//     /*background-image: url('img/teaser_banner.png');*/
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: center;
+// }
+
+.first-layer {
+    transform: rotateX(45deg) rotateZ(25deg) translateZ(0);
+    background: #696969;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    z-index: 5;
+
 }
 
-
-.green-layer { /*mid - green*/
-    background: rgba(49, 76, 104, 0.8);
-    /*background-image: url('img/22matcha.JPG');*/
+.second-layer {
+    transform: rotateX(45deg) rotateZ(25deg) translateZ(50px);
+    background:#7D7D7D;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    z-index: 4;
+
 }
 
-.red-layer { /*top - red*/
-    background: rgba(181, 207, 231, 0.8);
-    /*background-image: url('img/teaser_banner.png');*/
+.third-layer {
+    transform: rotateX(45deg) rotateZ(25deg) translateZ(100px);
+    background:#9E9E9E;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    z-index: 3;
 }
 
-.bottom-layer {
-    transform: rotateX(45deg) rotateZ(45deg) translateZ(0);
+.fourth-layer {
+    transform: rotateX(45deg) rotateZ(25deg) translateZ(150px);
+    background: #BDBDBD;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;
 }
 
-.mid-layer {
-    transform: rotateX(45deg) rotateZ(45deg) translateZ(50px);
+.fifth-layer {
+    transform: rotateX(45deg) rotateZ(25deg) translateZ(200px);
+    background: #D3D3D3;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
 }
 
-.top-layer {
-    transform: rotateX(45deg) rotateZ(45deg) translateZ(150px);
-}
 
-.toptop-layer {
-    transform: rotateX(45deg) rotateZ(45deg) translateZ(200px);
-}
+
 
 .marker {
   transition: all 0.5s ease-in-out;

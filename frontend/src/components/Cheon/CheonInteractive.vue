@@ -1,48 +1,43 @@
 <template>
   <div class="page">
-    <div id="title">작품을 완성해 보세요.</div>
-    <div class="frame">
-      <div id='puz'>
-        <i class='first' @drop='drop($event)' @dragover='allowDrop($event)' ></i>
-        <i class='secon' @drop='drop($event)' @dragover='allowDrop($event)'></i>
-        <i class='third' @drop='drop($event)' @dragover='allowDrop($event)'></i>
-        <i class='fourt' @drop='drop($event)' @dragover='allowDrop($event)'></i>
-        <i class='fifth' @drop='drop($event)' @dragover='allowDrop($event)'></i>
-        <i class='sixth' @drop='drop($event)' @dragover='allowDrop($event)'></i>
-        <i class='seven' @drop='drop($event)' @dragover='allowDrop($event)'></i>
-        <i class='eight' @drop='drop($event)' @dragover='allowDrop($event)'></i>
-        <i class='ninth' @drop='drop($event)' @dragover='allowDrop($event)'></i>
+    <div class="exhibition">
+      <div id="title">작품을 완성해 보세요.</div>
+      <div class="frame">
+        <div id='puz'>
+          <i class='first' @drop='drop($event)' @dragover='allowDrop($event)' ></i>
+          <i class='secon' @drop='drop($event)' @dragover='allowDrop($event)'></i>
+          <i class='third' @drop='drop($event)' @dragover='allowDrop($event)'></i>
+          <i class='fourt' @drop='drop($event)' @dragover='allowDrop($event)'></i>
+          <i class='fifth' @drop='drop($event)' @dragover='allowDrop($event)'></i>
+          <i class='sixth' @drop='drop($event)' @dragover='allowDrop($event)'></i>
+          <i class='seven' @drop='drop($event)' @dragover='allowDrop($event)'></i>
+          <i class='eight' @drop='drop($event)' @dragover='allowDrop($event)'></i>
+          <i class='ninth' @drop='drop($event)' @dragover='allowDrop($event)'></i>
+        </div>
+        <div id='puzz'>
+          <i class='first' draggable='true' @dragstart='drag($event)'></i>
+          <i class='secon' draggable='true' @dragstart='drag($event)'></i>
+          <i class='third' draggable='true' @dragstart='drag($event)'></i>
+          <i class='fourt' draggable='true' @dragstart='drag($event)'></i>
+          <i class='fifth' draggable='true' @dragstart='drag($event)'></i>
+          <i class='sixth' draggable='true' @dragstart='drag($event)'></i>
+          <i class='seven' draggable='true' @dragstart='drag($event)'></i>
+          <i class='eight' draggable='true' @dragstart='drag($event)'></i>
+          <i class='ninth' draggable='true' @dragstart='drag($event)'></i>  
+        </div>
       </div>
-    </div>
-    <div id='puzz'>
-      <i class='first' draggable='true' @dragstart='drag($event)'></i>
-      <i class='secon' draggable='true' @dragstart='drag($event)'></i>
-      <i class='third' draggable='true' @dragstart='drag($event)'></i>
-      <i class='fourt' draggable='true' @dragstart='drag($event)'></i>
-      <i class='fifth' draggable='true' @dragstart='drag($event)'></i>
-      <i class='sixth' draggable='true' @dragstart='drag($event)'></i>
-      <i class='seven' draggable='true' @dragstart='drag($event)'></i>
-      <i class='eight' draggable='true' @dragstart='drag($event)'></i>
-      <i class='ninth' draggable='true' @dragstart='drag($event)'></i>  
     </div>
   </div>
 </template>
 
 <script>
-let img = ['https://lh3.googleusercontent.com/proxy/Fq4c7dYetAn7DQVY-oGMwfpwe_CwvCZp0UqEaVjucfcKYWSPFK6q28IfkAS45dP9XeTCXdI0iyUM92g9zkGD4j5YvJ4mqnMj32V7l4F3a6S9wgHQSU3uvyv9y3NPxkuq34NrZIXmKJwbIS1cSaUbWqXhxz3B2IYwUg46-qQZXf_byZjEyrnDWCiW_apFGLMev_ZtsvGh1g',
-           'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3dd97bd9-f6f2-48a3-963e-104454bd460c%2FUntitled.png?table=block&id=1bfdaf93-9b5e-47b4-a2b1-c15dfdf4ab1a&width=3840&userId=e1047be0-5891-4b23-a346-293193a34336&cache=v2',
-           'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3dd97bd9-f6f2-48a3-963e-104454bd460c%2FUntitled.png?table=block&id=1bfdaf93-9b5e-47b4-a2b1-c15dfdf4ab1a&width=3840&userId=e1047be0-5891-4b23-a346-293193a34336&cache=v2',
-           'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3dd97bd9-f6f2-48a3-963e-104454bd460c%2FUntitled.png?table=block&id=1bfdaf93-9b5e-47b4-a2b1-c15dfdf4ab1a&width=3840&userId=e1047be0-5891-4b23-a346-293193a34336&cache=v2',
-           'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3dd97bd9-f6f2-48a3-963e-104454bd460c%2FUntitled.png?table=block&id=1bfdaf93-9b5e-47b4-a2b1-c15dfdf4ab1a&width=3840&userId=e1047be0-5891-4b23-a346-293193a34336&cache=v2',
-           'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3dd97bd9-f6f2-48a3-963e-104454bd460c%2FUntitled.png?table=block&id=1bfdaf93-9b5e-47b4-a2b1-c15dfdf4ab1a&width=3840&userId=e1047be0-5891-4b23-a346-293193a34336&cache=v2',
-           'https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3dd97bd9-f6f2-48a3-963e-104454bd460c%2FUntitled.png?table=block&id=1bfdaf93-9b5e-47b4-a2b1-c15dfdf4ab1a&width=3840&userId=e1047be0-5891-4b23-a346-293193a34336&cache=v2', ]
-let old = 5 
 
+var img = ["https://i.ibb.co/cQFkpgd/cheon.png"]
 
 export default {
   name:'CheonInteractive',
   mounted(){
-    
+ 
     this.randomize()
 
     const fp = document.querySelectorAll('#puz i')
@@ -73,16 +68,20 @@ export default {
   methods:{
     
     randomize: function () {
-      let root = document.documentElement
-      root.style.setProperty('--image','url('+img[old]+')')
-      old++
-      if(old > 5) {
-        old = 0
-      }  
+      var root = document.documentElement
+      root.style.setProperty('--image','url('+img[0]+')')
+      
       var ul = document.querySelectorAll('#puzz i');
       for(var i=0;i<ul.length;i++){
-        ul[i].style.left = Math.random()*(window.innerWidth-400) + 'px'
-        ul[i].style.top = Math.random()*(window.innerHeight-100) + 'px'
+        if (i%2 == 0) {
+          // ul[i].style.left = Math.random()*(window.innerWidth-800) + 'px'
+          ul[i].style.right = Math.random()*(window.innerWidth-900) + 'px'
+          ul[i].style.top = Math.random()*(window.innerHeight-800) + 'px'
+        }
+        else {
+          ul[i].style.left = Math.random()*(window.innerWidth-900) + 'px'
+          ul[i].style.top = Math.random()*(window.innerHeight-800) + 'px'
+        }
       }
       // for (var i = ul.children.length; i >= 0; i--) {
       //   ul.appendChild(ul.children[Math.random() * i | 0]);    
@@ -139,6 +138,14 @@ export default {
 }
 </script>
 
+<style scoped>
+:root {
+  --color:lightgray;
+  --border-radius:10px;
+  /* --image:url("../../assets/cheon_pic.png"); */
+  --image:url("https://i.ibb.co/cQFkpgd/cheon.png");
+}
+</style>
 <style>
 .page{
   padding: 0;
@@ -147,22 +154,20 @@ export default {
   background:  white;
   height: 980px;
   width: 100%;
-  overflow: hidden;
   z-index: 1;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow:scroll ;
 }
-
-
-:root {
-  --color:lightgray;
-  --border-radius:10px;
-  --image:url('https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3dd97bd9-f6f2-48a3-963e-104454bd460c%2FUntitled.png?table=block&id=1bfdaf93-9b5e-47b4-a2b1-c15dfdf4ab1a&width=3840&userId=e1047be0-5891-4b23-a346-293193a34336&cache=v2');
+.exhibition{
+  position: relative;
+  top: -15%;
 }
 #title{
-  position: absolute;
+  padding: 5%;
   text-align: center;
-  left: 41%;
-  top: 5%;
   font-size: 2rem;
   font-weight: bolder ;
   animation-name: twinkling;
@@ -176,11 +181,8 @@ export default {
 
 .frame{
   border: 8px solid black;
-  position: absolute;
   width: 506px;
   height: 500px;
-  top: 15%;
-  left: 34%;
   background: rgba(244, 248, 207, 0.719);
   box-shadow: 0px 0px 15px rgba(15, 15, 15, 0.171);
 }
@@ -290,4 +292,5 @@ export default {
   bottom:5px;
   right:5px;
 }
+
 </style>

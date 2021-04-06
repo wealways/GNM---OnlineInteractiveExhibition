@@ -1,15 +1,21 @@
 import MainPage from '@/views/MainPage.vue'
 import GuestBook from '@/views/GuestBook.vue'
 import Tutorial from '@/views/Tutorial.vue'
-import Mone from '@/views/Mone.vue'
-import StartMonet from '@/views/StartMonet.vue'
-import MonetPhoto from '@/components/Mone/MonetPhoto.vue'
+import Mone from '@/views/Monet/Mone.vue'
+import StartMonet from '@/views/Monet/StartMonet.vue'
+
 
 import Klimt from '@/views/Klimt/Klimt.vue'
 import StartKlimt from '@/views/Klimt/StartKlimt.vue'
+import Klimts from '@/views/Klimt/Klimts.vue'
 
-import Cheon from '@/views/Cheon.vue'
+import Cheon from '@/views/Cheon/Cheon.vue'
+import StartCheon from '@/views/Cheon/StartCheon.vue'
+import CheonEnd from '@/views/Cheon/CheonEnd.vue'
+
 import test from '@/components/Mone/test.vue'
+import Mones from '@/views/Monet/Mones.vue'
+
 import PhotoUpload from '@/views/PhotoUpload.vue'
 
 export default [
@@ -34,6 +40,11 @@ export default [
     component: Mone,
   },
   {
+    path:'/mones',
+    name: 'Mones',
+    component: Mones,
+  },
+  {
     path:'/startmonet',
     name: 'StartMonet',
     component: StartMonet,
@@ -41,12 +52,7 @@ export default [
   {
     path:'/monetphoto',
     name: 'MonetPhoto',
-    component: MonetPhoto,
-  },
-  {
-    path:'/klimt',
-    name: 'Klimt',
-    component: Klimt,
+    component: PhotoUpload,
   },
   {
     path:'/startklimt',
@@ -59,9 +65,19 @@ export default [
     component: PhotoUpload,
   },
   {
+    path:'/klimt',
+    name: 'Klimt',
+    component: Klimt,
+  },
+  {
+    path:'/klimts',
+    name:'Klimts',
+    component:Klimts,
+  },
+  {
     path:'/cheon',
     name: 'Cheon',
-    component: Cheon
+    component: Cheon,
   },
   {
     path:'/cheonphoto',
@@ -69,9 +85,18 @@ export default [
     component: PhotoUpload,
   },
   {
+    path:'/startcheon',
+    name: 'StartCheon',
+    component: StartCheon,
+  },
+  {
+    path:'/cheons',
+    name:'Cheons',
+    component:CheonEnd,
+  },
+  {
     path:'/test',
     name: 'test',
     component: test
   }
-
 ]

@@ -68,11 +68,11 @@
               </q-input>
             </div>
           </div>
-          <div v-if="onModify" class="form-image">
-            <div class="row q-mr-md q-ml-md q-mb-xs">
+          <div v-if="onModify" class="form-image ">
+            <div class="row q-mr-md q-ml-md q-mb-xs justify-center">
               <img class="col-5" :src="image" alt="">
             </div>
-            <p class="q-mt-sm q-mr-md q-ml-md q-mb-xs" style="color:#000">이미지를 변경할 수 없습니다.</p>
+            <p class="q-mt-sm q-mr-md q-ml-md q-mb-xs" style="color:#000; text-align:center;">이미지를 변경할 수 없습니다.</p>
           </div>
           <div v-if="!onModify" class="form-image">
             <div class="q-mr-md q-ml-md q-mb-xs">
