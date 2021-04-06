@@ -53,7 +53,7 @@ def push_output(output, sessionkey):
     # 전달 위치(backend - POST)
     # params
     imgtype = 'output'
-    no = 1
+    no = 2
     # 변환 완료된 이미지 파일 - read binary
     # with open(output, 'rb') as destination:
     #     image = destination.read()

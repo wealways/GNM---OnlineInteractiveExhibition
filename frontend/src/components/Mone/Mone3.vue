@@ -1,7 +1,6 @@
 <template>
   <div class='monepage3'>
       <h1 class=desc>description3</h1>
-      <button @click="changerouter">change router</button>
   </div>
 </template>
 
@@ -9,29 +8,34 @@
 import { gsap } from 'gsap';
 export default {
     name:"Mone3",
-    created(){
-        window.addEventListener('scroll', this.handleScroll);
+    mounted(){
+        let t1 = gsap.timeline();
+        t1.from(
+        ".desc",
+        {
+            yPercent: 100,
+            ease: "power1.out",
+            opacity: 0,
+        },
+        );
+        var Counter = 0;
+        function myFunction() {
+            Counter = Math.ceil(window.scrollY);
+        }
+        window.onscroll = () => {
+                myFunction();
+                if (Counter > 0){
+                    if (this.$route.path === '/mones/mone3') {
+                        this.changerouter()
+                    }
+                }
+                console.log(Counter)
+        };
     },
     methods:{
         changerouter(){
             this.$router.push({path:'/mones/mone4'})
         },
-         handleScroll(event){
-            if(event){
-                this.showdescription()
-            }
-        },
-        showdescription(){
-            let t1 = gsap.timeline();
-            t1.from(
-            ".desc",
-            {
-                yPercent: 100,
-                ease: "power1.out",
-                opacity: 0,
-            },
-            );
-        }
     }
 }
 </script>
@@ -39,7 +43,7 @@ export default {
 <style>
 .monepage3{
     width: 100vw;
-    height: 100vh;
+    height: 101vh;
     background: url("../../assets/thepicnic.jpg") no-repeat
 }
 </style>
