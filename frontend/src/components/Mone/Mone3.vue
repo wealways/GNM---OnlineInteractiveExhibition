@@ -30,7 +30,7 @@ export default {
             insang.classList.add('active');
           },500)
           setTimeout(function(){
-            info.classList.add('active');
+            info.classList.add('active2');
           },500)
         }
       }
@@ -51,6 +51,12 @@ export default {
   opacity: 1;
   transition: 0.6s all ease-in-out;
   visibility: visible;
+}
+.active2 {
+  transform: translateX(5%);
+  opacity: 1;
+  transition: 0.6s all ease-in-out;
+  visibility: visible;
 } 
 #lunch {
   z-index:-1;
@@ -63,7 +69,8 @@ export default {
   height: 100%;
   margin-right:68%;
   /* padding: 0 40px; */
-  top:20%;
+  top:60%;
+  left: 4%;
   width: 30vw;
   position: absolute;
 }

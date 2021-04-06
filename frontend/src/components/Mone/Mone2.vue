@@ -28,10 +28,14 @@ export default {
           console.log(this.page)
           setTimeout(function(){
             insang.classList.add('active');
-          },500)
+            },500)
           setTimeout(function(){
             info.classList.add('active');
           },500)
+        }else{
+          insang.classList.delete('active');
+          info.classList.delete('active');
+
         }
       }
     }
@@ -39,13 +43,6 @@ export default {
 }
 </script>
 
-<style>
-/* .monepage{
-    width: 100vw;
-    height: 100vh;
-    background: url("../../assets/waterlily3.jpeg") no-repeat
-} */
-</style>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
@@ -83,6 +80,7 @@ export default {
   height: 100%;
   width: 0%;
   right:6%;
+  top:40%;
   margin-left:40%;
   padding: 0 40px;
   width: 40%;

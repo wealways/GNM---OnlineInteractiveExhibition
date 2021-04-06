@@ -58,13 +58,6 @@ export default {
 }
 </script>
 
-<style>
-/* .monepage{
-    width: 100vw;
-    height: 101vh;
-    background: url("../../assets/waterlily3.jpeg") no-repeat
-} */
-</style>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
@@ -201,55 +194,6 @@ body {
   background-image: url("../../assets/waterlily3.jpeg");
 }
 
-.carousel-item__btn {
-    width: 35%;
-    color: #2C2C2C;
-    font-family: 'Open Sans', sans-serif;
-    letter-spacing: 3px;
-    font-size: 11px;
-    text-transform: uppercase;
-    margin: 0;
-    width: 35%;
-    font-weight: 700;
-  text-decoration: none;
-      transform: translateY(25%);
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.6s all ease-in-out;
-}
-
-.carousel__nav {
-    position: absolute;
-    right: 0;
-    z-index: 2;
-    background-color: #fff;
-  bottom: 0;
-}
-
-.carousel__icon {
-    display: inline-block;
-    vertical-align: middle;
-    width: 16px;
-  fill: #5d5d5d;
-}
-
-.carousel__arrow {
-    cursor: pointer;
-    display: inline-block;
-    padding: 11px 15px;
-    position: relative;
-}
-
-.carousel__arrow:nth-child(1):after {
-    content:'';
-    right: -3px;
-    position: absolute;
-    width: 1px;
-    background-color: #b0b0b0;
-    height: 14px;
-    top: 50%;
-    margin-top: -7px;
-}
 
 .active{
    z-index: 1;
