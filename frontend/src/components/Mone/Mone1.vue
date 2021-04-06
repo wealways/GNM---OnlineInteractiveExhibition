@@ -1,13 +1,13 @@
 <template>
-  <div class='monepage'>
+  <div class='monepage1'>
     <div class='carousel'>
       <div class="carousel-item carousel-item--1">
         <div class="carousel-item__image"></div>
         <div class="carousel-item__info">
           <div class="carousel-item__container">
-          <h2 class="carousel-item__subtitle">Waterlily</h2>
-          <h1 class="carousel-item__title">수련</h1>
-          <p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+          <h2 class="carousel-item__subtitle">수련</h2>
+          <h1 class="carousel-item__title">Water lilies</h1>
+          <p class="carousel-item__description">모네의 대표작 수련입니다. 모네의 정원 화단엔 일년생 식물과 다년생 식물이 번갈아 심어져 있어 연중 내내 꽃을 볼 수 있었습니다. 색색 다양한 칼라의 꽃들이 칸칸이 피어있는 모네의 정원을 그의 '팔레트'와 같다하여 팔레트 정원이라 부르기도 했습니다.</p>
           </div>
         </div>
       </div>
@@ -58,16 +58,9 @@ export default {
 }
 </script>
 
-<style>
-/* .monepage{
-    width: 100vw;
-    height: 101vh;
-    background: url("../../assets/waterlily3.jpeg") no-repeat
-} */
-</style>
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
-
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
 
 
@@ -76,6 +69,7 @@ export default {
 }
 
 html, body {
+    z-index:-1;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -120,6 +114,7 @@ body {
 
 .carousel-item__info {
   height: 100%;
+  width: 80%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -140,6 +135,7 @@ body {
     width: 60%;
     height: 100%;
     order: 2;
+    z-index:-1;
     align-self: flex-end;
     flex-basis: 60%;
   
@@ -158,9 +154,9 @@ body {
 .carousel-item__subtitle {
     font-family: 'Open Sans', sans-serif;
     letter-spacing: 3px;
-    font-size: 10px;
+    font-size: 15px;
     text-transform: uppercase;
-    margin: 0;
+    margin-left: 6px;
     color: #7E7E7E;    
     font-weight: 700;
     transform: translateY(25%);
@@ -200,55 +196,6 @@ body {
   background-image: url("../../assets/waterlily3.jpeg");
 }
 
-.carousel-item__btn {
-    width: 35%;
-    color: #2C2C2C;
-    font-family: 'Open Sans', sans-serif;
-    letter-spacing: 3px;
-    font-size: 11px;
-    text-transform: uppercase;
-    margin: 0;
-    width: 35%;
-    font-weight: 700;
-  text-decoration: none;
-      transform: translateY(25%);
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.6s all ease-in-out;
-}
-
-.carousel__nav {
-    position: absolute;
-    right: 0;
-    z-index: 2;
-    background-color: #fff;
-  bottom: 0;
-}
-
-.carousel__icon {
-    display: inline-block;
-    vertical-align: middle;
-    width: 16px;
-  fill: #5d5d5d;
-}
-
-.carousel__arrow {
-    cursor: pointer;
-    display: inline-block;
-    padding: 11px 15px;
-    position: relative;
-}
-
-.carousel__arrow:nth-child(1):after {
-    content:'';
-    right: -3px;
-    position: absolute;
-    width: 1px;
-    background-color: #b0b0b0;
-    height: 14px;
-    top: 50%;
-    margin-top: -7px;
-}
 
 .active{
    z-index: 1;

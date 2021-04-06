@@ -7,14 +7,22 @@
 <script>
 export default {
   name:'Klimt4',
+  computed:{
+    page(){
+      return this.$store.state.page.page
+    }
+  },
+  watch:{
+    'page':function(){
+      if(this.page===4){
+        console.log(this.page)
+      }
+    }
+  },
 
 }
 </script>
 
 <style scoped>
-.section {
-  /* width: 100vw;
-  height: 100vh; */
-}
 
 </style>
