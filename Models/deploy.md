@@ -54,3 +54,137 @@ or
 $ source activate style_transfer
 ```
 
+
+
+1. 백엔드 배포용
+
+   ```python
+   # galleries/views.py
+   ...
+   # 로컬 주소
+   base_url = 'http://127.0.0.1:'
+   # 해당 ai모델 연결
+   artist = ['monet/', 'klimt/', 'chun/']
+   # 해당 ai모델 포트 번호
+   port_num = ['8001/', '8002/', '8003/']
+   port_num = port_num[no - 1]
+   artist = artist[no - 1]
+   ai_url = base_url + port_num + artist
+   
+   print(f'요청 보내는 주소: {ai_url}')
+   ...
+   ```
+
+2.  프론트엔드 배포용
+
+   ```js
+   // baseURL: 'http://localhost:8000',
+     baseURL: 'http://j4c106.p.ssafy.io/api/',
+   ```
+
+3. ai 모델 배포용(linux용 requirements.txt)
+
+   ```python
+   # window OS
+   # asgiref==3.3.1
+   # certifi==2020.12.5
+   # Django==3.1.7
+   # djangorestframework==3.12.3
+   # imageio==2.9.0
+   # mkl-fft==1.3.0
+   # mkl-random==1.1.1
+   # mkl-service==2.3.0
+   # numpy==1.17.2
+   # olefile==0.46
+   # opencv-python==4.4.0.46
+   # Pillow==7.1.0
+   # protobuf==3.9.1
+   # pytz==2021.1
+   # six==1.12.0
+   # sqlparse==0.4.1
+   # tensorboardX==1.8
+   # torch==1.8.1
+   # torchaudio==0.8.1
+   # torchvision==0.9.1
+   # tqdm==4.35.0
+   # wincertstore==0.2
+   
+   # Linux
+   asgiref==3.3.1
+   certifi==2020.12.5
+   chardet==4.0.0
+   Django==3.1.7
+   djangorestframework==3.12.3
+   idna==2.10
+   imageio==2.9.0
+   numpy==1.17.2
+   olefile==0.46
+   opencv-python==4.4.0.46
+   Pillow==7.1.0
+   protobuf==3.9.1
+   pytz==2021.1
+   requests==2.25.1
+   six==1.12.0
+   sqlparse==0.4.1
+   tensorboardX==1.8
+   torch==1.8.1
+   torchaudio==0.8.1
+   torchvision==0.9.1
+   tqdm==4.35.0
+   typing-extensions==3.7.4.3
+   urllib3==1.26.4
+   wincertstore==0.2
+   ```
+
+   
+
+#### 1. frontend
+
+```bash
+# 패키지 설치
+$ npm i
+
+# dist로 static 파일 모으기
+$ npm run build
+```
+
+
+
+#### 2. Nginx
+
+```bash
+# nginx 설치 확인
+nginx -v
+```
+
+ 설정하기
+
+```shell
+sudo vim /etc/nginx/sites-enabled/default
+
+
+# /etc/nginx/sites-enabled/default안에서 웹서버 루트 기존 설정은 주석처리, front를 build한 위치로 변경
+server{
+	listen 80; # 80번 포트에서 실행하겠으빈다.
+	listen [::]:80;
+	
+	server_name j4c106.p.ssafy.io # ec2 퍼블릭 dns? 
+	
+	root /home/ubuntu/s04p23c106/frontend/dist; #프론트엔드를 배포한 위치
+	index index.html index.htm;
+	
+	location / { # SPA 처음 페이지!
+		try_files $uri $rui/ index.html 
+	}
+	
+}
+
+
+# 설정 변경 후 syntax 검사 필수
+sudo nginx -t
+# 설정 변경 후 Nginx 재시작
+sudo service nginx restart
+```
+
+
+
