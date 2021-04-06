@@ -145,7 +145,7 @@ export default {
 
 <style scoped>
 .voice{
-  z-index:900;
+  z-index:100;
   position: absolute;
   bottom: 13%;
   right: 5%;
@@ -157,6 +157,7 @@ export default {
   color:red !important;
 }
 .voice-off{
+  z-index: 100;
   position: absolute;
   bottom: 13%;
   right: 5%;

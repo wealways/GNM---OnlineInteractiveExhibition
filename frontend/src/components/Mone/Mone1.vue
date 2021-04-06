@@ -69,6 +69,7 @@ export default {
 }
 
 html, body {
+    z-index:-1;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -134,6 +135,7 @@ body {
     width: 60%;
     height: 100%;
     order: 2;
+    z-index:-1;
     align-self: flex-end;
     flex-basis: 60%;
   
