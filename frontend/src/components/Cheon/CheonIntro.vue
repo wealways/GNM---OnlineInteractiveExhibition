@@ -1,22 +1,22 @@
 <template>
-  <div>
-    <h1 id="englishname">Cheon Gyeongja</h1>
-    <h1 id="koreaname">천경자</h1>
+  <div class='intromone'>
+    <h1 id="monetname">천경자</h1>
     <span id="sentence">"내 과거를 열심히 살게 해 준 원동력은<br>'꿈'과 '사랑'과 '모정' 세 가지 요소였다."</span>
-    <img src="../../assets/cheon.png" alt="cheonGyeongja" id="bg">
+    <div id="bg"></div>
     <div @click="realstart" class="nextbtn">
-      <span style="font-size:50px;">
-          <q-icon :to='"/cheonphoto"' target="_blank" id="rightarrow" name="mdi-chevron-double-right"></q-icon>
-      </span>
+      <div class="diamond-container">
+       <div class="diamond left"></div>
+       <div class="diamond right"></div>
+       <div class="arrow"></div>
+      </div>
     </div>
-
   </div>
 </template>
 
 <script>
 import $ from 'jquery'
 export default {
-  name:'MoneIntro',
+  name:'CheonIntro',
   mounted(){
     var theWindow = $(window),
     $bg = $("#bg"),
@@ -45,43 +45,162 @@ export default {
 </script>
 
 <style scoped>
-
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
+.intromone {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
 .nextbtn:hover {
   cursor: pointer;
 }
 body, html {
   overflow: hidden;
 }
-#englishname{
+#monetname{
   position: absolute;
   top: 20%;
-  left: 3%;
-  font-size: 3rem;
-  color: rgba(192, 192, 192, 0.829);
-  /* text-shadow: 5px 5px 5px lightgrey ; */
-}
-#koreaname{
-  position: absolute;
-  top: 30%;
   left: 5%;
-  text-shadow: 5px 5px 5px lightgrey ;
+  font-family: 'Playfair Display';
+}
+#monetname2{
+  position: absolute;
+  top: 35%;
+  left: 5%;
+  font-family: 'Playfair Display';
 }
 #sentence{
   position: absolute;
   top: 70%;
-  left: 10%;
-  line-height: 180%;
+  left: 5%;
+  font-size: 18px;
 }
 #bg {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 80vh;
+  background-image: url('../../assets/cheon.png');
+  /* width: 60%; */
+  height: 70vh;
+  width: 60vw;
+  order: 2;
+  align-self: flex-end;
+  /* flex-basis: 60%; */
+  /* background-position: left; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  position:relative;
+  transform: translateX(70%);
 }
-#rightarrow{
+
+</style>
+<style lang="scss" scoped>
+// DIMENSIONS
+$width: 150px; // Button With
+$outerDiamondHeight: $width / 3; //Button Height
+$outerDiamondWidth: $width / 2;
+$innerDiamondHeight: $outerDiamondHeight - 1;
+$innerDiamondWidth: $outerDiamondWidth - 1;
+$arrowSize: $width / 6;
+
+// COLORS
+$borderColor: #333;
+$backgroundColor: white;
+
+//TRANSITION
+$transition: all 0.25s ease;
+
+.diamond-container {
+  width: $width;
   position: absolute;
-  top: 50%;
-  right: 4%;
-  color: white;
+  top:45%; right: 1%;
+  transform: translate(-10%);
+  cursor: pointer;
+  
+  // CLEARFIX
+  &:after {
+    content:'';
+    display: table;
+    height: 0;
+    clear: both;
+  }
+  
+  // DIAMOND BUTTON - LEFT&RIGHT
+  .diamond {
+    position: relative;
+    width: $outerDiamondWidth;
+    height: $outerDiamondHeight*2;
+    float: left;
+    overflow: hidden;
+
+    &:after, &:before {
+      border: solid transparent;
+      content: ' ';
+      position: absolute;
+      width: 0%; height: 0%;
+      transition: $transition;
+    }
+
+    &:after {
+      border-width: $innerDiamondHeight 0 $innerDiamondHeight $innerDiamondWidth;
+      border-left-color: $backgroundColor;
+      top: 1px; left: -1px;
+    }
+    &:before {
+      border-width: $outerDiamondHeight 0 $outerDiamondHeight $outerDiamondWidth;
+      border-left-color: $borderColor;
+    }
+
+    &.left {
+      &:after {
+        border-width: $innerDiamondHeight $innerDiamondWidth $innerDiamondHeight 0;
+        border-left-color: transparent;
+        border-right-color: $backgroundColor;
+        left: 2px;
+      }
+      &:before {
+        border-width: $outerDiamondHeight $outerDiamondWidth $outerDiamondHeight 0;
+        border-left-color: transparent;
+        border-right-color: $borderColor;
+      } 
+    }
+  }
+  
+  // ARROW 
+  .arrow {
+    width: $arrowSize; height: $arrowSize;
+    border: 1px solid $borderColor;
+    border-left: none;
+    border-bottom: none;  
+    position: absolute;
+    top:50%; left: 52%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: $transition;
+    &:after {
+      content: "";
+      width: 160%; border-top: 1px solid $borderColor;
+      position: absolute;
+      top: 0; right: 0;
+      transform: rotate(-45deg);
+      transform-origin: top right;
+      transition: inherit;
+    }
+  }
+  
+  // HOVER EFFECT
+  &:hover {
+
+    .diamond {
+      border: #ccc;
+      &:after { border-left-color: $borderColor; }
+      &.left:after {  border-right-color: $borderColor; }
+    }
+    .arrow {
+      border-top: 1px solid $backgroundColor;
+      border-right: 1px solid $backgroundColor;
+      transform: translate(-50%, -50%) rotate(405deg);
+      &:after {
+        border-top: 1px solid $backgroundColor;
+      }
+    }
+  }
+  
 }
 </style>

@@ -143,7 +143,6 @@ $transition: all 0.25s ease;
     content:'';
     display: table;
     height: 0;
-    widht: 0;
     clear: both;
   }
   
