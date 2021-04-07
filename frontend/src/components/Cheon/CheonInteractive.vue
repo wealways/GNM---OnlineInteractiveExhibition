@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <div class="exhibition">
-      <div id="title">작품을 완성해 보세요</div>
+        <div id="title">작품을 완성해 보세요</div>
       <div class="frame">
         <div id='puz'>
           <i class='first' @drop='drop($event)' @dragover='allowDrop($event)' ></i>
@@ -27,6 +27,22 @@
         </div>
       </div>
     </div>
+    <div>
+    <div @click="fullWidth = true">
+      <span style="font-size:55px;">
+        <q-icon class='map' name="mdi-lightbulb-on-outline"></q-icon>
+      </span>
+    </div>
+    <q-dialog
+      v-model="fullWidth"
+    >
+      <q-card class="mapwrapper" style="width: 600px; height: 800px; max-height: 85vh; background-color:transparent;" >
+        <q-card-section class='q-pt-none mapback'>
+          <img class='gr' src="../../assets/GilryeSister.jpg" alt="gilrye">
+        </q-card-section>
+      </q-card>
+    </q-dialog>
+    </div>
     <div @click="goExhibition" class="nextbtn">
       <div class="diamond-container">
       <div class="diamond left"></div>
@@ -43,6 +59,11 @@ var img = ["https://i.ibb.co/cQFkpgd/cheon.png"]
 
 export default {
   name:'CheonInteractive',
+  data() {
+    return {
+      fullWidth: false,
+    }
+  },
   mounted(){
  
     this.randomize()
@@ -154,6 +175,34 @@ export default {
   --border-radius:10px;
   /* --image:url("../../assets/cheon_pic.png"); */
   --image:url("https://i.ibb.co/cQFkpgd/cheon.png");
+}
+.map{
+  position: fixed;
+  bottom:40%;
+  left: 20%;
+  padding:10px;
+  background-color: transparent;
+  color: rgba(0,0,0,0.5);
+  background: rgba(255, 251, 4, 0.3);
+  border-radius: 50%;
+}
+.map:hover{
+  color: rgba(0,0,0,0.8);
+  background: rgba(247, 231, 7, 0.6);
+  font-size:58px;
+}
+/* .smallhint{
+  position: absolute;
+  bottom:43%;
+  left: 20.5%;
+} */
+
+.gr {
+  width: 30vw;
+}
+
+.mapwrapper {
+  overflow-y: hidden;
 }
 </style>
 <style>
