@@ -1,7 +1,7 @@
 <template>
   <div>
     <div @click="fullWidth = true">
-      <span style="font-size:50px;">
+      <span style="font-size:40px;">
         <q-icon class='map' name="mdi-map-legend"></q-icon>
       </span>
     </div>
@@ -45,18 +45,40 @@ export default {
 }
 
 .mapwrapper {
-  /* background-color: #FCF9F2; */
-  /* color:pink !important; */
+  background-color: #FCF9F2;
+  overflow-y: hidden;
+  border-radius: 15px;
+  color: #464646;
+}
+
+
+.close-btn{
+  top:20px;
+  right:20px;
+  position: absolute;
+  z-index: 100;
+  /* background-color: teal; */
+  background-color: #fe2901;
+  color:white;
+  font-size: 1.2rem;
 }
 
 .map {
-  z-index:900;
   position: absolute;
+  z-index: 9999;
   left: 3%;
-  top: 4.3%;
+  top: 4%;
+  padding:10px;
   background-color: transparent;
+  color: rgba(0,0,0,0.5);
+  background: rgba(0,0,0, 0.1);
+  border-radius: 50%;
 }
+
 .map:hover {
-  color: red !important;
+  color: rgba(0,0,0,0.8);
+  background: rgba(0,0,0, 0.2);
+  font-size:42px;
 }
+
 </style>

@@ -1,15 +1,17 @@
 <template>
   <div class="body">
-    <IconMap mapColor="aliceblue"/>
-    <IconVoice voiceColor="aliceblue"/>
+    <IconMap mapColor="#eee8aa"/>
+    <IconVoice voiceColor="#eee8aa"/>
     <div class="page">
       <div class="description">
-        <h1 style="color:#e3cc28">Der Kuss</h1>
-        <div>
-          우리에게 잘 알려진 <strong>클림트의 키스</strong>는<br>
-          원형, 네모, 직선과 곡선 등 기하학 문양과 함께<br>
-          금박 무늬 등 <span style="color:#d6ba38">화려한 색체</span>를 앞세운 화풍이 잘 드러납니다.
-          
+        <div class="desc-main">
+          <h1 class="desc-main__title">Der Kuss</h1>
+          <div class="desc-main__subtitle">키스 <span style="font-size:1rem">(1907)</span></div>
+          <div class="desc-main__description">
+            우리에게 잘 알려진 <strong>"클림트의 키스"</strong>는
+            원형, 네모, 직선과 곡선 등 기하학 문양과 함께<br>
+            금박 무늬 등 <span style="color:#FFD700">화려한 색체</span>를 앞세운 화풍이 잘 드러납니다.
+          </div>
         </div>
         <br>
         <div class="desc-footer">
@@ -22,11 +24,11 @@
             />
             Click
           </div>
-          <div v-if="!hintflag">
+          <div v-if="!hintflag" class="desc-main__description">
             그림 위에서 마우스를 움직이며<br>
             클림트의 화풍을 경험해보세요
           </div>
-          <div v-if="hintflag">
+          <div v-if="hintflag" class="desc-main__description">
             그림 위에서 마우스를 길게 눌러보세요. <br> 
             키스의 모든 색감을 경험할 수 있습니다.
           </div>
@@ -55,9 +57,16 @@
             <q-icon :to='"/klimtphoto"' target="_blank" id="rightarrow" name="mdi-chevron-double-right"></q-icon>
         </span>
       </div> -->
-      <div class="next-view" @click="nextKlimts">
-        <q-icon class="next-view-icon" name="mdi-chevron-double-right"/>
+      <div @click="nextKlimts" class="nextbtn">
+        <div class="diamond-container">
+        <div class="diamond left"></div>
+        <div class="diamond right"></div>
+        <div class="arrow"></div>
+        </div>
       </div>
+      <!-- <div class="next-view" @click="nextKlimts">
+        <q-icon class="next-view-icon" name="mdi-chevron-double-right"/>
+      </div> -->
       <div class="original-view column items-center" @click="originalView">
         <q-icon class="original-view-icon" name="photo"/>
         <div v-if="!originalflag">Original</div>
@@ -86,6 +95,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js"></script>
 
 <script scoped>
+
 import { gsap,TimelineMax } from 'gsap';
 
 export default {
@@ -160,6 +170,7 @@ export default {
   },
   methods:{
     nextKlimts(){
+      this.$store.dispatch('page/pageChange',1)
       this.$router.push({path:'klimts'})
     },
     hintView(){
@@ -171,12 +182,14 @@ export default {
       document.querySelector('#demo').style.boxShadow = "0 0 0 0 rgba(202, 202, 202, 0.548);"
     }
   }
-
-
 }
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+
 .body{
   padding:2rem;
   background-color: #28353c;
@@ -202,6 +215,23 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.desc-main{
+  margin-top:20%
+}
+.desc-main__title{
+  color:#FFD700;
+  font-family:'Playfair Display', serif;
+  letter-spacing: 3px;
+}
+.desc-main__subtitle{
+  font-family:'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  margin:1rem 0;
+}
+.desc-main__description{
+  font-family:'Open Sans', sans-serif;
+  line-height: 22px;
 }
 .desc-footer{
   display: flex;
@@ -322,4 +352,119 @@ p {
 } */
  
 
+</style>
+
+<style lang="scss" scoped>
+// DIMENSIONS
+$width: 100px; // Button With
+$outerDiamondHeight: $width / 3; //Button Height
+$outerDiamondWidth: $width / 2;
+$innerDiamondHeight: $outerDiamondHeight - 1;
+$innerDiamondWidth: $outerDiamondWidth - 1;
+$arrowSize: $width / 6;
+
+// COLORS
+$borderColor: #333;
+$backgroundColor: white;
+
+//TRANSITION
+$transition: all 0.25s ease;
+
+.diamond-container {
+  z-index:1000;
+  width: $width;
+  position: absolute;
+  top:45%; right: 3%;
+  transform: translate(-10%);
+  cursor: pointer;
+  
+  // CLEARFIX
+  &:after {
+    content:'';
+    display: table;
+    height: 0;
+    clear: both;
+  }
+  
+  // DIAMOND BUTTON - LEFT&RIGHT
+  .diamond {
+    position: relative;
+    width: $outerDiamondWidth;
+    height: $outerDiamondHeight*2;
+    float: left;
+    overflow: hidden;
+
+    &:after, &:before {
+      border: solid transparent;
+      content: ' ';
+      position: absolute;
+      width: 0%; height: 0%;
+      transition: $transition;
+    }
+
+    &:after {
+      border-width: $innerDiamondHeight 0 $innerDiamondHeight $innerDiamondWidth;
+      border-left-color: $backgroundColor;
+      top: 1px; left: -1px;
+    }
+    &:before {
+      border-width: $outerDiamondHeight 0 $outerDiamondHeight $outerDiamondWidth;
+      border-left-color: $borderColor;
+    }
+
+    &.left {
+      &:after {
+        border-width: $innerDiamondHeight $innerDiamondWidth $innerDiamondHeight 0;
+        border-left-color: transparent;
+        border-right-color: $backgroundColor;
+        left: 2px;
+      }
+      &:before {
+        border-width: $outerDiamondHeight $outerDiamondWidth $outerDiamondHeight 0;
+        border-left-color: transparent;
+        border-right-color: $borderColor;
+      } 
+    }
+  }
+  
+  // ARROW 
+  .arrow {
+    width: $arrowSize; height: $arrowSize;
+    border: 1px solid $borderColor;
+    border-left: none;
+    border-bottom: none;  
+    position: absolute;
+    top:50%; left: 52%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: $transition;
+    &:after {
+      content: "";
+      width: 160%; border-top: 1px solid $borderColor;
+      position: absolute;
+      top: 0; right: 0;
+      transform: rotate(-45deg);
+      transform-origin: top right;
+      transition: inherit;
+    }
+  }
+  
+  // HOVER EFFECT
+  &:hover {
+
+    .diamond {
+      border: #ccc;
+      &:after { border-left-color: $borderColor; }
+      &.left:after {  border-right-color: $borderColor; }
+    }
+    .arrow {
+      border-top: 1px solid $backgroundColor;
+      border-right: 1px solid $backgroundColor;
+      transform: translate(-50%, -50%) rotate(405deg);
+      &:after {
+        border-top: 1px solid $backgroundColor;
+      }
+    }
+  }
+  
+}
 </style>
