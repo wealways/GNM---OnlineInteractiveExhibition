@@ -65,7 +65,11 @@ export default {
         if(!audio) return;
         audio.currentTime = 0; 
         setTimeout(function(){
-          audio.play(); 
+          audio.play()
+            .then(function(){
+            }).catch((err)=>{
+              console.log(err)
+            })
         },300)
       }
 
