@@ -208,9 +208,10 @@ export default {
   color: white;
   z-index: 1;
   display: flex;
+  flex-direction: row !important;
 }
 .description{
-  min-width: 47%;
+  min-width: 44%;
   height: 800px;
   display: flex;
   flex-direction: column;
@@ -263,7 +264,7 @@ export default {
 }
 .original-view{
   position:absolute;
-  right: 5%;
+  right: 5.5%;
   bottom: 20%;
   display: flex;
   cursor: pointer;

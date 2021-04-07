@@ -8,10 +8,6 @@
       <Klimt2 id="klimt2" class="content"/>
       <Klimt3 id="klimt3" class="content"/>
     </section>
-    <audio data-key="tada" src="@/assets/audio/tada.mp3"></audio>
-    <audio data-key="timo" src="@/assets/audio/timo.mp3"></audio>
-    <audio data-key="wow" src="@/assets/audio/wow.mp3"></audio>
-    <audio data-key="bye" src="@/assets/audio/bye.mp3"></audio>
   </div>
 </template>
 

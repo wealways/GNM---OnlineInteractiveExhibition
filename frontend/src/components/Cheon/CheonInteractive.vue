@@ -28,20 +28,20 @@
       </div>
     </div>
     <div>
-    <div @click="fullWidth = true">
-      <span style="font-size:55px;">
-        <q-icon class='map' name="mdi-lightbulb-on-outline"></q-icon>
-      </span>
+    <div class='interior'>
+      <a class='btn' href="#open-modal">
+        <span class='insidebtn' style="font-size:18px;">
+          <p class='hint'>HINT</p>
+          <q-icon name="mdi-lightbulb-on-outline" class='bulbicon'></q-icon>
+        </span>
+      </a>
     </div>
-    <q-dialog
-      v-model="fullWidth"
-    >
-      <q-card class="mapwrapper" style="width: 600px; height: 800px; max-height: 85vh; background-color:transparent;" >
-        <q-card-section class='q-pt-none mapback'>
-          <img class='gr' src="../../assets/GilryeSister.jpg" alt="gilrye">
-        </q-card-section>
-      </q-card>
-    </q-dialog>
+    <div id="open-modal" class="modal-window">
+      <div class='relativeclass'>
+        <a href="#" title="Close" class="modal-close">Close</a>
+        <img class="gr" src="../../assets/GilryeSister.jpg" alt="">
+      </div>
+    </div>
     </div>
     <div @click="goExhibition" class="nextbtn">
       <div class="diamond-container">
@@ -192,14 +192,14 @@ export default {
   background: rgba(247, 231, 7, 0.6);
   font-size:58px;
 }
-/* .smallhint{
-  position: absolute;
-  bottom:43%;
-  left: 20.5%;
-} */
-
+.relativeclass{
+  position: relative;
+  height: 60%;
+}
 .gr {
-  width: 30vw;
+  position: absolute;
+  height: 80%;
+  top: 10%;
 }
 
 .mapwrapper {
@@ -365,6 +365,90 @@ export default {
 </style>
 
 <style lang="scss" scoped>
+.modal-window {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.25);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+  &:target {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  & > div {
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2em;
+    background: white;
+  }
+  header {
+    font-weight: bold;
+  }
+  h1 {
+    font-size: 150%;
+    margin: 0 0 15px;
+  }
+}
+
+.modal-close {
+  color: #aaa;
+  line-height: 50px;
+  font-size: 80%;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 70px;
+  text-decoration: none;
+  &:hover {
+    color: black;
+  }
+}
+.modal-window {
+  & > div {
+    border-radius: 1rem;
+  }
+}
+
+.btn {
+  position: absolute;
+  left:47%;
+  top: 2%;
+  padding: 0px 17px;
+  border-radius: 1rem;
+  color:#aaa;
+  background-color: rgba(243, 207, 4, 0.479);
+  text-decoration: none;
+  height: 35px;
+}
+.insidebtn {
+  display:flex;
+}
+.bulbicon {
+  padding-top:7px;
+  padding-bottom:7px;
+  margin-left: 5px;
+}
+.hint {
+  padding-top:6px;
+  padding-bottom:6px;
+  font-size: 15px;
+  font-family: 'Noto Sans KR';
+}
+.btn:hover{
+  background-color: rgba(243, 207, 4, 0.8);
+
+}
 // DIMENSIONS
 $width: 150px; // Button With
 $outerDiamondHeight: $width / 3; //Button Height
