@@ -10,7 +10,7 @@
         >
           <div class="form-top">
             <q-card-section class="form-header">
-              <div v-if="!onModify" class="text-h6">작성</div>
+              <div v-if="!onModify" class="text-h6" style="margin-top:50px;"></div>
               <div v-if="onModify" class="text-h6">수정</div>
             </q-card-section>
           </div>

@@ -31,7 +31,7 @@
             <div class="card-img-body col column justify-center ">
               <div class="" style="display:block; text-align:center;">{{article.guestbook_comment}}</div>
               <div class="column justify-end items-end" style="display:inline">
-                <span>by </span>
+                <span>by</span>
                 <span>{{article.user_nickname}}</span>
               </div>
             </div>
