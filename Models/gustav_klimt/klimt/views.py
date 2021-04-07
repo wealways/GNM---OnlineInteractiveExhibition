@@ -18,8 +18,11 @@ from .forms import UploadFileForm
 from rest_framework.decorators import api_view
 
 # 비동기 -> 동기 | 동기 -> 비동기
-from asgiref.sync import sync_to_async, async_to_sync
-import asyncio
+# from asgiref.sync import sync_to_async, async_to_sync
+# import asyncio
+
+# multithreading
+import threading
 
 # 경로 추출 라이브러리
 from pathlib import Path
@@ -65,7 +68,7 @@ def push_output(output, sessionkey):
     # 로컬용 API 주소
     # BASE_URL = f'http://127.0.0.1:8000/galleries/image/{imgtype}/{no}/'
     # 배포용 API 주소
-    BASE_URL = f'http://j4c106.p.ssafy.io/api/galleries/image/{imgtype}/{no}/'
+    BASE_URL = f'https://j4c106.p.ssafy.io/api/galleries/image/{imgtype}/{no}/'
     print(f'요청 보내는 주소: {BASE_URL}')
     # 요청 보내기
     response = requests.post(BASE_URL, headers = headers, files = output)
@@ -75,7 +78,6 @@ def push_output(output, sessionkey):
     return response
 
 
-@sync_to_async
 def transfer(content_img: str, sessionkey: str):
     ai_dir = os.path.join(settings.BASE_DIR, 'klimt', 'style_transfer')
     print(f'모델 저장 위치: {ai_dir}')
@@ -131,11 +133,9 @@ def transfer(content_img: str, sessionkey: str):
     push_output(output_image_uri, sessionkey=sessionkey)
 
 
-@sync_to_async
 @csrf_exempt
 # @api_view(['POST'])
-@async_to_sync
-async def style_transfer(request):
+def style_transfer(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
         # request의 형식 유효성 검사 및 세션 키 넘어오는지 확인
@@ -147,11 +147,14 @@ async def style_transfer(request):
             content_img = handle_uploaded_file(request.FILES['image'], sessionkey=sessionkey)
             print(f'content 이미지 저장 완료 where:{content_img}')
             # 화풍변환 작동 - sessionkey 넘겨주기
-            asyncio.create_task(transfer(content_img, sessionkey=sessionkey))
-            print('이미지 저장 끝')
+            t = threading.Thread(target = transfer, args=[content_img, sessionkey])
+            t.setDaemon(False)
+            t.start()
+            print(f'이미지 저장 끝 CPU개수: {os.cpu_count()}')
+            
+            return JsonResponse({'status': 'success'})
         else:
             return JsonResponse({'status': '요청 파일 형식 오류 또는 세션 키 미포함'})
         
-        return JsonResponse({'status': 'success'})
     else:
         return JsonResponse({'status': f'잘못된 요청 방식입니다 { request.method }'})
