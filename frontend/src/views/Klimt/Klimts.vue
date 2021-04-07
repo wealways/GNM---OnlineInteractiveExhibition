@@ -40,13 +40,12 @@ export default {
     window.addEventListener('wheel', function(e)
     {
       if(this.$route.name==='Klimts'){
-        e.stopPropagation();
+        e.preventDefault();
         let scrollBottom = 3;
         
         let delta = e.deltaY
         if(delta>0){
           
-          console.log(now)
           if(now === 0){
             container.scrollLeft = sectionPageWidth*1
             now += sectionPageWidth
@@ -62,7 +61,6 @@ export default {
           }
         }else{
           
-          console.log(now)
           if(now===sectionPageWidth*2){
             container.scrollLeft = sectionPageWidth*1
             now -= sectionPageWidth
