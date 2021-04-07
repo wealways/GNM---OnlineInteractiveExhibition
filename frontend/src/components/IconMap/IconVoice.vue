@@ -153,7 +153,7 @@ export default {
   position: absolute;
   bottom: 10%;
   right: 5%;
-  padding:18px;
+  padding:15px;
   color: rgba(0,0,0,0.5);
   background: rgba(0,0,0, 0.1);
   border-radius: 50%;
@@ -173,7 +173,7 @@ export default {
   position: absolute;
   bottom: 10%;
   right: 5%;
-  padding:18px;
+  padding:15px;
   color: rgba(0,0,0,0.5);
   background: rgba(0,0,0, 0.1);
   border-radius: 50%;
