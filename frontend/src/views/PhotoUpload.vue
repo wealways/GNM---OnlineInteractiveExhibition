@@ -1,7 +1,8 @@
 <template>
   <div class="main">
-      <IconMap/>
-      <div style="min-height:30px"></div>
+    <IconMap/>
+    <div style="min-height:30px"></div>
+    <div class="container">
       <header v-if="nowRoute==='MonetPhoto'">Claude Monet</header>
       <header v-else-if="nowRoute==='KlimtPhoto'">Klimt</header>
       <header v-else>cheon</header>
@@ -39,6 +40,7 @@
           </span>
         </q-btn>
       </footer>
+    </div>
       
   </div>
 </template>
@@ -164,6 +166,12 @@ export default {
   background: #ECE5E1;
   font-family: "Open Sans", sans-serif;
 }
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: calc(100vh - 150px);
+}
 header {
   border-top: solid 2px #424242;
   border-bottom: solid 2px #424242;
@@ -234,8 +242,8 @@ h1 small {
   margin: auto;
 }
 .avatar-upload .avatar-preview {
-  min-width: 850px;
-  min-height: 530px;
+  min-width: 40%;
+  min-height: 400px;
   
   /* position: relative;
   left: 50%;
