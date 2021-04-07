@@ -163,6 +163,7 @@ export default {
   },
   methods:{
     nextKlimts(){
+      this.$store.dispatch('page/pageChange',1)
       this.$router.push({path:'klimts'})
     },
     hintView(){
