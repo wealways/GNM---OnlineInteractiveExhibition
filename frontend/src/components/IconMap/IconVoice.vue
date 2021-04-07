@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span style='font-size:45px;'>
+    <span style='font-size:35px;'>
       <div @click='voiceOnOff'>
         <q-icon id="voice-color" v-if="voice" class='voice' name="mdi-account-tie-voice"></q-icon>
         <q-icon id="voice-color" v-else class='voice-off' name="mdi-account-tie-voice-off"></q-icon>
@@ -65,7 +65,11 @@ export default {
         if(!audio) return;
         audio.currentTime = 0; 
         setTimeout(function(){
-          audio.play(); 
+          audio.play()
+            .then(function(){
+            }).catch((err)=>{
+              console.log(err)
+            })
         },300)
       }
 
@@ -106,13 +110,13 @@ export default {
           }
         }else{
           if(this.page===1){
-            audio = document.querySelector("audio[data-key=cheon2]")
-          }else if(this.page===2){
-            audio = document.querySelector("audio[data-key=cheon3]")
-          }else if(this.page===3){
-            audio = document.querySelector("audio[data-key=cheon4]")
-          }else{
             audio = document.querySelector("audio[data-key=cheon5]")
+          }else if(this.page===2){
+            audio = document.querySelector("audio[data-key=cheon2]")
+          }else if(this.page===3){
+            audio = document.querySelector("audio[data-key=cheon3]")
+          }else{
+            audio = document.querySelector("audio[data-key=cheon4]")
           }
         }
       }else{
@@ -145,21 +149,34 @@ export default {
 
 <style scoped>
 .voice{
+  position: absolute; 
   z-index:100;
   position: absolute;
   bottom: 13%;
   right: 5%;
+  padding:15px;
+  color: rgba(0,0,0,0.5);
+  background: rgba(0,0,0, 0.1);
+  border-radius: 50%;
 }
 .voice:hover{
-  color: red !important;
+  color: rgba(0,0,0,0.8);
+  background: rgba(0,0,0, 0.2);
+  font-size:42px;
 }
 .voice-off:hover{
-  color:red !important;
+  color: rgba(0,0,0,0.8);
+  background: rgba(0,0,0, 0.2);
+  font-size:37px;
 }
 .voice-off{
   z-index: 100;
   position: absolute;
-  bottom: 13%;
+  bottom: 10%;
   right: 5%;
+  padding:15px;
+  color: rgba(0,0,0,0.5);
+  background: rgba(0,0,0, 0.1);
+  border-radius: 50%;
 }
 </style>

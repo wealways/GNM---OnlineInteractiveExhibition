@@ -1,4 +1,14 @@
 module.exports = {
+  // 음성파일 저장위치 변경
+  chainWebpack: config => {
+    config.module
+      .rule('media')
+      .use('url-loader')
+      .tap(options => {
+        options['fallback']['options']['name'] = 'sound/[name].[hash:8].[ext]'
+        return options
+      })
+  },
   pluginOptions: {
     quasar: {
       importStrategy: 'kebab',
@@ -9,9 +19,9 @@ module.exports = {
     'quasar'
   ],
   devServer: {
-    // host: '0.0.0.0',
-    // hot: true,
-    // disableHostCheck: true,
-    proxy:'http://localhost:8000'
+    host: '0.0.0.0',
+    hot: true,
+    disableHostCheck: true,
+    // proxy:'http://localhost:8000'
   },
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <div class="exhibition">
-      <div id="title">작품을 완성해 보세요.</div>
+        <div id="title">작품을 완성해 보세요</div>
       <div class="frame">
         <div id='puz'>
           <i class='first' @drop='drop($event)' @dragover='allowDrop($event)' ></i>
@@ -27,15 +27,47 @@
         </div>
       </div>
     </div>
+    <div>
+    <div @click="fullWidth = true">
+      <span style="font-size:55px;">
+        <q-icon class='map' name="mdi-lightbulb-on-outline"></q-icon>
+      </span>
+    </div>
+    <q-dialog
+      v-model="fullWidth"
+    >
+      <q-card class="mapwrapper" style="width: 600px; height: 800px; max-height: 85vh; background-color:transparent;" >
+        <q-card-section class='q-pt-none mapback'>
+          <img class='gr' src="../../assets/GilryeSister.jpg" alt="gilrye">
+        </q-card-section>
+      </q-card>
+    </q-dialog>
+    </div>
+    <div @click="goExhibition" class="nextbtn">
+      <div class="diamond-container">
+      <div class="diamond left"></div>
+      <div class="diamond right"></div>
+      <div class="arrow"></div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 
-var img = ["https://lh3.googleusercontent.com/proxy/EI5e34TlH8O3nYUTzKueokxSShqACl0bomRr4Cq57bdttIIpALxLPh_pWR1zR-07CGo8VM_5xR_-PuauqmAS_0CfK3fV6pcvWWM-yindg68XaSe6aLcNqX7KtFQFz9ZOr9mQBwDLV-MyXxokUB23Aga-vSKf_S0AkJjwnppzKchRHHcJ8l_ZaVqHttEljFjt5GNIVM1nsg"]
+<<<<<<< HEAD
+var img = ["https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3dd97bd9-f6f2-48a3-963e-104454bd460c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210406%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210406T025146Z&X-Amz-Expires=86400&X-Amz-Signature=dbb356e3e4317ddd5c05e263391c50c3226b623ac13bb3d5c80033ea317e6fc0&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22"]
+=======
+var img = ["https://i.ibb.co/cQFkpgd/cheon.png"]
+>>>>>>> dcb941ddbd33f16216eeb3b7ae5169f5cf5939fa
 
 export default {
   name:'CheonInteractive',
+  data() {
+    return {
+      fullWidth: false,
+    }
+  },
   mounted(){
  
     this.randomize()
@@ -66,6 +98,9 @@ export default {
     })
   },
   methods:{
+    goExhibition(){
+      this.$router.push({path:'cheons'})
+    },
     
     randomize: function () {
       var root = document.documentElement
@@ -143,7 +178,35 @@ export default {
   --color:lightgray;
   --border-radius:10px;
   /* --image:url("../../assets/cheon_pic.png"); */
-  --image:url("https://lh3.googleusercontent.com/proxy/EI5e34TlH8O3nYUTzKueokxSShqACl0bomRr4Cq57bdttIIpALxLPh_pWR1zR-07CGo8VM_5xR_-PuauqmAS_0CfK3fV6pcvWWM-yindg68XaSe6aLcNqX7KtFQFz9ZOr9mQBwDLV-MyXxokUB23Aga-vSKf_S0AkJjwnppzKchRHHcJ8l_ZaVqHttEljFjt5GNIVM1nsg");
+  --image:url("https://i.ibb.co/cQFkpgd/cheon.png");
+}
+.map{
+  position: fixed;
+  bottom:40%;
+  left: 20%;
+  padding:10px;
+  background-color: transparent;
+  color: rgba(0,0,0,0.5);
+  background: rgba(255, 251, 4, 0.3);
+  border-radius: 50%;
+}
+.map:hover{
+  color: rgba(0,0,0,0.8);
+  background: rgba(247, 231, 7, 0.6);
+  font-size:58px;
+}
+/* .smallhint{
+  position: absolute;
+  bottom:43%;
+  left: 20.5%;
+} */
+
+.gr {
+  width: 30vw;
+}
+
+.mapwrapper {
+  overflow-y: hidden;
 }
 </style>
 <style>
@@ -159,7 +222,6 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow:scroll ;
 }
 .exhibition{
   position: relative;
@@ -168,8 +230,9 @@ export default {
 #title{
   padding: 5%;
   text-align: center;
-  font-size: 2rem;
-  font-weight: bolder ;
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: 'Noto Sans KR';
   animation-name: twinkling;
   animation-duration: 3s;
 }
@@ -293,4 +356,128 @@ export default {
   right:5px;
 }
 
+#rightarrow{
+  position: absolute;
+  top: 90%;
+  right: 10%;
+}
+.nextbtn:hover {
+  cursor: pointer;
+}
+
+</style>
+
+<style lang="scss" scoped>
+// DIMENSIONS
+$width: 150px; // Button With
+$outerDiamondHeight: $width / 3; //Button Height
+$outerDiamondWidth: $width / 2;
+$innerDiamondHeight: $outerDiamondHeight - 1;
+$innerDiamondWidth: $outerDiamondWidth - 1;
+$arrowSize: $width / 6;
+
+// COLORS
+$borderColor: #333;
+$backgroundColor: white;
+
+//TRANSITION
+$transition: all 0.25s ease;
+
+.diamond-container {
+  z-index:1000;
+  width: $width;
+  position: absolute;
+  bottom:10%; right: 10%;
+  transform: translate(-10%);
+  cursor: pointer;
+  
+  // CLEARFIX
+  &:after {
+    content:'';
+    display: table;
+    height: 0;
+    clear: both;
+  }
+  
+  // DIAMOND BUTTON - LEFT&RIGHT
+  .diamond {
+    position: relative;
+    width: $outerDiamondWidth;
+    height: $outerDiamondHeight*2;
+    float: left;
+    overflow: hidden;
+
+    &:after, &:before {
+      border: solid transparent;
+      content: ' ';
+      position: absolute;
+      width: 0%; height: 0%;
+      transition: $transition;
+    }
+
+    &:after {
+      border-width: $innerDiamondHeight 0 $innerDiamondHeight $innerDiamondWidth;
+      border-left-color: $backgroundColor;
+      top: 1px; left: -1px;
+    }
+    &:before {
+      border-width: $outerDiamondHeight 0 $outerDiamondHeight $outerDiamondWidth;
+      border-left-color: $borderColor;
+    }
+
+    &.left {
+      &:after {
+        border-width: $innerDiamondHeight $innerDiamondWidth $innerDiamondHeight 0;
+        border-left-color: transparent;
+        border-right-color: $backgroundColor;
+        left: 2px;
+      }
+      &:before {
+        border-width: $outerDiamondHeight $outerDiamondWidth $outerDiamondHeight 0;
+        border-left-color: transparent;
+        border-right-color: $borderColor;
+      } 
+    }
+  }
+  
+  // ARROW 
+  .arrow {
+    width: $arrowSize; height: $arrowSize;
+    border: 1px solid $borderColor;
+    border-left: none;
+    border-bottom: none;  
+    position: absolute;
+    top:50%; left: 52%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: $transition;
+    &:after {
+      content: "";
+      width: 160%; border-top: 1px solid $borderColor;
+      position: absolute;
+      top: 0; right: 0;
+      transform: rotate(-45deg);
+      transform-origin: top right;
+      transition: inherit;
+    }
+  }
+  
+  // HOVER EFFECT
+  &:hover {
+
+    .diamond {
+      border: #ccc;
+      &:after { border-left-color: $borderColor; }
+      &.left:after {  border-right-color: $borderColor; }
+    }
+    .arrow {
+      border-top: 1px solid $backgroundColor;
+      border-right: 1px solid $backgroundColor;
+      transform: translate(-50%, -50%) rotate(405deg);
+      &:after {
+        border-top: 1px solid $backgroundColor;
+      }
+    }
+  }
+  
+}
 </style>

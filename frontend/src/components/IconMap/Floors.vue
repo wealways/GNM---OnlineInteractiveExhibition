@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <div>
         <div class="layer-container stacked-top">
             <div @click='gotomone' class="layer first-layer blue-layer"></div>
             <div @click='gotoklimt' class="layer second-layer green-layer"></div>
@@ -16,7 +16,7 @@
                     v-show="explain==='모네'" 
                     align="around" 
                     class="btn-fixed-width" 
-                    color="deep-orange" 
+                    color="teal-10" 
                     label="1층 가기" 
                     icon="lightbulb_outline"
                 />
@@ -26,7 +26,7 @@
                     v-show="explain==='클림트'" 
                     align="around" 
                     class="btn-fixed-width" 
-                    color="deep-orange" 
+                    color="teal-10" 
                     label="2층 가기" 
                     icon="lightbulb_outline" 
                 />
@@ -36,7 +36,7 @@
                     v-show="explain==='천경자'" 
                     align="around" 
                     class="btn-fixed-width" 
-                    color="deep-orange" 
+                    color="teal-10" 
                     label="3층 가기" 
                     icon="lightbulb_outline" 
                 />
@@ -46,7 +46,7 @@
                     v-show="explain==='특별전시관'" 
                     align="around" 
                     class="btn-fixed-width" 
-                    color="deep-orange" 
+                    color="teal-10" 
                     label="특별전시관" 
                     icon="lightbulb_outline" 
                 />
@@ -56,12 +56,25 @@
                     v-show="explain==='방명록'" 
                     align="around" 
                     class="btn-fixed-width" 
-                    color="deep-orange" 
+                    color="teal-10" 
                     label="방명록 가기" 
+                    icon="lightbulb_outline" 
+                />
+                <q-btn
+                    :to='"/"' 
+                    target="_blank"  
+                    v-show="explain==='메인'" 
+                    align="around" 
+                    class="btn-fixed-width" 
+                    color="teal-10" 
+                    label="로비 가기" 
                     icon="lightbulb_outline" 
                 />
             </div>
         </div>
+        <span @click='gotomain' class="logo-icon">
+            <img src="@/assets/favicon-32x32.png" alt="" width="36px" heigth="36px">
+        </span>
     </div>
 </template>
 
@@ -90,6 +103,9 @@ export default {
         },
         gotoguestbook(){
             this.explain = "방명록"
+        },
+        gotomain(){
+            this.explain = "메인"
         }
     },
     mounted(){
@@ -287,5 +303,31 @@ button {
 }
 button:hover {
     color:  rgba(181, 207, 231, 0.8);
+}
+.logo-icon{
+    position:absolute;
+    width:56px;
+    height: 56px;
+    right: 6%;
+    top: 8%;
+    // background-color: #fff2b7;
+    padding-top:0.5rem;
+    padding-bottom:0.7rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    border-radius: 15px;
+    border:#FCF9F2 2px solid;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    opacity: 0.95;
+}
+
+.logo-icon:hover{
+    border-radius: 15px;
+    border:#2A433B 2px solid;
+//   opacity: 1;
+//   background-color:#69a18f;
 }
 </style>

@@ -3,17 +3,21 @@
     <img id="judith1-image" class="slide-in" src="@/assets/images/klimt/Judith_1_(cropped).jpg" alt="유디트">
     <div class="description">
       <div id="judith1-description">
-        <h4>유디트II <span style="font-size:1rem;">(1909)</span></h4>
-        Judith II (Salome)<br>
+        <h4 class="desc-main__title">Judith II - Salome</h4>
+        <div class="desc-main__subtitle">유디트II <span style="font-size:0.8rem;">(1909)</span></div>
+        <div class="desc-main__description">
         유대인의 문화에서 유디트는 훌륭하고 지혜로운 여인이지만,
         이 작품에서 드러나는 유디트는 공포의 대상으로 표현됩니다.
+        </div>
       </div>
       <div id="judith2-description">
-        <h4>유디트I <span style="font-size:1rem;">(1901)</span></h4>
-        Judith<br>
-        유디트의 일화는 ‘아름다운 여인의 대담한 살인 행동’이라는 측면에서
-        여러 의미를 동시에 표출할 수 있는 드라마적 요소를 갖춘
-        매우 흥미로운 주제로 당대 화가들에게 많은 영감을 줬습니다.
+        <h4 class="desc-main__title">Judith </h4>
+        <div class="desc-main__subtitle">유디트I <span style="font-size:0.8rem;">(1901)</span></div>
+        <div class="desc-main__description">
+          유디트의 일화는 ‘아름다운 여인의 대담한 살인 행동’이라는 측면에서
+          여러 의미를 동시에 표출할 수 있는 드라마적 요소를 갖춘
+          매우 흥미로운 주제로 당대 화가들에게 많은 영감을 줬습니다.
+        </div>
       </div>
     </div>
     <img id="judith2-image" class="slide-in" src="@/assets/images/klimt/Judith_II.jpg" alt="유디트">
@@ -57,6 +61,10 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+
 .section{
   display: flex;
   flex-direction: row;
@@ -90,6 +98,20 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+.desc-main__title{
+  color:#FFD700;
+  font-family:'Playfair Display', serif;
+  letter-spacing: 3px;
+}
+.desc-main__subtitle{
+  font-family:'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  margin:1rem 0;
+}
+.desc-main__description{
+  font-family:'Open Sans', sans-serif;
+  line-height: 22px;
 }
 .slide-in {
   opacity: 0;
