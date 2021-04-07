@@ -16,7 +16,7 @@
                     v-show="explain==='모네'" 
                     align="around" 
                     class="btn-fixed-width" 
-                    color="deep-orange" 
+                    color="teal-10" 
                     label="1층 가기" 
                     icon="lightbulb_outline"
                 />
@@ -26,7 +26,7 @@
                     v-show="explain==='클림트'" 
                     align="around" 
                     class="btn-fixed-width" 
-                    color="deep-orange" 
+                    color="teal-10" 
                     label="2층 가기" 
                     icon="lightbulb_outline" 
                 />
@@ -36,7 +36,7 @@
                     v-show="explain==='천경자'" 
                     align="around" 
                     class="btn-fixed-width" 
-                    color="deep-orange" 
+                    color="teal-10" 
                     label="3층 가기" 
                     icon="lightbulb_outline" 
                 />
@@ -46,7 +46,7 @@
                     v-show="explain==='특별전시관'" 
                     align="around" 
                     class="btn-fixed-width" 
-                    color="deep-orange" 
+                    color="teal-10" 
                     label="특별전시관" 
                     icon="lightbulb_outline" 
                 />
@@ -56,7 +56,7 @@
                     v-show="explain==='방명록'" 
                     align="around" 
                     class="btn-fixed-width" 
-                    color="deep-orange" 
+                    color="teal-10" 
                     label="방명록 가기" 
                     icon="lightbulb_outline" 
                 />
