@@ -81,15 +81,9 @@ export default {
   background-color: transparent;
 }
 .voice{
-<<<<<<< HEAD
   z-index: 96;
   position: fixed;
   bottom: 13%;
-=======
-  z-index: 9999;
-  position: fixed;
-  bottom: 10%;
->>>>>>> dcb941ddbd33f16216eeb3b7ae5169f5cf5939fa
   right: 5%;
 }
 .voice:hover{

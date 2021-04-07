@@ -1,6 +1,5 @@
 <template>
   <div class="cheon2">
-<<<<<<< HEAD
     <img class="cheon2_pic slide-in" src="../../assets/ecology.png" alt="ecology" >
     <div class="desc slide-in" id="desc">
       <div class="title"><h3>생태</h3></div>
@@ -12,17 +11,7 @@
         <p>구렁텅이 같은 삶에 저항해야겠다는 의지가 생겼고</p>
         <p>뱀을 스케치한 결과 ‘생태’가 탄생했습니다.</p>
       </div>  
-=======
-    <img class="cheon2_pic" src="../../assets/ecology.png" alt="ecology" >
-      <div class="title"><h1>생태</h1></div>
-      <div class="description">
-      <p>'생태'를 그렸을 때 천경자는 폭우처럼 쏟아진 불행에 흠뻑 젖은 상태였습니다. </p>
-      <p>집안이 몰락했고, 첫 번째 남편과 이혼했습니다.</p> 
-      <p>세상은 자신의 그림을 무시했습니다.</p> 
-      <p>어느 날 독을 품고 끊임없이 꿈틀거리는 뱀을 보자 응어리가 풀어지는 듯 했습니다.</p>
-      <p>구렁텅이 같은 삶에 저항해야겠다는 의지가 생겼고</p>
-      <p>뱀을 스케치한 결과 ‘생태’가 탄생했습니다.</p>
->>>>>>> d6e75b32ac1430f4d2f1a9189f5402cc7fd2f1fd
+
     </div>
   </div>
 </template>
