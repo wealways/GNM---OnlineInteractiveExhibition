@@ -37,7 +37,11 @@
 
 <script>
 
+<<<<<<< HEAD
+var img = ["https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3dd97bd9-f6f2-48a3-963e-104454bd460c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210406%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210406T025146Z&X-Amz-Expires=86400&X-Amz-Signature=dbb356e3e4317ddd5c05e263391c50c3226b623ac13bb3d5c80033ea317e6fc0&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22"]
+=======
 var img = ["https://i.ibb.co/cQFkpgd/cheon.png"]
+>>>>>>> dcb941ddbd33f16216eeb3b7ae5169f5cf5939fa
 
 export default {
   name:'CheonInteractive',
