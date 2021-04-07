@@ -12,7 +12,7 @@
         음성 설명
       </div>
       <div class='next_button'>
-        <router-link :to='"/startmonet"'>
+        <router-link :to='"/mappage"'>
           <button>next</button>
         </router-link>
       </div>

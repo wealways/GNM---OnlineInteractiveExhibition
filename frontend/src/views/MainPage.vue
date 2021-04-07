@@ -1,28 +1,44 @@
 <template>
   <div>
     <div class="cover-5">
-      <div class="container" >
-        <div class='scrollicon'>
-          <div class='icon-scroll'>
-            <div class='scrolltext' style="color:white; font-family:'Cinzel">scroll</div>
+      <div class="container">
+        <div class="scrollicon">
+          <div class="icon-scroll">
+            <div class="scrolltext" style="color:white; font-family:'Cinzel">
+              scroll
+            </div>
           </div>
         </div>
-        <section data-bgcolor="#bcb8ad" data-textcolor="#032f35" >
-        <div>
-          <h1 id="maintext" data-scroll data-scroll-speed="1"><span>On-line</span> <span>Interactive</span> <span>Exhibition</span></h1>
-          <!-- <p data-scroll data-scroll-speed="2" data-scroll-delay="0.2">with GSAP ScrollTrigger & Locomotive Scroll</p> -->
-          <router-link :to="'/tutorial'">
-            <div id="tutorialbtn" class='btn tutorial'>go to tutorial</div>
-          </router-link>
-        </div>
+        <section data-bgcolor="#bcb8ad" data-textcolor="#032f35">
+          <div>
+            <h1 id="maintext" data-scroll data-scroll-speed="1">
+              <span>On-line</span> <span>Interactive</span>
+              <span>Exhibition</span>
+            </h1>
+            <!-- <p data-scroll data-scroll-speed="2" data-scroll-delay="0.2">with GSAP ScrollTrigger & Locomotive Scroll</p> -->
+            <router-link :to="'/tutorial'">
+              <div id="tutorialbtn" class="btn tutorial">go to tutorial</div>
+            </router-link>
+          </div>
         </section>
         <section id="sectionPin" >
           <div class="pin-wrap">
-            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
-            <img src="https://images.pexels.com/photos/5207262/pexels-photo-5207262.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=900" alt="">
-            <img src="https://images.pexels.com/photos/3371358/pexels-photo-3371358.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=900" alt="">
-            <img src="https://images.pexels.com/photos/3618545/pexels-photo-3618545.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=900" alt="">
-
+            <h2>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </h2>
+            <img
+              src="https://images.pexels.com/photos/5207262/pexels-photo-5207262.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=900"
+              alt=""
+            />
+            <img
+              src="https://images.pexels.com/photos/3371358/pexels-photo-3371358.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=900"
+              alt=""
+            />
+            <img
+              src="https://images.pexels.com/photos/3618545/pexels-photo-3618545.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=900"
+              alt=""
+            />
           </div>
         </section>
         <section class="section" style="" >
@@ -181,8 +197,8 @@
         <section data-bgcolor="#e3857a" data-textcolor="#f1dba7"><img src="https://images.pexels.com/photos/4791474/pexels-photo-4791474.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
           <h2 data-scroll data-scroll-speed="1" class="credit"><a href="https://thisisadvantage.com" target="_blank">Made by Advantage</a></h2>
         </section>
-        </div>
       </div>
+    </div>
     <div class="cover">
       <div class="cover-heading">
         <span class="imsrk">GNM</span>
@@ -194,63 +210,30 @@
 </template>
 
 <script>
-import { gsap } from 'gsap';
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import LocomotiveScroll from 'locomotive-scroll';
+import LocomotiveScroll from "locomotive-scroll";
 
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
-  name: 'MainPage',
+  name: "MainPage",
   data() {
     return {
       options: {
         navigation: true,
         onLeave: this.onLeave,
-        licenseKey: "your_key"
+        licenseKey: "your_key",
       },
     };
   },
-  methods: {
-    // onScroll() {
-    //   const pageContainer = document.querySelector(".container");
-    //   /* SMOOTH SCROLL */
-    //   const scroller = new LocomotiveScroll({
-    //     el: pageContainer,
-    //     smooth: true
-    //   });
-    //   let pinWrap = document.querySelector(".pin-wrap");
-    //   let pinWrapWidth = pinWrap.offsetWidth;
-    //   let horizontalScrollLength = pinWrapWidth - window.innerWidth;
-  
-    //   // Pinning and horizontal scrolling
-
-    //   gsap.to(".pin-wrap", {
-    //     scrollTrigger: {
-    //       scroller: pageContainer, //locomotive-scroll
-    //       scrub: true,
-    //       trigger: "#sectionPin",
-    //       pin: true,
-    //       // anticipatePin: 1,
-    //       start: "top top",
-    //       end: pinWrapWidth
-    //     },
-    //     x: -horizontalScrollLength,
-    //     ease: "none"
-    //   });
-
-    //   ScrollTrigger.addEventListener("refresh", () => scroller.update()); //locomotive-scroll
-
-    //   ScrollTrigger.refresh();
-    // }
-  }, 
-  mounted: function(){
+  mounted: function() {
     const pageContainer = document.querySelector(".container");
     /* SMOOTH SCROLL */
     const scroller = new LocomotiveScroll({
       el: pageContainer,
-      smooth: true
+      smooth: true,
     });
     scroller.on("scroll", ScrollTrigger.update);
     ScrollTrigger.scrollerProxy(pageContainer, {
@@ -264,10 +247,10 @@ export default {
           left: 0,
           top: 0,
           width: window.innerWidth,
-          height: window.innerHeight
+          height: window.innerHeight,
         };
       },
-      pinType: pageContainer.style.transform ? "transform" : "fixed"
+      pinType: pageContainer.style.transform ? "transform" : "fixed",
     });
     let t1 = gsap.timeline();
     t1.from(".imsrk", {
@@ -318,7 +301,7 @@ export default {
         duration: 1,
         ease: "expo.out",
       },
-      3
+      2
     );
 
     t1.to(
@@ -328,28 +311,30 @@ export default {
         duration: 1,
         ease: "power1.out",
       },
-      3
+      2
     );
 
     t1.from(
       ".imsrk2",
       {
         xPercent: -100,
-        duration: 1,
+        duration: 0.1,
         ease: "power1.out",
         opacity: 0,
       },
-      3.8
+      1
     );
 
     t1.from(".cover-5", {
       yPercent: -100,
       duration: 1,
       ease: "power1.out",
-      delay: 0.4,
-    });
+      delay: 0.1,
+    },
+    3
+    );
   },
-}
+};
 </script>
 <style scoped>
 
@@ -408,10 +393,9 @@ export default {
   left: 13%;
   top: 27%;
 }
-
-.scrolltext{
+.scrolltext {
   position: absolute;
-  bottom:100%;
+  bottom: 100%;
   transform: translateX(-10%) translateY(-30%);
 }
 .icon-scroll,
@@ -429,7 +413,7 @@ export default {
   border-radius: 25px;
 }
 .icon-scroll:before {
-  content: '';
+  content: "";
   width: 8px;
   height: 8px;
   background: #fff;
@@ -437,11 +421,11 @@ export default {
   top: 8px;
   border-radius: 4px;
   -webkit-animation-duration: 1.5s;
-          animation-duration: 1.5s;
+  animation-duration: 1.5s;
   -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
   -webkit-animation-name: scroll;
-          animation-name: scroll;
+  animation-name: scroll;
 }
 @-webkit-keyframes scroll {
   0% {
@@ -461,8 +445,6 @@ export default {
     transform: translateY(46px);
   }
 }
-
-
 </style>
 <style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
@@ -474,19 +456,19 @@ export default {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 :root {
   --text-color: #111;
   --bg-color: #dad4cc;
 }
-#tutorialbtn{
+#tutorialbtn {
   color: white;
 }
 .cover {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-family: "Karla", sans-serif;
   line-height: 1.7;
   position: relative;
@@ -504,7 +486,7 @@ export default {
   overscroll-behavior: none;
 }
 .btn {
-  font-family: 'Cinzel';
+  font-family: "Cinzel";
   color: black;
   text-decoration: none;
   position: sticky;
@@ -516,15 +498,14 @@ export default {
   border-radius: 5px;
   font-weight: 600;
   font-size: 40px;
-  
 }
 header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 20px 14px;
 }
 
@@ -547,7 +528,13 @@ header ul li {
 }
 
 .cover-5 {
-  background: -webkit-gradient(linear, left top, left bottom, from(#1d1d1d), to(black));
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#1d1d1d),
+    to(black)
+  );
   background: linear-gradient(to bottom, #1d1d1d, black);
   position: absolute;
   width: 100%;
@@ -560,12 +547,12 @@ article {
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   max-width: 80%;
 }
 
@@ -581,7 +568,7 @@ article {
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .cover-heading span {
@@ -597,7 +584,7 @@ article {
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   color: blac;
   font-size: 72px;
   font-weight: 900;
@@ -641,8 +628,8 @@ h1 {
   z-index: 4;
   overflow-wrap: break-word;
   hyphens: auto;
-  color:white;
-  font-family: 'Cinzel';
+  color: white;
+  font-family: "Cinzel";
 
   @media (max-width: 768px) {
     font-size: 16vw;
@@ -660,7 +647,7 @@ h2 {
 }
 
 .credit {
-  font-family: 'Cinzel', sans-serif;
+  font-family: "Cinzel", sans-serif;
   a {
     color: var(--text-color);
   }
@@ -698,7 +685,7 @@ p {
   right: 10vw;
   width: 200px;
   line-height: 1.5;
-  color:white;
+  color: white;
   font-family: "Roboto";
 }
 
