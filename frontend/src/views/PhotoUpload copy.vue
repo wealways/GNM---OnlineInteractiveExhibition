@@ -9,18 +9,19 @@
       <section>
         <div class="avatar-upload">
           <div class="avatar-preview">
-            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" style="display:none;"/>
+            <div id="imagePreview">
+            </div>
+          </div>
+          <div class="avatar-edit">
+            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg"/>
             <label for="imageUpload" @click='getSession'>
-              <span id="here" class='uldbutton' style="font-size:30px">
-                <div class="label">
-                  <q-icon name="mdi-upload"></q-icon>
-                  <div style="font-size:13px;">Upload Picture</div>  
-                </div>
+              <span class='uldbutton' style="font-size:30px">
+                <q-icon name="mdi-upload"></q-icon>
+                <div style="font-size:13px;">Upload Picture</div>  
               </span>
             </label>
           </div>
         </div>
-        
       </section>
       <footer>
         <div>
@@ -142,16 +143,10 @@ export default {
         if (input.files && input.files[0]) {
           var reader = new FileReader();
           reader.onload = function(e) {
-            // $('#imagePreview').css('background-image', 'url('+e.target.result +')');
-            // $('#imagePreview').css('height', '500px');
-            // $('#imagePreview').hide();
-            // $('#imagePreview').fadeIn(650);
-            $('#here').css('background-image', 'url('+e.target.result +')');
-            $('#here').css('height', '500px');
-            $('#here').css('min-width', '500px');
-            $('#here .label').css('opacity', '0');
-            $('#here').hide();
-            $('#here').fadeIn(650);
+            $('#imagePreview').css('background-image', 'url('+e.target.result +')');
+            $('#imagePreview').css('height', '500px');
+            $('#imagePreview').hide();
+            $('#imagePreview').fadeIn(650);
           }
             reader.readAsDataURL(input.files[0]);
         }
@@ -225,19 +220,15 @@ h1 small {
 .avatar-upload .avatar-edit input {
   display: none;
 }
-.uldbutton {
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-}
-.uldbutton .label{
-  /* position:absolute; */
+.avatar-upload .avatar-edit input + label {
+
   display: flex;
   justify-content: center;
   align-items: center;
+  top: 50%;
   width: 100px;
   height: 100px;
+  padding-left: 10%;
   border-radius: 100%;
   background: #ffffff;
   border: 1px solid transparent;
@@ -245,13 +236,15 @@ h1 small {
   cursor: pointer;
   font-weight: normal;
   transition: all 0.2s ease-in-out;
-  
 }
-.uldbutton .label:hover{
+.uldbutton {
+  display: flex;
+}
+.avatar-upload .avatar-edit input + label:hover {
   background: #f1f1f1;
   border-color: #d6d6d6;
 }
-.uldbutton .label:after{
+.avatar-upload .avatar-edit input + label:after {
   color: #757575;
   position: absolute;
   top: 10px;
@@ -260,8 +253,6 @@ h1 small {
   text-align: center;
   margin: auto;
 }
-/* 여기 위에 하는 중*/
-
 .avatar-upload .avatar-preview {
   min-width: 40%;
   min-height: 400px;
@@ -274,19 +265,12 @@ h1 small {
   border: 13px solid #f8f8f8;
   box-shadow: 0px 7px 13px 0px rgba(0, 0, 0, 0.1);
 }
-/* .avatar-upload .avatar-preview:hover .avatar-edit input + label {
+.avatar-upload .avatar-preview:hover .avatar-edit input + label {
   background: #f1f1f1;
   border-color: #d6d6d6;
-} */
-/* .avatar-upload .avatar-preview > div {
+}
+.avatar-upload .avatar-preview > div {
   width: 100%;
-  background-size:contain;
-  background-repeat: no-repeat;
-  background-position: center;
-} */
-#here{
-  width: 100%;
-  min-width: 40%;
   /* height: 100%; */
   /* border-radius: 100%; */
   background-size:contain;
