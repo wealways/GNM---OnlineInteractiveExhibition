@@ -174,8 +174,6 @@ export default {
       document.querySelector('#demo').style.boxShadow = "0 0 0 0 rgba(202, 202, 202, 0.548);"
     }
   }
-
-
 }
 </script>
 
