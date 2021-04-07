@@ -142,4 +142,9 @@ export default {
 ::-webkit-scrollbar{
   display:none;
 }
+
+   /* ::-webkit-scrollbar-thumb:horizontal{
+        background: #000;
+        border-radius: 10px;
+    } */
 </style>

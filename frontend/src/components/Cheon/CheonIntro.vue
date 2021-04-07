@@ -1,6 +1,6 @@
 <template>
   <div class='intromone'>
-    <h1 id="monetname">천경자</h1>
+    <h1 id="cheonname">천경자</h1>
     <span id="sentence">"내 과거를 열심히 살게 해 준 원동력은<br>'꿈'과 '사랑'과 '모정' 세 가지 요소였다."</span>
     <div id="bg"></div>
     <div @click="realstart" class="nextbtn">
@@ -46,6 +46,7 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300&display=swap');
 .intromone {
   position: relative;
   height: 100vh;
@@ -57,23 +58,19 @@ export default {
 body, html {
   overflow: hidden;
 }
-#monetname{
+#cheonname{
   position: absolute;
-  top: 20%;
+  top: 30%;
   left: 5%;
-  font-family: 'Playfair Display';
+  font-family: 'Noto Serif KR', serif;
 }
-#monetname2{
-  position: absolute;
-  top: 35%;
-  left: 5%;
-  font-family: 'Playfair Display';
-}
+
 #sentence{
   position: absolute;
-  top: 70%;
-  left: 5%;
+  top: 65%;
+  left: 7%;
   font-size: 18px;
+  line-height: 30px;
 }
 #bg {
   background-image: url('../../assets/cheon.png');
