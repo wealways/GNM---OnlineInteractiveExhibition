@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="cover-5">
-      <div class="container">
+      <a class="gallbtn"><q-btn class="btnChild">천경자 전시관 가기 </q-btn></a>
+      <div class="container" >
         <div class="scrollicon">
           <div class="icon-scroll">
             <div class="scrolltext" style="color:white; font-family:'Cinzel">
@@ -9,7 +10,7 @@
             </div>
           </div>
         </div>
-        <section data-bgcolor="#bcb8ad" data-textcolor="#032f35">
+        <section data-bgcolor="#bcb8ad" data-textcolor="#032f35" class="outsection">
           <div>
             <h1 id="maintext" data-scroll data-scroll-speed="1">
               <span>On-line</span> <span>Interactive</span>
@@ -40,7 +41,7 @@
             />
           </div>
         </section> -->
-        <section class="" style="" >
+        <section class="outsection" style="" >
           <div class="row panel">
             <div class="col-4 art wrapper">
               <img src="../assets/main/art6.jpg" alt="art" class=" col-3 art" style="height: 100%; width: 100%; position:relative;">
@@ -68,7 +69,7 @@
         </section>
 
 
-        <section class="c-section" style="height:300vh;">
+        <section class="c-section outsection" style="height:300vh;">
             <div class="o-container" id="scroll-direction">
                 <div class="c-direction-block_wrapper">
                     <div class="c-section_infos -padding" data-scroll data-scroll-sticky data-scroll-target="#scroll-direction">
@@ -76,15 +77,6 @@
                           <div>
                             <img src="../assets/main/arrow.png" alt="">
                           </div>
-                            <!-- <h3>
-                                02. <br>
-                                Scroll direction
-                            </h3>
-                            <div class="c-sections_infos_text u-text">
-                                <p>
-                                    And if that wasn't enough, make 'em go backwards. Or upwards. Or downwards!
-                                </p>
-                            </div> -->
                         </div>
                     </div>
                     <div class="c-direction-block" id="direction">
@@ -100,7 +92,7 @@
                         </div>
                         <div class="c-direction-block_item -three">
                             <span class="c-direction-block_item_inner" data-scroll data-scroll-direction="horizontal" data-scroll-speed="9" data-scroll-target="#direction" data-scroll-delay="0.05">
-                                Hav fun with art. It's not difficult. Right?
+                                Have fun with art. It's not difficult. Right?
                             </span>
                         </div>
                         <div class="c-direction-block_item -four">
@@ -120,7 +112,8 @@
 
 
 
-        <section class="section cheon">
+        <section class="section cheon" >
+          
           <img src="../assets/main/cheon.png" alt="art" class="" >
           <div class="section-0" data-scroll data-scroll-speed="3">
             <p style="color:black;position:relative;"
@@ -196,12 +189,12 @@
           <img src="../assets/main/monetcut.png" alt="art" class="" >
         </section>
 
-        <section style="background: linear-gradient(white, #111); height: 120vh;">
+        <section style="background: linear-gradient(white, #111); height: 120vh;" class="outsection">
 
 
         </section>
 
-        <section style="height:180vh;">
+        <section style="height:180vh;" class="outsection">
           <div class="row panel">
   
             <div class="col-8 row" style="position:relative;">
@@ -260,6 +253,13 @@ export default {
     };
   },
   mounted: function() {
+    
+    
+    
+
+
+
+
     const pageContainer = document.querySelector(".container");
     /* SMOOTH SCROLL */
     const scroller = new LocomotiveScroll({
@@ -364,10 +364,73 @@ export default {
     },
     3
     );
+
+    const cheon = document.querySelector('.cheon');
+    const klimt = document.querySelector('.klimt');
+    const monet = document.querySelector('.monet');
+    const outsections = document.querySelectorAll('.outsection');
+    // const gallery = document.querySelectorAll('.section')
+
+    const gallBtn = document.querySelector('.gallbtn');
+    const btnChild = document.querySelector('.btnChild');
+    window.addEventListener('mousemove', function(e) {   
+      console.log(e.clientX, e.clientY)
+      console.log(pageContainer.scrollHeight)
+      setTimeout(function(){
+        gallBtn.style.left = e.clientX -50 + 'px';
+        gallBtn.style.top = e.clientY -50 + 'px';
+      }, 100); 
+    })
+
+    window.addEventListener('wheel', function(e) {   
+        gallBtn.style.left = e.clientX -100+ 'px';
+        gallBtn.style.top = e.clientY -100 + 'px';
+    })
+
+    cheon.addEventListener('mouseover', function() {
+      gallBtn.href = "/startcheon";
+      gallBtn.style.display = "inline";
+      btnChild.style.display = "inline";
+      btnChild.innerText = "천경자 갤러리 보러가기"
+    })
+    monet.addEventListener('mouseover', function() {
+      gallBtn.href = "/startmonet";
+      btnChild.innerText = "모네 갤러리 보러가기"
+      gallBtn.style.display = "inline";
+      btnChild.style.display = "inline";
+    })
+    klimt.addEventListener('mouseover', function() {
+      gallBtn.href = "/startklimt";
+      btnChild.innerText = "클림트 갤러리 보러가기"
+
+    })
+    outsections.forEach(area => {
+      area.addEventListener('mouseover', function() {
+      gallBtn.style.display = "none";
+      btnChild.style.display = "none";
+      
+    })
+    })
+   
+
   },
 };
 </script>
 <style scoped>
+
+
+.gallbtn {
+  position: absolute;
+  z-index: 100;
+  color: black;
+}
+
+.btnChild {
+  width : 100px;
+  height : 100px;
+  background-color: hotpink;
+}
+
 
 
 .klimt-img {
