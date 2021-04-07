@@ -7,10 +7,6 @@
       <Klimt2 id="klimt2" class="content"/>
       <Klimt3 id="klimt3" class="content"/>
     </section>
-    <audio data-key="tada" src="@/assets/audio/tada.mp3"></audio>
-    <audio data-key="timo" src="@/assets/audio/timo.mp3"></audio>
-    <audio data-key="wow" src="@/assets/audio/wow.mp3"></audio>
-    <audio data-key="bye" src="@/assets/audio/bye.mp3"></audio>
   </div>
 </template>
 
@@ -44,7 +40,7 @@ export default {
       let delta = e.deltaY
       if(delta>0){
         if(container.scrollLeft>sectionPageWidth*1){
-          this.page=3
+          // this.$store.dispatch('page/pageChange',3)
           return;
         }
         if(0<=container.scrollLeft && container.scrollLeft<sectionPageWidth*1){
