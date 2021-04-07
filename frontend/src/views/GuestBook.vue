@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div @click="fullWidth = true">
+    <IconMap/>
+    <!-- <div @click="fullWidth = true">
       <span style="font-size:50px;">
         <q-icon class='map' name="mdi-map-legend"></q-icon>
       </span>
@@ -13,7 +14,7 @@
           <Floors/>
         </q-card-section>
       </q-card>
-    </q-dialog>
+    </q-dialog> -->
     <div class="guestbook-header row justify-between items-center">
       <h3>GUESTBOOK</h3>
       <BookWrite/>
@@ -53,7 +54,8 @@ export default {
   components: {
     Book: () => import('@/components/GuestBook/Book'),
     BookWrite: () => import('@/components/GuestBook/BookWrite'),
-    Floors: () => import('@/components/IconMap/Floors'),
+    // Floors: () => import('@/components/IconMap/Floors'),
+    IconMap: () => import('@/components/IconMap/IconMap')
   },
   computed:{
     articles() {

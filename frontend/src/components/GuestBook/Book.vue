@@ -144,11 +144,11 @@ export default {
 }
 </script>
 
-<style scoped>
-::selection{
-  background: #fe3901;
-  color:#fff
-}
+<style>
+/* ::selection{
+  background: #fe3901 !important;
+  color:#fff !important;
+} */
 p{
   position:initial !important;
 }
@@ -242,14 +242,14 @@ p{
   bottom: 0;
   left: 0;
   background: inherit;
-  background-size: cover !important;
+  background-size:contain;
   transform-origin: center !important;
   transition: transform 0.4s ease-in !important;
 }
 
-.book--border-line:focus #q-img__image>div:nth-child(2)::after,.book--border-line:hover #q-img__image>div:nth-child(2):after {
+.book--border-line:focus #q-img__image>div:nth-child(2)::after,
+.book--border-line:hover #q-img__image>div:nth-child(2):after {
   transform: scale(1.1) !important;
-  
 }
 
 /* buttons */
