@@ -17,17 +17,19 @@
         </router-link>
       </div>
     </div>
-    <Icons/>
+    <IconMap/>
+    <IconVoice/>
   </div>
 </template>
 
 <script>
 import { gsap } from 'gsap';
-import Icons from '../IconMap/Icons.vue'
+import IconMap from '@/components/IconMap/IconMap.vue'
+import IconVoice from '@/components/IconMap/IconVoice.vue'
 
 export default {
   name: 'Description',
-  components: { Icons },
+  components: { IconMap, IconVoice },
   mounted: function(){
       let tl = gsap.timeline();
       tl.from(

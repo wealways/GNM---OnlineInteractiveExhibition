@@ -44,6 +44,7 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
 .intromone {
   position: relative;
   height: 100vh;
@@ -59,16 +60,19 @@ body, html {
   position: absolute;
   top: 20%;
   left: 5%;
+  font-family: 'Playfair Display';
 }
 #monetname2{
   position: absolute;
   top: 35%;
   left: 5%;
+  font-family: 'Playfair Display';
 }
 #sentence{
   position: absolute;
   top: 70%;
   left: 4%;
+  font-size: 18px;
 }
 #bg {
   background-image: url('../../assets/mone.jpg');
