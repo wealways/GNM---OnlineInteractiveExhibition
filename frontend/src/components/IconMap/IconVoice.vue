@@ -110,13 +110,13 @@ export default {
           }
         }else{
           if(this.page===1){
-            audio = document.querySelector("audio[data-key=cheon2]")
-          }else if(this.page===2){
-            audio = document.querySelector("audio[data-key=cheon3]")
-          }else if(this.page===3){
-            audio = document.querySelector("audio[data-key=cheon4]")
-          }else{
             audio = document.querySelector("audio[data-key=cheon5]")
+          }else if(this.page===2){
+            audio = document.querySelector("audio[data-key=cheon2]")
+          }else if(this.page===3){
+            audio = document.querySelector("audio[data-key=cheon3]")
+          }else{
+            audio = document.querySelector("audio[data-key=cheon4]")
           }
         }
       }else{

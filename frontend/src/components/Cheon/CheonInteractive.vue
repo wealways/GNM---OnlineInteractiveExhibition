@@ -27,6 +27,11 @@
         </div>
       </div>
     </div>
+    <div @click="goExhibition" class="nextbtn">
+      <span style="font-size:50px;">
+          <q-icon :to='"/cheons"' target="_blank" id="rightarrow" name="mdi-chevron-double-right"></q-icon>
+      </span>
+    </div>
   </div>
 </template>
 
@@ -66,6 +71,9 @@ export default {
     })
   },
   methods:{
+    goExhibition(){
+      this.$router.push({path:'cheons'})
+    },
     
     randomize: function () {
       var root = document.documentElement
@@ -159,7 +167,6 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow:scroll ;
 }
 .exhibition{
   position: relative;
@@ -291,6 +298,15 @@ export default {
   position:absolute;
   bottom:5px;
   right:5px;
+}
+
+#rightarrow{
+  position: absolute;
+  top: 90%;
+  right: 10%;
+}
+.nextbtn:hover {
+  cursor: pointer;
 }
 
 </style>
