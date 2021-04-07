@@ -63,15 +63,15 @@
               />
           </div>
       </div>
-      <div class='choose'>가고 싶은 층을 선택하세요</div>
-      <div class='choose2'>Choose the floor</div>
+      <div class='choose'>전시회 안내도</div>
+      <div class='choose2'>Exhibition Map</div>
     </div>
     <router-link :to='"/startmonet"'>
       <button class="learn-more">
         <span class="circle" aria-hidden="true">
           <span class="icon arrow"></span>
         </span>
-        <span class="button-text">입장하기</span>
+        <span class="button-text">바로 입장하기</span>
       </button>
     </router-link>
   </div>
@@ -119,7 +119,7 @@ span {
   position:absolute;
   top: 15%;
   left: 10%;
-  font-size: 14px;
+  font-size: 20px;
 }
 .choose2{
   font-family: 'Noto Sans KR';
@@ -127,7 +127,7 @@ span {
   position:absolute;
   top: 11%;
   left: 10%;
-  font-size: 14px;
+  font-size: 20px;
 }
 .right_side {
     position: absolute;
