@@ -420,7 +420,7 @@ export default {
 
 .btn {
   position: absolute;
-  left:47%;
+  left:48%;
   top: 2%;
   padding: 0px 17px;
   border-radius: 1rem;
