@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <div id="_progress"></div>
     <IconMap/>
     <IconVoice/>
     <section>
@@ -40,44 +41,61 @@ export default {
      window.addEventListener('wheel', function(e)
     {
       e.preventDefault();
+
+      let scrollBottom = 4;
+      let scrollLeft = 1;
+      // console.log(scrollLeft)
+      
+
+
       let delta = e.deltaY
       if(delta>0){
         if(container.scrollLeft>sectionPageWidth*2){
           this.page=4
+          scrollLeft = 4
           return;
         }
         if(0<=container.scrollLeft && container.scrollLeft<sectionPageWidth*1){
           container.scrollLeft = sectionPageWidth*1
+          scrollLeft = 2
           this.$store.dispatch('page/pageChange',2)
          
         }else if(sectionPageWidth*1<=container.scrollLeft && container.scrollLeft<sectionPageWidth*2){
           container.scrollLeft=sectionPageWidth*2
+          scrollLeft = 3
           this.$store.dispatch('page/pageChange',3)
           
         }else{
           container.scrollLeft=sectionPageWidth*3
+          scrollLeft = 4
           this.$store.dispatch('page/pageChange',4)
           
         }
       }else{
         if(container.scrollLeft<sectionPageWidth*1){
+          scrollLeft = 1
           this.$store.dispatch('page/pageChange',1)
           return;
         }
         if(0<=container.scrollLeft && container.scrollLeft<=sectionPageWidth*1){
           container.scrollLeft =0
+          scrollLeft = 1
           this.$store.dispatch('page/pageChange',1)
          
         }else if(sectionPageWidth*1<container.scrollLeft && container.scrollLeft<=sectionPageWidth*2){
           container.scrollLeft=sectionPageWidth*1
+          scrollLeft = 2
           this.$store.dispatch('page/pageChange',2)
           
         }else{
           container.scrollLeft=sectionPageWidth*2
+          scrollLeft = 3
           this.$store.dispatch('page/pageChange',3)
           
         }
       }
+      let scrollPercent = scrollLeft / scrollBottom * 100 + "%";
+      document.getElementById("_progress").style.setProperty("--scroll", scrollPercent);
     }.bind(this), {capture: false,passive: false});
 
   },
@@ -124,5 +142,19 @@ export default {
 ::-webkit-scrollbar{
   display:none;
 }
+
+
+
+#_progress {
+  --scroll: 0%;
+  background: linear-gradient(to right,#7E7E7E var(--scroll),lightgrey 0);
+  position: fixed;
+  right: 35%;
+  width: 30%;
+  height: 5px;
+  bottom :15px;
+  z-index: 10000000;
+  }
+
 
 </style>

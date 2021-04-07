@@ -68,6 +68,11 @@ export default {
       fullWidth: false,
     }
   },
+  mounted(){
+    // 세션에 매핑되는 이미지 가져오기 (미완성)
+    console.log(sessionStorage.getItem("session"))
+    this.$store.dispatch('guestbook/getImages',sessionStorage.getItem("session"))
+  },
   created() {
     this.emptyArticles()
   },

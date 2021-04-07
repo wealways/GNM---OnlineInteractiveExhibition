@@ -79,9 +79,7 @@
               이미지 선택란
             </div>
             <div class="row q-mr-md q-ml-md q-mb-xs justify-between">
-              <q-radio class="col-3 q-ml-md " color="teal-5" v-model="selectImgIdx" val="0" label="모네" />
-              <q-radio class="col-3 q-ml-md" color="teal-5" v-model="selectImgIdx" val="1" label="천경자" />
-              <q-radio class="col-3 q-ml-md" color="teal-5" v-model="selectImgIdx" val="2" label="클림트" />
+              <q-radio class="col-3 q-ml-md " v-for="(image,idx) in selectableImages" :key="idx" color="teal-5" v-model="selectImgIdx" :val="idx" :label="artistName[idx]"/>
             </div>
             <div class="row q-mr-md q-ml-md q-mb-xs justify-between">
               <img
@@ -118,7 +116,8 @@ export default {
       article:null,
       password: null,
       image:null,
-      selectImgIdx:"0"
+      selectImgIdx:"0",
+        artistName:['Monet','Klimt','천경자']
     }
   },
   computed:{
@@ -178,7 +177,7 @@ export default {
     changeFlag(newFlag){
       this.flag = newFlag
       // 세션에 매핑되는 이미지 가져오기 (미완성)
-      this.$store.dispatch('guestbook/getImages',false)
+      // this.$store.dispatch('guestbook/getImages',false)
     },
     onSubmit () {
       let data = {
@@ -190,6 +189,8 @@ export default {
       if(this.onModify){
         this.$store.dispatch('guestbook/modifyArticle',{article_id:this.userArticle.id,data})
       }else{
+        console.log(192)
+        console.log(data)
         this.$store.dispatch('guestbook/createArticle',data)
       }
       this.onReset()

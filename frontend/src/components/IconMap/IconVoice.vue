@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span style='font-size:35px;'>
+    <span style='font-size:32px;'>
       <div @click='voiceOnOff'>
         <q-icon id="voice-color" v-if="voice" class='voice' name="mdi-account-tie-voice"></q-icon>
         <q-icon id="voice-color" v-else class='voice-off' name="mdi-account-tie-voice-off"></q-icon>
@@ -152,8 +152,8 @@ export default {
   position: absolute; 
   z-index:100;
   position: absolute;
-  bottom: 13%;
-  right: 5%;
+  bottom: 7%;
+  right: 4.5%;
   padding:15px;
   color: rgba(0,0,0,0.5);
   background: rgba(0,0,0, 0.1);
@@ -167,13 +167,13 @@ export default {
 .voice-off:hover{
   color: rgba(0,0,0,0.8);
   background: rgba(0,0,0, 0.2);
-  font-size:37px;
+  font-size:34px;
 }
 .voice-off{
   z-index: 100;
   position: absolute;
-  bottom: 10%;
-  right: 5%;
+  bottom: 7%;
+  right: 4.5%;
   padding:15px;
   color: rgba(0,0,0,0.5);
   background: rgba(0,0,0, 0.1);
