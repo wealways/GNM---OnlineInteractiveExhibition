@@ -41,7 +41,7 @@
             />
           </div>
         </section> -->
-        <section class="section" style="" >
+        <section class="" style="" >
           <div class="row panel">
             <div class="col-4 art wrapper">
               <img src="../assets/main/art6.jpg" alt="art" class=" col-3 art" style="height: 100%; width: 100%; position:relative;">
@@ -118,7 +118,7 @@
 
 
 
-        <section class="section monet">
+        <section class="section">
           <img src="../assets/main/cheon.png" alt="art" class="" >
           <div class="section-0" data-scroll data-scroll-speed="3">
             <p style="color:black;position:relative;"
@@ -142,12 +142,12 @@
             >
                 자
             </p>
-            <cite>천경자 전시관 가기</cite>
+            <q-btn :to='"/startcheon"' size="22px" class="movebtn">천경자 전시관 가기</q-btn>
           </div>    
  
         </section>
 
-        <section class="section monet">
+        <section class="section">
           <img src="../assets/main/monetcut.png" alt="art" class="" >
           <div class="section-0" data-scroll data-scroll-speed="4">
             <p style="color:black;position:relative;"
@@ -165,12 +165,12 @@
                 Monet
             </p>
             
-            <cite>모네 전시관 가기</cite>
+           <q-btn :to='"/startmonet"' size="22px" class="movebtn">모네 전시관 가기</q-btn>
           </div>
         </section>
 
 
-        <section class="section monet">
+        <section class="section">
           <div class="section-0" data-scroll data-scroll-speed="4">
             <p style="color:black;position:relative;"
                 data-scroll 
@@ -187,7 +187,7 @@
                 Klimt 
             </p>
             
-            <cite>클림트 전시관 가기</cite>
+            <q-btn :to='"/startklimt"' size="22px" class="movebtn" >클림트 전시관 가기</q-btn>
           </div>    
           <img src="../assets/main/klimt.png" alt="art" class="" >
 
@@ -378,14 +378,19 @@ export default {
 </script>
 <style scoped>
 
-.monet {
-  background-color: white;
-}
 
 
 .section {
   height: 140vh;
+  background-color: white;
 }
+
+.movebtn {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: rgb(228, 227, 227);
+  color:#2a2b2e;
+}
+
 
 
 .description {
@@ -490,6 +495,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
 *,
 *::after,
 *::before {
@@ -1033,11 +1039,12 @@ p {
     p {
         font-size: 5vw;
     }
-
-    cite {
-        display: block;
-        font-size: 3vw;
-    }
+    // cite {
+    //     display: block;
+    //     font-size: 3vw;
+    // }
 }
+
+
 
 </style>
