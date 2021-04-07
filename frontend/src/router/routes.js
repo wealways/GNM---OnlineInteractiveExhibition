@@ -18,8 +18,12 @@ import Mones from '@/views/Monet/Mones.vue'
 
 import PhotoUpload from '@/views/PhotoUpload.vue'
 
+
 // 특별 전시관
 import SpecialGallery from '@/views/SpecialGallery.vue'
+
+import MapPage from '@/views/MapPage.vue'
+
 
 export default [
   {
@@ -107,5 +111,10 @@ export default [
     path: '/specialgallery',
     name: 'SpecialGallery',
     component: SpecialGallery,
-  }
+  },
+  {
+    path:'/mappage',
+    name: 'MapPage',
+    component: MapPage
+  },
 ]

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <IconMap mapColor="green"/>
-    <IconVoice voiceColor="red"/>
+    <IconMap/>
+    <IconVoice/>
     <MonetIntro/>
   </div>
 </template>

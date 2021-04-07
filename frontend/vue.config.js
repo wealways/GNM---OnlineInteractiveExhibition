@@ -19,9 +19,9 @@ module.exports = {
     'quasar'
   ],
   devServer: {
-    // host: '0.0.0.0',
-    // hot: true,
-    // disableHostCheck: true,
-    proxy:'http://localhost:8000'
+    host: '0.0.0.0',
+    hot: true,
+    disableHostCheck: true,
+    // proxy:'http://localhost:8000'
   },
 }
