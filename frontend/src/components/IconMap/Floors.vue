@@ -316,15 +316,18 @@ button:hover {
     padding-left: 0.7rem;
     padding-right: 0.7rem;
     border-radius: 15px;
-    border:#2A433B 2px solid;
+    border:#FCF9F2 2px solid;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
     opacity: 0.95;
 }
+
 .logo-icon:hover{
-  opacity: 1;
-  background-color:#69a18f;
+    border-radius: 15px;
+    border:#2A433B 2px solid;
+//   opacity: 1;
+//   background-color:#69a18f;
 }
 </style>
