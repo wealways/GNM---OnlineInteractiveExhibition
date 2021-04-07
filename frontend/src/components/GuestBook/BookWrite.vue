@@ -78,12 +78,12 @@
             <div class="q-mr-md q-ml-md q-mb-xs">
               이미지 선택란
             </div>
-            <div class="row q-mr-md q-ml-md q-mb-xs justify-between">
-              <q-radio class="col-3 q-ml-md " v-for="(image,idx) in selectableImages" :key="idx" color="teal-5" v-model="selectImgIdx" :val="idx" :label="artistName[idx]"/>
+            <div class="row q-mr-md q-ml-md q-mb-xs">
+              <q-radio class="col-3 q-pl-sm  q-mr-auto q-ml-auto" v-for="(image,idx) in selectableImages" :key="idx" color="teal-5" v-model="selectImgIdx" :val="idx" :label="artistName[idx]"/>
             </div>
-            <div class="row q-mr-md q-ml-md q-mb-xs justify-between">
+            <div class="row q-mr-md q-ml-md q-mb-xs">
               <img
-                class="col-3 q-mr-md"
+                class="col-3 q-mr-auto q-ml-auto"
                 v-for="(image,idx) in selectableImages"
                 :key="idx"
                 :src="image"

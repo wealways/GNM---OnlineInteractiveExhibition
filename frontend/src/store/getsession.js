@@ -20,7 +20,6 @@ export default {
         if (check===null){
           Api.getSession()
           .then((response)=>{
-            console.log(response)
             let sessionkey = response.data.sessionkey
             sessionStorage.setItem("session", sessionkey)
             commit('GET_SESSION',sessionkey)
