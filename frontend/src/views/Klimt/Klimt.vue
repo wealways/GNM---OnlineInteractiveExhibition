@@ -1,15 +1,17 @@
 <template>
   <div class="body">
-    <IconMap mapColor="aliceblue"/>
-    <IconVoice voiceColor="aliceblue"/>
+    <IconMap mapColor="#eee8aa"/>
+    <IconVoice voiceColor="#eee8aa"/>
     <div class="page">
       <div class="description">
-        <h1 style="color:#e3cc28">Der Kuss</h1>
-        <div>
-          우리에게 잘 알려진 <strong>클림트의 키스</strong>는<br>
-          원형, 네모, 직선과 곡선 등 기하학 문양과 함께<br>
-          금박 무늬 등 <span style="color:#d6ba38">화려한 색체</span>를 앞세운 화풍이 잘 드러납니다.
-          
+        <div class="desc-main">
+          <h1 class="desc-main__title">Der Kuss</h1>
+          <div class="desc-main__subtitle">키스 <span style="font-size:1rem">(1907)</span></div>
+          <div class="desc-main__description">
+            우리에게 잘 알려진 <strong>"클림트의 키스"</strong>는
+            원형, 네모, 직선과 곡선 등 기하학 문양과 함께<br>
+            금박 무늬 등 <span style="color:#FFD700">화려한 색체</span>를 앞세운 화풍이 잘 드러납니다.
+          </div>
         </div>
         <br>
         <div class="desc-footer">
@@ -22,11 +24,11 @@
             />
             Click
           </div>
-          <div v-if="!hintflag">
+          <div v-if="!hintflag" class="desc-main__description">
             그림 위에서 마우스를 움직이며<br>
             클림트의 화풍을 경험해보세요
           </div>
-          <div v-if="hintflag">
+          <div v-if="hintflag" class="desc-main__description">
             그림 위에서 마우스를 길게 눌러보세요. <br> 
             키스의 모든 색감을 경험할 수 있습니다.
           </div>
@@ -86,6 +88,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js"></script>
 
 <script scoped>
+
 import { gsap,TimelineMax } from 'gsap';
 
 export default {
@@ -160,6 +163,7 @@ export default {
   },
   methods:{
     nextKlimts(){
+      this.$store.dispatch('page/pageChange',1)
       this.$router.push({path:'klimts'})
     },
     hintView(){
@@ -171,12 +175,14 @@ export default {
       document.querySelector('#demo').style.boxShadow = "0 0 0 0 rgba(202, 202, 202, 0.548);"
     }
   }
-
-
 }
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+
 .body{
   padding:2rem;
   background-color: #28353c;
@@ -202,6 +208,23 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.desc-main{
+  margin-top:20%
+}
+.desc-main__title{
+  color:#FFD700;
+  font-family:'Playfair Display', serif;
+  letter-spacing: 3px;
+}
+.desc-main__subtitle{
+  font-family:'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  margin:1rem 0;
+}
+.desc-main__description{
+  font-family:'Open Sans', sans-serif;
+  line-height: 22px;
 }
 .desc-footer{
   display: flex;

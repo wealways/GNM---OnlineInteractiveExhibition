@@ -18,6 +18,8 @@ import Mones from '@/views/Monet/Mones.vue'
 
 import PhotoUpload from '@/views/PhotoUpload.vue'
 
+import MapPage from '@/views/MapPage.vue'
+
 export default [
   {
     path:'/',
@@ -98,5 +100,10 @@ export default [
     path:'/test',
     name: 'test',
     component: test
+  },
+  {
+    path:'/mappage',
+    name: 'MapPage',
+    component: MapPage
   }
 ]

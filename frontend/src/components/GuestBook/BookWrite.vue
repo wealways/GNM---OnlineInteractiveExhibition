@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- <q-btn label="방명록 작성" @click="changeFlag(true)" class="custom-btn btn-8 write-sz write"/> -->
-    <btn @click="changeFlag(true)" class="custom-btn btn-8 write-sz write"><span class="button-title">WRITE</span></btn>
+    <button @click="changeFlag(true)" class="custom-btn btn-8 write-sz write"><span class="button-title">WRITE</span></button>
     <q-dialog v-model="flag" persistent>
       <q-card style="min-width: 680px">
         <q-form

@@ -65,7 +65,11 @@ export default {
         if(!audio) return;
         audio.currentTime = 0; 
         setTimeout(function(){
-          audio.play(); 
+          audio.play()
+            .then(function(){
+            }).catch((err)=>{
+              console.log(err)
+            })
         },300)
       }
 
@@ -106,13 +110,13 @@ export default {
           }
         }else{
           if(this.page===1){
-            audio = document.querySelector("audio[data-key=cheon2]")
-          }else if(this.page===2){
-            audio = document.querySelector("audio[data-key=cheon3]")
-          }else if(this.page===3){
-            audio = document.querySelector("audio[data-key=cheon4]")
-          }else{
             audio = document.querySelector("audio[data-key=cheon5]")
+          }else if(this.page===2){
+            audio = document.querySelector("audio[data-key=cheon2]")
+          }else if(this.page===3){
+            audio = document.querySelector("audio[data-key=cheon3]")
+          }else{
+            audio = document.querySelector("audio[data-key=cheon4]")
           }
         }
       }else{

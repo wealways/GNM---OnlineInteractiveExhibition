@@ -27,7 +27,7 @@
           <div class="content text-center">
             <div v-if="nowRoute==='MonetPhoto'">아름다운 색을 가진 사진을 올려주세요</div>
             <div v-else-if="nowRoute==='KlimtPhoto'">클림트는 클림트야</div>
-            <div v-else>천경자는 천경자야</div>
+            <div v-else>증명사진 같은 사진을 올려주세요</div>
           </div>
           <div class="please-upload text-center">
             Please Upload a picture
