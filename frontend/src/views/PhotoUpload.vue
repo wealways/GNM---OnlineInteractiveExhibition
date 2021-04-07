@@ -27,20 +27,39 @@
         <div>
           <div class="content text-center">
             <div v-if="nowRoute==='MonetPhoto'">아름다운 색을 가진 사진을 올려주세요</div>
-            <div v-else-if="nowRoute==='KlimtPhoto'">클림트는 클림트야</div>
+            <div v-else-if="nowRoute==='KlimtPhoto'">화려한 공간에서 찍은 사진을 올려주세요</div>
             <div v-else>증명사진과 같은 사진을 올려주세요</div>
           </div>
           <div class="please-upload text-center">
             Please Upload a picture
           </div>
         </div>
-        <div @click="showNotif" class="nextbtn">
+        <div @click="confirm = true" class="nextbtn">
           <div class="diamond-container">
           <div class="diamond left"></div>
           <div class="diamond right"></div>
           <div class="arrow"></div>
           </div>
         </div>
+        <q-dialog
+        v-model="confirm"
+      >
+        <q-card style="width: 350px; background-color: #FCF9F2;">
+          <q-card-section>
+            <div class="text-h6">
+              <img src="@/assets/favicon-32x32.png" alt="">
+            </div>
+          </q-card-section>
+
+          <q-card-section class="q-ma-sm q-pt-none" style="font-family: 'Open Sans', sans-serif;">
+            특별전시 관람, 방명록 작성에 <strong style="color:#ff4045">제한</strong>이 있습니다.
+          </q-card-section>
+
+          <q-card-actions align="right" class="text-teal">
+            <q-btn flat label="OK" v-close-popup @click="goToNext"/>
+          </q-card-actions>
+        </q-card>
+      </q-dialog>
       </footer>
     </div>
       
@@ -61,7 +80,8 @@ export default {
         uploadFile:"",
         imgUrl:"",
         imgUrl_:"",
-        tempUrl:''
+        tempUrl:'',
+        confirm: false,
       }
     },
     computed:{
@@ -70,21 +90,7 @@ export default {
       }
     },
     methods:{
-      showNotif () {
-        if(this.uploadFile!==""){
-          this.urlUpload()
-          return
-        }
-        this.$q.notify({
-        message: '특별전시회 이용에  <strong style="color: red">제한</strong>이 됩니다.',
-        html: true,
-        type: 'warning',
-        position:'center',
-        actions: [
-          { label: 'OK', color: 'primary', handler: () => { this.urlUpload() } }
-        ]
-      })
-      },
+      
       goToNext() {
         let nextRoute
 
@@ -116,9 +122,7 @@ export default {
           formData.append("image", this.uploadFile);
           fileUpload(artist,formData)
             .then((res)=>{
-              console.log(res.data)
               this.imgUrl_ = res.data;
-              console.log('여기여기')
             })
             .catch((err)=>{
               console.log(err)
