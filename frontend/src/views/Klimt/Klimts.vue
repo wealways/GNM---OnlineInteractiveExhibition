@@ -7,13 +7,10 @@
       <Klimt2 id="klimt2" class="content"/>
       <Klimt3 id="klimt3" class="content"/>
     </section>
-<<<<<<< HEAD:frontend/src/views/Klimt/KlimtEnd.vue
     <audio data-key="tada" src="@/assets/audio/tada.mp3"></audio>
     <audio data-key="timo" src="@/assets/audio/timo.mp3"></audio>
     <audio data-key="wow" src="@/assets/audio/wow.mp3"></audio>
     <audio data-key="bye" src="@/assets/audio/bye.mp3"></audio>
-=======
->>>>>>> dcb941ddbd33f16216eeb3b7ae5169f5cf5939fa:frontend/src/views/Klimt/Klimts.vue
   </div>
 </template>
 
