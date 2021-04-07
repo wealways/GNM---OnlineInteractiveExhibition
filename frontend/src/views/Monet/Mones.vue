@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <IconMap mapColor="green"/>
-    <IconVoice voiceColor="red"/>
+    <IconMap/>
+    <IconVoice/>
     <section>
       <Mone1 class="content"/>
       <Mone2 class="content"/>

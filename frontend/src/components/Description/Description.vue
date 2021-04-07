@@ -4,7 +4,7 @@
       Let's start!
     </div>
     <div class='blank'></div>
-    <div class='info' style="font-size:25px;">
+    <div class='info' style="font-size:20px;">
       <div class='map_description'>
         평면도입니다. 현 위치를 알 수 있고 다른 층을 클릭하여 이동할 수 있습니다.
       </div>
@@ -133,7 +133,7 @@ button:hover {
 .voice_description {
   position: absolute;
   right: 10%;
-  bottom: 14%;
+  bottom: 11%;
 }
 .text_description {
   position: absolute;

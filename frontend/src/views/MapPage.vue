@@ -71,7 +71,7 @@
         <span class="circle" aria-hidden="true">
           <span class="icon arrow"></span>
         </span>
-        <span class="button-text">관람 시작하기</span>
+        <span class="button-text">입장하기</span>
       </button>
     </router-link>
   </div>
