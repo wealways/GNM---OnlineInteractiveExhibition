@@ -146,7 +146,6 @@ export default {
   position: relative;
   color:#DECBA7;
   text-align: center;
-  margin-top: 50px;
 }
 .endline{
   width: 80%;
