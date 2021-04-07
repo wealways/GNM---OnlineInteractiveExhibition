@@ -238,6 +238,7 @@ h1 small {
   align-items: center;
   width: 100px;
   height: 100px;
+  padding-left:8px;
   border-radius: 100%;
   background: #ffffff;
   border: 1px solid transparent;
