@@ -7,7 +7,7 @@ import StartMonet from '@/views/Monet/StartMonet.vue'
 
 import Klimt from '@/views/Klimt/Klimt.vue'
 import StartKlimt from '@/views/Klimt/StartKlimt.vue'
-import KlimtEnd from '@/views/Klimt/KlimtEnd.vue'
+import Klimts from '@/views/Klimt/Klimts.vue'
 
 import Cheon from '@/views/Cheon/Cheon.vue'
 import StartCheon from '@/views/Cheon/StartCheon.vue'
@@ -17,6 +17,8 @@ import test from '@/components/Mone/test.vue'
 import Mones from '@/views/Monet/Mones.vue'
 
 import PhotoUpload from '@/views/PhotoUpload.vue'
+
+import MapPage from '@/views/MapPage.vue'
 
 export default [
   {
@@ -70,9 +72,9 @@ export default [
     component: Klimt,
   },
   {
-    path:'/klimtend',
-    name:'KlimtEnd',
-    component:KlimtEnd,
+    path:'/klimts',
+    name:'Klimts',
+    component:Klimts,
   },
   {
     path:'/cheon',
@@ -98,5 +100,10 @@ export default [
     path:'/test',
     name: 'test',
     component: test
+  },
+  {
+    path:'/mappage',
+    name: 'MapPage',
+    component: MapPage
   }
 ]

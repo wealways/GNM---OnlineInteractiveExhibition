@@ -23,5 +23,5 @@ from monet.views import style_transfer
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('predict/monet/', style_transfer),
+    path('monet/', style_transfer),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
