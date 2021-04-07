@@ -34,7 +34,7 @@
             Please Upload a picture
           </div>
         </div>
-        <div @click="confirm = true" class="nextbtn">
+        <div @click="showNotify" class="nextbtn">
           <div class="diamond-container">
           <div class="diamond left"></div>
           <div class="diamond right"></div>
@@ -56,7 +56,7 @@
           </q-card-section>
 
           <q-card-actions align="right" class="text-teal">
-            <q-btn flat label="OK" v-close-popup @click="goToNext"/>
+            <q-btn flat label="OK" v-close-popup @click="urlUpload"/>
           </q-card-actions>
         </q-card>
       </q-dialog>
@@ -90,7 +90,13 @@ export default {
       }
     },
     methods:{
-      
+      showNotify(){
+        if(this.uploadFile!==""){
+          this.urlUpload()
+          return
+        }
+        this.confirm= true
+      },
       goToNext() {
         let nextRoute
 
