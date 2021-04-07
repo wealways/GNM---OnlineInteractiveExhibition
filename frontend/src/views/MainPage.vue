@@ -21,7 +21,7 @@
             </router-link>
           </div>
         </section>
-        <section id="sectionPin" >
+        <!-- <section id="sectionPin" >
           <div class="pin-wrap">
             <h2>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -40,7 +40,7 @@
               alt=""
             />
           </div>
-        </section>
+        </section> -->
         <section class="section" style="" >
           <div class="row panel">
             <div class="col-4 art wrapper">
@@ -117,6 +117,36 @@
         </section>
 
 
+
+        <section class="section monet">
+          <img src="../assets/main/cheon.png" alt="art" class="" >
+          <div class="section-0" data-scroll data-scroll-speed="3">
+            <p style="color:black;position:relative;"
+                data-scroll 
+                data-scroll-direction="horizontal" 
+                data-scroll-speed="-2"
+            >
+                천
+            </p>
+            <p style="color:black;position:relative;"
+                data-scroll 
+                data-scroll-direction="horizontal" 
+                data-scroll-speed="3"
+            >
+                경
+            </p>
+            <p style="color:black;position:relative;"
+                data-scroll 
+                data-scroll-direction="horizontal" 
+                data-scroll-speed="2"
+            >
+                자
+            </p>
+            <cite>천경자 전시관 가기</cite>
+          </div>    
+ 
+        </section>
+
         <section class="section monet">
           <img src="../assets/main/monetcut.png" alt="art" class="" >
           <div class="section-0" data-scroll data-scroll-speed="4">
@@ -164,15 +194,24 @@
         </section>
 
 
-        <section class="section monet">
+        <!-- <section class="section monet">
           <img src="../assets/main/cheon.png" alt="art" class="" >
-          <!-- <div class="section-0" data-scroll data-scroll-speed="3">
+           <div class="section-0">
+            <p style="color:black;position:relative;"
+            >
+                천명자
+            </p>
+            <cite>천명자 전시관 가기</cite>
+          </div>    
+
+
+          <div class="section-0" data-scroll data-scroll-speed="3">
             <p style="color:black;position:relative;"
                 data-scroll 
                 data-scroll-direction="horizontal" 
                 data-scroll-speed="-2"
             >
-                천 
+                천명자
             </p>
             <p style="color:black;position:relative;"
                 data-scroll 
@@ -189,14 +228,15 @@
                 자
             </p>
           </div>    
-  -->
+ 
+        </section> -->
+
+        <section style="height:300vh;">
+          
         </section>
-
-
-
-        <section data-bgcolor="#e3857a" data-textcolor="#f1dba7"><img src="https://images.pexels.com/photos/4791474/pexels-photo-4791474.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+        <!-- <section data-bgcolor="#e3857a" data-textcolor="#f1dba7"><img src="https://images.pexels.com/photos/4791474/pexels-photo-4791474.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
           <h2 data-scroll data-scroll-speed="1" class="credit"><a href="https://thisisadvantage.com" target="_blank">Made by Advantage</a></h2>
-        </section>
+        </section> -->
       </div>
     </div>
     <div class="cover">
