@@ -1,16 +1,21 @@
 <template>
   <div>
-    <Icons/>
+    <IconMap/>
+    <IconVoice/>
     <CheonIntro/>
   </div>
 </template>
 
 <script>
 import CheonIntro from '@/components/Cheon/CheonIntro'
-import Icons from '@/components/IconMap/Icons'
+
 export default {
   name:'StartCheon',
-  components: { CheonIntro, Icons }
+  components: { 
+    CheonIntro, 
+    IconMap: () => import('@/components/IconMap/IconMap'),
+    IconVoice: () => import('@/components/IconMap/IconVoice'), 
+  }
 }
 </script>
 
