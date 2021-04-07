@@ -1,6 +1,12 @@
 <template>
+<<<<<<< HEAD
+  <div>
+
+    <h1 id="firstname">Gustav<br>Klimt</h1>
+=======
   <div style="background-color:#28353c;">
     <h1 id="firstname" style="color:#fff;">Gustav<br>Klimt</h1>
+>>>>>>> dcb941ddbd33f16216eeb3b7ae5169f5cf5939fa
     <img src="../../assets/images/klimtintro.png" alt="klimtface" id="bg">
     <span id="sentence" style="color:#fff;font-size:1rem;"></span>
     <div @click="realstart" class="nextbtn">

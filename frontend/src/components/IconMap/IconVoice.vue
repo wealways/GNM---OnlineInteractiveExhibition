@@ -149,9 +149,10 @@ export default {
 
 <style scoped>
 .voice{
+  position: absolute; 
   z-index:100;
   position: absolute;
-  bottom: 10%;
+  bottom: 13%;
   right: 5%;
   padding:15px;
   color: rgba(0,0,0,0.5);
