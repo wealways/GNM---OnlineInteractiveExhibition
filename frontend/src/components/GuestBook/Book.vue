@@ -36,9 +36,9 @@
               </div>
             </div>
             <div class="card-img-footer">
-              <p style="color:#2a433b;">{{date}}</p>
-              <q-fab padding="10px" text-color="white" icon="keyboard_arrow_left" direction="left" style="width:15%;" class="more-btn">
-                <q-fab-action padding="6px" class="upd-btn" @click="modifyBtn=true" label="수정" label-position="bottom" label-style="font-size:12px;"/>
+              <p style="color:#2a433b; font-family:'Noto Sans KR';" class='writedate'>{{date}}</p>
+              <q-fab padding="8px" text-color="white" icon="keyboard_arrow_left" direction="left" style="width:15%;" class="more-btn">
+                <q-fab-action padding="6px" class="upd-btn" @click="modifyBtn=true" icon="mdi-square-edit-outline" label-position="bottom" label-style="font-size:12px;"/>
                 <q-dialog v-model="modifyBtn">
                   <q-card style="min-width: 350px">
                     <q-card-section class="q-pt-none">
@@ -57,7 +57,7 @@
                     </div>
                   </q-card>
                 </q-dialog>
-                <q-fab-action padding="6px"  class="del-btn" @click="deleteBtn = true" label="삭제" label-position="bottom" label-style="font-size:12px;color:#fff;"/>
+                <q-fab-action padding="6px"  class="del-btn" @click="deleteBtn = true" icon="mdi-delete-outline" label-position="bottom" label-style="font-size:12px;color:#fff;"/>
                 <q-dialog v-model="deleteBtn">
                   <q-card style="min-width: 350px">
                     <q-card-section class="q-pt-none">
@@ -71,7 +71,7 @@
                       </q-input>
                     </q-card-section>
                     <div class="row justify-end q-mb-xs">
-                      <q-btn @click="deleteArticle" label="삭제" color="red-6" v-close-popup />
+                      <q-btn @click="deleteArticle" label="삭제" color="teal-10" v-close-popup />
                       <q-btn @click="onReset" flat label="취소" v-close-popup/>
 
                     </div>
@@ -156,11 +156,11 @@ p{
   font-family: sans-serif;
   margin-bottom: 0.5rem;
   /* transition: transform 0.5s ease; */
-  border: solid 1px #fff;
   position: relative;
   display: inline-block;
   cursor: pointer;
   width: 100%;
+  border-radius: 5px;
 }
 .my-card{
   margin: 0.5rem;
@@ -176,54 +176,15 @@ p{
   display: block;
   position: absolute;
 }
-.book--border-line {
-  background: none;
-  border: 0;
-  box-sizing: border-box;
-  box-shadow: inset 0 0 0 2px transparent;
-  /* padding: 8px; */
+.book:hover{
+  box-shadow:  -8px -8px 8px rgba(255,255,255,0.2), 8px 8px 8px rgba(0,0,0,0.1),
+  inset -8px -8px 8px rgba(255,255,255,0.2), inset 8px 8px 8px rgba(0,0,0,0.1);
+  transition: 0.6s
 }
-.book--border-line:after,
-.book--border-line:before {
-  box-sizing: border-box;
-  border: 1px solid transparent;
-  width: 0;
-  height: 0;
-}
-.book--border-line:after {
-  top: 0;
-  left: 0;
-  -webkit-transition: border-color 0s ease-in 0.8s, width 0.2s ease-in 0.6s, height 0.2s ease-in 0.4s;
-  transition: border-color 0s ease-in 0.8s, width 0.2s ease-in 0.6s, height 0.2s ease-in 0.4s;
-}
-.book--border-line:before {
-  bottom: 0;
-  right: 0;
-  -webkit-transition: border-color 0s ease-in 0.4s, width 0.2s ease-in 0.2s, height 0.2s ease-in;
-  transition: border-color 0s ease-in 0.4s, width 0.2s ease-in 0.2s, height 0.2s ease-in;
-}
-.book--border-line:hover:after,
-.book--border-line:hover:before {
-  width: 100%;
-  height: 100%;
-}
-.book--border-line:hover:after {
-  border-top-color: #fe3901;
-  border-right-color: #fe3901;
-  -webkit-transition: width 0.2s ease-out, height 0.2s ease-out 0.2s;
-  transition: width 0.2s ease-out, height 0.2s ease-out 0.2s;
-}
-.book--border-line:hover:before {
-  border-bottom-color: #fe3901;
-  border-left-color: #fe3901;
-  -webkit-transition: border-color 0s ease-out 0.4s, width 0.2s ease-out 0.4s, height 0.2s ease-out 0.6s;
-  transition: border-color 0s ease-out 0.4s, width 0.2s ease-out 0.4s, height 0.2s ease-out 0.6s;
-}
-
 .card-description{
   width: 100%;
-  margin-top:10px;
-  margin-bottom: 10px;
+  margin-top:8px;
+  margin-bottom: 8px;
   
 }
 .card-description > .user-comment{
@@ -231,6 +192,9 @@ p{
 }
 .card-description > .user-nickname{
   padding: 0 8px;
+  font-family: 'Noto Sans KR';
+  font-weight: 700;
+  font-size:13px;
 }
 
 
@@ -261,12 +225,12 @@ p{
 }
 
 .del-btn {
-  background-color: #fe3901;
+  background-color: #b49d71;
   color: white;
 }
 
 .upd-btn {
-  background-color: #2a433b;
+  background-color: #b49d71;
   color: white;
 }
 
@@ -297,7 +261,7 @@ p{
   border: solid 2.2px #DECBA7;
   outline: solid 1px #DECBA7;
   /* height:100%; */
-  outline-offset: 15px;
+  outline-offset: 8px;
 }
 .card-img-body> div:nth-child(1){
   font-size:1.5rem;
@@ -309,7 +273,7 @@ p{
 .card-img-body> div:nth-child(2){
   text-align: right;
   word-break:break-all;
-  margin-top: 10px;
+  margin-top: 8px;
   margin-bottom:0;
   right: 10%;
 }
