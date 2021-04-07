@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <h1 id="firstname">Gustav<br>Klimt</h1>
     <img src="../../assets/images/klimtintro.png" alt="klimtface" id="bg">
     <span id="sentence"></span>

@@ -40,7 +40,7 @@ export default {
 
 <style scoped>
 .voice{
-  position: absolute;
+  position: absolute; 
   bottom: 13%;
   right: 5%;
 }

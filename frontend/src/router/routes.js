@@ -90,8 +90,8 @@ export default [
     component: StartCheon,
   },
   {
-    path:'/cheonend',
-    name:'CheonEnd',
+    path:'/cheons',
+    name:'Cheons',
     component:CheonEnd,
   },
   {

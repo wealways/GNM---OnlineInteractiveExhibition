@@ -27,12 +27,17 @@
         </div>
       </div>
     </div>
+    <div @click="goExhibition" class="nextbtn">
+      <span style="font-size:50px;">
+          <q-icon :to='"/cheons"' target="_blank" id="rightarrow" name="mdi-chevron-double-right"></q-icon>
+      </span>
+    </div>
   </div>
 </template>
 
 <script>
 
-var img = ["https://lh3.googleusercontent.com/proxy/EI5e34TlH8O3nYUTzKueokxSShqACl0bomRr4Cq57bdttIIpALxLPh_pWR1zR-07CGo8VM_5xR_-PuauqmAS_0CfK3fV6pcvWWM-yindg68XaSe6aLcNqX7KtFQFz9ZOr9mQBwDLV-MyXxokUB23Aga-vSKf_S0AkJjwnppzKchRHHcJ8l_ZaVqHttEljFjt5GNIVM1nsg"]
+var img = ["https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3dd97bd9-f6f2-48a3-963e-104454bd460c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210406%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210406T025146Z&X-Amz-Expires=86400&X-Amz-Signature=dbb356e3e4317ddd5c05e263391c50c3226b623ac13bb3d5c80033ea317e6fc0&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22"]
 
 export default {
   name:'CheonInteractive',
@@ -66,6 +71,9 @@ export default {
     })
   },
   methods:{
+    goExhibition(){
+      this.$router.push({path:'cheons'})
+    },
     
     randomize: function () {
       var root = document.documentElement
@@ -159,7 +167,6 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow:scroll ;
 }
 .exhibition{
   position: relative;
@@ -291,6 +298,15 @@ export default {
   position:absolute;
   bottom:5px;
   right:5px;
+}
+
+#rightarrow{
+  position: absolute;
+  top: 90%;
+  right: 10%;
+}
+.nextbtn:hover {
+  cursor: pointer;
 }
 
 </style>

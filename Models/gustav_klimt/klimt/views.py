@@ -21,6 +21,11 @@ from rest_framework.decorators import api_view
 from asgiref.sync import sync_to_async, async_to_sync
 import asyncio
 
+# 경로 추출 라이브러리
+from pathlib import Path
+
+# ai to BE 요청 보내기
+import requests
 # Create your views here.
 
 # (content)파일 저장
@@ -37,6 +42,35 @@ def handle_uploaded_file(image, sessionkey):
 
     # 파일 저장 위치를 return
     return os.path.join(save_dir, image.name)
+
+
+# ouput (to backend)
+def push_output(output, sessionkey):
+    # request headers 설정
+    # headers = {'Content-Type': 'multipart/form-data; boundary=<calculated when request is sent>; charset=utf-8'}
+    # headers['sessionkey'] = sessionkey
+    headers = {'sessionkey': sessionkey}
+    # 전달 위치(backend - POST)
+    # params
+    imgtype = 'output'
+    no = 1
+    # 변환 완료된 이미지 파일 - read binary
+    # with open(output, 'rb') as destination:
+    #     image = destination.read()
+
+    image = open(output, 'rb')
+
+    output = { 'image': image }
+    print(f'산출물: {output}')
+    # 로컬용 API 주소
+    BASE_URL = f'http://127.0.0.1:8000/galleries/image/{imgtype}/{no}/'
+    print(f'요청 보내는 주소: {BASE_URL}')
+    # 요청 보내기
+    response = requests.post(BASE_URL, headers = headers, files = output)
+    image.close()
+    print(f'응답: {response}')
+    # 요청 받아서 보여주기
+    return response
 
 
 @sync_to_async
@@ -80,7 +114,19 @@ def transfer(content_img: str, sessionkey: str):
     subprocess.check_call(command_line, cwd=ai_dir)
     print(f'이미지 변환 완료 저장 위치: {output}')
     # 작업이 끝나면 다시 현재 위치로 돌려줘야한다
-    print(f'현재 위치는 : {os.getcwd()}') 
+    print(f'현재 위치는 : {os.getcwd()}')
+    # 파일 찾기 - 반환된 파일을 찾아서 백엔드 서버로 전달
+    content_img_path = Path(content_img)
+
+    print(f'inputfile명: {content_img_path.stem}')
+    
+    # 산출물 파일명
+    output_image_file_name = f'klimt_{content_img_path.stem}_output.jpg'
+    print(f'output file: {output_image_file_name}')
+    # 절대 주소
+    output_image_uri = os.path.join(output, output_image_file_name)
+    print(f'산출물 저장 위치 절대주소: {output_image_uri}')
+    push_output(output_image_uri, sessionkey=sessionkey)
 
 
 @sync_to_async

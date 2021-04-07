@@ -27,7 +27,7 @@
           <div class="content text-center">
             <div v-if="nowRoute==='MonetPhoto'">아름다운 색을 가진 사진을 올려주세요</div>
             <div v-else-if="nowRoute==='KlimtPhoto'">클림트는 클림트야</div>
-            <div v-else>천경자는 천경자야</div>
+            <div v-else>증명사진과 같은 사진을 올려주세요</div>
           </div>
           <div class="please-upload text-center">
             Please Upload a picture
@@ -94,14 +94,7 @@ export default {
         this.$router.push({path:nextRoute})
       },
       getSession(){
-        console.log(document.querySelector('.avatar-edit').style.display)
         this.$store.dispatch('getsession/getSession')
-        const btn = document.querySelector('.avatar-edit')
-        if(btn.style.display===''){
-          document.querySelector('.avatar-edit').style.display="none"
-        }else{
-          console.log('사진')
-        }
       },
       urlUpload(){
         if (this.uploadFile==="") {
@@ -202,7 +195,7 @@ h1 small {
   display:block;
   /* top: 30%;
   right: 10%; */
-  transform: translate(0%,200%);
+  transform: translate(500%,200%);
 }
 .avatar-upload .avatar-edit input {
   display: none;

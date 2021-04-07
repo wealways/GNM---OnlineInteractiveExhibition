@@ -45,6 +45,7 @@ export default {
 </script>
 
 <style scoped>
+
 .nextbtn:hover {
   cursor: pointer;
 }
