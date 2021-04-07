@@ -2,8 +2,6 @@
   <div class="cheon1">
     <img class="cheon1_pic" src="../../assets/GilryeSister.jpg" alt="ecology">
     <div class="title" ><h3>길례언니</h3></div>
-    <div class="description"> 그녀의 작품 중에는 자화상을 비롯한 여인상이 많습니다. 가난 때문에 타지에서 간호부로 일하면서 동생들을 책임지는 가장이었던 길례 언니는 화가가 소학교 시절 동경했던 선배입니다. </div>
-    <div class="title animate__animated animate__bounce" ><h1>길례언니</h1></div>
     <div class="description">
       <p>그녀의 작품 중에는 자화상을 비롯한</p>
       <p>여인상이 많습니다.</p> 
