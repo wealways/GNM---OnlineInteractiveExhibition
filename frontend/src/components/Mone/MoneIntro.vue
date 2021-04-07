@@ -90,11 +90,7 @@ body, html {
   position:relative;
   transform: translateX(70%);
 }
-#rightarrow{
-  position: absolute;
-  top: 50%;
-  right: 4%;
-}
+
 </style>
 <style lang="scss" scoped>
 // DIMENSIONS
