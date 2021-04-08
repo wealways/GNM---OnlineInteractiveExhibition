@@ -2,11 +2,11 @@
   <div class="container">
     <figure>
     <div class="frame">
-      <img src="@/assets/monet.jpg" alt="img01">
+      <img :src="changedImage" alt="img01">
     </div>
     <figcaption>
       <div class="description">
-        <p><strong>천경자</strong> 작가의 화풍으로 변환된 사진입니다</p>
+        <p><strong>{{artist}}</strong> 작가의 화풍으로 변환된 사진입니다</p>
       </div>
     </figcaption>
     </figure>
@@ -16,6 +16,10 @@
 <script>
 export default {
   name: 'Output',
+  props:{
+    changedImage:String,
+    artist:String
+  }
 }
 </script>
 
