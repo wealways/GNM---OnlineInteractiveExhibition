@@ -163,11 +163,13 @@ export default {
   color: rgba(0,0,0,0.8);
   background: rgba(0,0,0, 0.2);
   font-size:42px;
+  cursor:pointer;
 }
 .voice-off:hover{
   color: rgba(0,0,0,0.8);
   background: rgba(0,0,0, 0.2);
   font-size:34px;
+  cursor: pointer;
 }
 .voice-off{
   z-index: 100;

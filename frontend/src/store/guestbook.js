@@ -206,10 +206,9 @@ export default {
         // 세션 있으면 기본 데이터 또는 변환된 데이터
         getFile(
           (response) =>{
-              console.log(response)
 
               //세션 있는데 변환된게 아무것도 없으면 기본데이터
-              if(response.data.output_image_1 ===null && response.data.output_image_1 ===null && response.data.output_image_1 === null){
+              if(response.data.output_image_1 ===null && response.data.output_image_2 ===null && response.data.output_image_3 === null){
                 commit('GET_IMAGES',default_image)
               }else{
                 // 세션 있고 변환된게 하나라도 있으면 변환된 데이터

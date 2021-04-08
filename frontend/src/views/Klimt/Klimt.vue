@@ -1,7 +1,7 @@
 <template>
   <div class="body">
-    <IconMap mapColor="#eee8aa"/>
-    <IconVoice voiceColor="#eee8aa"/>
+    <IconMap mapColor="#608091"/>
+    <IconVoice voiceColor="#608091"/>
     <div class="page">
       <div class="description">
         <div class="desc-main">
@@ -264,8 +264,8 @@ export default {
 }
 .original-view{
   position:absolute;
-  right: 5.5%;
-  bottom: 20%;
+  bottom: 17%;
+  right: 4.9%;
   display: flex;
   cursor: pointer;
 }

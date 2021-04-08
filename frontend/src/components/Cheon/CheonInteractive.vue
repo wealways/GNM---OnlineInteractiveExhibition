@@ -163,9 +163,6 @@ export default {
         }    
       }  
     },
-    
-    
-    
   },
 }
 </script>
@@ -197,9 +194,10 @@ export default {
   height: 60%;
 }
 .gr {
-  position: absolute;
-  height: 80%;
-  top: 10%;
+  margin-top:5%;
+  max-width: 90%; 
+  max-height:90%;
+  height: auto;
 }
 
 .mapwrapper {
@@ -422,7 +420,7 @@ export default {
 
 .btn {
   position: absolute;
-  left:47%;
+  left:48%;
   top: 2%;
   padding: 0px 17px;
   border-radius: 1rem;
