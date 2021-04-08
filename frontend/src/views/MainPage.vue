@@ -22,55 +22,31 @@
               <img src="@/assets/GNM2.png" alt="" style="width:40vw;height:27vh;margin-top:60px;">
             </div>
             <div id="tutorialbtn" class="btn desc__gototutorial">전시 보러 가기</div>
-            <!-- <img src="https://img.icons8.com/ultraviolet/400/000000/down2.png" class="btn img__gototutorial"/> -->
-            <!-- <router-link :to="'/tutorial'">
-              <div id="tutorialbtn" class="btn tutorial">go to tutorial</div>
-            </router-link> -->
-            <!--.btn css 수정-->
             
           </div>
         </section>
-        <!-- <section id="sectionPin" >
-          <div class="pin-wrap">
-            <h2>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </h2>
-            <img
-              src="https://images.pexels.com/photos/5207262/pexels-photo-5207262.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=900"
-              alt=""
-            />
-            <img
-              src="https://images.pexels.com/photos/3371358/pexels-photo-3371358.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=900"
-              alt=""
-            />
-            <img
-              src="https://images.pexels.com/photos/3618545/pexels-photo-3618545.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=900"
-              alt=""
-            />
-          </div>
-        </section> -->
+
         <section class="" style="" >
           <div class="row panel">
-            <div class="col-4 art wrapper">
-              <img src="../assets/main/art6.jpg" alt="art" class=" col-3 art" style="height: 100%; width: 100%; position:relative;">
+            <div class="col-4 wrapper">
+              <img src="../assets/main/art6.jpg" alt="art" class=" col-3 " style="height: 100%; width: 100%; position:relative;">
               <p class="description q-pt-xl"> 코시국으로<br> 외출한 지가 오래라 <br>마지막으로<br> 미술관 간지가 <br>언젠지도 몰라</p>
             </div>
             <div class="col-8 row" style="position:relative;">
               <div class="col-6 wrapper">
-                <img src="../assets/main/ma2.jpg" alt="art" class="art" >
+                <img src="../assets/main/ma2.jpg" alt="art" class="" >
                 <p class="description q-pt-lg"> <br>그림?<br>전 그림이 너무 <br>어려워요.</p>
               </div>
               <div class="col-6 wrapper ">
-                <img src="../assets/main/art5.png" alt="art" class="art" >
+                <img src="../assets/main/art5.png" alt="art" class="" >
                 <p class="description q-pt-md"> 언제까지 <br>멀리서 <br>구경만 할 거예요?</p>
               </div>
               <div class="col-6 wrapper">
-                <img src="../assets/main/kids7.jpg" alt="art" class="art" >
+                <img src="../assets/main/kids7.jpg" alt="art" class="" >
                 <p class="description q-pt-sm" style='margin-top:20px;'> 미술관은 지루해.<br>집에 가서 게임하면<br> 안 돼요?</p>
               </div>
               <div class="col-6 wrapper row justify-center items-center">
-                <img src="../assets/main/clo.jpg" alt="art" class="art">
+                <img src="../assets/main/clo.jpg" alt="art" class="">
                 <p class="description q-pt-xl">미술관에 가려면... <br>뭘 입어야 하지?</p>
               </div>
             </div>
@@ -86,15 +62,7 @@
                           <div>
                             <img src="../assets/main/arrow.png" alt="">
                           </div>
-                            <!-- <h3>
-                                02. <br>
-                                Scroll direction
-                            </h3>
-                            <div class="c-sections_infos_text u-text">
-                                <p>
-                                    And if that wasn't enough, make 'em go backwards. Or upwards. Or downwards!
-                                </p>
-                            </div> -->
+
                         </div>
                     </div>
                     <div class="c-direction-block" id="direction">
@@ -154,7 +122,6 @@
             >
                 자
             </p>
-            <q-btn :to='"/startcheon"' size="22px" class="movebtn">천경자 전시관 가기</q-btn>
           </div>    
  
         </section>
@@ -176,8 +143,6 @@
             >
                 Klimt 
             </p>
-
-            <q-btn :to='"/startklimt"' size="22px" class="movebtn" >클림트 전시관 가기</q-btn>
           </div>    
           
 
@@ -201,7 +166,6 @@
             >
                 Monet
             </p>            
-           <q-btn :to='"/startmonet"' size="22px" class="movebtn">모네 전시관 가기</q-btn>
           </div>
           <img src="../assets/main/monetcut.png" alt="art" class="" >
         </section>
@@ -282,22 +246,6 @@ export default {
       smooth: true,
     });
     scroller.on("scroll", ScrollTrigger.update);
-    ScrollTrigger.scrollerProxy(pageContainer, {
-      scrollTop(value) {
-        return arguments.length
-          ? scroller.scrollTo(value, 0, 0)
-          : scroller.scroll.instance.scroll.y;
-      },
-      getBoundingClientRect() {
-        return {
-          left: 0,
-          top: 0,
-          width: window.innerWidth,
-          height: window.innerHeight,
-        };
-      },
-      pinType: pageContainer.style.transform ? "transform" : "fixed",
-    });
     let t1 = gsap.timeline();
     t1.from(".imsrk", {
       opacity: 0,
@@ -407,14 +355,6 @@ export default {
 .cheon > div > p {
   font-family: 'Noto Serif KR', serif;
 }
-
-
-.movebtn {
-  font-family: 'Noto Sans KR', sans-serif;
-  background: rgb(228, 227, 227);
-  color:#2a2b2e;
-}
-
 
 
 .description {
@@ -578,8 +518,6 @@ export default {
   display: flex;
   margin-top: 40px;
   opacity: 0.8;
-  // border: 1px solid gray;
-  // padding: 5px 12px 6px 12px;
   border-radius: 5px;
   font-weight: 600;
   font-size: 50px;
@@ -747,28 +685,6 @@ h2 {
   box-sizing: border-box;
 }
 
-#sectionPin {
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  left: 0;
-  background: var(--text-color);
-  color: var(--bg-color);
-}
-
-.pin-wrap {
-  height: 100vh;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 50px 10vw;
-
-  & > * {
-    min-width: 60vw;
-    padding: 0 5vw;
-  }
-}
-
 p {
   position: absolute;
   bottom: 10vw;
@@ -784,84 +700,6 @@ p {
   bottom: 8%;
   right: 7%;
 }
-
-
-///////////////////////////////////////////////////////////////////////////`
-// @media (min-width: 1024px) {
-//   .cover-heading h1 {
-//     font-size: 60px;
-//   }
-//   .cover-heading span {
-//     font-size: 60px;
-//   }
-//   .imsrk2 {
-//     font-size: 124px;
-//   }
-//   header {
-//     padding: 50px 80px;
-//   }
-//   header ul {
-//     margin-left: auto;
-//   }
-//   header ul li {
-//     font-size: 20px;
-//   }
-//   .container {
-//     margin-top: 100px;
-//     display: -ms-grid;
-//     display: grid;
-//     -ms-grid-columns: 1fr 1fr;
-//         grid-template-columns: 1fr 1fr;
-//     -webkit-box-align: center;
-//         -ms-flex-align: center;
-//             align-items: center;
-//   }
-//   .container .left{
-//     margin-left:20%;
-//   }
-//   .container .right {
-//     padding: 0;
-//     margin-top: -80px;
-//   }
-//   .container .right h1 {
-//     color: white;
-//     font-size: 140px;
-//     font-weight: 400;
-//     display: inline-block;
-//     font-family: 'Cinzel';
-//     line-height: 1;
-//   }
-//   .container .right span {
-//     font-size: 50px;
-//     letter-spacing: -4px;
-//     color: #6b6b6b;
-//   }
-//   .container .right p {
-//     margin-top: 40px;
-//     max-width: 600px;
-//     color: white;
-//     opacity: 0.5;
-//     font-size: 18px;
-//     line-height: 1.7;
-//   }
-//   .container .right a {
-//     text-decoration: none;
-//     color: white;
-//     display: inline-block;
-//     margin-top: 40px;
-//     opacity: 0.5;
-//     border: 1px solid gray;
-//     padding: 5px 12px 6px 12px;
-//     border-radius: 5px;
-//   }
-// }
-// /*# sourceMappingURL=style.css.map */
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////
-
-
 
 
 .o-container {
