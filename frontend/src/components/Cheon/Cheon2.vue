@@ -103,7 +103,7 @@ img {
 }
 
 .description > p {
-  font-family: 'Open Sans', sans-serif;
+  /* font-family: 'Open Sans', sans-serif; */
   font-size: 15px;
 }
 
