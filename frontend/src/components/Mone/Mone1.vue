@@ -50,8 +50,6 @@ export default {
             setTimeout(function(){
 
             },800);          
-          console.log('current '+current);
-          console.log('prev '+prev);
         }
       });
     }

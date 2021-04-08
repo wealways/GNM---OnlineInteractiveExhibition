@@ -25,7 +25,7 @@ export default {
     'page':function(){
       if(this.page===1){
         /* 애니메이션 css 태그 */
-        console.log(this.page)
+        // console.log(this.page)
       }
     }
   },
