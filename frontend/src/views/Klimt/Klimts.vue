@@ -3,7 +3,7 @@
     <div id="_progress"></div>
     <section>
       <IconMap mapColor="#608091"/>
-      <IconVoice voiceColor="#608091"/>
+      <IconVoice v-if="page!==1" voiceColor="#608091"/>
       <Klimt1 id="klimt1" class="content"/>
       <Klimt2 id="klimt2" class="content"/>
       <Klimt3 id="klimt3" class="content"/>
@@ -24,7 +24,12 @@ export default {
   },
   data(){
     return {
-      page:1
+      
+    }
+  },
+  computed:{
+    page(){
+      return this.$store.state.page.page
     }
   },
   watch:{
@@ -46,7 +51,7 @@ export default {
         let delta = e.deltaY
         if(delta>0){
           
-          if(now === 0){
+          if(now === 0 ){
             container.scrollLeft = sectionPageWidth*1
             now += sectionPageWidth
             scrollPage = 2
