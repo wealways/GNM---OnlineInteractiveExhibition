@@ -93,10 +93,10 @@ export default {
   top: 60%; 
   left: 3%;
   width: 40%;
-  font-size: 1rem;
+  font-size: 15px;
   word-spacing: 2px;
   line-height:170%;
-  font-family: 'Open Sans', sans-serif;
+  /* font-family: 'Open Sans', sans-serif; */
   opacity:0;
   z-index: 500;
 }

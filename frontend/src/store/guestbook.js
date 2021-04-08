@@ -4,9 +4,9 @@ import { getFile } from '@/api/getFile.js'
 
 
 const default_image={
-  "0":'https://i.ibb.co/D5PQpRM/kirchner-stylized.jpg',
-  "1":'https://i.ibb.co/F3t89wZ/monet-stylized.jpg',
-  "2":'https://i.ibb.co/Sr7TDxH/monet-stylized.jpg'
+  "0":'https://i.ibb.co/0V8dkGB/monet-the-bridge-at-argenteuil-1-output.jpg',
+  "1":'https://i.ibb.co/pjhV4Zs/klimt-judith-and-holopherne-output.jpg',
+  "2":'https://i.ibb.co/C1X99Qg/chun-1979-output.jpg'
 }
 
 export default {
@@ -197,35 +197,39 @@ export default {
     },
 
     // 세션에 매핑되는 이미지 가져오기 (미완성)
-    getImages({commit},session){
+    getImages({commit},routeName){
+      const session = sessionStorage.getItem("session")
       
       // 세션 없으면 기본 데이터
-      if(session===null){
+      if(session===null && routeName==="GuestBook"){
+
         commit('GET_IMAGES',default_image)
       }else{
         // 세션 있으면 기본 데이터 또는 변환된 데이터
         getFile(
           (response) =>{
-
               //세션 있는데 변환된게 아무것도 없으면 기본데이터
-              if(response.data.output_image_1 ===null && response.data.output_image_2 ===null && response.data.output_image_3 === null){
+              if(routeName==="GuestBook" && response.data.output_image_1 ===null && response.data.output_image_2 ===null && response.data.output_image_3 === null){
                 commit('GET_IMAGES',default_image)
               }else{
                 // 세션 있고 변환된게 하나라도 있으면 변환된 데이터
-                let outData ={}
-                if(response.data.output_image_1 !==null){
-                  outData[0]=`https://j4c106.p.ssafy.io${response.data.output_image_1}`
+                let outData = default_image
+                if(response.data.output_image_1 !==null && response.data.output_image_1 !==undefined){
+                  outData["0"]=`https://j4c106.p.ssafy.io${response.data.output_image_1}`
                 }
-                if(response.data.output_image_2 !==null){
-                  outData[1]=`https://j4c106.p.ssafy.io${response.data.output_image_2}`
+                if(response.data.output_image_2 !==null && response.data.output_image_2 !==undefined){
+                  outData["1"]=`https://j4c106.p.ssafy.io${response.data.output_image_2}`
                 }
-                if(response.data.output_image_3 !==null){
-                  outData[2]=`https://j4c106.p.ssafy.io${response.data.output_image_3}`
+                if(response.data.output_image_3 !==null && response.data.output_image_2 !==undefined){
+                  outData["2"]=`https://j4c106.p.ssafy.io${response.data.output_image_3}`
                 }
                 commit('GET_IMAGES',outData)
               }
           },
-          (error) => console.log(error)
+          () => {
+              commit('GET_IMAGES',default_image)
+            // console.log(error)
+          }
       )
       }
     }

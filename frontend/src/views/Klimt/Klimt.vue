@@ -155,7 +155,7 @@ export default {
         gsap.set("#demo", { attr: { width: h / ratio, height: h } });
       }
       let data = svg.getBoundingClientRect();
-      console.log(data)
+      // console.log(data)
       gsap.set("#demo", {x:w/2 - data.width/2});
       gsap.set("#demo", {y:h/2 - data.height/2});
     }
@@ -178,7 +178,7 @@ export default {
     },
     originalView(){
       this.originalflag = !this.originalflag;
-      console.log(document.querySelector('#demo').style)
+      // console.log(document.querySelector('#demo').style)
       document.querySelector('#demo').style.boxShadow = "0 0 0 0 rgba(202, 202, 202, 0.548);"
     }
   }
@@ -226,12 +226,12 @@ export default {
   letter-spacing: 3px;
 }
 .desc-main__subtitle{
-  font-family:'Open Sans', sans-serif;
+  /* font-family:'Open Sans', sans-serif; */
   font-size: 1.5rem;
   margin:1rem 0;
 }
 .desc-main__description{
-  font-family:'Open Sans', sans-serif;
+  /* font-family:'Open Sans', sans-serif; */
   line-height: 22px;
 }
 .desc-footer{

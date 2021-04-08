@@ -63,7 +63,7 @@ export default {
 .title{
   position: absolute;
   top: 65%; 
-  left: 47%; 
+  left: 42%; 
   text-shadow: 0 0 15px rgba(143, 143, 143, 0.658);
   opacity: 0;
 }
@@ -76,10 +76,10 @@ export default {
   position: absolute;
   top: 55%; 
   width: 40%;
-  font-size: 1rem;
+  font-size: 14px;
   word-spacing: 5px;
   line-height:170%;
-  font-family: 'Open Sans', sans-serif;
+  /* font-family: 'Open Sans', sans-serif; */
   left: 47%;
   opacity: 0;
   z-index: 10;

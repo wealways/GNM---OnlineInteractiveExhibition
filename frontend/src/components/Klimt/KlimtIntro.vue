@@ -66,9 +66,12 @@ body, html {
   letter-spacing: 3px;
 }
 #sentence{
+  text-align: left;
   position: absolute;
   top: 70%;
   right: 4%;
+  width:345px;
+  font-size: 18px;
 }
 #bg {
   position: fixed;

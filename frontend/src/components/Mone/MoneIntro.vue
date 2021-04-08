@@ -73,8 +73,10 @@ body, html {
 #sentence{
   position: absolute;
   top: 70%;
-  left: 4%;
+  left: 5%;
   font-size: 18px;
+  font-weight: 600;
+  color: rgba(0,0,0,0.7);
 }
 #bg {
   background-image: url('../../assets/mone.jpg');

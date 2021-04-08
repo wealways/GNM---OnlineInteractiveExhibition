@@ -1,7 +1,7 @@
 import MainPage from '@/views/MainPage.vue'
 import GuestBook from '@/views/GuestBook.vue'
 import Tutorial from '@/views/Tutorial.vue'
-import Mone from '@/views/Monet/Mone.vue'
+import Monet from '@/views/Monet/Mone.vue'
 import StartMonet from '@/views/Monet/StartMonet.vue'
 
 
@@ -14,7 +14,7 @@ import StartCheon from '@/views/Cheon/StartCheon.vue'
 import CheonEnd from '@/views/Cheon/CheonEnd.vue'
 
 import test from '@/components/Mone/test.vue'
-import Mones from '@/views/Monet/Mones.vue'
+import Monets from '@/views/Monet/Mones.vue'
 
 import PhotoUpload from '@/views/PhotoUpload.vue'
 
@@ -42,14 +42,14 @@ export default [
     component: Tutorial,
   },
   {
-    path:'/mone',
-    name: 'Mone',
-    component: Mone,
+    path:'/monet',
+    name: 'Monet',
+    component: Monet,
   },
   {
-    path:'/mones',
-    name: 'Mones',
-    component: Mones,
+    path:'/monets',
+    name: 'Monets',
+    component: Monets,
   },
   {
     path:'/startmonet',

@@ -4,7 +4,7 @@
     <div class="desc slide-in" id="desc">
       <div class="title"><h3>생태</h3></div>
       <div class="description ">
-        <p>'생태'를 그렸을 때 천경자는 폭우처럼 쏟아진 불행에 흠뻑 젖은 상태였습니다.</p>
+        <p>[생태]를 그렸을 때 천경자는 폭우처럼 쏟아진 불행에 흠뻑 젖은 상태였습니다.</p>
         <p>집안이 몰락했고, 첫 번째 남편과 이혼했습니다.</p>
         <p>세상은 자신의 그림을 무시했습니다.</p>
         <p>어느 날 독을 품고 끊임없이 꿈틀거리는 뱀을 보자 응어리가 풀어지는 듯 했습니다.</p>
@@ -103,7 +103,7 @@ img {
 }
 
 .description > p {
-  font-family: 'Open Sans', sans-serif;
+  /* font-family: 'Open Sans', sans-serif; */
   font-size: 15px;
 }
 

@@ -6,6 +6,6 @@ export function fileUpload(artist, file) {
     'content-type': 'multipart/form-data',
     'sessionkey': `${token}`
   }
-  console.log(headers)
+  // console.log(headers)
   return http.post(`galleries/image/input/${artist}/`,file,{headers:headers})
 }

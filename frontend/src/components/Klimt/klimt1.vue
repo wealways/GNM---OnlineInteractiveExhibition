@@ -25,7 +25,7 @@ export default {
     'page':function(){
       if(this.page===1){
         /* 애니메이션 css 태그 */
-        console.log(this.page)
+        // console.log(this.page)
       }
     }
   },
@@ -58,12 +58,12 @@ export default {
   letter-spacing: 3px;
 }
 .desc-main__subtitle{
-  font-family:'Open Sans', sans-serif;
+  /* font-family:'Open Sans', sans-serif; */
   font-size: 1.5rem;
   margin:1rem 0;
 }
 .desc-main__description{
-  font-family:'Open Sans', sans-serif;
+  /* font-family:'Open Sans', sans-serif; */
   line-height: 22px;
 }
 </style>
