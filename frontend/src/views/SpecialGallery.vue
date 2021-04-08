@@ -24,7 +24,7 @@
     <!-- 방명록 작성 이동 -->
     <div>
 
-      <GoToGB style="position:absolute; bottom: 60px; right: 70px;"/>
+      <GoToGB style="position:absolute; bottom: 0px; right: 80px;"/>
     </div>
     <!-- <q-btn
       padding="lg"
