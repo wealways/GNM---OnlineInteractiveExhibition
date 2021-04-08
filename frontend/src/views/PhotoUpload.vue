@@ -51,7 +51,7 @@
             </div>
           </q-card-section>
 
-          <q-card-section class="q-ma-sm q-pt-none" style="font-family: 'Open Sans', sans-serif;">
+          <q-card-section class="q-ma-sm q-pt-none">
             특별전시 관람, 방명록 작성에 <strong style="color:#ff4045">제한</strong>이 있습니다.
           </q-card-section>
 
@@ -101,7 +101,7 @@ export default {
         let nextRoute
 
         if (this.nowRoute==='MonetPhoto'){
-          nextRoute = 'mone';
+          nextRoute = 'monet';
         }else if(this.nowRoute==='KlimtPhoto') {
           nextRoute = 'Klimt';
         }else {
@@ -181,7 +181,7 @@ export default {
 .main {
   height: 100vh;
   background: #ECE5E1;
-  font-family: "Open Sans", sans-serif;
+  /* font-family: "Open Sans", sans-serif; */
 }
 .container{
   display: flex;
@@ -323,6 +323,8 @@ footer>div:nth-child(1){
 footer .content {
   font-family: 'IBMPlexSansKR-Regular';
   font-size:1.1rem;
+  font-weight: 700;
+  color:rgba(0, 0, 0, 0.5)
 }
 footer .please-upload {
   font-family: 'Prata', serif;

@@ -33,7 +33,6 @@ export default {
         const info = document.querySelector('#info')
 
         if(this.page===4){
-          console.log(this.page)
           setTimeout(function(){
             info.classList.add('active');
           },500)
@@ -87,7 +86,7 @@ transform: translateX(-10%);
 }
 
 .carousel-item__subtitle {
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
     letter-spacing: 3px;
     font-size: 15px;
     text-transform: uppercase;
@@ -108,9 +107,9 @@ transform: translateX(-10%);
 
 .carousel-item__description {
     margin-top: 35px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 800;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-size: 14px;
+    font-weight: 300;
     color: #2C2C2C;
     line-height: 22px;
     margin-bottom: 35px;
