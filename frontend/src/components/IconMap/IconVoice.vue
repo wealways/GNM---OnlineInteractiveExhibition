@@ -98,7 +98,7 @@ export default {
           }else{
             return;
           }
-        }else if(routeName==='Mones'){
+        }else if(routeName==='Monets'){
           if(this.page===1){
             audio = document.querySelector("audio[data-key=monet2]")
           }else if(this.page===2){
@@ -124,7 +124,7 @@ export default {
         //인터렉티브
         if(routeName==='Klimt'){
           audio = document.querySelector("audio[data-key=klimt2]")
-        }else if(routeName==='Mone'){
+        }else if(routeName==='Monet'){
           return;
         }else{
           return;

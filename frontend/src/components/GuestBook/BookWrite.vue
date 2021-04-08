@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <q-btn label="방명록 작성" @click="changeFlag(true)" class="custom-btn btn-8 write-sz write"/> -->
     <button @click="changeFlag(true)" class="custom-btn btn-8 write-sz write"><span class="button-title">WRITE</span></button>
     <q-dialog v-model="flag" persistent>
       <q-card style="min-width: 680px">
@@ -90,16 +89,11 @@
                 @click="selectImgIdx = String(idx)"
                 style="object-fit: cover;"
               >
-            </div>
-
-            <!-- </div> -->
-            
+            </div>            
           </div>
           <q-card-actions align="right" class="text-primary">
             <q-btn type="submit" label="Submit" class="custom-btn submit-btn sub-can-sz"/>
             <q-btn @click="onReset" flat label="Cancel" class="custom-btn cancel-btn sub-can-sz"/>
-            <!-- <btn type="submit" class="custom-btn submit-btn sub-can-sz"><span class="button-title">Submit</span></btn>
-            <btn @click="onReset" flat><span class="button-title">Cancel</span></btn> -->
           </q-card-actions>
         </q-form>
       </q-card>
@@ -126,7 +120,6 @@ export default {
     ...mapGetters('guestbook',[
       'modal_flag',
       'on_modfiy',
-      // 'user_article'
     ]),
     flag:{
       get(){
@@ -160,20 +153,14 @@ export default {
   },
   methods: {
     bgImg(img){
-      // console.log(img)
       const data = `{backgroundImage : url(${img})};width:100px`
       return data
     },
-    // srcImg(img){
-    //   console.log(img)
-    //   return `url(${require(img)})`
-    // },
     modifyFetch(){
       if(this.onModify){
         this.nickname = this.userArticle.user_nickname
         this.article = this.userArticle.guestbook_comment
         this.image = this.userArticle.guestbook_image
-        // this.password = this.userArticle.guestbook_password
       }
     },
     changeFlag(newFlag){
@@ -191,8 +178,6 @@ export default {
       if(this.onModify){
         this.$store.dispatch('guestbook/modifyArticle',{article_id:this.userArticle.id,data})
       }else{
-        // console.log(192)
-        // console.log(data)
         this.$store.dispatch('guestbook/createArticle',data)
       }
       this.onReset()
@@ -234,10 +219,8 @@ export default {
 
 
 .custom-btn {
-  /* color: #fff; */
   border-radius: 5px;
   padding: 10px 25px;
-  /* font-family: 'Lato', sans-serif; */
   font-weight: 500;
   background: transparent;
   cursor: pointer;
@@ -261,7 +244,6 @@ export default {
 .btn-8 {
   color:#2A433B;
   background-color: #FCF9F2;
-  /* background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%); */
   line-height: 42px;
   padding: 0;
   border: none;
@@ -278,12 +260,6 @@ export default {
   content: "";
   right: 0;
   bottom: 0;
-  /* background: #c797eb; */
-  /* background: #fe3901; */
-  /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
-              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
-    inset -4px -4px 6px 0 rgba(255,255,255,.5),
-    inset 4px 4px 6px 0 rgba(116, 125, 136, .3); */
   transition: all 0.3s ease;
 }
 .btn-8:before{
@@ -370,7 +346,6 @@ export default {
 }
 .submit-btn:hover{
   /* 호버 바탕색 */
-  /* background: transparent; */
   background:#A0D6C8;
 }
 .submit-btn span:hover{
@@ -407,7 +382,6 @@ export default {
 .cancel-btn {
   color: #2a433b;
   background-color: #E4E8E7;
-  /* background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%); */
   background-image:  #E4E8E7;
   color: #2a433b;
   line-height: 42px;
@@ -426,11 +400,6 @@ export default {
   content: "";
   right: 0;
   bottom: 0;
-  /* background: #2a433b; */
-  /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
-              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
-    inset -4px -4px 6px 0 rgba(255,255,255,.5),
-    inset 4px 4px 6px 0 rgba(116, 125, 136, .3); */
   transition: all 0.3s ease;
 }
 .cancel-btn:before{
@@ -449,7 +418,6 @@ export default {
 }
 .cancel-btn:hover{
   background: #6b968a;
-  /* color: #f0ecfc; */
 }
 .cancel-btn span:hover{
   color: #2a433b;
@@ -460,11 +428,6 @@ export default {
   content: "";
   left: 0;
   top: 0;
-  /* background: #2a433b; */
-  /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
-              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
-    inset -4px -4px 6px 0 rgba(255,255,255,.5),
-    inset 4px 4px 6px 0 rgba(116, 125, 136, .3); */
   transition: all 0.3s ease;
 }
 .cancel-btn span:before {

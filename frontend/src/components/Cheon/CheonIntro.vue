@@ -74,13 +74,10 @@ body, html {
 }
 #bg {
   background-image: url('../../assets/cheon.png');
-  /* width: 60%; */
   height: 70vh;
   width: 60vw;
   order: 2;
   align-self: flex-end;
-  /* flex-basis: 60%; */
-  /* background-position: left; */
   background-repeat: no-repeat;
   background-size: cover;
   position:relative;

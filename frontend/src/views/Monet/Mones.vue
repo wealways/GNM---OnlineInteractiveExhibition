@@ -46,8 +46,6 @@ export default {
   
         let scrollBottom = 4;
         let scrollLeft = 1;
-        // console.log(scrollLeft)
-        
   
   
         let delta = e.deltaY
