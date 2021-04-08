@@ -94,7 +94,7 @@ export default {
   left: 3%;
   width: 40%;
   font-size: 1rem;
-  word-spacing: 5px;
+  word-spacing: 2px;
   line-height:170%;
   font-family: 'Open Sans', sans-serif;
   opacity:0;

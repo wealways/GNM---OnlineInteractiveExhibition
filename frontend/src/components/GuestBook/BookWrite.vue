@@ -78,7 +78,7 @@
             <div class="q-mr-md q-ml-md q-mb-xs">
               이미지 선택란
             </div>
-            <div class="row q-mr-md q-ml-md q-mb-xs">
+             <div class="row q-mr-md q-ml-md q-mb-xs">
               <q-radio class="col-3 q-pl-sm  q-mr-auto q-ml-auto" v-for="(image,idx) in selectableImages" :key="idx" color="teal-5" v-model="selectImgIdx" :val="idx" :label="artistName[idx]"/>
             </div>
             <div class="row q-mr-md q-ml-md q-mb-xs">
@@ -90,6 +90,7 @@
                 @click="selectImgIdx = String(idx)"
               >
             </div>
+
             <!-- </div> -->
             
           </div>
@@ -301,22 +302,13 @@ export default {
 .btn-8:hover{
   background: transparent;
 }
-.btn-8 span:hover{
-  /* color: #c797eb; */
-  /* color: #fe3901; */
-}
+
 .btn-8 span:before,
 .btn-8 span:after {
   position: absolute;
   content: "";
   left: 0;
   top: 0;
-  /* background: #c797eb; */
-  /* background: #fe3901; */
-  /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
-              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
-    inset -4px -4px 6px 0 rgba(255,255,255,.5),
-    inset 4px 4px 6px 0 rgba(116, 125, 136, .3); */
   transition: all 0.3s ease;
 }
 .btn-8 span:before {
@@ -359,11 +351,6 @@ export default {
   content: "";
   right: 0;
   bottom: 0;
-  /* background: #2a433b; */
-  /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
-              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
-    inset -4px -4px 6px 0 rgba(255,255,255,.5),
-    inset 4px 4px 6px 0 rgba(116, 125, 136, .3); */
   transition: all 0.3s ease;
 }
 .submit-btn:before{
@@ -395,11 +382,6 @@ export default {
   content: "";
   left: 0;
   top: 0;
-  /* background: #2a433b; */
-  /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
-              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
-    inset -4px -4px 6px 0 rgba(255,255,255,.5),
-    inset 4px 4px 6px 0 rgba(116, 125, 136, .3); */
   transition: all 0.3s ease;
 }
 .submit-btn span:before {
@@ -498,13 +480,6 @@ export default {
 .cancel-btn span:hover:after {
   width: 100%;
 }
-
-
-
-
-
-
-
 
 form{
   padding:30px 60px;
