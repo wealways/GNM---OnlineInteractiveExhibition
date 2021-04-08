@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="cover-5">
-      <div class="container">
+      <div class="container" >
         <div class="scrollicon">
           <div class="icon-scroll">
             <div class="scrolltext" style="color:white; font-family:'Cinzel">
@@ -9,13 +9,12 @@
             </div>
           </div>
         </div>
-        <section data-bgcolor="#bcb8ad" data-textcolor="#032f35">
+        <section data-bgcolor="#bcb8ad" data-textcolor="#032f35" class="">
           <div>
             <h1 id="maintext" data-scroll data-scroll-speed="1">
               <span>On-line</span> <span>Interactive</span>
               <span>Exhibition</span>
             </h1>
-            <!-- <p data-scroll data-scroll-speed="2" data-scroll-delay="0.2">with GSAP ScrollTrigger & Locomotive Scroll</p> -->
             <router-link :to="'/tutorial'">
               <div id="tutorialbtn" class="btn tutorial">go to tutorial</div>
             </router-link>
@@ -69,46 +68,40 @@
         </section>
 
 
-        <section class="c-section" style="height:300vh;">
+        <section class="c-section " style="height:300vh;">
             <div class="o-container" id="scroll-direction">
                 <div class="c-direction-block_wrapper">
                     <div class="c-section_infos -padding" data-scroll data-scroll-sticky data-scroll-target="#scroll-direction">
                         <div class="c-section_infos_inner" data-scroll>
-                            <!-- <h3>
-                                02. <br>
-                                Scroll direction
-                            </h3>
-                            <div class="c-sections_infos_text u-text">
-                                <p>
-                                    And if that wasn't enough, make 'em go backwards. Or upwards. Or downwards!
-                                </p>
-                            </div> -->
+                          <div>
+                            <img src="../assets/main/arrow.png" alt="">
+                          </div>
                         </div>
                     </div>
                     <div class="c-direction-block" id="direction">
                         <div class="c-direction-block_item -one">
                             <span class="c-direction-block_item_inner" data-scroll data-scroll-direction="horizontal" data-scroll-speed="6" data-scroll-target="#direction">
-                                I'm moving in this direction
+                                U think art is difficult?
                             </span>
                         </div>
                         <div class="c-direction-block_item -two">
                             <span class="c-direction-block_item_inner" data-scroll data-scroll-direction="horizontal" data-scroll-speed="-8" data-scroll-target="#direction">
-                                And in this direction
+                                Come see enjoy our gallery.
                             </span>
                         </div>
                         <div class="c-direction-block_item -three">
                             <span class="c-direction-block_item_inner" data-scroll data-scroll-direction="horizontal" data-scroll-speed="9" data-scroll-target="#direction" data-scroll-delay="0.05">
-                                Sooo customizable. Right?
+                                Have fun with art. It's not difficult. Right?
                             </span>
                         </div>
                         <div class="c-direction-block_item -four">
                             <span class="c-direction-block_item_inner" data-scroll data-scroll-direction="horizontal" data-scroll-speed="15" data-scroll-target="#direction">
-                                I can also go in this direction
+                                You are gonna love this. I guarantee!
                             </span>
                         </div>
                         <div class="c-direction-block_item -five">
                             <span class="c-direction-block_item_inner" data-scroll data-scroll-direction="horizontal" data-scroll-speed="-20" data-scroll-target="#direction" data-scroll-delay="0.05">
-                                Ok, enough!!!!
+                                Ohhhhh, Our gallery is F U N !!!!
                             </span>
                         </div>
                     </div>
@@ -118,7 +111,8 @@
 
 
 
-        <section class="section">
+        <section class="section cheon" >
+          
           <img src="../assets/main/cheon.png" alt="art" class="" >
           <div class="section-0" data-scroll data-scroll-speed="3">
             <p style="color:black;position:relative;"
@@ -146,31 +140,9 @@
           </div>    
  
         </section>
-
-        <section class="section">
-          <img src="../assets/main/monetcut.png" alt="art" class="" >
-          <div class="section-0" data-scroll data-scroll-speed="4">
-            <p style="color:black;position:relative;"
-                data-scroll 
-                data-scroll-direction="horizontal" 
-                data-scroll-speed="-2"
-            >
-                Claude
-            </p>
-            <p style="color:black;position:relative;"
-                data-scroll 
-                data-scroll-direction="horizontal" 
-                data-scroll-speed="2"
-            >
-                Monet
-            </p>
-            
-           <q-btn :to='"/startmonet"' size="22px" class="movebtn">모네 전시관 가기</q-btn>
-          </div>
-        </section>
-
-
-        <section class="section">
+        
+        <section class="section klimt">
+          <img src="../assets/main/klimt.png" alt="art" class="klimt-img" >
           <div class="section-0" data-scroll data-scroll-speed="4">
             <p style="color:black;position:relative;"
                 data-scroll 
@@ -186,57 +158,68 @@
             >
                 Klimt 
             </p>
-            
+
             <q-btn :to='"/startklimt"' size="22px" class="movebtn" >클림트 전시관 가기</q-btn>
           </div>    
-          <img src="../assets/main/klimt.png" alt="art" class="" >
+          
 
         </section>
 
 
-        <!-- <section class="section monet">
-          <img src="../assets/main/cheon.png" alt="art" class="" >
-           <div class="section-0">
-            <p style="color:black;position:relative;"
-            >
-                천명자
-            </p>
-            <cite>천명자 전시관 가기</cite>
-          </div>    
-
-
-          <div class="section-0" data-scroll data-scroll-speed="3">
+        <section class="section monet">
+          
+          <div class="section-0" data-scroll data-scroll-speed="4">
             <p style="color:black;position:relative;"
                 data-scroll 
                 data-scroll-direction="horizontal" 
                 data-scroll-speed="-2"
             >
-                천명자
+                Claude
             </p>
             <p style="color:black;position:relative;"
                 data-scroll 
                 data-scroll-direction="horizontal" 
                 data-scroll-speed="2"
             >
-                경
-            </p>
-            <p style="color:black;position:relative;"
-                data-scroll 
-                data-scroll-direction="horizontal" 
-                data-scroll-speed="2"
-            >
-                자
-            </p>
-          </div>    
- 
-        </section> -->
-
-        <section style="height:300vh;">
-          
+                Monet
+            </p>            
+           <q-btn :to='"/startmonet"' size="22px" class="movebtn">모네 전시관 가기</q-btn>
+          </div>
+          <img src="../assets/main/monetcut.png" alt="art" class="" >
         </section>
-        <!-- <section data-bgcolor="#e3857a" data-textcolor="#f1dba7"><img src="https://images.pexels.com/photos/4791474/pexels-photo-4791474.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
-          <h2 data-scroll data-scroll-speed="1" class="credit"><a href="https://thisisadvantage.com" target="_blank">Made by Advantage</a></h2>
-        </section> -->
+
+        <section style="background: linear-gradient(white, #111); height: 120vh;" class="outsection">
+
+
+        </section>
+
+        <section style="height:180vh;" class="">
+          <div class="row panel">
+  
+            <div class="col-8 row" style="position:relative;">
+              <div class="col-6 wrapper">
+                <img src="../assets/main/vb1.jpg" alt="art" class="art" >
+                <p class="description q-pt-lg"> <br>그림?<br>너무<br>재밌잖아..?</p>
+              </div>
+              <div class="col-6 wrapper ">
+                <img src="../assets/main/bed.jpg" alt="art" class="art" >
+                <p class="description q-pt-md" style="padding-top : 170px;"> 내 침대가 <br> 바로 미술관</p>
+              </div>
+              <div class="col-6 wrapper row justify-center items-center">
+                <img src="../assets/main/kids5.jpg" alt="art" class="art">
+                <p class="description q-pt-sm" > 저.. 오늘부터<br>그림 그릴거에요 </p>
+              </div>
+              <div class="col-6 wrapper">
+                <img src="../assets/main/kids.jpg" alt="art" class="art" >
+                <p class="description q-pt-xl" style="padding-top:200px;"> 게임보다<br>재밌어!!</p>
+              </div>
+            </div>
+            <div class="col-4 art wrapper">
+              <img src="../assets/main/fri.jpg" alt="art" class=" col-3 art" style="height: 100%; width: 100%; position:relative;">
+              <p class="description q-pt-xl"> 우리 심심한데 <br> 미술관 갈까?</p>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
     <div class="cover">
@@ -377,13 +360,31 @@ export default {
 };
 </script>
 <style scoped>
+.klimt-img {
+  position: absolute;
+  left:5%;
+}
 
-
+.klimt > div {
+  position: absolute; 
+  right: 20%;
+}
 
 .section {
   height: 140vh;
   background-color: white;
+  position:relative;
 }
+
+.klimt > div > p,
+.monet > div > p {
+  font-family: 'Playfair Display';
+}
+
+.cheon > div > p {
+  font-family: 'Noto Serif KR', serif;
+}
+
 
 .movebtn {
   font-family: 'Noto Sans KR', sans-serif;
@@ -496,6 +497,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
 *,
 *::after,
 *::before {
@@ -838,34 +840,6 @@ p {
   }
 }
 
-.has-scroll-smooth .o-scroll {
-  position: relative;
-}
-.c-scrollbar {
-  width: 10px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100vh;
-  transform-origin: center right;
-  transform: scaleX(1);
-  transition: transform 0.2s linear;
-}
-.c-scrollbar:hover {
-  transform: scaleX(1.3);
-  cursor: -webkit-grab;
-  cursor: grab;
-}
-.c-scrollbar_thumb {
-  background-color: #000;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-.c-scrollbar_thumb:hover {
-  cursor: pointer;
-}
 
 
 
@@ -1026,23 +1000,12 @@ p {
 
 
 
-
-
-
-
-
-
 .section-0 {
     margin-top: 20vh;
     text-align: center;
-
     p {
-        font-size: 5vw;
+        font-size: 8vw;
     }
-    // cite {
-    //     display: block;
-    //     font-size: 3vw;
-    // }
 }
 
 

@@ -1,7 +1,7 @@
 <template>
   <div>
   <div style="background-color:#28353c;">
-    <h1 id="firstname" style="color:#fff;">Gustav<br>Klimt</h1>
+    <h1 id="firstname">Gustav<br>Klimt</h1>
   </div>
     <img src="../../assets/images/klimtintro.png" alt="klimtface" id="bg">
     <span id="sentence" style="color:#fff;font-size:1rem;"></span>
@@ -50,16 +50,20 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
 body, html {
   overflow: hidden;
   height: 100%;
   width: 100%;
 }
 #firstname{
+  font-family:'Playfair Display', serif;
   position: absolute;
   text-align: right;
   top: 20%;
   right: 5%;
+  color:#FFD700;
+  letter-spacing: 3px;
 }
 #sentence{
   position: absolute;

@@ -139,12 +139,12 @@ button:hover {
 .map_description {
   position: absolute;
   left: 3%;
-  top: 16%;
+  top: 14%;
 }
 .voice_description {
   position: absolute;
   right: 13%;
-  bottom: 12%;
+  bottom: 9%;
 }
 .text_description {
   position: absolute;

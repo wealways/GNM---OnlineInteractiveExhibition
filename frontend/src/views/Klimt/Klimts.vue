@@ -1,23 +1,20 @@
 <template>
   <div class="container">
+    <div id="_progress"></div>
     <section>
-      <IconMap mapColor="#eee8aa"/>
-      <IconVoice voiceColor="#eee8aa"/>
+      <IconMap mapColor="#608091"/>
+      <IconVoice voiceColor="#608091"/>
       <Klimt1 id="klimt1" class="content"/>
       <Klimt2 id="klimt2" class="content"/>
       <Klimt3 id="klimt3" class="content"/>
     </section>
-    <audio data-key="tada" src="@/assets/audio/tada.mp3"></audio>
-    <audio data-key="timo" src="@/assets/audio/timo.mp3"></audio>
-    <audio data-key="wow" src="@/assets/audio/wow.mp3"></audio>
-    <audio data-key="bye" src="@/assets/audio/bye.mp3"></audio>
   </div>
 </template>
 
 
 <script>
 export default {
-  name:'KlimtEnd',
+  name:'Klimts',
   components:{
     IconMap: () => import('@/components/IconMap/IconMap'),
     IconVoice: () => import('@/components/IconMap/IconVoice'),
@@ -38,36 +35,51 @@ export default {
     const container = document.querySelector('.container')
     const section = document.getElementsByTagName('section')
     const sectionPageWidth = section[0].clientWidth/3
+    let now = container.scrollLeft
+    let scrollPage = 1;
     window.addEventListener('wheel', function(e)
     {
-      e.preventDefault();
-      let delta = e.deltaY
-      if(delta>0){
-        if(container.scrollLeft>sectionPageWidth*1){
-          this.page=3
-          return;
-        }
-        if(0<=container.scrollLeft && container.scrollLeft<sectionPageWidth*1){
-          container.scrollLeft = sectionPageWidth*1
-          this.$store.dispatch('page/pageChange',2)
+      if(this.$route.name==='Klimts'){
+        e.preventDefault();
+        let scrollBottom = 3;
+        
+        let delta = e.deltaY
+        if(delta>0){
+          
+          if(now === 0){
+            container.scrollLeft = sectionPageWidth*1
+            now += sectionPageWidth
+            scrollPage = 2
+            this.$store.dispatch('page/pageChange',2)
+          }else if(now === sectionPageWidth*1){
+            container.scrollLeft=sectionPageWidth*2
+            now += sectionPageWidth
+            scrollPage = 3
+            this.$store.dispatch('page/pageChange',3)
+          }else{
+            now = sectionPageWidth*2
+          }
         }else{
-          container.scrollLeft=sectionPageWidth*2
-          this.$store.dispatch('page/pageChange',3)
+          
+          if(now===sectionPageWidth*2){
+            container.scrollLeft = sectionPageWidth*1
+            now -= sectionPageWidth
+            scrollPage = 2
+            this.$store.dispatch('page/pageChange',2)
+          }else if(now===sectionPageWidth*1){
+            container.scrollLeft = 0
+            now -= sectionPageWidth
+            scrollPage = 1
+            this.$store.dispatch('page/pageChange',1)
+          }else{
+            now = 0
+          }
         }
-      }else{
-        if(container.scrollLeft<sectionPageWidth*1){
-          this.$store.dispatch('page/pageChange',1)
-          return;
-        }
-        if(0<=container.scrollLeft && container.scrollLeft<=sectionPageWidth*1){
-          container.scrollLeft =0
-          this.$store.dispatch('page/pageChange',1)
-        }else{
-          container.scrollLeft=sectionPageWidth*1
-          this.$store.dispatch('page/pageChange',2)
-        }
+        let scrollPercent = scrollPage / scrollBottom * 100 + "%";
+        document.getElementById("_progress").style.setProperty("--scroll", scrollPercent);
       }
-    }.bind(this), {capture: false,passive: false});
+      
+    }.bind(this), {passive: false,useCapture :true});
 
 
   },
@@ -115,4 +127,17 @@ export default {
 ::-webkit-scrollbar{
   display:none;
 }
+
+
+#_progress {
+  --scroll: 33%;
+  background: linear-gradient(to right,#7E7E7E var(--scroll),lightgrey 0);
+  position: fixed;
+  right: 35%;
+  width: 30%;
+  height: 5px;
+  bottom :15px;
+  z-index: 10000000;
+  }
+
 </style>
