@@ -41,7 +41,7 @@
                     icon="lightbulb_outline" 
                 />
                 <q-btn
-                    :to='"/startmone"' 
+                    :to='"/specialgallery"' 
                     target="_blank"  
                     v-show="explain==='특별전시관'" 
                     align="around" 
