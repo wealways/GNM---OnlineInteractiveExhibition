@@ -63,15 +63,15 @@
               </div>
               <div class="col-6 wrapper ">
                 <img src="../assets/main/art5.png" alt="art" class="art" >
-                <p class="description q-pt-md"> 언제까지 <br>멀리서 <br>구경만 할 거에요?</p>
+                <p class="description q-pt-md"> 언제까지 <br>멀리서 <br>구경만 할 거예요?</p>
               </div>
               <div class="col-6 wrapper">
                 <img src="../assets/main/kids7.jpg" alt="art" class="art" >
-                <p class="description q-pt-sm"> 미술관은 지루해.<br>집에 가서 게임하면<br> 안 돼요?</p>
+                <p class="description q-pt-sm" style='margin-top:20px;'> 미술관은 지루해.<br>집에 가서 게임하면<br> 안 돼요?</p>
               </div>
               <div class="col-6 wrapper row justify-center items-center">
                 <img src="../assets/main/clo.jpg" alt="art" class="art">
-                <p class="description q-pt-xl">미술관에 가려면.. <br>뭘 입어야 하지?</p>
+                <p class="description q-pt-xl">미술관에 가려면... <br>뭘 입어야 하지?</p>
               </div>
             </div>
           </div>
@@ -217,7 +217,7 @@
             <div class="col-8 row" style="position:relative;">
               <div class="col-6 wrapper">
                 <img src="../assets/main/vb1.jpg" alt="art" class="art" >
-                <p class="description q-pt-lg"> <br>그림?<br>너무<br>재밌잖아..?</p>
+                <p class="description q-pt-lg"> <br>그림?<br>너무<br>재밌잖아?</p>
               </div>
               <div class="col-6 wrapper ">
                 <img src="../assets/main/bed.jpg" alt="art" class="art" >
@@ -225,11 +225,11 @@
               </div>
               <div class="col-6 wrapper row justify-center items-center">
                 <img src="../assets/main/kids5.jpg" alt="art" class="art">
-                <p class="description q-pt-sm" > 저.. 오늘부터<br>그림 그릴거에요 </p>
+                <p class="description q-pt-sm" style="margin-top:20px;" > 저... 오늘부터<br>그림 그릴거예요 </p>
               </div>
               <div class="col-6 wrapper">
                 <img src="../assets/main/kids.jpg" alt="art" class="art" >
-                <p class="description q-pt-xl" style="padding-top:200px;"> 게임보다<br>재밌어!!</p>
+                <p class="description q-pt-xl" style="margin-bottom:100px;"> 게임보다<br>재밌어!</p>
               </div>
             </div>
             <div class="col-4 art wrapper">
