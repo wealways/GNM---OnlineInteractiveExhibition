@@ -89,7 +89,6 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  flex-wrap: nowrap;
 }
 
 </style>

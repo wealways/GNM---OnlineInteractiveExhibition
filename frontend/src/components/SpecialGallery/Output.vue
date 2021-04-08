@@ -176,7 +176,8 @@ export default {
   display: block;
   margin: 0 auto;
   border: 15px solid #ececec;
-  max-height: 40vh;
+  max-height: 30vh;
+  max-width: 40vw;
 }
 
 /* 사진 설명 */
