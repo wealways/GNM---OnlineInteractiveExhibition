@@ -68,7 +68,7 @@ body, html {
 #sentence{
   position: absolute;
   top: 65%;
-  left: 7%;
+  left: 5.5%;
   font-size: 18px;
   line-height: 30px;
 }

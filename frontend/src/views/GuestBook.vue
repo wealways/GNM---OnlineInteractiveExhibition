@@ -160,4 +160,7 @@ export default {
   font-size: 21px;
   transition: 0.7s;
 }
+h3{
+  font-family: 'Montserrat';
+}
 </style>
