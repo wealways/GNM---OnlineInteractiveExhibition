@@ -148,7 +148,6 @@ span {
   background-color: #FCF9F2;
   border-radius: 15px;
   color: #464646;
-  // border: 0.5px solid;
   position: absolute;
   width: 50vw;
   height: 80vh;
@@ -284,20 +283,6 @@ span {
   opacity: 0.15;
 }
 
-// button {
-//     background: transparent;
-//     width:300px;
-//     font-size: 30px;
-//     outline: 0;
-//     border: 0;
-//     position: absolute;
-//     right: 15%;
-//     bottom: 45%;
-// }
-// button:hover {
-//     color:  rgba(181, 207, 231, 0.8);
-//     cursor: pointer;
-// }
 </style>
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css?family=Mukta:700');
