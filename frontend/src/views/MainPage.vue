@@ -13,12 +13,14 @@
           </div>
         </div>
        
-        <section data-bgcolor="#bcb8ad" data-textcolor="#032f35">
+        <section data-bgcolor="#bcb8ad">
           <div>
-            <h1 id="maintext" data-scroll data-scroll-speed="1">
+            <div class='maintext' data-scroll data-scroll-speed="1" style="margin-top:0;">
               <span>On-line</span> <span>Interactive</span>
               <span>Exhibition</span>
-            </h1>
+              <div class='myname'>그림이 널 만났을 때</div>
+              <img src="@/assets/GNM2.png" alt="" style="width:40vw;height:27vh;margin-top:60px;">
+            </div>
             <div id="tutorialbtn" class="btn desc__gototutorial">전시 보러 가기</div>
             <!-- <img src="https://img.icons8.com/ultraviolet/400/000000/down2.png" class="btn img__gototutorial"/> -->
             <!-- <router-link :to="'/tutorial'">
@@ -61,15 +63,15 @@
               </div>
               <div class="col-6 wrapper ">
                 <img src="../assets/main/art5.png" alt="art" class="art" >
-                <p class="description q-pt-md"> 언제까지 <br>멀리서 <br>구경만 할 거에요?</p>
+                <p class="description q-pt-md"> 언제까지 <br>멀리서 <br>구경만 할 거예요?</p>
               </div>
               <div class="col-6 wrapper">
                 <img src="../assets/main/kids7.jpg" alt="art" class="art" >
-                <p class="description q-pt-sm"> 미술관은 지루해.<br>집에 가서 게임하면<br> 안 돼요?</p>
+                <p class="description q-pt-sm" style='margin-top:20px;'> 미술관은 지루해.<br>집에 가서 게임하면<br> 안 돼요?</p>
               </div>
               <div class="col-6 wrapper row justify-center items-center">
                 <img src="../assets/main/clo.jpg" alt="art" class="art">
-                <p class="description q-pt-xl">미술관에 가려면.. <br>뭘 입어야 하지?</p>
+                <p class="description q-pt-xl">미술관에 가려면... <br>뭘 입어야 하지?</p>
               </div>
             </div>
           </div>
@@ -215,7 +217,7 @@
             <div class="col-8 row" style="position:relative;">
               <div class="col-6 wrapper">
                 <img src="../assets/main/vb1.jpg" alt="art" class="art" >
-                <p class="description q-pt-lg"> <br>그림?<br>너무<br>재밌잖아..?</p>
+                <p class="description q-pt-lg"> <br>그림?<br>너무<br>재밌잖아?</p>
               </div>
               <div class="col-6 wrapper ">
                 <img src="../assets/main/bed.jpg" alt="art" class="art" >
@@ -223,11 +225,11 @@
               </div>
               <div class="col-6 wrapper row justify-center items-center">
                 <img src="../assets/main/kids5.jpg" alt="art" class="art">
-                <p class="description q-pt-sm" > 저.. 오늘부터<br>그림 그릴거에요 </p>
+                <p class="description q-pt-sm" style="margin-top:20px;" > 저... 오늘부터<br>그림 그릴거예요 </p>
               </div>
               <div class="col-6 wrapper">
                 <img src="../assets/main/kids.jpg" alt="art" class="art" >
-                <p class="description q-pt-xl" style="padding-top:200px;"> 게임보다<br>재밌어!!</p>
+                <p class="description q-pt-xl" style="margin-bottom:100px;"> 게임보다<br>재밌어!</p>
               </div>
             </div>
             <div class="col-4 art wrapper">
@@ -700,10 +702,10 @@ img {
   object-fit: cover;
 }
 
-h1 {
-  font-size: 5rem;
+.maintext {
+  font-size: 1.2rem;
   line-height: 1;
-  font-weight: 800;
+  font-weight: 400;
   margin-bottom: 1rem;
   position: absolute;
   top: 10vw;
@@ -711,18 +713,23 @@ h1 {
   z-index: 4;
   overflow-wrap: break-word;
   hyphens: auto;
-  color: white;
-  font-family: "Cinzel";
 
   @media (max-width: 768px) {
     font-size: 16vw;
   }
   span {
     display: block;
-    color: white;
+    font-family: 'Montserrat','Noto Sans KR';
+    color:rgba(221, 221, 221, 0.568);
+    
   }
 }
-
+.myname {
+  margin-top: 10px;
+  color: rgb(248, 247, 237);
+  font-size: 2rem;
+  font-weight: 700;
+}
 h2 {
   font-size: 2rem;
   max-width: 400px;

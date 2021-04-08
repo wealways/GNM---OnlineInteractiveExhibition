@@ -17,8 +17,8 @@ export default {
       // event.preventDefault();
       let delta = event.deltaY
       if(delta>0){
-        if(this.$route.path === '/mone') {
-          this.$router.push({path:'/mones'})
+        if(this.$route.path === '/monet') {
+          this.$router.push({path:'/monets'})
         }
       }
     }

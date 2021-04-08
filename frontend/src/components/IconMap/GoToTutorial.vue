@@ -1,6 +1,6 @@
 <template>
   <div class="flex">
-    <a href="#0" class="bttn" style="font-size:16px;">Go To<br>Tutorial<span><img src="@/assets/favicon-32x32.png" alt="" width="18px" height="18px"></span></a>
+    <a href="#0" class="bttn" style="font-size:15px;font-family:'Montserrat'">Go To<br>Tutorial<span><img src="@/assets/favicon-32x32.png" alt="" width="18px" height="18px" style="margin-top:5px;"></span></a>
   </div>
 </template>
 
@@ -17,7 +17,7 @@ a {
   transition: 0.3s all ease;
 }
 a:hover {
-  color: #B15947;
+  color: #999144e1;
 }
 a:focus {
   text-decoration: none;

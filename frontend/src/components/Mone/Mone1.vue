@@ -50,8 +50,6 @@ export default {
             setTimeout(function(){
 
             },800);          
-          console.log('current '+current);
-          console.log('prev '+prev);
         }
       });
     }
@@ -152,7 +150,7 @@ body {
 }
 
 .carousel-item__subtitle {
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
     letter-spacing: 3px;
     font-size: 15px;
     text-transform: uppercase;
@@ -185,8 +183,8 @@ body {
     visibility: hidden;
     transition: 2s all ease-in-out;
     margin-top: 35px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 13px;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-size: 14px;
     color: #7e7e7e;
     line-height: 22px;
     margin-bottom: 35px;
