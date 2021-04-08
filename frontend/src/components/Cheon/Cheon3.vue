@@ -50,7 +50,6 @@ export default {
 
 .cheon3{
   position: relative;
-  /* background-color: #F2F2F2; */
   z-index: -1;
   background-color: #eaeaea; 
 }
@@ -79,7 +78,6 @@ export default {
   font-size: 14px;
   word-spacing: 5px;
   line-height:170%;
-  /* font-family: 'Open Sans', sans-serif; */
   left: 47%;
   opacity: 0;
   z-index: 10;

@@ -115,9 +115,6 @@ export default {
           ul[i].style.top = Math.random()*(window.innerHeight-800) + 'px'
         }
       }
-      // for (var i = ul.children.length; i >= 0; i--) {
-      //   ul.appendChild(ul.children[Math.random() * i | 0]);    
-      // }
     },
 
     reload: function () {
@@ -171,7 +168,6 @@ export default {
 :root {
   --color:lightgray;
   --border-radius:10px;
-  /* --image:url("../../assets/cheon_pic.png"); */
   --image:url("https://i.ibb.co/cQFkpgd/cheon.png");
 }
 .map{
@@ -293,7 +289,6 @@ export default {
   background-position:center top !important;
 }
 .third {
-/*   border-top-right-radius:var(--border-radius); */
   background-position:right top !important;
 }
 .fourt {
@@ -306,7 +301,6 @@ export default {
   background-position:right center !important;
 }
 .seven {
-/*   border-bottom-left-radius:var(--border-radius); */
   background-position:left bottom !important;
 }
 .eight {

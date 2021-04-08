@@ -96,7 +96,6 @@ export default {
   font-size: 15px;
   word-spacing: 2px;
   line-height:170%;
-  /* font-family: 'Open Sans', sans-serif; */
   opacity:0;
   z-index: 500;
 }
