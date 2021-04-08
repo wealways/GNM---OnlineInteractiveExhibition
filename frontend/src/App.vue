@@ -1,5 +1,5 @@
 <template>
-   <div>
+   <div id="q-app">
     <!-- <q-header elevated>
       <q-toolbar>
         <q-btn
