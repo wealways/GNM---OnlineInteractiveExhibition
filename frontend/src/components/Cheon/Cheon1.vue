@@ -63,6 +63,7 @@ export default {
   font-size: 13px;
   text-align: left;
   font-size: 1rem;
+  font-weight: 200;
 }
 
 </style>

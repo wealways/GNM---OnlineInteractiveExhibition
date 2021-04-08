@@ -3,8 +3,8 @@
     <img id="img4" class="cheon4_pic slide-in" src="../../assets/sad22page.png" alt="내 슬픈 생애의 22페이지">
     <div id="title4" class="title slide-in"><h3>내 슬픈 <br>생애의 22페이지</h3></div>
     <div id="desc4" class="desc slide-in">
-      자신의 과거와 현재에 걸치는 자서전적인 이미지를 작품에 담고 있습니다.
-      천경자가 결혼을 하고 첫 딸을 낳았던 1945년 당시 22살이었던 천경자의 나이와 관계가 있습니다.
+      자신의 과거와 현재에 걸치는 자서전적인 이미지를 작품에 담고 있습니다.<br>
+      천경자가 결혼을 하고 첫 딸을 낳았던 1945년 당시 22살이었던 천경자의 나이와 관계가 있습니다.<br>
       그녀의 작품 중에는 자화상을 비롯한 여인상이 많습니다.
     </div>
     <div @click="nextstart" class="nextbtn">
@@ -94,7 +94,7 @@ export default {
   left: 3%;
   width: 40%;
   font-size: 1rem;
-  word-spacing: 5px;
+  word-spacing: 2px;
   line-height:170%;
   font-family: 'Open Sans', sans-serif;
   opacity:0;

@@ -40,4 +40,7 @@ export default {
 </script>
 
 <style>
+* {
+  font-family: 'Noto Sans KR';
+}
 </style>

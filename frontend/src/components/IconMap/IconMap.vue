@@ -64,7 +64,7 @@ export default {
 }
 
 .map {
-  position: absolute;
+  position: fixed;
   z-index: 9999;
   left: 3%;
   top: 4%;
@@ -76,9 +76,9 @@ export default {
 }
 
 .map:hover {
+  position:fixed;
   color: rgba(0,0,0,0.8);
   background: rgba(0,0,0, 0.2);
-  font-size:42px;
   cursor:pointer;
 }
 
