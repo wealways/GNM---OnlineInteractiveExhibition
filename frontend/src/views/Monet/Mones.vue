@@ -40,7 +40,7 @@ export default {
 
      window.addEventListener('wheel', function(e)
     {
-      if(this.$route.name==='Mones'){
+      if(this.$route.name==='Monets'){
 
         e.preventDefault();
   
