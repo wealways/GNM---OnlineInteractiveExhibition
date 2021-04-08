@@ -13,8 +13,9 @@
             <label for="imageUpload" @click='getSession'>
               <span id="here" class='uldbutton' style="font-size:30px">
                 <div class="label">
-                  <q-icon name="mdi-upload"></q-icon>
-                  <div style="font-size:13px;">Upload Picture</div>  
+                  <!-- <q-icon name="mdi-upload"></q-icon>
+                  <div style="font-size:13px;">Upload Picture</div>   -->
+                  <img src="../assets/camera.png" alt="" class="camera-icon">
                 </div>
               </span>
             </label>
@@ -177,7 +178,6 @@ export default {
 
 
 
-
 .main {
   height: 100vh;
   background: #ECE5E1;
@@ -231,6 +231,15 @@ h1 small {
   justify-content: center;
   align-items: center;
 }
+
+
+.camera-icon {
+  width: 55%;
+  height: 55%;
+  object-fit:contain;
+  opacity: 0.3;
+}
+
 .uldbutton .label{
   /* position:absolute; */
   display: flex;
@@ -238,7 +247,7 @@ h1 small {
   align-items: center;
   width: 100px;
   height: 100px;
-  padding-left:8px;
+  padding-left:0px;
   border-radius: 100%;
   background: #ffffff;
   border: 1px solid transparent;
@@ -261,6 +270,16 @@ h1 small {
   text-align: center;
   margin: auto;
 }
+
+
+
+.uldbutton .label:hover >.camera-icon {
+  transition: all 0.5s;
+  transform: scale(1.02);
+}
+
+
+
 /* 여기 위에 하는 중*/
 
 .avatar-upload .avatar-preview {

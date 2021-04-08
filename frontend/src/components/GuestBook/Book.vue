@@ -15,7 +15,7 @@
         </span>
       </div>
     </div>
-    <q-dialog v-model="prompt">
+    <q-dialog v-model="prompt" class='cardback'>
         <div class="row" style="min-width: 1080px;">
           <q-img
             :src="article.guestbook_image"
@@ -31,14 +31,14 @@
             <div class="card-img-body col column justify-center ">
               <div class="" style="display:block; text-align:center;">{{article.guestbook_comment}}</div>
               <div class="column justify-end items-end" style="display:inline">
-                <span>by </span>
+                <span style="margin-right: 5px;">by</span>
                 <span>{{article.user_nickname}}</span>
               </div>
             </div>
             <div class="card-img-footer">
-              <p style="color:#2a433b; font-family:'Noto Sans KR';" class='writedate'>{{date}}</p>
-              <q-fab padding="8px" text-color="white" icon="keyboard_arrow_left" direction="left" style="width:15%;" class="more-btn">
-                <q-fab-action padding="6px" class="upd-btn" @click="modifyBtn=true" icon="mdi-square-edit-outline" label-position="bottom" label-style="font-size:12px;"/>
+              <p style="color:rgba(63, 44, 3, 0.637); margin-bottom:10px;" class='writedate'>{{date}}</p>
+              <q-fab padding="8px" text-color="white" icon="keyboard_arrow_left" direction="left" style="width:15%; margin-bottom:10px;" class="more-btn">
+                <q-fab-action padding="8px" class="upd-btn" @click="modifyBtn=true" icon="mdi-square-edit-outline" label-position="bottom" label-style="font-size:12px;"/>
                 <q-dialog v-model="modifyBtn">
                   <q-card style="min-width: 350px">
                     <q-card-section class="q-pt-none">
@@ -57,7 +57,7 @@
                     </div>
                   </q-card>
                 </q-dialog>
-                <q-fab-action padding="6px"  class="del-btn" @click="deleteBtn = true" icon="mdi-delete-outline" label-position="bottom" label-style="font-size:12px;color:#fff;"/>
+                <q-fab-action padding="8px"  class="del-btn" @click="deleteBtn = true" icon="mdi-delete-outline" label-position="bottom" label-style="font-size:12px;color:#fff;"/>
                 <q-dialog v-model="deleteBtn">
                   <q-card style="min-width: 350px">
                     <q-card-section class="q-pt-none">
@@ -160,7 +160,7 @@ p{
   display: inline-block;
   cursor: pointer;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .my-card{
   margin: 0.5rem;
@@ -177,10 +177,12 @@ p{
   position: absolute;
 }
 .book:hover{
-  box-shadow:  -8px -8px 8px rgba(255,255,255,0.2), 8px 8px 8px rgba(0,0,0,0.1),
+  box-shadow:  
+  -5px -5px 5px rgba(255,255,255,0.2), 5px 5px 5px rgba(0,0,0,0.1),
   inset -8px -8px 8px rgba(255,255,255,0.2), inset 8px 8px 8px rgba(0,0,0,0.1);
-  transition: 0.6s
+  transition: 1s
 }
+
 .card-description{
   width: 100%;
   margin-top:8px;
@@ -252,30 +254,40 @@ p{
 
 }
 .card-img-body{
-  color:#2a433b;
-  margin: auto 0px;
-  padding: 1rem;
-  min-height: 220px;
+  color:rgba(63, 44, 3, 0.637);
+  /* margin: auto 0px; */
+  padding: 1.6rem;
+  min-height: 230px;
   position:relative;
   margin:0;
-  border: solid 2.2px #DECBA7;
-  outline: solid 1px #DECBA7;
+  box-shadow: -8px -8px 8px rgba(255,255,255,0.2), 8px 8px 8px rgba(0,0,0,0.1),
+  inset -8px -8px 8px rgba(255,255,255,0.2), inset 8px 8px 8px rgba(0,0,0,0.1);;
+  /* border: solid 2.2px #DECBA7;
+  outline: solid 2px #DECBA7; */
+  border-radius: 10px;  
   /* height:100%; */
-  outline-offset: 8px;
+  outline-offset: 3px;
+  /* font-family: 'Noto Sans KR'; */
 }
 .card-img-body> div:nth-child(1){
   font-size:1.5rem;
   word-break:break-all;
   margin-right:0;
   margin-bottom:0;
-  
+  font-family: 'Noto Serif KR';
+  font-weight:300;
+  font-size: 15px;
+  height: 120px;
+  margin-bottom: 60px;
+  margin-top: 40px;
+  line-height: 185%;
 }
 .card-img-body> div:nth-child(2){
   text-align: right;
   word-break:break-all;
-  margin-top: 8px;
   margin-bottom:0;
   right: 10%;
+  font-weight: 800;
 }
 .card-img-footer{
   display: flex;
@@ -286,5 +298,6 @@ p{
 }
 .card-img-footer>p{
   margin:0px;
+  font-weight: 800;
 }
 </style>
