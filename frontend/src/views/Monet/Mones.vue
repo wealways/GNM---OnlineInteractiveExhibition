@@ -52,7 +52,7 @@ export default {
   
         let delta = e.deltaY
         if(delta>0){
-          if(container.scrollLeft>sectionPageWidth*2){
+          if(container.scrollLeft>sectionPageWidth*3){
             this.page=4
             scrollLeft = 4
             return;
