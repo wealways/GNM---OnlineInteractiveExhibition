@@ -22,11 +22,7 @@
       </div>
     </div>
     <!-- 방명록 작성 이동 -->
-    <div>
-
-      <GoToGB style="position:absolute; bottom: 60px; right: 70px;"/>
-    </div>
-    <!-- <q-btn
+    <q-btn
       padding="lg"
       color="primary"
       icon="auto_stories"
@@ -40,7 +36,7 @@
         :offset="[10, 10]">
           <strong>방명록 작성</strong>
       </q-tooltip>
-    </q-btn> -->
+    </q-btn>
     <!-- 메인 벽지 -->
     <div class="wall"></div>
   </div>
@@ -48,7 +44,6 @@
 
 <script>
 import IconMap from "@/components/IconMap/IconMap.vue";
-import GoToGB from "@/components/IconMap/GoToGB.vue";
 import Output from "@/components/SpecialGallery/Output.vue";
 
 export default {
@@ -56,7 +51,6 @@ export default {
   components: {
     IconMap,
     Output,
-    GoToGB,
   },
   data() {
     return {
@@ -91,7 +85,6 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position:relative;
 }
 .column {
   align-self: center;
