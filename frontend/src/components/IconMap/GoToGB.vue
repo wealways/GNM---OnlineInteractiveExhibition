@@ -1,8 +1,9 @@
 <template>
-  <div class="flex">
+  <div class="flex" :to="'/guestbook'">
+    <a href="/guestbook">
     <span>방명록<br></span>
-    <!-- 명록 가기 -->
     <span>가기</span>
+    </a>
   </div>
 </template>
 
@@ -37,6 +38,7 @@ div {
   font-size: 20px;
   line-height: 25px;
   font-family: 'Noto Serif KR', serif;
+  
 }
 
 div:before {
@@ -67,6 +69,10 @@ div:hover:before {
 span {
   color:#2A433B;
   font-family: 'Noto Serif KR', serif;
+}
+
+a {
+  text-decoration:none; 
 }
 
 
