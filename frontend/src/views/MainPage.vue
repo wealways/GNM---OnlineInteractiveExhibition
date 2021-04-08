@@ -15,9 +15,13 @@
               <span>On-line</span> <span>Interactive</span>
               <span>Exhibition</span>
             </h1>
-            <router-link :to="'/tutorial'">
+            <div id="tutorialbtn" class="btn desc__gototutorial">전시 보러 가기</div>
+            <!-- <img src="https://img.icons8.com/ultraviolet/400/000000/down2.png" class="btn img__gototutorial"/> -->
+            <!-- <router-link :to="'/tutorial'">
               <div id="tutorialbtn" class="btn tutorial">go to tutorial</div>
-            </router-link>
+            </router-link> -->
+            <!--.btn css 수정-->
+            
           </div>
         </section>
         <!-- <section id="sectionPin" >
@@ -236,6 +240,7 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import LocomotiveScroll from "locomotive-scroll";
+import GoToTutorial from '@/components/IconMap/GoToTutorial';
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -250,6 +255,9 @@ export default {
         licenseKey: "your_key",
       },
     };
+  },
+  components:{
+    GoToTutorial
   },
   mounted: function() {
     const pageContainer = document.querySelector(".container");
@@ -514,6 +522,20 @@ export default {
 #tutorialbtn {
   color: white;
 }
+.desc__gototutorial{
+  position: absolute !important;
+  font-size:50px;
+  bottom: 9%;
+  right: 17%;
+}
+.img__gototutorial{
+  position: absolute !important;
+  bottom: 12%;
+  right: 13%;
+  width:100px !important;
+  height:100px !important;
+  transform:rotate(-30deg);
+}
 .cover {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -540,12 +562,12 @@ export default {
   position: sticky;
   display: flex;
   margin-top: 40px;
-  opacity: 0.5;
-  border: 1px solid gray;
-  padding: 5px 12px 6px 12px;
+  opacity: 0.8;
+  // border: 1px solid gray;
+  // padding: 5px 12px 6px 12px;
   border-radius: 5px;
   font-weight: 600;
-  font-size: 40px;
+  font-size: 50px;
 }
 header {
   display: -webkit-box;
@@ -739,8 +761,8 @@ p {
 
 .tutorial {
   position: absolute;
-  bottom: 10%;
-  right: 10%;
+  bottom: 8%;
+  right: 7%;
 }
 
 
