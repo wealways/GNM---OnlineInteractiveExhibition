@@ -81,8 +81,6 @@ export default {
             if (res.data.length) {
               this.page += 1;
               this.$store.dispatch('guestbook/getArticles',res.data)
-              // this.articles = this.articles.concat(res.data);
-              // console.log(res.data.length)
               done();
             } else{
               done(true)

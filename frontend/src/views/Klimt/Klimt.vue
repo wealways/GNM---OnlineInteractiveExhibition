@@ -49,14 +49,9 @@
           <g id="maskReveal" mask="url(#theMask)" > 
             <image id="regular" xlink:href="https://i.ibb.co/HzsVFPC/klimt.jpg" x="0" y="0" width="800" height="800" />
           </g>
-          <!-- <circle id="ring" r="10" fill="none" stroke="#dc143c" stroke-width="2" cx="800" cy="450" /> -->
           <circle id="dot" r="4" fill="#dc143c" cx="800" cy="450" />
       </svg>
-      <!-- <div @click="realstart">
-        <span style="font-size:50px;">
-            <q-icon :to='"/klimtphoto"' target="_blank" id="rightarrow" name="mdi-chevron-double-right"></q-icon>
-        </span>
-      </div> -->
+
       <div @click="nextKlimts" class="nextbtn">
         <div class="diamond-container">
         <div class="diamond left"></div>
@@ -64,9 +59,6 @@
         <div class="arrow"></div>
         </div>
       </div>
-      <!-- <div class="next-view" @click="nextKlimts">
-        <q-icon class="next-view-icon" name="mdi-chevron-double-right"/>
-      </div> -->
       <div class="original-view column items-center" @click="originalView">
         <q-icon class="original-view-icon" name="photo"/>
         <div v-if="!originalflag">Original</div>
@@ -84,9 +76,6 @@
         <p>Hover mouse to move mask around.</p>
         <p>Hold &amp; release mouse button to expand &amp; contract mask.</p>
       </div>
-      
-      <!-- <div style="width:800px;height:800px;background:red;">
-      </div> -->
     </div>
   </div>
 </template>
@@ -155,7 +144,6 @@ export default {
         gsap.set("#demo", { attr: { width: h / ratio, height: h } });
       }
       let data = svg.getBoundingClientRect();
-      // console.log(data)
       gsap.set("#demo", {x:w/2 - data.width/2});
       gsap.set("#demo", {y:h/2 - data.height/2});
     }
@@ -202,7 +190,6 @@ export default {
   font-family: "Signika", sans-serif;
   background-color: #28353c;
   height: 95vh;
-  /* height: 100%; */
   width: 100%;
   overflow: hidden;
   color: white;
@@ -226,12 +213,10 @@ export default {
   letter-spacing: 3px;
 }
 .desc-main__subtitle{
-  /* font-family:'Open Sans', sans-serif; */
   font-size: 1.5rem;
   margin:1rem 0;
 }
 .desc-main__description{
-  /* font-family:'Open Sans', sans-serif; */
   line-height: 22px;
 }
 .desc-footer{
@@ -289,16 +274,13 @@ p {
 
 #demo {
   cursor: none;
-  /* position: absolute; */
   width:800px !important;
   height: 800px !important;
   transform: translate(0,0) !important;
-  /* left:20%; */
   box-shadow: 0px 5px 40px 0 rgba(202, 202, 202, 0.548);
 }
 
 #instructions {
-  /* position: absolute; */
   padding: 12px;
   bottom: 20px;
   background: rgba(0, 0, 0, 0.75);
@@ -310,48 +292,9 @@ p {
 }
 
 #dial {
-  /* position: absolute; */
   top: 0;
   left: 50%;
 }
-
-/* 프레임 디자인 */
-
-/* .frame {
-  background-color: #2b292c;
-  border: solid 5vmin #2b292c;
-  border-bottom-color: #2b292c;
-  border-left-color: #2b292c;
-  border-radius: 2px;
-  border-right-color: #2b292c;
-  border-top-color: #2b292c;
-  box-shadow: 0 0 1px 0 rgba(252, 252, 252, 0.555) inset, 0 0px 10px 5px rgba(252, 252, 252, 0.555);
-  box-sizing: border-box;
-  display: inline-block;
-  position: relative;
-  text-align: center;
-}
-.frame:before {
-  border-radius: 2px;
-  bottom: -2vmin;
-  box-shadow: 0 2px 5px 0 rgba(252, 252, 252, 0.932) inset;
-  content: "";
-  left: -2vmin;
-  position: absolute;
-  right: -2vmin;
-  top: -2vmin;
-}
-.frame:after {
-  border-radius: 2px;
-  bottom: -2.5vmin;
-  box-shadow: 0 2px 5px 0 rgba(252, 252, 252, 0.932);
-  content: "";
-  left: -2.5vmin;
-  position: absolute;
-  right: -2.5vmin;
-  top: -2.5vmin;
-} */
- 
 
 </style>
 

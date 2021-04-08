@@ -57,7 +57,6 @@ div:hover:before {
 
 
 span {
-  /* color:#626262; */
   color:#343F51;
   font-family: 'Montserrat';
 }

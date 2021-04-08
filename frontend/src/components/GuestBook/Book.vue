@@ -145,17 +145,13 @@ export default {
 </script>
 
 <style>
-/* ::selection{
-  background: #fe3901 !important;
-  color:#fff !important;
-} */
+
 p{
   position:initial !important;
 }
 .book{
   font-family: sans-serif;
   margin-bottom: 0.5rem;
-  /* transition: transform 0.5s ease; */
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -262,12 +258,8 @@ p{
   margin:0;
   box-shadow: -8px -8px 8px rgba(255,255,255,0.2), 8px 8px 8px rgba(0,0,0,0.1),
   inset -8px -8px 8px rgba(255,255,255,0.2), inset 8px 8px 8px rgba(0,0,0,0.1);;
-  /* border: solid 2.2px #DECBA7;
-  outline: solid 2px #DECBA7; */
   border-radius: 10px;  
-  /* height:100%; */
   outline-offset: 3px;
-  /* font-family: 'Noto Sans KR'; */
 }
 .card-img-body> div:nth-child(1){
   font-size:1.5rem;
