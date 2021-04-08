@@ -4,9 +4,9 @@ import { getFile } from '@/api/getFile.js'
 
 
 const default_image={
-  "0":'https://i.ibb.co/D5PQpRM/kirchner-stylized.jpg',
-  "1":'https://i.ibb.co/F3t89wZ/monet-stylized.jpg',
-  "2":'https://i.ibb.co/Sr7TDxH/monet-stylized.jpg'
+  "0":'https://i.ibb.co/0V8dkGB/monet-the-bridge-at-argenteuil-1-output.jpg',
+  "1":'https://i.ibb.co/pjhV4Zs/klimt-judith-and-holopherne-output.jpg',
+  "2":'https://i.ibb.co/C1X99Qg/chun-1979-output.jpg'
 }
 
 export default {

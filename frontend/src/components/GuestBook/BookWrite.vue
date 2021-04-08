@@ -88,6 +88,7 @@
                 :key="idx"
                 :src="image"
                 @click="selectImgIdx = String(idx)"
+                style="object-fit: cover;"
               >
             </div>
 
