@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class="cover-5">
-      <div class="container" >
+      <router-link :to="'/tutorial'">
+        <GoToTutorial class="tutorial"/>
+      </router-link>
+      <div class="container">
         <div class="scrollicon">
           <div class="icon-scroll">
             <div class="scrolltext" style="color:white; font-family:'Cinzel">
@@ -9,7 +12,8 @@
             </div>
           </div>
         </div>
-        <section data-bgcolor="#bcb8ad" data-textcolor="#032f35" class="">
+       
+        <section data-bgcolor="#bcb8ad" data-textcolor="#032f35">
           <div>
             <h1 id="maintext" data-scroll data-scroll-speed="1">
               <span>On-line</span> <span>Interactive</span>
@@ -72,7 +76,7 @@
         </section>
 
 
-        <section class="c-section " style="height:300vh;">
+        <section class="c-section" style="height:300vh;">
             <div class="o-container" id="scroll-direction">
                 <div class="c-direction-block_wrapper">
                     <div class="c-section_infos -padding" data-scroll data-scroll-sticky data-scroll-target="#scroll-direction">
@@ -80,6 +84,15 @@
                           <div>
                             <img src="../assets/main/arrow.png" alt="">
                           </div>
+                            <!-- <h3>
+                                02. <br>
+                                Scroll direction
+                            </h3>
+                            <div class="c-sections_infos_text u-text">
+                                <p>
+                                    And if that wasn't enough, make 'em go backwards. Or upwards. Or downwards!
+                                </p>
+                            </div> -->
                         </div>
                     </div>
                     <div class="c-direction-block" id="direction">
@@ -95,7 +108,7 @@
                         </div>
                         <div class="c-direction-block_item -three">
                             <span class="c-direction-block_item_inner" data-scroll data-scroll-direction="horizontal" data-scroll-speed="9" data-scroll-target="#direction" data-scroll-delay="0.05">
-                                Have fun with art. It's not difficult. Right?
+                                Hav fun with art. It's not difficult. Right?
                             </span>
                         </div>
                         <div class="c-direction-block_item -four">
@@ -115,8 +128,7 @@
 
 
 
-        <section class="section cheon" >
-          
+        <section class="section cheon">
           <img src="../assets/main/cheon.png" alt="art" class="" >
           <div class="section-0" data-scroll data-scroll-speed="3">
             <p style="color:black;position:relative;"
@@ -192,12 +204,12 @@
           <img src="../assets/main/monetcut.png" alt="art" class="" >
         </section>
 
-        <section style="background: linear-gradient(white, #111); height: 120vh;" class="outsection">
+        <section style="background: linear-gradient(white, #111); height: 120vh;">
 
 
         </section>
 
-        <section style="height:180vh;" class="">
+        <section style="height:180vh;">
           <div class="row panel">
   
             <div class="col-8 row" style="position:relative;">
@@ -235,6 +247,7 @@
     <div class="imsrk2">welcome!</div>
   </div>
 </template>
+
 
 <script>
 import { gsap } from "gsap";
