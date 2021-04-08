@@ -5,7 +5,9 @@
       <img src="@/assets/monet.jpg" alt="img01">
     </div>
     <figcaption>
-      <div>설명 나오니?djfakasdkjasdjklasdjkasdasdasdasdasdasd</div>  
+      <div class="description">
+        <p><strong>천경자</strong> 작가의 화풍으로 변환된 사진입니다</p>
+      </div>
     </figcaption>
     </figure>
   </div>
@@ -24,7 +26,7 @@ export default {
 	-moz-box-sizing: content-box;
 	box-sizing: content-box;
   position: relative;
-  border: 10px solid #000;
+  border: 12px solid #b4a79a;
   box-shadow: 0 10px 7px -5px rgba(0,0,0,0.3);
 }
 
@@ -32,7 +34,7 @@ export default {
 .frame img {
   display: block;
   margin: 0 auto;
-  border: 20px solid #fff;
+  border: 15px solid #ececec;
 }
 
 /* 사진 설명 */
@@ -41,14 +43,14 @@ export default {
   max-width: 140px;
 	display: flex;
 	font-size: 10px;
-	background: #fff;
+	background: #ececec;
 	color: #444;
 	padding: 5px;
 	margin-top: 20px;
 	position: relative;
 	text-align: left;
 	cursor: -webkit-zoom-in; 
-	box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+	box-shadow: 0 1px 2px rgba(0,0,0.5,0.5);
 }
 
 .container figcaption div {
@@ -57,5 +59,10 @@ export default {
 	margin: 0 2px;
   font-size: 10px;
   word-break: break-all;
+}
+/* 작품 설명 내용 */
+.description p {
+  margin: 0;
+  /* font-size: 18px; */
 }
 </style>

@@ -3,7 +3,24 @@
     <!-- 평면도 -->
     <IconMap />
     <!-- 각각의 결과물 -->
-    <OutputList />
+    <div class="list">
+      <Output />
+      <Output />
+      <Output />
+    </div>
+    <!-- <div class="q-pa-md">
+      <q-btn color="purple" @click="showNotif" label="Show Notification" />
+    </div> -->
+    <!-- 설명 자세히 보기 -->
+    <div class="description">
+      <q-icon name="disabled_by_default" id="description-close"/>
+      <p><strong>천경자</strong> 작가의 화풍으로 변환된 사진입니다</p>
+      <hr>
+      <div class="decription-btn">
+      <q-btn push label="저장하기" class="btn"/>
+      <q-btn push label="원본보기" class="btn"/>
+      </div>
+    </div>
     <!-- 방명록 작성 이동 -->
     <q-btn
       padding="lg"
@@ -27,14 +44,13 @@
 
 <script>
 import IconMap from "@/components/IconMap/IconMap.vue";
-import OutputList from "@/components/SpecialGallery/OutputList.vue";
-import $ from 'jquery'
+import Output from "@/components/SpecialGallery/Output.vue";
 
 export default {
   name: 'SpecialGallery',
   components: {
     IconMap,
-    OutputList,
+    Output,
   },
   data() {
     return {
@@ -42,32 +58,23 @@ export default {
     }
   },
   mounted() {
-    const $main = $('#main')
-    // add caption container
-    this.$caption = $( '<div class="gr-caption"><span class="gr-caption-close">x</span></div>' ).appendTo( $main );
-    this.$caption.find( 'span.gr-caption-close' ).on( 'click', $.proxy( this.hideDescription, this ) );
-
-    // click on item's caption
-    var self = this;
-    this.$el.on( 'click', 'figure > figcaption', function() {
-      var $caption = $( this ),
-        $item = $caption.parent(), 
-        idx = $item.index() - 1;
-      
-      if( self.caption === self.currentItem && idx === self.currentItem ) {
-        return false;
-      }
-      else if( idx !== self.currentItem ) {
-        self.jump( idx, function() {
-          self.showDescription( $caption, idx );
-        } );
-      }
-      else {
-        self.showDescription( $caption, idx );
-      }
-      
-    } );
-  },
+    },
+  methods: {
+    showNotif () {
+      this.$q.notify({
+        message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quisquam non ad sit assumenda consequuntur esse inventore officia. Corrupti reiciendis impedit vel, fugit odit quisquam quae porro exercitationem eveniet quasi.',
+        html: true,
+        color: 'grey-12',
+        multiLine: true,
+        timeout: 0,
+        badgeStyle: "opacity: 0",
+        actions: [
+          { label: 'X', color: 'black', handler: () => { /* ... */ } },
+          { label: '저장하기', color: 'black', handler: () => { /* ... */ } }
+        ]
+      })
+    }
+  }
 }
 </script>
 
@@ -102,5 +109,67 @@ export default {
   background-position: center;
   background-size: cover;
   
+}
+/* 결과물 리스트 */
+.list {
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+}
+/* 작품 설명 나오기*/
+.description {
+	position: absolute;
+	width: 500px;
+	height: 200px;
+	padding: 20px;
+	left: 50%;
+	margin-left: -250px;
+	bottom: 0;
+	background: #ececec;
+	box-shadow: 0 -1px 3px rgba(0,0,0.5,0.5);
+	/* -webkit-transform: translateY(310px);
+	-webkit-transition: -webkit-transform .5s ease;
+	-moz-transform: translateY(310px);
+	-moz-transition: -moz-transform .5s ease;
+	-o-transform: translateY(310px);
+	-o-transition: -o-transform .5s ease;
+	transform: translateY(310px);
+	transition: transform .5s ease; */
+}
+.description p {
+  margin: 0;
+  font-size: 18px;
+}
+.decription-btn {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: flex-end; */
+}
+.btn {
+  margin: 2% 15%;
+  border-radius: 36px;
+  background: linear-gradient(145deg, #fdfdfd, #d4d4d4);
+  box-shadow:  13px 13px 26px #c9c9c9,
+             -13px -13px 26px #ffffff;
+  background-color: #ececec;
+  color: #695c4c;
+
+}
+.btn:hover {
+  background-color: #f000;
+}
+/* 작품 설명 닫기 */
+#description-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 25px;
+  color: white;
+  background-color: #72748d;
+  cursor: pointer;
 }
 </style>
