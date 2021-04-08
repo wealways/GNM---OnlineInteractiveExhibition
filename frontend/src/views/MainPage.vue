@@ -13,12 +13,14 @@
           </div>
         </div>
        
-        <section data-bgcolor="#bcb8ad" data-textcolor="#032f35">
+        <section data-bgcolor="#bcb8ad">
           <div>
-            <h1 id="maintext" data-scroll data-scroll-speed="1">
+            <div class='maintext' data-scroll data-scroll-speed="1" style="margin-top:0;">
               <span>On-line</span> <span>Interactive</span>
               <span>Exhibition</span>
-            </h1>
+              <div class='myname'>그림이 널 만났을 때</div>
+              <img src="@/assets/GNM2.png" alt="" style="width:40vw;height:27vh;margin-top:60px;">
+            </div>
             <div id="tutorialbtn" class="btn desc__gototutorial">전시 보러 가기</div>
             <!-- <img src="https://img.icons8.com/ultraviolet/400/000000/down2.png" class="btn img__gototutorial"/> -->
             <!-- <router-link :to="'/tutorial'">
@@ -700,10 +702,10 @@ img {
   object-fit: cover;
 }
 
-h1 {
-  font-size: 5rem;
+.maintext {
+  font-size: 1.2rem;
   line-height: 1;
-  font-weight: 800;
+  font-weight: 400;
   margin-bottom: 1rem;
   position: absolute;
   top: 10vw;
@@ -711,18 +713,23 @@ h1 {
   z-index: 4;
   overflow-wrap: break-word;
   hyphens: auto;
-  color: white;
-  font-family: "Cinzel";
 
   @media (max-width: 768px) {
     font-size: 16vw;
   }
   span {
     display: block;
-    color: white;
+    font-family: 'Montserrat','Noto Sans KR';
+    color:rgba(221, 221, 221, 0.568);
+    
   }
 }
-
+.myname {
+  margin-top: 10px;
+  color: rgb(248, 247, 237);
+  font-size: 2rem;
+  font-weight: 700;
+}
 h2 {
   font-size: 2rem;
   max-width: 400px;
