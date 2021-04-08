@@ -79,7 +79,7 @@ export default {
 }
 
 .carousel-item__subtitle {
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
     letter-spacing: 3px;
     font-size: 15px;
     text-transform: uppercase;
@@ -100,8 +100,8 @@ export default {
 
 .carousel-item__description {
     margin-top: 35px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 13px;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-size: 14px;
     font-weight: 100;
     color: #2C2C2C;
     line-height: 22px;

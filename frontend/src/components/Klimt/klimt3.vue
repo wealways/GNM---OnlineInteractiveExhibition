@@ -106,12 +106,12 @@ export default {
   letter-spacing: 3px;
 }
 .desc-main__subtitle{
-  font-family:'Open Sans', sans-serif;
+  /* font-family:'Open Sans', sans-serif; */
   font-size: 1.5rem;
   margin:0.5rem 0;
 }
 .desc-main__description{
-  font-family:'Open Sans', sans-serif;
+  /* font-family:'Open Sans', sans-serif; */
   line-height: 22px;
 }
 .slide-in {
