@@ -213,7 +213,7 @@ export default {
                 commit('GET_IMAGES',default_image)
               }else{
                 // 세션 있고 변환된게 하나라도 있으면 변환된 데이터
-                let outData ={}
+                let outData = default_image
                 if(response.data.output_image_1 !==null && response.data.output_image_1 !==undefined){
                   outData["0"]=`https://j4c106.p.ssafy.io${response.data.output_image_1}`
                 }
@@ -227,9 +227,7 @@ export default {
               }
           },
           () => {
-            if(routeName==="GuestBook"){
               commit('GET_IMAGES',default_image)
-            }
             // console.log(error)
           }
       )
