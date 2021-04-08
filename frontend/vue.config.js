@@ -1,4 +1,6 @@
 module.exports = {
+  // 상대경로로 지정
+  publicPath: '',
   // 음성파일 저장위치 변경
   chainWebpack: config => {
     config.module

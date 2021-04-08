@@ -160,7 +160,7 @@ export default {
 }
 
 .container figcaption div {
-  width: 90%;
+  /* width: 90%; */
     display: flex;
     margin: 0 2px;
   font-size: 10px;
