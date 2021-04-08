@@ -1,10 +1,10 @@
 <template>
-  <div class="flex" :to="'/guestbook'">
-    <a href="/guestbook">
-    <span>방명록<br></span>
-    <span>가기</span>
-    </a>
-  </div>
+  <a href="/guestbook">
+    <div class="flex" :to="'/guestbook'">
+      <span>GUEST<br></span>
+      <span>BOOK</span>
+    </div>
+  </a>
 </template>
 
 <script>
@@ -14,31 +14,21 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Noto+Serif+KR:wght@300;400&display=swap');
-/* 
-HTML CSSResult Skip Results Iframe
-*, *:before, *:after {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-} */
- 
+
 div {
   margin: 100px auto;
   width: 100px;
   height: 100px;
-  padding: 28px 0;
+  padding: 33px 0;
   line-height: 20px;
   text-align: center;
   display: block;
   position: relative;
   z-index: 10;
   cursor: pointer;
-  font-size: 20px;
-  line-height: 25px;
-  font-family: 'Noto Serif KR', serif;
-  
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 20px;
 }
 
 div:before {
@@ -67,8 +57,9 @@ div:hover:before {
 
 
 span {
-  color:#2A433B;
-  font-family: 'Noto Serif KR', serif;
+  /* color:#626262; */
+  color:#343F51;
+  font-family: 'Montserrat';
 }
 
 a {
