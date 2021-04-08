@@ -1,6 +1,6 @@
 <template>
   <div class="cheon2">
-    <img class="cheon2_pic slide-in" src="../../assets/ecology.png" alt="ecology" >
+    <img class="cheon2_pic slide-in" src="../../assets/ecology2.png" alt="ecology" >
     <div class="desc slide-in" id="desc">
       <div class="title"><h3>생태</h3></div>
       <div class="description ">
@@ -65,7 +65,8 @@ img {
   position: absolute;
   font-size: 150%;
   text-shadow: 0 0 15px rgba(143, 143, 143, 0.658);
-  
+  position:absolute;
+  left: 8%; 
 }
 
 
