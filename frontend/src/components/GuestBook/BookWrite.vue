@@ -118,7 +118,7 @@ export default {
       password: null,
       image:null,
       selectImgIdx:"0",
-        artistName:['Monet','Klimt','천경자']
+      artistName:['Monet','Klimt','천경자']
     }
   },
   computed:{

@@ -4,9 +4,9 @@
     <IconMap />
     <!-- 각각의 결과물 -->
     <div class="list">
-      <Output />
-      <Output />
-      <Output />
+      <Output v-for="(image,idx) in selectableImages" :key="idx" :changedImage="image" :artist="artistName[idx]"/>
+      <!-- <Output />
+      <Output /> -->
     </div>
     <!-- <div class="q-pa-md">
       <q-btn color="purple" @click="showNotif" label="Show Notification" />
@@ -55,10 +55,18 @@ export default {
   data() {
     return {
       test: false,
+      artistName:['Monet','Klimt','천경자']
+    }
+  },
+  computed:{
+    selectableImages(){
+      return this.$store.state.guestbook.selectable_images
     }
   },
   mounted() {
-    },
+    
+    this.$store.dispatch('guestbook/getImages',this.$route.name)
+  },
   methods: {
     showNotif () {
       this.$q.notify({
