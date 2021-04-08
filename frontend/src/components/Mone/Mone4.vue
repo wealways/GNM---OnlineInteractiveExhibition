@@ -33,7 +33,6 @@ export default {
         const info = document.querySelector('#info')
 
         if(this.page===4){
-          console.log(this.page)
           setTimeout(function(){
             info.classList.add('active');
           },500)

@@ -59,7 +59,7 @@ export default {
   },
   mounted(){
     // 세션에 매핑되는 이미지 가져오기 (미완성)
-    console.log(sessionStorage.getItem("session"))
+    // console.log(sessionStorage.getItem("session"))
     this.$store.dispatch('guestbook/getImages',sessionStorage.getItem("session"))
   },
   created() {
@@ -83,7 +83,7 @@ export default {
               this.page += 1;
               this.$store.dispatch('guestbook/getArticles',res.data)
               // this.articles = this.articles.concat(res.data);
-              console.log(res.data.length)
+              // console.log(res.data.length)
               done();
             } else{
               done(true)
