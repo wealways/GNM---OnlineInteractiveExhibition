@@ -437,7 +437,7 @@ export default {
 .scrollicon{
   position:fixed;
   left: 13%;
-  top: 27%;
+  top: 7%;
 }
 .scrolltext {
   position: absolute;
