@@ -346,8 +346,11 @@ $ python manage.py collectstatic
       ```bash
       # 해당 위치 이동 후
       $ source start_ai.sh
+      
+# 현재 nohup이 자동 적용 안되는 문제 발생 - 하나의 프로세스만 적용됨
+      # 3개로 나눠놓기 - start_[작가이름].sh 3개
       ```
-
+      
       
 
 #### 변경사항 적용해서 deploy
