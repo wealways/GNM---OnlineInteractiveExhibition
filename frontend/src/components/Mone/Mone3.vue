@@ -25,7 +25,6 @@ export default {
         const info = document.querySelector('#carousel-item__info')
 
         if(this.page===3){
-          console.log(this.page)
           setTimeout(function(){
             insang.classList.add('active');
           },500)

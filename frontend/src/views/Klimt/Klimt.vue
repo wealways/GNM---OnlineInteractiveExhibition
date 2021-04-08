@@ -155,7 +155,7 @@ export default {
         gsap.set("#demo", { attr: { width: h / ratio, height: h } });
       }
       let data = svg.getBoundingClientRect();
-      console.log(data)
+      // console.log(data)
       gsap.set("#demo", {x:w/2 - data.width/2});
       gsap.set("#demo", {y:h/2 - data.height/2});
     }
@@ -178,7 +178,7 @@ export default {
     },
     originalView(){
       this.originalflag = !this.originalflag;
-      console.log(document.querySelector('#demo').style)
+      // console.log(document.querySelector('#demo').style)
       document.querySelector('#demo').style.boxShadow = "0 0 0 0 rgba(202, 202, 202, 0.548);"
     }
   }

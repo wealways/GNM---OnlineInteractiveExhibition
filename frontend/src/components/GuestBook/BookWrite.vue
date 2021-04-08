@@ -159,7 +159,7 @@ export default {
   },
   methods: {
     bgImg(img){
-      console.log(img)
+      // console.log(img)
       const data = `{backgroundImage : url(${img})};width:100px`
       return data
     },
@@ -190,8 +190,8 @@ export default {
       if(this.onModify){
         this.$store.dispatch('guestbook/modifyArticle',{article_id:this.userArticle.id,data})
       }else{
-        console.log(192)
-        console.log(data)
+        // console.log(192)
+        // console.log(data)
         this.$store.dispatch('guestbook/createArticle',data)
       }
       this.onReset()
