@@ -36,7 +36,7 @@
               </div>
             </div>
             <div class="card-img-footer">
-              <p style="color:#2a433b; margin-bottom:10px;" class='writedate'>{{date}}</p>
+              <p style="color:rgba(63, 44, 3, 0.637); margin-bottom:10px;" class='writedate'>{{date}}</p>
               <q-fab padding="8px" text-color="white" icon="keyboard_arrow_left" direction="left" style="width:15%; margin-bottom:10px;" class="more-btn">
                 <q-fab-action padding="8px" class="upd-btn" @click="modifyBtn=true" icon="mdi-square-edit-outline" label-position="bottom" label-style="font-size:12px;"/>
                 <q-dialog v-model="modifyBtn">
@@ -160,7 +160,7 @@ p{
   display: inline-block;
   cursor: pointer;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .my-card{
   margin: 0.5rem;
@@ -254,7 +254,7 @@ p{
 
 }
 .card-img-body{
-  color:#2a433b;
+  color:rgba(63, 44, 3, 0.637);
   /* margin: auto 0px; */
   padding: 1.6rem;
   min-height: 230px;
@@ -264,10 +264,10 @@ p{
   inset -8px -8px 8px rgba(255,255,255,0.2), inset 8px 8px 8px rgba(0,0,0,0.1);;
   /* border: solid 2.2px #DECBA7;
   outline: solid 2px #DECBA7; */
-  border-radius: 5px;  
+  border-radius: 10px;  
   /* height:100%; */
   outline-offset: 3px;
-  font-family: 'Noto Sans KR';
+  /* font-family: 'Noto Sans KR'; */
 }
 .card-img-body> div:nth-child(1){
   font-size:1.5rem;
@@ -276,15 +276,15 @@ p{
   margin-bottom:0;
   font-family: 'Noto Serif KR';
   font-weight:300;
-  font-size: 16px;
+  font-size: 15px;
   height: 120px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   margin-top: 40px;
+  line-height: 185%;
 }
 .card-img-body> div:nth-child(2){
   text-align: right;
   word-break:break-all;
-  margin-top: 8px;
   margin-bottom:0;
   right: 10%;
   font-weight: 800;
