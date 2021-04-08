@@ -22,9 +22,6 @@
             </div>
           </div>
         </div>
-        <!-- <router-link :to='"/mappage"'>
-          <button>next</button>
-        </router-link> -->
       </div>
     </div>
     <IconMap/>

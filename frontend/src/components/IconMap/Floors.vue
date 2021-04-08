@@ -79,7 +79,6 @@
 </template>
 
 <script>
-// import $ from 'jquery'
 
 export default {
     name:'Map',
@@ -109,12 +108,6 @@ export default {
         }
     },
     mounted(){
-        // $(document).ready(function(){
-        //         $(".layer").click(function(){
-        //             $(this).toggleClass("highlight");
-        //             $(this).siblings().toggleClass("fade");
-        //     });
-        // });
     }
 }
 </script>
@@ -139,41 +132,14 @@ export default {
     position: absolute;
     transition: all 0.5s ease-in-out;
     cursor: pointer;
-    // z-index: 1;
     opacity: 0.95;
 }
 
 .layer:hover {
   opacity: 1;
   background-color: #2A433B;
-//   transform: scale(1.4);
-//   z-index: 10;
+
 }
-
-// .blue-layer { /*bottom - blue*/
-//     background: rgba(19, 54, 90, 0.8);
-//     /*background-image: url('img/teaser.png');*/
-//     background-size: cover;
-//     background-repeat: no-repeat;
-//     background-position: center;
-// }
-
-
-// .green-layer { /*mid - green*/
-//     background: rgba(49, 76, 104, 0.8);
-//     /*background-image: url('img/22matcha.JPG');*/
-//     background-size: cover;
-//     background-repeat: no-repeat;
-//     background-position: center;
-// }
-
-// .red-layer { /*top - red*/
-//     background: rgba(181, 207, 231, 0.8);
-//     /*background-image: url('img/teaser_banner.png');*/
-//     background-size: cover;
-//     background-repeat: no-repeat;
-//     background-position: center;
-// }
 
 .first-layer {
     transform: rotateX(45deg) rotateZ(25deg) translateZ(0);
@@ -310,7 +276,6 @@ button:hover {
     height: 56px;
     right: 6%;
     top: 8%;
-    // background-color: #fff2b7;
     padding-top:0.5rem;
     padding-bottom:0.7rem;
     padding-left: 0.7rem;
@@ -327,7 +292,5 @@ button:hover {
 .logo-icon:hover{
     border-radius: 15px;
     border:#2A433B 2px solid;
-//   opacity: 1;
-//   background-color:#69a18f;
 }
 </style>
