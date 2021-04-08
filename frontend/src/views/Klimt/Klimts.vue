@@ -40,7 +40,7 @@ export default {
     const container = document.querySelector('.container')
     const section = document.getElementsByTagName('section')
     const sectionPageWidth = section[0].clientWidth/3
-    let now = container.scrollLeft
+    // let now = container.scrollLeft
     let scrollPage = 1;
     window.addEventListener('wheel', function(e)
     {
@@ -50,36 +50,69 @@ export default {
         
         let delta = e.deltaY
         if(delta>0){
-          
-          if(now === 0 ){
+          if(container.scrollLeft>sectionPageWidth*2){
+            scrollPage = 3
+            return;
+          }
+          if(0<=container.scrollLeft && container.scrollLeft<sectionPageWidth*1){
             container.scrollLeft = sectionPageWidth*1
-            now += sectionPageWidth
             scrollPage = 2
             this.$store.dispatch('page/pageChange',2)
-          }else if(now === sectionPageWidth*1){
+           
+          }else {
             container.scrollLeft=sectionPageWidth*2
-            now += sectionPageWidth
             scrollPage = 3
             this.$store.dispatch('page/pageChange',3)
-          }else{
-            now = sectionPageWidth*2
+            
           }
         }else{
-          
-          if(now===sectionPageWidth*2){
-            container.scrollLeft = sectionPageWidth*1
-            now -= sectionPageWidth
-            scrollPage = 2
-            this.$store.dispatch('page/pageChange',2)
-          }else if(now===sectionPageWidth*1){
-            container.scrollLeft = 0
-            now -= sectionPageWidth
+          if(container.scrollLeft<sectionPageWidth*1){
             scrollPage = 1
             this.$store.dispatch('page/pageChange',1)
-          }else{
-            now = 0
+            return;
+          }
+          if(0<=container.scrollLeft && container.scrollLeft<=sectionPageWidth*1){
+            container.scrollLeft =0
+            scrollPage = 1
+            this.$store.dispatch('page/pageChange',1)
+           
+          }else if(sectionPageWidth*1<container.scrollLeft && container.scrollLeft<=sectionPageWidth*2){
+            container.scrollLeft=sectionPageWidth*1
+            scrollPage = 2
+            this.$store.dispatch('page/pageChange',2)
+            
           }
         }
+
+        //   if(now === 0 ){
+        //     container.scrollLeft = sectionPageWidth*1
+        //     now += sectionPageWidth
+        //     scrollPage = 2
+        //     this.$store.dispatch('page/pageChange',2)
+        //   }else if(now === sectionPageWidth*1){
+        //     container.scrollLeft=sectionPageWidth*2
+        //     now += sectionPageWidth
+        //     scrollPage = 3
+        //     this.$store.dispatch('page/pageChange',3)
+        //   }else{
+        //     now = sectionPageWidth*2
+        //   }
+        // }else{
+          
+        //   if(now===sectionPageWidth*2){
+        //     container.scrollLeft = sectionPageWidth*1
+        //     now -= sectionPageWidth
+        //     scrollPage = 2
+        //     this.$store.dispatch('page/pageChange',2)
+        //   }else if(now===sectionPageWidth*1){
+        //     container.scrollLeft = 0
+        //     now -= sectionPageWidth
+        //     scrollPage = 1
+        //     this.$store.dispatch('page/pageChange',1)
+        //   }else{
+        //     now = 0
+        //   }
+        // }
         let scrollPercent = scrollPage / scrollBottom * 100 + "%";
         document.getElementById("_progress").style.setProperty("--scroll", scrollPercent);
       }
