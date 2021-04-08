@@ -1,7 +1,7 @@
 <template>
   <div>
-    <IconMap mapColor="#eee8aa"/>
-    <IconVoice voiceColor="#eee8aa"/>
+    <IconMap mapColor="#608091"/>
+    <IconVoice voiceColor="#608091"/>
       
     <KlimtIntro/>
   </div>

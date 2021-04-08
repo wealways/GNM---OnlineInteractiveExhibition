@@ -10,7 +10,7 @@
         >
           <div class="form-top">
             <q-card-section class="form-header">
-              <div v-if="!onModify" class="text-h6">작성</div>
+              <div v-if="!onModify" class="text-h6" style="margin-top:50px;"></div>
               <div v-if="onModify" class="text-h6">수정</div>
             </q-card-section>
           </div>
@@ -78,14 +78,12 @@
             <div class="q-mr-md q-ml-md q-mb-xs">
               이미지 선택란
             </div>
-            <div class="row q-mr-md q-ml-md q-mb-xs justify-between">
-              <q-radio class="col-3 q-ml-md " color="teal-5" v-model="selectImgIdx" val="0" label="모네" />
-              <q-radio class="col-3 q-ml-md" color="teal-5" v-model="selectImgIdx" val="1" label="천경자" />
-              <q-radio class="col-3 q-ml-md" color="teal-5" v-model="selectImgIdx" val="2" label="클림트" />
+            <div class="row q-mr-md q-ml-md q-mb-xs">
+              <q-radio class="col-3 q-pl-sm  q-mr-auto q-ml-auto" v-for="(image,idx) in selectableImages" :key="idx" color="teal-5" v-model="selectImgIdx" :val="idx" :label="artistName[idx]"/>
             </div>
-            <div class="row q-mr-md q-ml-md q-mb-xs justify-between">
+            <div class="row q-mr-md q-ml-md q-mb-xs">
               <img
-                class="col-3 q-mr-md"
+                class="col-3 q-mr-auto q-ml-auto"
                 v-for="(image,idx) in selectableImages"
                 :key="idx"
                 :src="image"
@@ -118,7 +116,8 @@ export default {
       article:null,
       password: null,
       image:null,
-      selectImgIdx:"0"
+      selectImgIdx:"0",
+        artistName:['Monet','Klimt','천경자']
     }
   },
   computed:{
@@ -178,7 +177,7 @@ export default {
     changeFlag(newFlag){
       this.flag = newFlag
       // 세션에 매핑되는 이미지 가져오기 (미완성)
-      this.$store.dispatch('guestbook/getImages',false)
+      // this.$store.dispatch('guestbook/getImages',false)
     },
     onSubmit () {
       let data = {
@@ -190,6 +189,8 @@ export default {
       if(this.onModify){
         this.$store.dispatch('guestbook/modifyArticle',{article_id:this.userArticle.id,data})
       }else{
+        console.log(192)
+        console.log(data)
         this.$store.dispatch('guestbook/createArticle',data)
       }
       this.onReset()
@@ -238,7 +239,6 @@ export default {
   font-weight: 500;
   background: transparent;
   cursor: pointer;
-  transition: all 0.3s ease;
   position: relative;
   display: inline-block;
    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
@@ -248,14 +248,18 @@ export default {
 }
 /*  colors */
 /*  write button */
-
+.custom-btn:hover{
+  transition: all 0.5s ease;
+  box-shadow: 2px 2px 2px 0px rgba(255,255,255,.3),
+            inset 7px 7px 20px 0px rgba(0,0,0,.1),
+            inset 4px 4px 5px 0px  rgba(0,0,0,.1);
+}
 
 
 .btn-8 {
-  color: #fff;
-  background-color: #f0ecfc;
+  color:#2A433B;
+  background-color: #FCF9F2;
   /* background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%); */
-  background-image: linear-gradient(315deg, #f0ecfc 0%, #fe3901 74%);
   line-height: 42px;
   padding: 0;
   border: none;
@@ -273,7 +277,7 @@ export default {
   right: 0;
   bottom: 0;
   /* background: #c797eb; */
-  background: #fe3901;
+  /* background: #fe3901; */
   /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
               -4px -4px 6px 0 rgba(116, 125, 136, .2), 
     inset -4px -4px 6px 0 rgba(255,255,255,.5),
@@ -299,7 +303,7 @@ export default {
 }
 .btn-8 span:hover{
   /* color: #c797eb; */
-  color: #fe3901;
+  /* color: #fe3901; */
 }
 .btn-8 span:before,
 .btn-8 span:after {
@@ -308,7 +312,7 @@ export default {
   left: 0;
   top: 0;
   /* background: #c797eb; */
-  background: #fe3901;
+  /* background: #fe3901; */
   /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
               -4px -4px 6px 0 rgba(116, 125, 136, .2), 
     inset -4px -4px 6px 0 rgba(255,255,255,.5),
@@ -355,7 +359,7 @@ export default {
   content: "";
   right: 0;
   bottom: 0;
-  background: #2a433b;
+  /* background: #2a433b; */
   /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
               -4px -4px 6px 0 rgba(116, 125, 136, .2), 
     inset -4px -4px 6px 0 rgba(255,255,255,.5),
@@ -391,7 +395,7 @@ export default {
   content: "";
   left: 0;
   top: 0;
-  background: #2a433b;
+  /* background: #2a433b; */
   /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
               -4px -4px 6px 0 rgba(116, 125, 136, .2), 
     inset -4px -4px 6px 0 rgba(255,255,255,.5),
@@ -439,7 +443,7 @@ export default {
   content: "";
   right: 0;
   bottom: 0;
-  background: #2a433b;
+  /* background: #2a433b; */
   /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
               -4px -4px 6px 0 rgba(116, 125, 136, .2), 
     inset -4px -4px 6px 0 rgba(255,255,255,.5),
@@ -461,7 +465,7 @@ export default {
   width: 100%;
 }
 .cancel-btn:hover{
-  background: #A0D6C8;
+  background: #6b968a;
   /* color: #f0ecfc; */
 }
 .cancel-btn span:hover{
@@ -473,7 +477,7 @@ export default {
   content: "";
   left: 0;
   top: 0;
-  background: #2a433b;
+  /* background: #2a433b; */
   /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
               -4px -4px 6px 0 rgba(116, 125, 136, .2), 
     inset -4px -4px 6px 0 rgba(255,255,255,.5),

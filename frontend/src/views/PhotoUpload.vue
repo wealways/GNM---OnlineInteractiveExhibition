@@ -9,38 +9,56 @@
       <section>
         <div class="avatar-upload">
           <div class="avatar-preview">
-            <div id="imagePreview">
-            </div>
-          </div>
-          <div class="avatar-edit">
-            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg"/>
+            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" style="display:none;"/>
             <label for="imageUpload" @click='getSession'>
-              <span class='uldbutton' style="font-size:30px">
-                <q-icon name="mdi-upload"></q-icon>
-                <div style="font-size:13px;">Upload Picture</div>  
+              <span id="here" class='uldbutton' style="font-size:30px">
+                <div class="label">
+                  <q-icon name="mdi-upload"></q-icon>
+                  <div style="font-size:13px;">Upload Picture</div>  
+                </div>
               </span>
             </label>
           </div>
         </div>
+        
       </section>
       <footer>
         <div>
           <div class="content text-center">
             <div v-if="nowRoute==='MonetPhoto'">아름다운 색을 가진 사진을 올려주세요</div>
-            <div v-else-if="nowRoute==='KlimtPhoto'">클림트는 클림트야</div>
+            <div v-else-if="nowRoute==='KlimtPhoto'">화려한 공간에서 찍은 사진을 올려주세요</div>
             <div v-else>증명사진과 같은 사진을 올려주세요</div>
           </div>
           <div class="please-upload text-center">
             Please Upload a picture
           </div>
         </div>
-        <div @click="showNotif" class="nextbtn">
+        <div @click="showNotify" class="nextbtn">
           <div class="diamond-container">
           <div class="diamond left"></div>
           <div class="diamond right"></div>
           <div class="arrow"></div>
           </div>
         </div>
+        <q-dialog
+        v-model="confirm"
+      >
+        <q-card style="width: 350px; background-color: #FCF9F2;">
+          <q-card-section>
+            <div class="text-h6">
+              <img src="@/assets/favicon-32x32.png" alt="">
+            </div>
+          </q-card-section>
+
+          <q-card-section class="q-ma-sm q-pt-none" style="font-family: 'Open Sans', sans-serif;">
+            특별전시 관람, 방명록 작성에 <strong style="color:#ff4045">제한</strong>이 있습니다.
+          </q-card-section>
+
+          <q-card-actions align="right" class="text-teal">
+            <q-btn flat label="OK" v-close-popup @click="urlUpload"/>
+          </q-card-actions>
+        </q-card>
+      </q-dialog>
       </footer>
     </div>
       
@@ -61,7 +79,8 @@ export default {
         uploadFile:"",
         imgUrl:"",
         imgUrl_:"",
-        tempUrl:''
+        tempUrl:'',
+        confirm: false,
       }
     },
     computed:{
@@ -70,20 +89,12 @@ export default {
       }
     },
     methods:{
-      showNotif () {
+      showNotify(){
         if(this.uploadFile!==""){
           this.urlUpload()
           return
         }
-        this.$q.notify({
-        message: '특별전시회 이용에  <strong style="color: red">제한</strong>이 됩니다.',
-        html: true,
-        type: 'warning',
-        position:'center',
-        actions: [
-          { label: 'OK', color: 'primary', handler: () => { this.urlUpload() } }
-        ]
-      })
+        this.confirm= true
       },
       goToNext() {
         let nextRoute
@@ -116,9 +127,7 @@ export default {
           formData.append("image", this.uploadFile);
           fileUpload(artist,formData)
             .then((res)=>{
-              console.log(res.data)
               this.imgUrl_ = res.data;
-              console.log('여기여기')
             })
             .catch((err)=>{
               console.log(err)
@@ -133,10 +142,16 @@ export default {
         if (input.files && input.files[0]) {
           var reader = new FileReader();
           reader.onload = function(e) {
-            $('#imagePreview').css('background-image', 'url('+e.target.result +')');
-            $('#imagePreview').css('height', '500px');
-            $('#imagePreview').hide();
-            $('#imagePreview').fadeIn(650);
+            // $('#imagePreview').css('background-image', 'url('+e.target.result +')');
+            // $('#imagePreview').css('height', '500px');
+            // $('#imagePreview').hide();
+            // $('#imagePreview').fadeIn(650);
+            $('#here').css('background-image', 'url('+e.target.result +')');
+            $('#here').css('height', '500px');
+            $('#here').css('min-width', '500px');
+            $('#here .label').css('opacity', '0');
+            $('#here').hide();
+            $('#here').fadeIn(650);
           }
             reader.readAsDataURL(input.files[0]);
         }
@@ -210,15 +225,20 @@ h1 small {
 .avatar-upload .avatar-edit input {
   display: none;
 }
-.avatar-upload .avatar-edit input + label {
-
+.uldbutton {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.uldbutton .label{
+  /* position:absolute; */
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 50%;
   width: 100px;
   height: 100px;
-  padding-left: 10%;
+  padding-left:8px;
   border-radius: 100%;
   background: #ffffff;
   border: 1px solid transparent;
@@ -226,15 +246,13 @@ h1 small {
   cursor: pointer;
   font-weight: normal;
   transition: all 0.2s ease-in-out;
+  
 }
-.uldbutton {
-  display: flex;
-}
-.avatar-upload .avatar-edit input + label:hover {
+.uldbutton .label:hover{
   background: #f1f1f1;
   border-color: #d6d6d6;
 }
-.avatar-upload .avatar-edit input + label:after {
+.uldbutton .label:after{
   color: #757575;
   position: absolute;
   top: 10px;
@@ -243,6 +261,8 @@ h1 small {
   text-align: center;
   margin: auto;
 }
+/* 여기 위에 하는 중*/
+
 .avatar-upload .avatar-preview {
   min-width: 40%;
   min-height: 400px;
@@ -255,12 +275,19 @@ h1 small {
   border: 13px solid #f8f8f8;
   box-shadow: 0px 7px 13px 0px rgba(0, 0, 0, 0.1);
 }
-.avatar-upload .avatar-preview:hover .avatar-edit input + label {
+/* .avatar-upload .avatar-preview:hover .avatar-edit input + label {
   background: #f1f1f1;
   border-color: #d6d6d6;
-}
-.avatar-upload .avatar-preview > div {
+} */
+/* .avatar-upload .avatar-preview > div {
   width: 100%;
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center;
+} */
+#here{
+  width: 100%;
+  min-width: 40%;
   /* height: 100%; */
   /* border-radius: 100%; */
   background-size:contain;

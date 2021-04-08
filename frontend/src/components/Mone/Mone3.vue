@@ -32,6 +32,10 @@ export default {
           setTimeout(function(){
             info.classList.add('active2');
           },500)
+        } else {
+          insang.classList.remove('active');
+          info.classList.remove('active2');
+          
         }
       }
     }

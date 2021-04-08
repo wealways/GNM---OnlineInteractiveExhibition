@@ -56,10 +56,18 @@ img {
 .cheon2{
   position: relative; 
   z-index: -1; 
-
   background-color: #eaeaea;
 
 }
+
+.cheon2_pic{
+  width: 70%;
+  position: absolute;
+  font-size: 150%;
+  text-shadow: 0 0 15px rgba(143, 143, 143, 0.658);
+  
+}
+
 
 .title{
   top: 10%;
