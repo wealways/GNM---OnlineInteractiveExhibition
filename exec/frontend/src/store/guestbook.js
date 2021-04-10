@@ -78,6 +78,7 @@ export default {
       state.user_article.guestbook_image = state.articles[idx].guestbook_image
       state.user_article.guestbook_password = state.articles[idx].guestbook_password
       state.user_article.guestbook_comment = state.articles[idx].guestbook_comment
+      console.log(state.user_article)
     },
 
     //수정진행중인 상황 바꿔주기

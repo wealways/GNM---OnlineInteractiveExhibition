@@ -176,6 +176,7 @@ export default {
         guestbook_password : this.password
       }
       if(this.onModify){
+        data.guestbook_image=this.image
         this.$store.dispatch('guestbook/modifyArticle',{article_id:this.userArticle.id,data})
       }else{
         this.$store.dispatch('guestbook/createArticle',data)
