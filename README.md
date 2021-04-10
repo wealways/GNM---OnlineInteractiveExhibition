@@ -48,7 +48,7 @@
 
 ### 아키텍쳐
 
-![아키텍쳐](assets/images/architecture.jpg)
+![아키텍쳐](assets/images/Architecture.jpg)
 
 <br>
 
