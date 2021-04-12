@@ -1,6 +1,6 @@
 <template>
     <div class="cheon3">
-      <img id="img" class="cheon3_pic slide-in" src="../../assets/kingGo.jpg" alt="고(孤)">
+      <img id="img" class="cheon3_pic slide-in" src="../../assets/저작권.jpg" alt="고(孤)">
       <div id="title" class="title slide-in"><h3>고(孤)</h3></div>
       <div id="desc3" class="desc slide-in">
         이 작품은 과거의 문헌에 실렸던 사진을 보면 원래 화관과 나비가 지금과는 미묘하게 달랐습니다.<br>

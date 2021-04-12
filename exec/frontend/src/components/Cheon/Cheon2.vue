@@ -1,6 +1,6 @@
 <template>
   <div class="cheon2">
-    <img class="cheon2_pic slide-in" src="../../assets/ecology2.png" alt="ecology" >
+    <img class="cheon2_pic slide-in" src="../../assets/저작권.jpg" alt="ecology" >
     <div class="desc slide-in" id="desc">
       <div class="title"><h3>생태</h3></div>
       <div class="description ">
