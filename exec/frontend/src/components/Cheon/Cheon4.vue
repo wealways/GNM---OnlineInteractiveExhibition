@@ -1,6 +1,6 @@
 <template>
     <div class="cheon4">
-    <img id="img4" class="cheon4_pic slide-in" src="../../assets/sad22page.png" alt="내 슬픈 생애의 22페이지">
+    <img id="img4" class="cheon4_pic slide-in" src="../../assets/저작권.jpg" alt="내 슬픈 생애의 22페이지">
     <div id="title4" class="title slide-in"><h3>내 슬픈 <br>생애의 22페이지</h3></div>
     <div id="desc4" class="desc slide-in">
       자신의 과거와 현재에 걸치는 자서전적인 이미지를 작품에 담고 있습니다.<br>

@@ -39,7 +39,7 @@
     <div id="open-modal" class="modal-window">
       <div class='relativeclass'>
         <a href="#" title="Close" class="modal-close">Close</a>
-        <img class="gr" src="../../assets/GilryeSister.jpg" alt="">
+        <img class="gr" src="../../assets/저작권.jpg" alt="">
       </div>
     </div>
     </div>

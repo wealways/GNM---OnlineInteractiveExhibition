@@ -73,7 +73,7 @@ body, html {
   line-height: 30px;
 }
 #bg {
-  background-image: url('../../assets/cheon.png');
+  background-image: url('../../assets/저작권.jpg');
   height: 70vh;
   width: 60vw;
   order: 2;

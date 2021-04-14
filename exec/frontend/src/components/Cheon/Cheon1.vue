@@ -1,6 +1,6 @@
 <template>
   <div class="cheon1">
-    <img class="cheon1_pic" src="../../assets/GilryeSister.jpg" alt="ecology">
+    <img class="cheon1_pic" src="../../assets/저작권.jpg" alt="ecology">
     <div class="title" ><h3>길례언니</h3></div>
     <div class="description">
       <p>그녀의 작품 중에는 자화상을 비롯한</p>
